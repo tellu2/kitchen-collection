@@ -20,6 +20,9 @@ android/.idea/
 *.keystore
 keystore.properties
 
+# Local tooling
+.claude/
+
 # Local environment
 .env
 .env.*
