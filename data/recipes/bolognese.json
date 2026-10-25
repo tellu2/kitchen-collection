@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "bolognese",
+  "title": "One-Pot Thermomix Bolognese with Kalamata Olives",
+  "description": "Everything in the Thermomix bowl: beef, fresh and canned tomatoes, olives, oregano and a little chilli. No celery or pancetta.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["beef", "mince", "pasta-sauce", "freezer-friendly"],
+  "yield": { "qty": 6, "unit": "serves" },
+  "time": { "label": "~1 hr", "totalMinutes": 60 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Not Quite Nigella base, adapted" },
+  "confidence": { "level": "estimated", "note": "Not Quite Nigella base, adapted." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "salad-tomatoes", "qty": 250, "unit": "g", "item": "salad tomatoes", "prep": "quartered" },
+        { "id": "onion", "qty": 1, "item": "large brown onion", "prep": "quartered" },
+        { "id": "carrots", "qty": 3, "item": "carrots", "prep": "in rough chunks" },
+        { "id": "garlic", "qty": 4, "item": "garlic cloves", "prep": "peeled" },
+        { "id": "oil", "qty": 50, "unit": "ml", "item": "olive oil" },
+        { "id": "mince", "qty": 500, "unit": "g", "item": "beef mince" },
+        { "id": "oregano", "qty": 1, "unit": "tbsp", "item": "dried oregano" },
+        { "id": "bay", "qty": 1, "item": "bay leaf" },
+        { "id": "wine", "qty": 125, "unit": "ml", "item": "red wine", "note": "Or 125ml water plus 1 tbsp balsamic vinegar" },
+        { "id": "stock", "qty": 150, "unit": "ml", "item": "beef stock" },
+        { "id": "stock-cubes", "qty": 2, "item": "beef stock cubes", "prep": "crumbled" },
+        { "id": "tomatoes", "qty": 400, "unit": "g", "item": "canned diced tomatoes" },
+        { "id": "tomato-paste", "qty": 125, "unit": "ml", "item": "tomato paste" },
+        { "id": "worcestershire", "qty": 1, "unit": "tbsp", "item": "Worcestershire sauce" },
+        { "id": "chilli", "qty": 0.5, "unit": "tsp", "item": "chilli flakes", "optional": true },
+        { "id": "olives", "qty": 70, "unit": "g", "item": "pitted Kalamata olives", "prep": "halved" },
+        { "id": "nutmeg", "qty": 1, "unit": "pinch", "item": "ground nutmeg" },
+        { "id": "sugar", "qty": 1, "unit": "tsp", "item": "sugar", "note": "Only if needed" },
+        { "id": "salt", "qty": null, "item": "salt", "note": "Only if needed" },
+        { "id": "pepper", "qty": null, "item": "black pepper", "note": "To taste" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Salad tomatoes ({{salad-tomatoes}}) into the bowl. Blitz 5 sec / Speed 6. Pour into a jug and set aside. No need to wash the bowl.", "settings": { "appliance": "thermomix", "time": "5 sec", "speed": "6" } },
+    { "text": "Onion ({{onion}}), carrots ({{carrots}}) and garlic ({{garlic}} cloves) into the bowl. Chop 30 sec / Speed 7. Scrape down.", "settings": { "appliance": "thermomix", "time": "30 sec", "speed": "7" } },
+    { "text": "Add the olive oil ({{oil}}). Cook 8 min / 120°C / Speed 1, MC off, to drive off moisture and get some colour on the base.", "settings": { "appliance": "thermomix", "time": "8 min", "timerSeconds": 480, "temp": "120°C", "speed": "1" } },
+    { "text": "Add the mince ({{mince}}), oregano ({{oregano}}) and bay leaf ({{bay}}). Break up the mince with the spatula. Cook 5 min / 100°C / Reverse / Speed 1, with the simmering basket on the lid in place of the MC.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "100°C", "speed": "1", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Add the red wine, or the water and balsamic ({{wine}}). Cook 3 min / 100°C / Reverse / Speed 1, basket still on the lid.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "100°C", "speed": "1", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Add the blitzed fresh tomatoes, stock ({{stock}}), stock cubes ({{stock-cubes}}), canned tomatoes ({{tomatoes}}), tomato paste ({{tomato-paste}}), Worcestershire ({{worcestershire}}) and chilli flakes ({{chilli}}) if using. Check it sits below the max line. Cook 35 min / 100°C / Reverse / Gentle stir, basket on the lid.", "settings": { "appliance": "thermomix", "time": "35 min", "timerSeconds": 2100, "temp": "100°C", "speed": "Gentle stir", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Add the olives ({{olives}}) through the lid. Cook 5 min / 100°C / Reverse / Gentle stir. If still thin, add 5–10 minutes at the same setting.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "100°C", "speed": "Gentle stir", "reverse": true } },
+    { "text": "Remove the bay leaf. Stir through the nutmeg ({{nutmeg}}), then taste. Sugar ({{sugar}}) only if it tastes sharp, salt only if needed, and pepper to taste." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "Base quantities are from Not Quite Nigella (Lorraine Elliott), and the mince step follows a Cookidoo-linked method. The olives, fresh tomatoes, extra carrot, spices and Worcestershire are my adaptation and untested." },
+    { "title": "One-pot trade-off", "text": "The Thermomix cannot brown, so the mince comes out greyer and the sauce lighter. For more depth, brown the mince in the cast iron first and add it at step 4; that was the version before this one." },
+    { "title": "Roasted tomato option", "text": "Halve the salad tomatoes, toss in 1 tsp oil and air fry cut side up at 200°C for 10–12 minutes until charred at the edges, then blitz as in step 1." },
+    { "title": "No red wine", "text": "125ml water plus 1 tbsp balsamic or red wine vinegar. Use water rather than extra stock, since the stock cubes and olives already carry plenty of salt." },
+    { "title": "Capacity", "text": "Roughly 2kg of sauce, close to the bowl limit, so cook the pasta separately. A true one-pot with pasta would need about half the sauce (my estimate)." },
+    { "title": "Model", "text": "The 120°C sauté needs a TM5 or TM6. Serve with tagliatelle or spaghetti and parmesan. Freezes well." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

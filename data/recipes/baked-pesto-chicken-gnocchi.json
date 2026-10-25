@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "baked-pesto-chicken-gnocchi",
+  "title": "Baked Pesto Chicken Gnocchi",
+  "description": "Everything goes into one dish: gnocchi, chicken, pesto, yoghurt and vegetables, baked under mozzarella. About two minutes of prep.",
+  "category": "Easy & Healthy",
+  "tags": ["chicken", "gnocchi", "one-pan", "meal-prep", "high-protein"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~5 min prep + 40 min bake", "totalMinutes": 45 },
+  "appliances": ["oven"],
+  "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax. Rated 8.5/10. Episode number and original title not captured; title here is descriptive." },
+  "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. The recipe title wasn't in the screenshot, so this one is descriptive. Not yet cooked and confirmed at home." },
+  "nutrition": { "basis": "per serve", "calories": 500, "protein": 50, "carbs": 38, "fat": 16, "fibre": 6, "note": "As stated by the source (fibre estimated by the source); not independently checked." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "gnocchi", "qty": 360, "unit": "g", "item": "potato gnocchi" },
+        { "id": "pesto", "qty": 180, "unit": "g", "item": "reduced-fat green pesto" },
+        { "id": "onion", "qty": 1, "item": "red onion", "prep": "diced", "note": "Approx. 150g" },
+        { "id": "peas", "qty": 100, "unit": "g", "item": "peas" },
+        { "id": "capsicum", "qty": 1, "item": "green capsicum", "prep": "chopped", "note": "Approx. 150g" },
+        { "id": "stock", "qty": 150, "unit": "ml", "item": "chicken stock" },
+        { "id": "yoghurt", "qty": 160, "unit": "g", "item": "fat-free Greek yoghurt" },
+        { "id": "garlic", "qty": 15, "unit": "g", "item": "garlic", "prep": "minced", "note": "Approx. 3 tsp" },
+        { "id": "chicken", "qty": 680, "unit": "g", "item": "chicken breast" },
+        { "id": "sundried-tomatoes", "qty": 100, "unit": "g", "item": "sun-dried tomatoes" },
+        { "id": "spinach", "qty": 100, "unit": "g", "item": "baby spinach" },
+        { "id": "mozzarella", "qty": 60, "unit": "g", "item": "light mozzarella" }
+      ]
+    }
+  ],
+  "steps": [
+    { "title": "Combine", "text": "Preheat the oven to 200°C. Add the gnocchi ({{gnocchi}}), pesto ({{pesto}}), onion ({{onion}}), peas ({{peas}}), capsicum ({{capsicum}}), stock ({{stock}}), yoghurt ({{yoghurt}}), garlic ({{garlic}}), chicken ({{chicken}}), sun-dried tomatoes ({{sundried-tomatoes}}), spinach ({{spinach}}) and mozzarella ({{mozzarella}}) to a large baking dish and mix well.", "settings": { "appliance": "oven", "temp": "200°C" } },
+    { "title": "Bake", "text": "Bake until the chicken is cooked through and the cheese is golden.", "settings": { "appliance": "oven", "time": "40 min", "timerSeconds": 2400, "temp": "200°C" } },
+    { "title": "Serve", "text": "Divide into 4 serves." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

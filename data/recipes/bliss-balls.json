@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "bliss-balls",
+  "title": "Cacao & Almond Bliss Balls",
+  "description": "Whole ingredients, no added sugar beyond the dates. Four variations underneath, all on the same method.",
+  "category": "Baking & Sweets",
+  "tags": ["snack", "no-bake", "vegetarian"],
+  "yield": { "qty": 20, "unit": "balls", "note": "Approx." },
+  "time": { "label": "~15 min plus chilling", "totalMinutes": 15 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "almonds", "qty": 100, "unit": "g", "item": "raw almonds" },
+        { "id": "oats", "qty": 30, "unit": "g", "item": "rolled oats" },
+        { "id": "dates", "qty": 180, "unit": "g", "item": "medjool dates", "prep": "pitted" },
+        { "id": "coconut", "qty": 50, "unit": "g", "item": "desiccated coconut" },
+        { "id": "cacao", "qty": 20, "unit": "g", "item": "raw cacao powder" },
+        { "id": "vanilla", "qty": 1, "unit": "tsp", "item": "natural vanilla extract" },
+        { "id": "salt", "qty": 0.25, "unit": "tsp", "item": "sea salt" },
+        { "id": "water", "qty": 20, "unit": "g", "item": "water", "note": "As needed" },
+        { "id": "coconut-extra", "qty": 30, "unit": "g", "item": "desiccated coconut", "note": "Extra, for rolling" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Add the almonds ({{almonds}}) and oats ({{oats}}) to the bowl. Mill 8 sec / Speed 7 to a coarse meal. Scrape down.", "settings": { "appliance": "thermomix", "time": "8 sec", "speed": "7" } },
+    { "text": "Add the dates ({{dates}}), coconut ({{coconut}}), cacao ({{cacao}}), vanilla ({{vanilla}}) and salt ({{salt}}). Mix 20 sec / Speed 6, then scrape down thoroughly.", "settings": { "appliance": "thermomix", "time": "20 sec", "speed": "6" } },
+    { "text": "Squeeze a little between your fingers. If it holds, stop. If it is crumbly, add the water ({{water}}) a teaspoon at a time and mix 10 sec / Speed 5 until it clumps.", "settings": { "appliance": "thermomix", "time": "10 sec", "speed": "5" } },
+    { "text": "Roll heaped tablespoons into balls, about 20g each, then roll through the extra coconut ({{coconut-extra}}) to coat." },
+    { "text": "Refrigerate at least 30 minutes before eating. They firm up noticeably.", "settings": { "appliance": "none", "time": "30 min", "timerSeconds": 1800 } }
+  ],
+  "notes": [
+    { "title": "Resist adding liquid early", "text": "The mixture looks too dry in the bowl and comes together once you press it." },
+    { "title": "Peanut butter and oat", "text": "Drop the cacao, use 100g peanuts instead of almonds, add 60g natural peanut butter and reduce the dates to 120g. Denser and more savoury. Peanuts mill faster than almonds because of their oil, so check after 5 seconds." },
+    { "title": "Lemon and coconut", "text": "No cacao, use 100g cashews, and add the zest of 1 lemon plus 20g lemon juice. Roll in extra coconut." },
+    { "title": "Apricot and pistachio", "text": "Swap the dates for 120g dried apricots plus 60g dates, since apricots alone are too tart to bind. Pistachios for the nuts, no cacao, plus 1 tsp ground cardamom." },
+    { "title": "Choc mint", "text": "The base recipe plus a few drops of peppermint extract and 20g cacao nibs pulsed in at the very end, 3 sec / Speed 4, so they stay crunchy." },
+    { "title": "Nut choice", "text": "Almonds suit the cacao base best. Cashews give a smoother, richer ball. Peanuts dominate with their own flavour." },
+    { "title": "Making them lighter", "text": "Reducing the dates is the only change that meaningfully lowers the sugar. Seeds, hemp or tahini add nutrients on top without reducing it." },
+    { "title": "Cocoa instead of cacao", "text": "A straight 1:1 swap. Avoid drinking chocolate or Milo, which carry sugar and milk solids." },
+    { "title": "Batch size", "text": "A double batch mills fine in the 2.2L bowl but mixes unevenly. Do the blending in two lots." },
+    { "title": "Storage", "text": "2 weeks airtight in the fridge, 3 months frozen. If the dates are dry, soak in hot water 10 minutes and drain well first." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "sushi-rice",
+  "title": "Sushi Rice",
+  "description": "Seasoned short-grain rice for home rolls. Saucepan method; a Thermomix version has not been written up.",
+  "category": "Basics & Blends",
+  "tags": ["rice", "sushi", "vegetarian"],
+  "yield": { "qty": 4, "unit": "rolls", "note": "Makes 4–5 rolls" },
+  "time": { "label": "~45 min including rest", "totalMinutes": 45 },
+  "appliances": ["stovetop"],
+  "source": { "name": "General guidance" },
+  "confidence": { "level": "guidance", "note": "General guidance. Saucepan method; a Thermomix version has not been written up." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "rice", "qty": 2, "unit": "cup", "item": "Japanese short-grain (sushi) rice" },
+        { "id": "water", "qty": 2, "unit": "cup", "item": "water" },
+        { "id": "vinegar", "qty": 80, "unit": "ml", "item": "rice vinegar" },
+        { "id": "sugar", "qty": 2, "unit": "tbsp", "item": "caster sugar" },
+        { "id": "salt", "qty": 1, "unit": "tsp", "item": "salt" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Rinse the rice ({{rice}}) in cold water, swirling and draining, until the water runs clear." },
+    { "text": "Bring the rice and water ({{water}}) to the boil in a saucepan, cover, drop to the lowest heat and cook 12 minutes. Take off the heat and rest 10 minutes with the lid on.", "settings": { "appliance": "stovetop", "time": "12 min", "timerSeconds": 720 } },
+    { "text": "Meanwhile stir the vinegar ({{vinegar}}), sugar ({{sugar}}) and salt ({{salt}}) until dissolved, warming gently if needed." },
+    { "text": "Turn the hot rice into a wide, shallow bowl. Pour the seasoning over the paddle and fold it through with a cutting motion, fanning as you go, so the grains turn glossy rather than mushy." },
+    { "text": "Cover with a damp tea towel and keep at room temperature until rolling. Do not refrigerate; it hardens." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "The rice, water and seasoning amounts are from our earlier session. The saucepan timings are general guidance rather than a tested card, and a Thermomix method would need checking against Cookidoo first." },
+    { "title": "Spoon size", "text": "2 tbsp of sugar is 40ml at the Australian 20ml standard, but 30ml if the ratio came from a 15ml-spoon source. Start at the lower end and taste." },
+    { "title": "Shortcut", "text": "Pre-seasoned sushi vinegar, such as Mizkan, replaces the vinegar, sugar and salt." },
+    { "title": "Easy fillings", "text": "No-cook: cucumber and avocado, tuna with Kewpie mayo, smoked salmon with cream cheese. Two or three fillings per roll, cut into thin strips, and do not overfill. Raw fish only if it is sashimi-grade from a trusted fishmonger." },
+    { "title": "Equipment", "text": "Bamboo rolling mat, wide shallow bowl, rice paddle, and something to fan with." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

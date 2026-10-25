@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "mexican-beef",
+  "title": "Thermomix Mexican Beef Bowls",
+  "description": "The steps are from Thermobliss. Beef, stock and tomato paste amounts were estimated for a 4-serve batch, so confirm at the source.",
+  "category": "Mexican",
+  "tags": ["beef", "bowls"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "under 40 min", "totalMinutes": 40 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Thermobliss" },
+  "confidence": { "level": "estimated", "note": "The steps are from Thermobliss. Beef, stock and tomato paste amounts were estimated for a 4-serve batch, so confirm at the source." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "beef", "qty": 600, "unit": "g", "item": "beef rump steak", "prep": "cut into large chunks" },
+        { "id": "paprika", "qty": 2, "unit": "tsp", "item": "paprika" },
+        { "id": "cumin", "qty": 1, "unit": "tsp", "item": "ground cumin" },
+        { "id": "chilli", "qty": 0.5, "unit": "tsp", "item": "chilli powder", "optional": true },
+        { "id": "onion", "qty": 1, "item": "red onion", "prep": "quartered" },
+        { "id": "oil", "qty": 20, "unit": "g", "item": "olive oil" },
+        { "id": "garlic", "qty": 2, "unit": "tsp", "item": "minced garlic" },
+        { "id": "stock", "qty": 500, "unit": "ml", "item": "liquid beef stock" },
+        { "id": "tomato-paste", "qty": 2, "unit": "tbsp", "item": "tomato paste" }
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        { "id": "to-serve", "qty": null, "item": "Mexican rice, baby spinach, avocado, cucumber, cherry tomatoes, grated cheese, corn chips, sour cream" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Toss the beef ({{beef}}) in the paprika ({{paprika}}), cumin ({{cumin}}) and chilli ({{chilli}}, if using) until well coated." },
+    { "text": "Add the red onion ({{onion}}) to the bowl. Chop 3 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "5" } },
+    { "text": "Add the olive oil ({{oil}}) and garlic ({{garlic}}). Sauté 3 min / Varoma / Speed 1.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "Varoma", "speed": "1" } },
+    { "text": "Add the stock ({{stock}}). Place the spiced beef in the simmering basket, insert into the bowl, and cook 25 min / Varoma / Speed 1.", "settings": { "appliance": "thermomix", "time": "25 min", "timerSeconds": 1500, "temp": "Varoma", "speed": "1", "accessory": "simmering basket" } },
+    { "text": "Remove the basket and set the beef aside. Discard about three-quarters of the liquid." },
+    { "text": "Return the beef to the bowl with the tomato paste ({{tomato-paste}}). Shred 10 sec / Reverse / Speed 4. Check the seasoning.", "settings": { "appliance": "thermomix", "time": "10 sec", "speed": "4", "reverse": true } },
+    { "text": "Serve over Mexican rice and build each bowl with the toppings." }
+  ],
+  "notes": [
+    { "title": "Tip", "text": "Omit the chilli for kids. The shredded beef is also good in tacos, burritos or baked potatoes." }
+  ],
+  "pairings": ["taco-seasoning", "jacket-potato"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

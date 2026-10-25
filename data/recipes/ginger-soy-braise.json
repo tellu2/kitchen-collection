@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "ginger-soy-braise",
+  "title": "Ginger-Soy Chicken & Bok Choy Braise",
+  "description": "Sketched out but never written up. The Sesame Chicken Noodles came out of the same session and took the sauce base in a looser direction.",
+  "category": "Drafts to finish",
+  "tags": ["chicken"],
+  "yield": { "qty": 1, "unit": "batch", "note": "Not set" },
+  "time": { "label": "Not recorded" },
+  "appliances": ["thermomix"],
+  "confidence": { "level": "draft", "note": "Direction only. Sketched out but never written up." },
+  "ingredientGroups": [
+    {
+      "title": "Shape of the dish",
+      "items": [
+        { "id": "chicken", "qty": null, "item": "chicken thigh or breast", "prep": "in chunks" },
+        { "id": "sauce", "qty": null, "item": "soy, ginger and garlic sauce base" },
+        { "id": "bok-choy", "qty": null, "item": "bok choy", "prep": "stems and leaves separated" },
+        { "id": "beans", "qty": null, "item": "green beans" },
+        { "id": "rice", "qty": null, "item": "rice", "note": "To serve" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Braise the chicken in the soy-ginger-garlic sauce." },
+    { "text": "Add the green beans with about 5–6 minutes left, the bok choy stems a couple of minutes after that, and the leafy tops right at the end.", "settings": { "appliance": "thermomix", "time": "5–6 min", "timerSeconds": 300 } },
+    { "text": "Serve over rice." }
+  ],
+  "notes": [
+    { "title": "Texture", "text": "Bok choy and green beans braise rather than char in the Thermomix, and beans especially go khaki if overcooked. A quick blast in the air fryer is the hybrid move." },
+    { "title": "Next step", "text": "Ask me to build this into a full card and I will scale and time it properly." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

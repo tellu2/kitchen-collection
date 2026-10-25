@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "tortilla-air-fryer",
+  "title": "Air Fryer Tortilla de Patatas",
+  "description": "One small Spanish tortilla with no flipping. A side for salmon, or a light dinner with a salad. Not yet cooked, so report back and I will adjust the timings.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["eggs", "potatoes", "vegetarian"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~45 min", "totalMinutes": 45 },
+  "appliances": ["air-fryer"],
+  "source": { "name": "Spanish source, air fryer timings sourced" },
+  "confidence": { "level": "estimated", "note": "Spanish source, air fryer timings sourced. Not yet cooked, so report back and I will adjust the timings." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "potatoes", "qty": 500, "unit": "g", "item": "potatoes", "prep": "peeled and sliced medium-thin" },
+        { "id": "eschalots", "qty": 75, "unit": "g", "item": "eschalots or brown onion", "prep": "thinly sliced", "note": "Approx. 2 eschalots or ½ brown onion" },
+        { "id": "oil", "qty": 1.5, "unit": "tbsp", "item": "extra virgin olive oil", "note": "Plus extra to grease the tin" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt", "note": "Estimate, adjust to taste" },
+        { "id": "eggs", "qty": 4, "item": "eggs" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Toss the potatoes ({{potatoes}}) with most of the olive oil ({{oil}}) and most of the salt ({{salt}})." },
+    { "text": "Air fry the potatoes directly in the basket at 180°C for 9 minutes, shaking halfway.", "settings": { "appliance": "air-fryer", "time": "9 min", "timerSeconds": 540, "temp": "180°C" } },
+    { "text": "Toss the eschalots or onion ({{eschalots}}) in the remaining oil, add to the basket, shake, and cook a further 8 minutes, until the potatoes are tender and the onion is soft.", "settings": { "appliance": "air-fryer", "time": "8 min", "timerSeconds": 480, "temp": "180°C" } },
+    { "text": "Beat the eggs ({{eggs}}) with the remaining salt. Grease a 15–18cm tin or silicone liner, tip in the potatoes and onion, and pour over the egg, pressing the potatoes down so they are covered." },
+    { "text": "Place the tin in the basket, leaving space around it, and cook at 160°C for 17 minutes.", "settings": { "appliance": "air-fryer", "time": "17 min", "timerSeconds": 1020, "temp": "160°C" } },
+    { "text": "Increase to 180°C for 5 minutes to set the centre and colour the top. A knife in the centre should come out without runny egg.", "settings": { "appliance": "air-fryer", "time": "5 min", "timerSeconds": 300, "temp": "180°C" } },
+    { "text": "Rest in the tin 5 minutes, then run a knife around the edge and turn out. Serve warm or at room temperature.", "settings": { "appliance": "none", "time": "5 min", "timerSeconds": 300 } }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "Quantities are halved from Diez Minutos (Spain). Air fryer temperatures and times are from Recipe This. Estimated: the salt, oil and eschalot weight, and the split of the 17-minute potato cook into 9 plus 8 minutes so the eschalots do not scorch." },
+    { "title": "Silicone liner", "text": "Use it for the egg stage only. Put it in the basket before filling. A 20cm liner gives a thinner tortilla, so start checking the centre at 12–15 minutes at 160°C (estimate). Expect a paler base than a metal tin." },
+    { "title": "Potato stage", "text": "Straight in the basket, not the liner. The liner blocks airflow and the slices steam unevenly. If you do use it to save washing up, shake more often and allow a few extra minutes." },
+    { "title": "Shallots on the label", "text": "In Queensland, shallots often means spring onions. Those cook too fast to fry with the potatoes, so stir them through the egg instead." },
+    { "title": "Full batch", "text": "Use the servings control for 4. That needs two tins cooked one after the other, unless one larger tin fits the basket with room for air." },
+    { "title": "Pan version", "text": "The Diez Minutos original: 1kg potatoes and 1 onion fried in 150ml extra virgin olive oil, drained, split between two bowls of 4 beaten eggs each, then cooked as two tortillas in a 16–18cm pan and flipped with a plate. The source ingredient list says 7 eggs but the method uses 8." },
+    { "title": "Thermomix", "text": "Not much use here. It cannot brown or set the tortilla. Slicing the onion is the only real time-saver." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

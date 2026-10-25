@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "zucchini-slice",
+  "title": "Zucchini, Bacon & Cheese Slice",
+  "description": "Thermomix for the prep, oven for the bake. Bacon crisped separately so it stays crunchy rather than going soggy.",
+  "category": "Light Meals",
+  "tags": ["bacon", "eggs", "freezer-friendly"],
+  "yield": { "qty": 6, "unit": "serves" },
+  "time": { "label": "~50 min", "totalMinutes": 50 },
+  "appliances": ["thermomix", "oven", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "zucchini", "qty": 600, "unit": "g", "item": "zucchini", "prep": "grated" },
+        { "id": "bacon", "qty": 150, "unit": "g", "item": "bacon rashers", "prep": "chopped" },
+        { "id": "onion", "qty": 1, "item": "brown onion" },
+        { "id": "eggs", "qty": 5, "item": "large eggs" },
+        { "id": "flour", "qty": 150, "unit": "g", "item": "self-raising flour" },
+        { "id": "cheese", "qty": 150, "unit": "g", "item": "tasty cheese", "prep": "grated" },
+        { "id": "oil", "qty": 60, "unit": "ml", "item": "olive oil" },
+        { "id": "salt", "qty": 0.25, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Preheat the oven to 180°C and line a slice tin (approx. 20 × 30cm).", "settings": { "appliance": "oven", "temp": "180°C" } },
+    { "text": "In a pan, cook the bacon ({{bacon}}) over medium heat until crisp. Set aside." },
+    { "text": "Grate the zucchini ({{zucchini}}) 5 sec / Speed 5. Tip into the nut milk bag and squeeze out as much liquid as possible. This step decides whether the slice sets.", "settings": { "appliance": "thermomix", "time": "5 sec", "speed": "5" } },
+    { "text": "Add the onion ({{onion}}) to the bowl. Chop 3 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "5" } },
+    { "text": "Add the squeezed zucchini, crisped bacon, eggs ({{eggs}}), flour ({{flour}}), cheese ({{cheese}}), oil ({{oil}}), salt ({{salt}}) and pepper ({{pepper}}). Mix 15 sec / Reverse / Speed 3 until just combined.", "settings": { "appliance": "thermomix", "time": "15 sec", "speed": "3", "reverse": true } },
+    { "text": "Pour into the lined tin and bake about 35 minutes, until golden and set in the centre.", "settings": { "appliance": "oven", "time": "~35 min", "timerSeconds": 2100, "temp": "180°C" } },
+    { "text": "Cool in the tin 10 minutes before slicing.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } }
+  ],
+  "notes": [
+    { "title": "Golden on top but liquid in the middle", "text": "Cover with foil, drop the oven to 150°C, and keep going in 10–15 minute increments, checking with a skewer." },
+    { "title": "Air fryer", "text": "A slice tin that fits takes about 25–30 minutes at 160–170°C. Watch the edges so they do not dry out." },
+    { "title": "Storage", "text": "5 days in the fridge, 3 months in the freezer. Wrap individual portions before putting them in an airtight container." },
+    { "title": "Veg swaps", "text": "Yellow squash, carrot and pumpkin all work in place of the zucchini." }
+  ],
+  "pairings": ["sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

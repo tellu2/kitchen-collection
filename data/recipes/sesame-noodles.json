@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "sesame-noodles",
+  "title": "Sesame Chicken Noodles with Bok Choy & Greens",
+  "description": "Salt held right back, since soy and oyster sauce carry it. Taste at the very end.",
+  "category": "Asian",
+  "tags": ["chicken", "noodles"],
+  "yield": { "qty": 2, "unit": "serves", "note": "Serves 2–3" },
+  "time": { "label": "~30 min", "totalMinutes": 30 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "title": "Sauce and base",
+      "items": [
+        { "id": "chicken", "qty": 2, "item": "chicken breasts", "prep": "cut into 2–3cm chunks", "note": "~500g" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "ginger", "qty": null, "item": "ginger", "prep": "peeled", "note": "2–3cm piece" },
+        { "id": "oil", "qty": 20, "unit": "g", "item": "neutral oil", "note": "Rice bran (not sesame, it burns)" },
+        { "id": "soy", "qty": 60, "unit": "ml", "item": "soy sauce" },
+        { "id": "oyster", "qty": 1, "unit": "tbsp", "item": "oyster sauce" },
+        { "id": "honey", "qty": 1, "unit": "tbsp", "item": "honey" },
+        { "id": "vinegar", "qty": 1, "unit": "tbsp", "item": "rice wine vinegar" },
+        { "id": "water", "qty": 150, "unit": "ml", "item": "water" },
+        { "id": "cornflour", "qty": 1, "qtyMax": 2, "unit": "tsp", "item": "cornflour", "prep": "slurried with a splash of water" }
+      ]
+    },
+    {
+      "title": "Veg and finish",
+      "items": [
+        { "id": "mushrooms", "qty": 150, "unit": "g", "item": "mushrooms", "prep": "sliced" },
+        { "id": "carrot", "qty": 1, "item": "carrot", "prep": "matchsticks or thin half-moons" },
+        { "id": "capsicum", "qty": 1, "item": "capsicum", "prep": "sliced into strips" },
+        { "id": "beans", "qty": 150, "unit": "g", "item": "green beans", "prep": "trimmed and halved", "note": "Approx." },
+        { "id": "bok-choy", "qty": 2, "item": "heads bok choy", "prep": "stems and leaves separated" },
+        { "id": "noodles", "qty": 200, "unit": "g", "item": "noodles", "note": "Egg, udon, whatever you have" },
+        { "id": "sesame-oil", "qty": 1, "unit": "tbsp", "item": "sesame oil" },
+        { "id": "finish", "qty": null, "item": "sesame seeds, sliced spring onion, chilli flakes", "note": "To finish" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Cook the noodles ({{noodles}}) separately to packet, drain, and toss with a drop of oil so they do not clump." },
+    { "text": "Garlic ({{garlic}} cloves) and ginger (2–3cm) into the bowl. Chop 3 sec / Speed 7. Scrape down.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "7" } },
+    { "text": "Add the neutral oil ({{oil}}) and mushrooms ({{mushrooms}}). Sauté 3 min / 120°C / Reverse / Soft stir, letting them brown so they do not water down the sauce.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Add the soy ({{soy}}), oyster sauce ({{oyster}}), honey ({{honey}}), vinegar ({{vinegar}}) and water ({{water}}). Add the chicken. Cook 8 min / 100°C / Reverse / Soft stir. Check a piece at 7 minutes, breast overcooks fast. Lift the chicken out and set aside.", "settings": { "appliance": "thermomix", "time": "8 min", "timerSeconds": 480, "temp": "100°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Into the sauce: green beans ({{beans}}) and carrot, 4 min / 100°C / Reverse / Soft stir. Add the bok choy stems and capsicum, 2 min. Add the leaves, 1 min, just to wilt.", "settings": { "appliance": "thermomix", "time": "4 min", "timerSeconds": 240, "temp": "100°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Stir the cornflour slurry ({{cornflour}}) through, 1 min / 90°C / Reverse / Soft stir, to thicken to a glaze.", "settings": { "appliance": "thermomix", "time": "1 min", "timerSeconds": 60, "temp": "90°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Return the chicken, add the drained noodles and sesame oil ({{sesame-oil}}). Toss 1–2 min / Reverse / Soft stir, or tip into a big bowl and toss by hand to avoid breaking the noodles.", "settings": { "appliance": "thermomix", "time": "1–2 min", "timerSeconds": 60, "speed": "Soft stir", "reverse": true } },
+    { "text": "Finish with sesame seeds, spring onion and chilli. Adjust with a splash more soy or vinegar." }
+  ],
+  "notes": [
+    { "title": "Doneness", "text": "Chicken breast wants 74°C in the thickest piece. Check it rather than relying on the 8-minute timing alone." },
+    { "title": "Watch-point", "text": "That is a lot of veg, so do not overfill the bowl. Pulling the chicken out buys room. The slurry is what gets you a glaze instead of a soup." },
+    { "title": "Slurry", "text": "Mix the cornflour with cold water first, then add it to the hot liquid. Straight in, it clumps." }
+  ],
+  "pairings": ["sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "sesame-cabbage",
+  "title": "Japanese Sesame Cabbage Salad",
+  "description": "Built during a cooking session rather than from a fixed recipe card, so treat the amounts as a starting point.",
+  "category": "Salads & Sides",
+  "tags": ["salad", "side", "vegetarian"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~10 min", "totalMinutes": 10 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Built live" },
+  "confidence": { "level": "guidance", "note": "Built live. Built during a cooking session rather than from a fixed recipe card, so treat the amounts as a starting point." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "cabbage", "qty": 200, "qtyMax": 250, "unit": "g", "item": "cabbage", "prep": "finely shredded" },
+        { "id": "vinegar", "qty": 1, "unit": "tbsp", "item": "rice wine vinegar", "note": "A splash more if skipping the sesame oil" },
+        { "id": "sesame", "qty": 1, "unit": "tbsp", "item": "sesame seeds", "prep": "lightly toasted" },
+        { "id": "sesame-oil", "qty": 1, "unit": "tsp", "item": "sesame oil", "optional": true },
+        { "id": "onion", "qty": null, "item": "spring onion", "prep": "sliced", "note": "Or a little red onion soaked in cold water 5–10 min to mellow" },
+        { "id": "salt", "qty": 1, "unit": "pinch", "item": "salt" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Shred the cabbage ({{cabbage}}). In the Thermomix, use the butterfly and pulse in short 2–3 sec bursts at Speed 4, in batches, with the bowl no more than half full.", "settings": { "appliance": "thermomix", "time": "2–3 sec", "speed": "4", "accessory": "butterfly whisk" } },
+    { "text": "Toast the sesame seeds ({{sesame}}) in a dry pan 2–3 minutes until fragrant. Worth doing if you are leaving out the sesame oil.", "settings": { "appliance": "stovetop", "time": "2–3 min", "timerSeconds": 120 } },
+    { "text": "Toss the cabbage with the vinegar ({{vinegar}}), sesame oil ({{sesame-oil}}) if using, sesame seeds, onion and a pinch of salt." },
+    { "text": "Taste and adjust. A little more vinegar brightens it if there is no sesame oil." }
+  ],
+  "pairings": ["air-fryer-salmon", "gochujang-chicken"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

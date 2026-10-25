@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "description": "Woolworths and Coles aisle order, extracted from the legacy AISLES, AISLE_ORDER and isShoppable. Rules are tested in order against an ingredient's line text and the first match wins. Patterns are JavaScript regular expression sources.",
+  "order": ["Fruit & veg", "Meat & seafood", "Fridge & deli", "Dairy & eggs", "Bakery", "Pantry", "Spices & baking", "Freezer", "Other"],
+  "fallback": "Other",
+  "rules": [
+    { "aisle": "Fridge & deli", "pattern": "gyoza wrapper|wonton|noodle|tofu|kimchi", "flags": "i" },
+    { "aisle": "Pantry", "pattern": "tomato paste|canned|tinned|diced tomatoes|chickpea|black bean|stock|coconut|tahini|passata|gnocchi", "flags": "i" },
+    { "aisle": "Spices & baking", "pattern": "paprika|cumin|oregano|cinnamon|cardamom|ground clove|^\\d+\\s+cloves\\b|nutmeg|bay lea|gochugaru|chilli powder|chilli flake|black pepper|white pepper|sea salt|salt flake|\\bsalt\\b|vanilla|baking powder|bicarbonate|garlic powder|onion powder|star anise|turmeric|ground ginger|caster sugar|brown sugar|palm sugar|\\bsugar\\b|self-raising|plain flour|cocoa|cacao|sumac", "flags": "i" },
+    { "aisle": "Dairy & eggs", "pattern": "butter(?!milk)|buttermilk|cheese|parmesan|milk|\\begg|yoghurt|sour cream|\\bcream\\b|fetta|feta|haloumi", "flags": "i" },
+    { "aisle": "Meat & seafood", "pattern": "chicken|beef|pork|lamb|bacon|chorizo|mince(?!d)|salmon|prawn|chuck", "flags": "i" },
+    { "aisle": "Bakery", "pattern": "bread|tortilla|naan|pita|flatbread", "flags": "i" },
+    { "aisle": "Fridge & deli", "pattern": "gyoza wrapper|wonton|noodle|tofu|kimchi", "flags": "i" },
+    { "aisle": "Fruit & veg", "pattern": "potato|tomato|onion|shallot|garlic|ginger|carrot|capsicum|zucchini|cucumber|cabbage|wombok|bok choy|lemon|lime|orange|banana|pumpkin|mushroom|chilli|parsley|coriander|spinach|avocado|green bean|lettuce|corn|broccoli|asparagus|celery|\\bdill\\b|\\bmint\\b", "flags": "i" },
+    { "aisle": "Freezer", "pattern": "frozen", "flags": "i" },
+    { "aisle": "Pantry", "pattern": "rice|pasta|pappardelle|rigatoni|spaghetti|flour|honey|oil|vinegar|soy|oyster|fish sauce|gochujang|curry paste|tamarind|mirin|sesame|date|almond|peanut|cashew|pistachio|oat|apricot|wine|cornflour|wakame|mustard|olive|worcestershire|balsamic", "flags": "i" }
+  ],
+  "notShoppable": [
+    { "reason": "Water of any kind", "pattern": "^\\s*[\\d½¼¾⅓⅔.\\s–-]*\\s*(cups?|ml|g|tbsp|tsp)?\\s*(warm |cold |hot |boiling )?water\\b", "flags": "i" },
+    { "reason": "Serving suggestions written as sentences", "pattern": "^(to serve|to finish|nothing recorded)", "flags": "i" }
+  ],
+  "notShoppableGroups": { "reason": "Legacy lines that began 'To serve:' or 'To finish:' became groups with that title", "pattern": "^(to serve|to finish)$", "flags": "i" }
+}

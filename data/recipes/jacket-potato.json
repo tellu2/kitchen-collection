@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "jacket-potato",
+  "title": "Air Fryer Jacket Potatoes",
+  "description": "Crisp salty skin and a fluffy centre, no oven preheat. Report back on the timing and I will formalise it.",
+  "category": "Light Meals",
+  "tags": ["potatoes", "vegetarian"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~55 min", "totalMinutes": 55 },
+  "appliances": ["air-fryer"],
+  "source": { "name": "General method, not yet confirmed" },
+  "confidence": { "level": "estimated", "note": "General method, not yet confirmed. Report back on the timing and I will formalise it." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "potatoes", "qty": 2, "item": "large floury potatoes", "note": "Sebago, russet or coliban, approx. 300g each" },
+        { "id": "oil", "qty": 1, "unit": "tbsp", "item": "olive oil" },
+        { "id": "salt", "qty": 1, "unit": "tsp", "item": "salt flakes" },
+        { "id": "butter", "qty": 30, "unit": "g", "item": "butter" },
+        { "id": "cheese", "qty": 60, "unit": "g", "item": "tasty cheese", "prep": "grated" },
+        { "id": "spring-onion", "qty": 1, "item": "spring onion", "prep": "sliced" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "ground black pepper" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Scrub the potatoes ({{potatoes}}) well and dry thoroughly. Prick each one 6–8 times all over with a fork so steam can escape." },
+    { "text": "Rub the skins with the olive oil ({{oil}}), then the salt flakes ({{salt}}). The salt draws moisture out of the skin, which is what makes it crisp rather than leathery." },
+    { "text": "Air fry at 200°C for 45–50 minutes, turning once halfway. Done when a skewer slides through the centre with no resistance. Smaller 200g potatoes need closer to 35 minutes.", "settings": { "appliance": "air-fryer", "time": "45–50 min", "timerSeconds": 2700, "temp": "200°C" } },
+    { "text": "Rest 3–4 minutes, then cut a cross in the top and squeeze the ends towards each other to push the flesh up and open.", "settings": { "appliance": "none", "time": "3–4 min", "timerSeconds": 180 } },
+    { "text": "Fork the butter ({{butter}}) through the flesh while still hot. Top with the cheese ({{cheese}}), spring onion ({{spring-onion}}) and pepper ({{pepper}}). Back in for 2 minutes if you want the cheese properly melted.", "settings": { "appliance": "air-fryer", "time": "2 min", "timerSeconds": 120 } }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "General method rather than a tested card. The timings are calibrated to a 300g potato and will shift with your machine. Check with a skewer rather than trusting the clock." },
+    { "title": "Potato variety", "text": "Waxy potatoes (desiree, kipfler, chat) will not work. You need a floury, high-starch variety or the centre stays dense." },
+    { "title": "No foil", "text": "It traps steam and softens the skin." },
+    { "title": "Oven", "text": "200°C fan, 60–75 minutes, same prep. Slightly better skin, much longer." },
+    { "title": "Fillings that suit your pantry", "text": "Bacon and sour cream; chorizo with smoked paprika; gochujang butter with spring onion; leftover shredded taco chicken with cheese." }
+  ],
+  "pairings": ["shredded-tacos"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

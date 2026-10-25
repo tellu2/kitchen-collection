@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "risotto",
+  "title": "Chicken, Bacon & Mushroom Risotto",
+  "description": "Amounts estimated and scaled to 4 serves. Taste a grain near the end and adjust.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["chicken", "bacon", "rice"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~35 min", "totalMinutes": 35 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique. Amounts estimated and scaled to 4 serves." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "parmesan", "qty": 60, "unit": "g", "item": "parmesan", "prep": "in pieces", "note": "Plus extra to serve" },
+        { "id": "onion", "qty": 1, "item": "brown onion", "prep": "halved" },
+        { "id": "garlic", "qty": 2, "item": "garlic cloves" },
+        { "id": "bacon", "qty": 150, "unit": "g", "item": "bacon", "prep": "roughly chopped" },
+        { "id": "butter", "qty": 20, "unit": "g", "item": "butter", "note": "Plus a cold knob to finish" },
+        { "id": "oil", "qty": 10, "unit": "g", "item": "olive oil" },
+        { "id": "rice", "qty": 320, "unit": "g", "item": "arborio rice" },
+        { "id": "wine", "qty": 80, "unit": "ml", "item": "dry white wine", "optional": true },
+        { "id": "stock", "qty": 750, "unit": "ml", "item": "liquid chicken stock" },
+        { "id": "chicken", "qty": 400, "unit": "g", "item": "chicken breast", "prep": "diced 2cm" },
+        { "id": "mushrooms", "qty": 200, "unit": "g", "item": "mushrooms", "prep": "sliced" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" }
+      ]
+    },
+    {
+      "title": "To finish",
+      "items": [
+        { "id": "to-finish", "qty": null, "item": "squeeze of lemon, chopped parsley" }
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        { "id": "to-serve", "qty": null, "item": "dry-cooked cherry tomatoes" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Grate the parmesan ({{parmesan}}) 10 sec / Speed 9. Set aside.", "settings": { "appliance": "thermomix", "time": "10 sec", "speed": "9" } },
+    { "text": "Add the onion ({{onion}}), garlic ({{garlic}} cloves) and bacon ({{bacon}}). Chop 4 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "4 sec", "speed": "5" } },
+    { "text": "Add the butter ({{butter}}) and oil ({{oil}}). Sauté 5 min / 120°C / Speed 1.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "120°C", "speed": "1" } },
+    { "text": "Insert the butterfly. Add the rice ({{rice}}) and wine ({{wine}}), sauté 3 min / 120°C / Reverse / Speed 1 with the MC off. Scrape the bowl base so nothing catches.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "1", "reverse": true, "accessory": "butterfly whisk" } },
+    { "text": "Add the stock ({{stock}}) and chicken ({{chicken}}), not the mushrooms. Do not exceed the MAX line. Cook 18 min / 100°C / Reverse / Speed 1, MC off.", "settings": { "appliance": "thermomix", "time": "18 min", "timerSeconds": 1080, "temp": "100°C", "speed": "1", "reverse": true } },
+    { "text": "Sear the mushrooms ({{mushrooms}}) separately in a hot pan so they brown rather than steam." },
+    { "text": "Stir through half the parmesan ({{parmesan*0.5}}), the salt ({{salt}}), pepper ({{pepper}}) and a cold knob of butter off the heat. Rest 5 minutes.", "settings": { "appliance": "none", "time": "5 min", "timerSeconds": 300 } },
+    { "text": "Fold the seared mushrooms through. Finish with lemon, parsley and blistered cherry tomatoes." }
+  ],
+  "notes": [
+    { "title": "Butter off heat", "text": "The cold knob goes in with the heat off. It emulsifies rather than splits." },
+    { "title": "Dry white wine", "text": "Sauvignon blanc, pinot grigio or an unoaked chardonnay. If you would rather not open a bottle, use extra stock plus a squeeze of lemon." },
+    { "title": "Zucchini", "text": "Optional. Add it in the last 5–6 minutes, or sear it separately with the mushrooms." },
+    { "title": "Herbs", "text": "Dried thyme is the best match for mushroom and bacon." }
+  ],
+  "pairings": ["sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

@@ -1,0 +1,934 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-10-25T10:37:06.535Z",
+  "recipes": [
+    {
+      "id": "gochujang-chicken",
+      "title": "Air Fryer Gochujang Chicken",
+      "category": "Asian",
+      "tags": [
+        "chicken"
+      ],
+      "appliances": [
+        "thermomix",
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~30 min",
+        "totalMinutes": 30
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "san-choy-bow",
+      "title": "Chicken Mince San Choy Bow",
+      "category": "Asian",
+      "tags": [
+        "chicken",
+        "mince",
+        "lettuce-cups"
+      ],
+      "appliances": [
+        "stovetop",
+        "thermomix"
+      ],
+      "time": {
+        "label": "~15 min",
+        "totalMinutes": 15
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "guidance",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "massaman",
+      "title": "Massaman Beef Curry",
+      "category": "Asian",
+      "tags": [
+        "beef",
+        "curry",
+        "braise"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~2 hr 15 min",
+        "totalMinutes": 135
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "sesame-noodles",
+      "title": "Sesame Chicken Noodles with Bok Choy & Greens",
+      "category": "Asian",
+      "tags": [
+        "chicken",
+        "noodles"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~30 min",
+        "totalMinutes": 30
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves",
+        "note": "Serves 2–3"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "pork-gyoza",
+      "title": "Thermomix Pork Gyoza",
+      "category": "Asian",
+      "tags": [
+        "pork",
+        "mince",
+        "dumplings",
+        "freezer-friendly"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~1 hr including chill",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 30,
+        "unit": "gyoza",
+        "note": "Approx."
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "shredded-tacos",
+      "title": "Loaded Shredded Chicken Tacos",
+      "category": "Mexican",
+      "tags": [
+        "chicken",
+        "tacos"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~35 min",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves",
+        "note": "Serves 4–6"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "mexican-beef",
+      "title": "Thermomix Mexican Beef Bowls",
+      "category": "Mexican",
+      "tags": [
+        "beef",
+        "bowls"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "under 40 min",
+        "totalMinutes": 40
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "souvlaki",
+      "title": "Air Fryer Chicken Souvlaki Wraps",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "chicken",
+        "wraps"
+      ],
+      "appliances": [
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~45 min, mostly hands-off",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "tortilla-air-fryer",
+      "title": "Air Fryer Tortilla de Patatas",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "eggs",
+        "potatoes",
+        "vegetarian"
+      ],
+      "appliances": [
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~45 min",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "risotto",
+      "title": "Chicken, Bacon & Mushroom Risotto",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "chicken",
+        "bacon",
+        "rice"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~35 min",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "chorizo-chicken-pasta",
+      "title": "Chorizo & Chicken Pasta",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "chicken",
+        "chorizo",
+        "pasta",
+        "one-pot"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~50 min",
+        "totalMinutes": 50
+      },
+      "yield": {
+        "qty": 6,
+        "unit": "serves"
+      },
+      "confidenceLevel": "gated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "prawn-gnocchi",
+      "title": "Garlic Prawns with Crisp Gnocchi",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "prawns",
+        "gnocchi",
+        "one-pan"
+      ],
+      "appliances": [
+        "stovetop"
+      ],
+      "time": {
+        "label": "~25 min",
+        "totalMinutes": 25
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "greek-beef-bowls",
+      "title": "Greek-Style Seared Beef Rice Bowls",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "beef",
+        "rice",
+        "bowls"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~45 min",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "bolognese",
+      "title": "One-Pot Thermomix Bolognese with Kalamata Olives",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "beef",
+        "mince",
+        "pasta-sauce",
+        "freezer-friendly"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~1 hr",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 6,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "riojana",
+      "title": "Patatas a la Riojana",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "chorizo",
+        "potatoes",
+        "stew"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~60 min",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "sumac-traybake",
+      "title": "Sumac Chicken Traybake with Tahini Yoghurt",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "chicken",
+        "tray-bake"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "~55 min",
+        "totalMinutes": 55
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "beef-ragu",
+      "title": "Thermomix Beef Chuck Ragù",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "beef",
+        "pasta",
+        "braise"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~2 hr 15 min",
+        "totalMinutes": 135
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "air-fryer-salmon",
+      "title": "Air Fryer Salmon with Roasted Veg",
+      "category": "Fish & Seafood",
+      "tags": [
+        "salmon"
+      ],
+      "appliances": [
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~35 min, mostly hands-off",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "tested",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "cast-iron-salmon",
+      "title": "Cast Iron Salmon with Air Fryer Veg & Shallot Butter",
+      "category": "Fish & Seafood",
+      "tags": [
+        "salmon"
+      ],
+      "appliances": [
+        "air-fryer",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~45 min",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "pumpkin-salmon-bowl",
+      "title": "Roasted Pumpkin & Chickpea Salmon Bowl",
+      "category": "Fish & Seafood",
+      "tags": [
+        "salmon",
+        "bowls",
+        "rice"
+      ],
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~40 min",
+        "totalMinutes": 40
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "tested",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "sesame-cabbage",
+      "title": "Japanese Sesame Cabbage Salad",
+      "category": "Salads & Sides",
+      "tags": [
+        "salad",
+        "side",
+        "vegetarian"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~10 min",
+        "totalMinutes": 10
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "guidance",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "oi-muchim",
+      "title": "Korean Cucumber Salad (Oi Muchim)",
+      "category": "Salads & Sides",
+      "tags": [
+        "salad",
+        "side",
+        "vegetarian"
+      ],
+      "appliances": [
+        "none"
+      ],
+      "time": {
+        "label": "~15 min",
+        "totalMinutes": 15
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "sunomono",
+      "title": "Sunomono (Cucumber Vinegar Salad)",
+      "category": "Salads & Sides",
+      "tags": [
+        "salad",
+        "side",
+        "vegetarian"
+      ],
+      "appliances": [
+        "none"
+      ],
+      "time": {
+        "label": "~15 min plus chilling",
+        "totalMinutes": 15
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "jacket-potato",
+      "title": "Air Fryer Jacket Potatoes",
+      "category": "Light Meals",
+      "tags": [
+        "potatoes",
+        "vegetarian"
+      ],
+      "appliances": [
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~55 min",
+        "totalMinutes": 55
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "zucchini-slice",
+      "title": "Zucchini, Bacon & Cheese Slice",
+      "category": "Light Meals",
+      "tags": [
+        "bacon",
+        "eggs",
+        "freezer-friendly"
+      ],
+      "appliances": [
+        "thermomix",
+        "oven",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~50 min",
+        "totalMinutes": 50
+      },
+      "yield": {
+        "qty": 6,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "baked-feta-chicken-sweet-potato",
+      "title": "Baked Feta Chicken & Sweet Potato Tray Bake",
+      "category": "Easy & Healthy",
+      "tags": [
+        "chicken",
+        "tray-bake",
+        "meal-prep",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "~10 min prep + 50–55 min roast",
+        "totalMinutes": 65
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "baked-pesto-chicken-gnocchi",
+      "title": "Baked Pesto Chicken Gnocchi",
+      "category": "Easy & Healthy",
+      "tags": [
+        "chicken",
+        "gnocchi",
+        "one-pan",
+        "meal-prep",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "~5 min prep + 40 min bake",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "high-protein-orzo-chicken-bake",
+      "title": "High Protein Orzo Chicken Bake",
+      "category": "Easy & Healthy",
+      "tags": [
+        "chicken",
+        "pasta",
+        "one-pan",
+        "meal-prep",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "~5 min prep + 50 min bake",
+        "totalMinutes": 55
+      },
+      "yield": {
+        "qty": 5,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "high-protein-salmon-salad",
+      "title": "High Protein Salmon Salad",
+      "category": "Easy & Healthy",
+      "tags": [
+        "salmon",
+        "lunch",
+        "no-cook",
+        "high-protein"
+      ],
+      "appliances": [
+        "none"
+      ],
+      "time": {
+        "label": "~2 min (with cooked salmon)",
+        "totalMinutes": 2
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "mediterranean-chicken-poppers",
+      "title": "Mediterranean Chicken Poppers",
+      "category": "Easy & Healthy",
+      "tags": [
+        "chicken",
+        "air-fryer",
+        "snack",
+        "high-protein"
+      ],
+      "appliances": [
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~10 min prep + 14 min air fry",
+        "totalMinutes": 25
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "batch",
+        "note": "The source gives nutrition per 6 poppers; the total count wasn't captured."
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "bliss-balls",
+      "title": "Cacao & Almond Bliss Balls",
+      "category": "Baking & Sweets",
+      "tags": [
+        "snack",
+        "no-bake",
+        "vegetarian"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~15 min plus chilling",
+        "totalMinutes": 15
+      },
+      "yield": {
+        "qty": 20,
+        "unit": "balls",
+        "note": "Approx."
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "honey-spice-cake",
+      "title": "Honey Spice Cake",
+      "category": "Baking & Sweets",
+      "tags": [
+        "baking",
+        "cake",
+        "vegetarian"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "~20 min prep + 40–45 min bake",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 8,
+        "unit": "serves",
+        "note": "Serves 8–10"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "banana-bread",
+      "title": "Thermomix Banana Bread",
+      "category": "Baking & Sweets",
+      "tags": [
+        "baking",
+        "loaf",
+        "vegetarian"
+      ],
+      "appliances": [
+        "thermomix",
+        "oven"
+      ],
+      "time": {
+        "label": "~10 min prep + ~50 min bake",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "loaf"
+      },
+      "confidenceLevel": "gated",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "taco-seasoning",
+      "title": "Homemade Taco Seasoning",
+      "category": "Basics & Blends",
+      "tags": [
+        "spice-blend",
+        "pantry"
+      ],
+      "appliances": [
+        "none",
+        "thermomix"
+      ],
+      "time": {
+        "label": "Not recorded"
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "batch",
+        "note": "One batch seasons 500g mince"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "sushi-rice",
+      "title": "Sushi Rice",
+      "category": "Basics & Blends",
+      "tags": [
+        "rice",
+        "sushi",
+        "vegetarian"
+      ],
+      "appliances": [
+        "stovetop"
+      ],
+      "time": {
+        "label": "~45 min including rest",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "rolls",
+        "note": "Makes 4–5 rolls"
+      },
+      "confidenceLevel": "guidance",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "egg-muffin",
+      "title": "Bacon, Egg, Onion & Tomato Muffin Filling",
+      "category": "Drafts to finish",
+      "tags": [
+        "bacon",
+        "eggs",
+        "breakfast"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "Not recorded"
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "batch",
+        "note": "Not set"
+      },
+      "confidenceLevel": "draft",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "lemon-olive-chicken",
+      "title": "Braised Chicken with Lemon & Green Olives",
+      "category": "Drafts to finish",
+      "tags": [
+        "chicken"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "Not recorded"
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "batch",
+        "note": "Not set"
+      },
+      "confidenceLevel": "draft",
+      "version": 1,
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "ginger-soy-braise",
+      "title": "Ginger-Soy Chicken & Bok Choy Braise",
+      "category": "Drafts to finish",
+      "tags": [
+        "chicken"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "Not recorded"
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "batch",
+        "note": "Not set"
+      },
+      "confidenceLevel": "draft",
+      "version": 1,
+      "updated": "2026-10-25"
+    }
+  ]
+}

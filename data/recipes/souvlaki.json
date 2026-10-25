@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "souvlaki",
+  "title": "Air Fryer Chicken Souvlaki Wraps",
+  "description": "Lemon, garlic and oregano chicken thigh with homemade tzatziki on warm flatbread. The tzatziki comes together while the chicken marinates.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["chicken", "wraps"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~45 min, mostly hands-off", "totalMinutes": 45 },
+  "appliances": ["air-fryer"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "title": "Chicken",
+      "items": [
+        { "id": "chicken", "qty": 800, "unit": "g", "item": "chicken thigh fillets", "prep": "cut into 3cm pieces" },
+        { "id": "oil", "qty": 2, "unit": "tbsp", "item": "olive oil" },
+        { "id": "lemon", "qty": 2, "unit": "tbsp", "item": "lemon juice", "note": "For the marinade" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves", "prep": "crushed", "note": "For the marinade" },
+        { "id": "oregano", "qty": 2, "unit": "tsp", "item": "dried oregano" },
+        { "id": "salt", "qty": 1, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.5, "unit": "tsp", "item": "black pepper", "prep": "freshly ground" }
+      ]
+    },
+    {
+      "title": "Tzatziki",
+      "items": [
+        { "id": "yoghurt", "qty": 250, "unit": "g", "item": "Greek yoghurt" },
+        { "id": "cucumber", "qty": 1, "item": "Lebanese cucumber" },
+        { "id": "garlic-extra", "qty": 1, "item": "garlic clove", "prep": "crushed", "note": "Extra" },
+        { "id": "lemon-extra", "qty": 1, "unit": "tbsp", "item": "lemon juice", "note": "Extra" },
+        { "id": "dill", "qty": 1, "unit": "tbsp", "item": "dill or mint", "prep": "finely chopped" }
+      ]
+    },
+    {
+      "title": "To build",
+      "items": [
+        { "id": "flatbreads", "qty": 4, "item": "pita or Greek-style flatbreads" },
+        { "id": "tomatoes", "qty": 2, "item": "tomatoes", "prep": "deseeded and sliced" },
+        { "id": "onion", "qty": 0.5, "item": "red onion", "prep": "thinly sliced" },
+        { "id": "lettuce", "qty": 2, "unit": "cup", "item": "cos lettuce", "prep": "shredded" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Combine the chicken ({{chicken}}) with the olive oil ({{oil}}), lemon juice ({{lemon}}), garlic ({{garlic}} cloves), oregano ({{oregano}}), salt ({{salt}}) and pepper ({{pepper}}). Toss well. Twenty minutes at room temperature is enough; a few hours in the fridge is better." },
+    { "text": "Coarsely grate the cucumber ({{cucumber}}), then squeeze it hard in the nut milk bag or a clean tea towel. Stir into the yoghurt ({{yoghurt}}) with the garlic ({{garlic-extra}} clove), lemon juice ({{lemon-extra}}), dill or mint ({{dill}}) and a good pinch of salt. Refrigerate until serving." },
+    { "text": "Slice the tomatoes ({{tomatoes}}) and red onion ({{onion}}), and shred the lettuce ({{lettuce}}). Soak the onion in cold water for 5 minutes if you want it milder, then drain.", "settings": { "appliance": "none", "time": "5 min", "timerSeconds": 300 } },
+    { "text": "Spread the chicken in a single layer in the basket, in two batches if needed. Air fry at 200°C for 12–14 minutes, shaking at the halfway point. You want charred edges, not just cooked through.", "settings": { "appliance": "air-fryer", "time": "12–14 min", "timerSeconds": 720, "temp": "200°C" } },
+    { "text": "Warm the flatbreads ({{flatbreads}}) for 30–60 seconds in the air fryer at the end, or over a gas flame for a few seconds a side.", "settings": { "appliance": "air-fryer", "time": "30–60 sec" } },
+    { "text": "Spread tzatziki down each flatbread, add lettuce, tomato and onion, then the hot chicken. Roll tightly and wrap the base in foil or baking paper to hold it together." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "The marinade and tzatziki are standard Greek proportions. The air fryer timing is a starting point, so check the chicken at 12 minutes." },
+    { "title": "Crowding", "text": "A full basket steams the chicken instead of charring it. Two batches is worth the extra five minutes." },
+    { "title": "Chicken breast", "text": "Butterfly each fillet into two flat pieces rather than cubing. 190°C for 10–12 minutes, pulled at 75°C internal, then rest 5 minutes and slice. Cap the lemon marinade at one hour or the outside goes chalky." },
+    { "title": "Yoghurt in the marinade", "text": "Stir 2 tbsp of the Greek yoghurt into the marinade. It tenderises without the acid texture penalty and helps the char." },
+    { "title": "One-basket dinner", "text": "Halved chat potatoes in oil, salt and oregano at 200°C for 15 minutes. Push aside, add the marinated chicken with capsicum, red onion wedges and zucchini chunks, and cook a further 12–14 minutes at 200°C, shaking halfway. Rest 5 minutes and finish with lemon, feta and parsley." },
+    { "title": "No air fryer", "text": "Cast iron over high heat, 6–8 minutes turning once, in two batches." },
+    { "title": "Storage", "text": "Raw in the marinade 2 days in the fridge, or freeze it in the marinade. Cooked, 3 days; reheat in the air fryer at 160°C for 4 minutes." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

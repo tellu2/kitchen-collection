@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "san-choy-bow",
+  "title": "Chicken Mince San Choy Bow",
+  "description": "Fast pan-fried chicken mince in lettuce cups. The Thermomix chops the aromatics, but the mince needs the pan so it browns rather than steams.",
+  "category": "Asian",
+  "tags": ["chicken", "mince", "lettuce-cups"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~15 min", "totalMinutes": 15 },
+  "appliances": ["stovetop", "thermomix"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "guidance", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "mince", "qty": 500, "unit": "g", "item": "chicken mince" },
+        { "id": "oil", "qty": 1, "unit": "tbsp", "item": "neutral oil", "note": "Rice bran" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves", "prep": "minced" },
+        { "id": "ginger", "qty": 2, "unit": "tsp", "item": "fresh ginger", "prep": "grated" },
+        { "id": "spring-onion", "qty": 3, "item": "spring onions", "prep": "sliced, whites and greens separated" },
+        { "id": "carrot", "qty": 1, "item": "carrot", "prep": "finely diced", "note": "Or a small tin of water chestnuts, chopped" },
+        { "id": "oyster", "qty": 2, "unit": "tbsp", "item": "oyster sauce" },
+        { "id": "soy", "qty": 1, "unit": "tbsp", "item": "soy sauce" },
+        { "id": "sesame-oil", "qty": 1, "unit": "tsp", "item": "sesame oil" },
+        { "id": "vinegar", "qty": 2, "unit": "tsp", "item": "rice wine vinegar or lime juice" },
+        { "id": "lettuce", "qty": 1, "item": "iceberg lettuce", "prep": "leaves separated into cups" },
+        { "id": "to-serve", "qty": null, "item": "coriander and sliced red chilli", "note": "To serve" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Mince the garlic ({{garlic}} cloves), ginger ({{ginger}}) and the white parts of the spring onion. In the Thermomix, 3 sec / Speed 5 does this in one go. Dice the carrot by hand so it stays chunky rather than turning to pulp.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "5" } },
+    { "text": "Stir the oyster sauce ({{oyster}}), soy ({{soy}}), sesame oil ({{sesame-oil}}) and vinegar ({{vinegar}}) together in a small bowl. No added salt, the oyster and soy carry plenty." },
+    { "text": "Heat the oil ({{oil}}) in the cast iron over high heat until shimmering. Add the mince ({{mince}}) and press it flat. Leave it alone for 3 minutes to build a crust, then break it up and cook until no pink remains and the liquid has gone.", "settings": { "appliance": "stovetop", "time": "3 min", "timerSeconds": 180 } },
+    { "text": "Push the mince aside, add the garlic, ginger and spring onion whites to the bare pan for 30 seconds until fragrant, then stir through with the carrot." },
+    { "text": "Pour in the sauce and toss 1–2 minutes until it coats the mince and looks glossy rather than wet. Taste and adjust with a splash more vinegar or soy.", "settings": { "appliance": "stovetop", "time": "1–2 min", "timerSeconds": 60 } },
+    { "text": "Spoon into the lettuce cups. Finish with the spring onion greens, coriander and chilli." }
+  ],
+  "notes": [
+    { "title": "Restored", "text": "This card was in the August build and dropped out of later rebuilds. Restored unchanged from the August version." },
+    { "title": "Neutral oil", "text": "Rice bran is the default here. High smoke point, no flavour of its own. Extra virgin olive oil and sesame oil both burn at this heat." },
+    { "title": "Lettuce", "text": "Iceberg holds its shape best. Trim the cups with scissors so they sit flat." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

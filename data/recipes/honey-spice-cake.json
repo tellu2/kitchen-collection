@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "honey-spice-cake",
+  "title": "Honey Spice Cake",
+  "description": "A medieval-leaning honey cake made for a D&D session. Works in the Thermomix or the Ambiano mixer.",
+  "category": "Baking & Sweets",
+  "tags": ["baking", "cake", "vegetarian"],
+  "yield": { "qty": 8, "unit": "serves", "note": "Serves 8–10" },
+  "time": { "label": "~20 min prep + 40–45 min bake", "totalMinutes": 60 },
+  "appliances": ["oven"],
+  "source": { "name": "Built live" },
+  "confidence": { "level": "estimated", "note": "Built live." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "flour", "qty": 250, "unit": "g", "item": "plain flour" },
+        { "id": "honey", "qty": 200, "unit": "g", "item": "honey" },
+        { "id": "butter", "qty": 150, "unit": "g", "item": "butter", "prep": "softened" },
+        { "id": "sugar", "qty": 150, "unit": "g", "item": "brown sugar" },
+        { "id": "eggs", "qty": 3, "item": "eggs" },
+        { "id": "milk", "qty": 150, "unit": "g", "item": "milk" },
+        { "id": "orange", "qty": 1, "item": "orange", "prep": "zested" },
+        { "id": "ginger", "qty": 2, "unit": "tsp", "item": "ground ginger" },
+        { "id": "cinnamon", "qty": 1.5, "unit": "tsp", "item": "ground cinnamon" },
+        { "id": "cloves", "qty": null, "item": "ground cloves", "note": "To taste" },
+        { "id": "nutmeg", "qty": null, "item": "ground nutmeg", "note": "To taste" },
+        { "id": "baking-powder", "qty": null, "item": "baking powder", "note": "See note on amounts" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Preheat the oven to 170°C and line a cake tin.", "settings": { "appliance": "oven", "temp": "170°C" } },
+    { "text": "Cream the butter ({{butter}}) and brown sugar ({{sugar}}) until pale and light." },
+    { "text": "Beat in the eggs ({{eggs}}) one at a time, then the honey ({{honey}}), milk ({{milk}}) and orange zest ({{orange}} orange)." },
+    { "text": "Fold through the flour ({{flour}}), ginger ({{ginger}}), cinnamon ({{cinnamon}}), the other spices and the baking powder until just combined." },
+    { "text": "Bake 40–45 minutes, until a skewer comes out clean. If the centre is still liquid, tent with foil and give it more time rather than more heat.", "settings": { "appliance": "oven", "time": "40–45 min", "timerSeconds": 2400, "temp": "170°C" } },
+    { "text": "Cool in the tin before turning out." }
+  ],
+  "notes": [
+    { "title": "Amounts still open", "text": "Flour, honey, butter, sugar, eggs, milk, ginger and cinnamon are confirmed from the original session. The clove, nutmeg and baking powder amounts were not captured. Ask me to rebuild this card before you bake it again." },
+    { "title": "Whole cloves instead of ground", "text": "Grind them with the brown sugar, 20–30 sec / Speed 9. Repeat if any pieces survive." },
+    { "title": "Fresh ginger instead of ground", "text": "About 1 tbsp grated fresh per ¼ tsp ground, so 2–3 tbsp here. Grate very fine, or grind with the sugar." },
+    { "title": "If you forget the honey", "text": "Warm it with a splash of water or orange juice until pourable, skewer holes across the warm cake, and spoon it over." },
+    { "title": "Storage", "text": "Airtight at room temperature 3–4 days. Often better on day two." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

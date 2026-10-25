@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "high-protein-orzo-chicken-bake",
+  "title": "High Protein Orzo Chicken Bake",
+  "description": "One-dish baked orzo with chicken, chorizo and vegetables, finished with cream cheese stirred through after baking.",
+  "category": "Easy & Healthy",
+  "tags": ["chicken", "pasta", "one-pan", "meal-prep", "high-protein"],
+  "yield": { "qty": 5, "unit": "serves" },
+  "time": { "label": "~5 min prep + 50 min bake", "totalMinutes": 55 },
+  "appliances": ["oven"],
+  "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 203 (Simple High Protein Orzo Chicken Pasta). Rated 9/10." },
+  "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. The caption doesn't say how to cut the chicken or chorizo; bite-sized pieces are assumed. Not yet cooked and confirmed at home." },
+  "nutrition": { "basis": "per serve", "calories": 502, "protein": 40, "carbs": 42, "fat": 20, "note": "As stated by the source; not independently checked. Fibre figure not captured." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "orzo", "qty": 250, "unit": "g", "item": "orzo" },
+        { "id": "chicken", "qty": 500, "unit": "g", "item": "chicken breast" },
+        { "id": "chorizo", "qty": 100, "unit": "g", "item": "chorizo" },
+        { "id": "capsicums", "qty": 2, "item": "medium capsicums", "prep": "diced", "note": "Approx. 200g" },
+        { "id": "tomatoes", "qty": 200, "unit": "g", "item": "cherry tomatoes" },
+        { "id": "spinach", "qty": 100, "unit": "g", "item": "spinach" },
+        { "id": "paprika", "qty": 2, "unit": "tsp", "item": "paprika" },
+        { "id": "salt-pepper", "qty": null, "item": "salt and pepper", "note": "To taste" },
+        { "id": "stock", "qty": 500, "unit": "ml", "item": "chicken stock" },
+        { "id": "cream-cheese", "qty": 150, "unit": "g", "item": "cream cheese", "note": "Stirred in after baking" }
+      ]
+    }
+  ],
+  "steps": [
+    { "title": "Combine", "text": "Combine the orzo ({{orzo}}), chicken ({{chicken}}), chorizo ({{chorizo}}), capsicums ({{capsicums}}), cherry tomatoes ({{tomatoes}}), spinach ({{spinach}}), paprika ({{paprika}}), salt, pepper and stock ({{stock}}) in a baking dish and mix well. Keep the cream cheese aside.", "settings": { "appliance": "oven", "temp": "180°C" } },
+    { "title": "Bake", "text": "Cover and bake.", "settings": { "appliance": "oven", "time": "50 min", "timerSeconds": 3000, "temp": "180°C" } },
+    { "title": "Finish", "text": "Remove from the oven and stir through the cream cheese ({{cream-cheese}}) until smooth and creamy. Serve." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

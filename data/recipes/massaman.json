@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "massaman",
+  "title": "Massaman Beef Curry",
+  "description": "Hybrid method. Optional cast iron sear, then a long gentle braise in the bowl. Should read sweet and gently sour rather than hot.",
+  "category": "Asian",
+  "tags": ["beef", "curry", "braise"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~2 hr 15 min", "totalMinutes": 135 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Cross-checked against Thai and Thermomix sources" },
+  "confidence": { "level": "estimated", "note": "Cross-checked against Thai and Thermomix sources." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "beef", "qty": 700, "unit": "g", "item": "beef chuck or gravy beef", "prep": "4cm cubes" },
+        { "id": "potatoes", "qty": 400, "unit": "g", "item": "potatoes", "prep": "3–4cm chunks" },
+        { "id": "carrot", "qty": 150, "unit": "g", "item": "carrot", "prep": "3cm chunks", "optional": true, "note": "Not traditional" },
+        { "id": "shallots", "qty": 3, "item": "shallots", "prep": "halved", "note": "Or 1 brown onion cut into petals" },
+        { "id": "paste", "qty": 80, "qtyMax": 100, "unit": "g", "item": "massaman curry paste", "note": "Maesri or Mae Ploy" },
+        { "id": "coconut", "qty": 400, "unit": "ml", "item": "coconut cream", "note": "Or full fat coconut milk" },
+        { "id": "peanuts", "qty": 70, "unit": "g", "item": "roasted unsalted peanuts" },
+        { "id": "fish-sauce", "qty": 2, "unit": "tbsp", "item": "fish sauce" },
+        { "id": "tamarind", "qty": 1, "unit": "tbsp", "item": "tamarind paste", "note": "Or juice of 1 lime" },
+        { "id": "palm-sugar", "qty": 1, "qtyMax": 2, "unit": "tbsp", "item": "palm sugar" },
+        { "id": "cinnamon", "qty": 1, "item": "cinnamon stick" },
+        { "id": "cardamom", "qty": 4, "item": "cardamom pods", "prep": "bruised", "note": "Or ¼–½ tsp ground" },
+        { "id": "star-anise", "qty": 1, "item": "star anise" },
+        { "id": "cloves", "qty": 3, "item": "cloves" },
+        { "id": "bay", "qty": 2, "item": "bay leaves" },
+        { "id": "to-serve", "qty": null, "item": "jasmine rice, coriander and extra crushed peanuts", "note": "To serve" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Toast the spices. Cinnamon stick ({{cinnamon}}), cardamom ({{cardamom}} pods), star anise ({{star-anise}}) and cloves ({{cloves}}) into the dry bowl. Dry fry 5 min / 100°C / Speed 1, MC off. Tip out and wipe the bowl.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "100°C", "speed": "1" } },
+    { "text": "Sear the beef (optional). Pat the beef ({{beef}}) very dry and sear hard in the cast iron in batches, about 2 minutes a side. Do not crowd it. Skip this for the more traditional route; the paste and long braise carry the dish without it.", "settings": { "appliance": "stovetop", "time": "~2 min a side", "timerSeconds": 120 } },
+    { "text": "Shallots ({{shallots}}) into the bowl. Chop 3 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "5" } },
+    { "text": "Crack the paste. Add the curry paste ({{paste}}) and 2 tbsp of the thick cream from the top of the tin. Sauté 4 min / 120°C / Speed 1 until fragrant and the oil visibly separates. This is the step that makes the dish.", "settings": { "appliance": "thermomix", "time": "4 min", "timerSeconds": 240, "temp": "120°C", "speed": "1" } },
+    { "text": "Braise. Add the beef, the remaining coconut cream ({{coconut}} total), fish sauce ({{fish-sauce}}), tamarind ({{tamarind}}), palm sugar ({{palm-sugar}}), the toasted spices and bay leaves ({{bay}}). Cook 90 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid to vent steam.", "settings": { "appliance": "thermomix", "time": "90 min", "timerSeconds": 5400, "temp": "100°C", "speed": "Soft stir", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Add the vegetables. Potatoes ({{potatoes}}), carrot ({{carrot}}) and peanuts ({{peanuts}}). Cook 20 min / 100°C / Reverse / Soft stir, same lid setup. If the beef is still firm, extend before this step rather than after, or the potatoes collapse.", "settings": { "appliance": "thermomix", "time": "20 min", "timerSeconds": 1200, "temp": "100°C", "speed": "Soft stir", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Rest 10 minutes off heat, uncovered. Season now: fish sauce for salt, tamarind or lime for sourness, palm sugar for depth.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Serve over jasmine rice with coriander and crushed peanuts." }
+  ],
+  "notes": [
+    { "title": "No salt until the end", "text": "The paste and fish sauce are both high sodium. Taste at step 7 and adjust then." },
+    { "title": "Capacity", "text": "These amounts land near 1.9L, under the 2.2L line but not by much. Do not scale up." },
+    { "title": "Cut", "text": "Chuck or gravy beef only. Leaner cuts go dry over this braise time." },
+    { "title": "Cardamom substitute", "text": "¼–½ tsp ground stands in for 4 pods, added with the paste at step 4 rather than the start of the braise. A pinch each of cinnamon and clove also works." },
+    { "title": "Raw peanuts", "text": "Blanched raw peanuts in the braise are fine and have traditional precedent, they just soften. Roast a handful separately for the garnish to get the crunch back." }
+  ],
+  "pairings": ["sunomono"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

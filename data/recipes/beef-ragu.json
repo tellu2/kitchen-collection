@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "beef-ragu",
+  "title": "Thermomix Beef Chuck Ragù",
+  "description": "Slow-braised chuck with a single star anise for depth. Seared in cast iron, braised in the Thermomix. Better the next day.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["beef", "pasta", "braise"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~2 hr 15 min", "totalMinutes": 135 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Braise structure sourced, timing estimated" },
+  "confidence": { "level": "estimated", "note": "Braise structure sourced, timing estimated." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "beef", "qty": 800, "unit": "g", "item": "beef chuck", "prep": "cut into 4cm cubes" },
+        { "id": "oil", "qty": 2, "unit": "tbsp", "item": "olive oil" },
+        { "id": "onion", "qty": 1, "item": "brown onion", "prep": "quartered" },
+        { "id": "carrot", "qty": 1, "item": "carrot", "prep": "in pieces" },
+        { "id": "celery", "qty": 2, "item": "celery stalks", "prep": "in pieces" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "tomato-paste", "qty": 2, "unit": "tbsp", "item": "tomato paste" },
+        { "id": "wine", "qty": 125, "unit": "ml", "item": "dry red wine" },
+        { "id": "tomatoes", "qty": 400, "unit": "g", "item": "tinned diced tomatoes" },
+        { "id": "stock", "qty": 250, "unit": "ml", "item": "beef stock" },
+        { "id": "star-anise", "qty": 1, "item": "star anise" },
+        { "id": "bay", "qty": 1, "item": "bay leaf" },
+        { "id": "salt", "qty": 1, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.5, "unit": "tsp", "item": "black pepper" },
+        { "id": "pasta", "qty": 400, "unit": "g", "item": "pappardelle or rigatoni" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Pat the chuck ({{beef}}) completely dry and season with the salt ({{salt}}) and pepper ({{pepper}}). Sear in a hot cast iron pan with half the olive oil ({{oil*0.5}}), in two or three batches, until each side is properly dark. Do not crowd the pan. Set aside with any resting juices." },
+    { "text": "Onion ({{onion}}), carrot ({{carrot}}), celery ({{celery}} stalks) and garlic ({{garlic}} cloves) into the bowl. Chop 5 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "5 sec", "speed": "5" } },
+    { "text": "Add the remaining olive oil ({{oil*0.5}}). Sauté 5 min / 120°C / Speed 1, until softened and fragrant.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "120°C", "speed": "1" } },
+    { "text": "Add the tomato paste ({{tomato-paste}}). Cook 2 min / 120°C / Reverse / Speed 1 to take the raw edge off it.", "settings": { "appliance": "thermomix", "time": "2 min", "timerSeconds": 120, "temp": "120°C", "speed": "1", "reverse": true } },
+    { "text": "Pour the red wine ({{wine}}) into the hot cast iron and scrape up the fond, then tip it into the bowl. Cook 5 min / 120°C / Reverse / Speed 1, MC off, to reduce by about half.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "120°C", "speed": "1", "reverse": true } },
+    { "text": "Add the tomatoes ({{tomatoes}}), stock ({{stock}}), bay leaf ({{bay}}) and star anise ({{star-anise}}). Return the beef and its juices. Do not fill past the 2L mark." },
+    { "text": "Cook 90 min / 98°C / Reverse / Soft stir, MC on. On a TM6, Slow Cook mode for 90 minutes to 2 hours also works. Check at 80 minutes: the beef should give way under a fork.", "settings": { "appliance": "thermomix", "time": "90 min", "timerSeconds": 5400, "temp": "98°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Remove the star anise and bay leaf before you shred. Left in through the shredding, the anise stops being background and starts tasting like five spice." },
+    { "text": "Shred 5–10 sec / Reverse / Speed 3, checking as you go. If the sauce is loose, cook 10 min / Varoma / Reverse / Soft stir, MC off, to tighten it. Taste and adjust the salt.", "settings": { "appliance": "thermomix", "time": "5–10 sec", "speed": "3", "reverse": true } },
+    { "text": "Cook the pasta ({{pasta}}) a minute short of the packet time. Drain, reserving a cup of the water, and toss through the ragù with a splash of it until it clings." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "The braise structure and the single star anise are sourced (Blumenthal adds one to Hazan's method). The 90-minute timing is my estimate for 4cm chuck cubes, so check at 80 minutes. Not confirmed whether a TM5 accepts a single 90-minute timer; if it caps at 60, run it twice." },
+    { "title": "Capacity", "text": "Do not scale past 4 serves in the bowl. 800g of beef with the sauce is already close to the limit." },
+    { "title": "1kg of beef", "text": "Too much for one Thermomix batch. Sear in the cast iron and finish in a covered dish in the oven at 150°C for 2.5–3 hours, then freeze half the finished sauce. That version has not been written up as its own card yet." },
+    { "title": "How long is too long", "text": "Sweet spot is about 90 minutes to 2 hours in the Thermomix, 2.5–3 hours in the oven at 150°C. Past that the beef dries and the tomato goes flat, and in the Thermomix the blade turns the meat to paste. To go longer, use the oven at 130°C." },
+    { "title": "Frozen beef", "text": "Cold water thaw in a sealed bag, about 30 minutes per 500g, changing the water every 30 minutes. Pat very dry before searing; frozen or wet beef steams rather than browns." },
+    { "title": "Further upgrades, not on this card", "text": "Sourced options for next time: a parmesan rind in the simmering basket, 2–3 anchovies melted into the soffritto, a tablespoon of cold butter stirred through at the end, or a 50/50 split of shin and chuck." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

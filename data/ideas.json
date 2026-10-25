@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "description": "One-pot ideas to pair with naan or bread. Not yet written up as full recipes.",
+  "ideas": [
+    { "title": "Butter Chicken (Murgh Makhani)", "group": "Curry-style", "note": "The easiest, most crowd-pleasing pick." },
+    { "title": "Red Lentil Dal", "group": "Curry-style", "note": "Vegetarian; blends to a smooth restaurant-style texture." },
+    { "title": "Creamy Coconut Chicken Curry", "group": "Curry-style", "note": "Lighter than butter chicken but still saucy." },
+    { "title": "Moroccan Lamb Tagine", "group": "Braises & stews", "note": "Spiced lamb with dates and apricots; about 2 hours." },
+    { "title": "Shakshuka", "group": "Braises & stews", "note": "Eggs poached in a smoky spiced tomato sauce." },
+    { "title": "Beef & Red Wine Stew / Bourguignon", "group": "Braises & stews", "note": "Rich and slow; great for mopping up with bread." }
+  ]
+}

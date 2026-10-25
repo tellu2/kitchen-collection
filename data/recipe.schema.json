@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "recipe.schema.json",
+  "title": "Kitchen Collection recipe",
+  "description": "One recipe per file. Filename must equal id + .json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "category",
+    "yield",
+    "time",
+    "appliances",
+    "confidence",
+    "ingredientGroups",
+    "steps",
+    "version",
+    "updated"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "Asian",
+        "Mexican",
+        "Mediterranean & Middle Eastern",
+        "Fish & Seafood",
+        "Salads & Sides",
+        "Light Meals",
+        "Easy & Healthy",
+        "Baking & Sweets",
+        "Basics & Blends",
+        "Drafts to finish"
+      ],
+      "description": "Food type, not equipment. Order here is the display order."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "yield": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qty",
+        "unit"
+      ],
+      "properties": {
+        "qty": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "description": "e.g. serves, loaf, batch"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Display text, e.g. ~10 min prep + ~50 min bake"
+        },
+        "totalMinutes": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "For sorting and filtering"
+        }
+      }
+    },
+    "appliances": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/appliance"
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "note"
+      ],
+      "properties": {
+        "level": {
+          "enum": [
+            "tested",
+            "sourced",
+            "estimated",
+            "gated",
+            "guidance",
+            "draft"
+          ],
+          "description": "tested: cooked and confirmed; sourced: amounts from a named source; estimated: some amounts estimated or method gaps filled; gated: ingredients sourced, official method subscription-gated; guidance: built live during a cook; draft: incomplete"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "methodLabel": {
+      "type": "string",
+      "description": "Shown above the method, e.g. General method (not the official Cookidoo steps)"
+    },
+    "image": {
+      "type": "string",
+      "description": "Optional relative path or URL"
+    },
+    "ingredientGroups": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/ingredientGroup"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/note"
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Increment on every change"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "added": {
+      "type": "string",
+      "format": "date",
+      "description": "Date first added. Set only on recipes added after the migration; drives Recently added on Home"
+    },
+    "nutrition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basis"
+      ],
+      "description": "Nutrition as stated by the source; not independently checked",
+      "properties": {
+        "basis": {
+          "type": "string",
+          "description": "e.g. per serve, per 6 poppers"
+        },
+        "calories": {
+          "type": "number",
+          "minimum": 0
+        },
+        "protein": {
+          "type": "number",
+          "minimum": 0
+        },
+        "carbs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fat": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fibre": {
+          "type": "number",
+          "minimum": 0
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "pairings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "description": "ids of recipes actually cooked alongside this one"
+    }
+  },
+  "$defs": {
+    "appliance": {
+      "enum": [
+        "thermomix",
+        "air-fryer",
+        "oven",
+        "stovetop",
+        "none"
+      ]
+    },
+    "ingredientGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "items"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Omit for the main group; e.g. To serve, Dressing"
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        }
+      }
+    },
+    "ingredient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "item"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Unique within the recipe; referenced by {{id}} tokens in step text"
+        },
+        "qty": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "qtyMax": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Upper bound for ranges, e.g. 200-250g"
+        },
+        "unit": {
+          "enum": [
+            "g",
+            "kg",
+            "ml",
+            "L",
+            "tsp",
+            "tbsp",
+            "cup",
+            "pinch"
+          ],
+          "description": "Omit for counted items (2 eggs)"
+        },
+        "item": {
+          "type": "string"
+        },
+        "prep": {
+          "type": "string",
+          "description": "e.g. halved, finely shredded"
+        },
+        "note": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "recipeRef": {
+          "type": "string",
+          "description": "id of another recipe, rendered as a link"
+        },
+        "aisle": {
+          "type": "string",
+          "description": "Optional supermarket aisle for a future shopping list"
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Short header for cooking mode and timer label"
+        },
+        "text": {
+          "type": "string",
+          "description": "May contain {{ingredientId}} or {{ingredientId*0.5}} amount tokens"
+        },
+        "settings": {
+          "$ref": "#/$defs/settings"
+        }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "appliance"
+      ],
+      "properties": {
+        "appliance": {
+          "$ref": "#/$defs/appliance"
+        },
+        "time": {
+          "type": "string",
+          "description": "Display text, e.g. 10 sec, 18-20 min"
+        },
+        "timerSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Default for the tap-to-start timer"
+        },
+        "temp": {
+          "type": "string",
+          "description": "e.g. 120°C, Varoma"
+        },
+        "speed": {
+          "type": "string",
+          "description": "Thermomix speed, e.g. 1, 4, Spoon"
+        },
+        "reverse": {
+          "type": "boolean"
+        },
+        "accessory": {
+          "type": "string",
+          "description": "e.g. butterfly whisk, simmering basket"
+        }
+      }
+    },
+    "note": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "text"
+          ]
+        },
+        {
+          "required": [
+            "items"
+          ]
+        }
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "confidence": {
+            "properties": {
+              "level": {
+                "not": {
+                  "const": "draft"
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "ingredientGroups": {
+            "minItems": 1
+          },
+          "steps": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

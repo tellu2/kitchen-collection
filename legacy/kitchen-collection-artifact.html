@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14161a">
+<title>The Kitchen Collection</title>
+<!--PWA-HEAD-->
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --ink:#eceff2; --surface:#ffffff; --surface2:#f3f5f7; --line:#d3d9e0; --rule:#e3e7eb; --well:#e7ebef;
+  --text:#14181d; --muted:#5b6470; --on-c:#ffffff; --nav:rgba(255,255,255,.95);
+  --asian:#b4553e; --mex:#b06a12; --med:#a8402a; --fish:#2f73b0;
+  --salad:#557d2c; --light:#7354a3; --sweet:#a4700f; --basic:#3d7f72; --draft:#646d78;
+  --fl-tested:#2e6b37; --fl-sourced:#23665c; --fl-estimated:#8a5a00; --fl-gated:#2f4f7a; --fl-draft:#555d66; --fl-guidance:#6b3f8f;
+  --display: ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --body: Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --pad:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#14161a; --surface:#1b1e24; --surface2:#22262e; --line:#2e343d; --rule:#23272e; --well:#0f1115;
+    --text:#e9ebee; --muted:#98a1ac; --on-c:#12141a; --nav:rgba(18,20,25,.94);
+    --asian:#c9705a; --mex:#d99136; --med:#c4553a; --fish:#62a0d6;
+    --salad:#86b25b; --light:#9c7fc4; --sweet:#e5a845; --basic:#7fb3a8; --draft:#8a929c;
+    --fl-tested:#8fc98f; --fl-sourced:#8fc9bd; --fl-estimated:#e0b463; --fl-gated:#8ea6c9; --fl-draft:#a8b0ba; --fl-guidance:#c9a8e0;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#14161a; --surface:#1b1e24; --surface2:#22262e; --line:#2e343d; --rule:#23272e; --well:#0f1115;
+  --text:#e9ebee; --muted:#98a1ac; --on-c:#12141a; --nav:rgba(18,20,25,.94);
+  --asian:#c9705a; --mex:#d99136; --med:#c4553a; --fish:#62a0d6;
+  --salad:#86b25b; --light:#9c7fc4; --sweet:#e5a845; --basic:#7fb3a8; --draft:#8a929c;
+  --fl-tested:#8fc98f; --fl-sourced:#8fc9bd; --fl-estimated:#e0b463; --fl-gated:#8ea6c9; --fl-draft:#a8b0ba; --fl-guidance:#c9a8e0;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--ink);scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0 0 96px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%}
+.wrap{max-width:780px;margin:0 auto;padding:0 var(--pad)}
+
+.mast{padding:34px 0 22px;border-bottom:1px solid var(--line)}
+.mast .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.mast h1{font-family:var(--display);font-weight:800;letter-spacing:-.035em;font-size:clamp(34px,10vw,58px);
+  line-height:.92;margin:0;text-transform:uppercase}
+.mast h1 em{display:block;font-style:normal;color:var(--muted)}
+.mast .count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:14px;letter-spacing:.04em}
+
+.searchrow{display:flex;gap:10px;margin:18px 0 4px}
+.search{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 14px;
+  color:var(--text);font-family:var(--display);font-size:16px}
+.search::placeholder{color:var(--muted)}
+.search:focus{outline:2px solid var(--fish);outline-offset:1px}
+
+h2.sect{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+  margin:30px 0 12px;font-weight:400}
+.tiles{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:560px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);
+  border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;padding:16px;
+  transition:background .16s,transform .16s}
+.tile:hover,.tile:focus-visible{background:var(--surface2);transform:translateX(2px)}
+.tile:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.tile .glyph{width:34px;height:34px;flex:0 0 34px}
+.tile .glyph svg{width:100%;height:100%;display:block;border-radius:6px}
+.tile .tt{flex:1;min-width:0}
+.tile .tt b{display:block;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em}
+.tile .tt span{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+
+.list{display:grid;gap:10px}
+.card{display:flex;gap:14px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;transition:background .16s}
+.card:hover,.card:focus-visible{background:var(--surface2)}
+.card:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.card .thumb{width:96px;flex:0 0 96px;background:var(--well);overflow:hidden}
+.card .thumb svg,.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .cb{padding:13px 14px 13px 0;flex:1;min-width:0}
+.card .cb b{display:block;font-family:var(--display);font-weight:700;font-size:15.5px;letter-spacing:-.01em;margin-bottom:3px}
+.card .cb .m{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;line-height:1.5}
+.star{color:var(--sweet)}
+.newdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-left:6px;vertical-align:middle}
+
+.flag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 7px;border-radius:4px;border:1px solid color-mix(in srgb,currentColor 40%,transparent);
+  background:color-mix(in srgb,currentColor 11%,transparent)}
+.f-tested{color:var(--fl-tested)} .f-sourced{color:var(--fl-sourced)} .f-estimated{color:var(--fl-estimated)}
+.f-gated{color:var(--fl-gated)} .f-draft{color:var(--fl-draft)} .f-guidance{color:var(--fl-guidance)}
+
+.hero{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-top:6px;background:var(--well)}
+.hero img.art{display:block;width:100%;height:auto;aspect-ratio:5/3;object-fit:cover}
+.hero svg{display:block;width:100%;height:auto}
+.hero .photobtn{position:absolute;right:10px;bottom:10px;background:rgba(10,12,15,.78);color:#e9ebee;border:1px solid rgba(255,255,255,.18);
+  border-radius:8px;padding:8px 11px;font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+.hero .photobtn:hover{background:rgba(10,12,15,.95)}
+
+.rtitle{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.04;
+  font-size:clamp(27px,7.5vw,40px);margin:20px 0 8px}
+.rmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;color:var(--muted);margin-bottom:12px}
+.rtag{color:var(--muted);font-style:italic;margin:0 0 14px}
+.note{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:8px;
+  padding:12px 14px;margin:14px 0;font-size:14.5px}
+.note b{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;margin-bottom:2px}
+
+.blockhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:30px 0 4px;
+  padding-bottom:8px;border-bottom:1px solid var(--line)}
+.blockhead h3{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--c);
+  margin:0;font-weight:400}
+.blockhead .aside{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+
+ul.ing{list-style:none;margin:0;padding:0}
+ul.ing li{border-bottom:1px solid var(--rule)}
+ul.ing li.group{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);padding:16px 0 6px;border:0}
+ul.ing button{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:11px 2px}
+.box{flex:0 0 18px;width:18px;height:18px;margin-top:3px;border:1.5px solid var(--line);border-radius:4px;
+  display:grid;place-items:center;font-size:12px;color:var(--on-c);font-family:var(--display)}
+ul.ing .on .box{background:var(--c);border-color:var(--c)}
+ul.ing .on .txt{color:var(--muted);text-decoration:line-through}
+.conv{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+
+ol.steps{list-style:none;margin:0;padding:0}
+ol.steps li{border-bottom:1px solid var(--rule);padding-bottom:2px}
+ol.steps button.st{display:flex;gap:14px;align-items:flex-start;width:100%;text-align:left;padding:14px 2px 10px}
+ol.steps .n{flex:0 0 26px;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;
+  place-items:center;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
+ol.steps .on .n{background:var(--c);border-color:var(--c);color:var(--on-c)}
+ol.steps .on .txt{color:var(--muted)}
+.txt{flex:1;min-width:0}
+.tbtn{margin:0 0 12px 40px;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--c)}
+.tbtn:hover{background:var(--surface2)}
+.tbtn:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+
+code.set{font-family:var(--mono);font-size:12.5px;background:var(--well);border:1px solid var(--line);border-radius:5px;
+  padding:1px 6px;color:var(--c);white-space:nowrap}
+
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:11px 14px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.btn:hover{background:var(--surface2)}
+.btn.pri{background:var(--c);border-color:var(--c);color:var(--on-c);font-weight:700}
+.btn:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+
+.navbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--nav);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.navbar .inner{max-width:780px;margin:0 auto;display:flex}
+.navbar button{flex:1;padding:12px 4px 14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);border-top:2px solid transparent}
+.navbar button.on{color:var(--text);border-top-color:var(--fish)}
+.navbar .ic{display:block;font-size:16px;margin-bottom:3px;font-family:var(--display)}
+
+.timers{position:fixed;left:0;right:0;z-index:19;bottom:calc(62px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.timers .inner{max-width:780px;margin:0 auto;padding:0 var(--pad);display:grid;gap:6px}
+.trow{pointer-events:auto;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:9px 12px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.trow .tl{flex:1;min-width:0;font-family:var(--display);font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trow .tc{font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums}
+.trow.done{border-color:var(--fish);background:color-mix(in srgb,var(--fish) 16%,var(--surface))}
+.trow button{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding:4px 6px}
+
+.back{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  padding:16px 0 4px;display:inline-block}
+.back:hover{color:var(--text)}
+.empty{color:var(--muted);font-style:italic;padding:26px 0}
+.sync{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:6px}
+
+details.legend{margin:26px 0 0;border-top:1px solid var(--line);padding-top:16px}
+details.legend summary{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);cursor:pointer}
+details.legend div{font-size:14.5px;color:var(--muted);margin-top:12px}
+details.legend p{margin:8px 0}
+
+.aisle{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.shopitem{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:11px 2px;
+  border-bottom:1px solid var(--rule)}
+.shopitem.on .box{background:var(--salad);border-color:var(--salad)}
+.shopitem.on .txt{color:var(--muted);text-decoration:line-through}
+.shopitem .from{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;display:block;margin-top:2px}
+.shopitem .tot{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-left:6px;font-weight:400}
+.shopitem .amt{display:block;font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+.shopitem .amt .src{font-family:var(--mono);font-size:10px;letter-spacing:.06em}
+.shopitem.on .amt{text-decoration:line-through}
+.srcrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.srcrow .nm{font-size:15px;line-height:1.35}
+.srcrow .sub{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em;display:block;margin-top:2px}
+.srcrow .btn{padding:7px 11px;font-size:12px;flex:0 0 auto}
+.srcrow .btn.warn{border-color:var(--asian);color:var(--asian);font-weight:700}
+
+.rowbtn{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:8px}
+.rowbtn:hover{background:var(--surface2)}
+.rowbtn .sub{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em;display:block}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.pill{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.pill.on{background:var(--fish);border-color:var(--fish);color:var(--on-c);font-weight:700}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:40;
+  background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:11px 16px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:88vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+.serve{display:flex;align-items:center;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.serve .lab{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;background:var(--surface);overflow:hidden}
+.stepper button{width:46px;height:42px;font-family:var(--display);font-size:20px;color:var(--c)}
+.stepper button:disabled{opacity:.3;cursor:default}
+.stepper button:focus-visible{outline:2px solid var(--c);outline-offset:-2px}
+.stepper output{min-width:104px;text-align:center;font-family:var(--display);font-weight:700;font-size:15px}
+.linkbtn{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-decoration:underline;padding:6px 4px}
+.scalenote{font-size:14px;color:var(--muted);margin:8px 0 0;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:8px 13px;font-family:var(--display);font-size:14px}
+.chip:hover{background:var(--surface2)}
+.chip.on{background:var(--salad);border-color:var(--salad);color:var(--on-c);font-weight:600}
+.chip:focus-visible{outline:2px solid var(--salad);outline-offset:2px}
+.match{display:grid;gap:6px;margin-bottom:8px}
+.match .btn{justify-self:start;padding:8px 12px;font-size:10.5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app" class="wrap"></div>
+<div class="timers" id="timers"><div class="inner" id="timerlist"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<nav class="navbar"><div class="inner" id="nav"></div></nav>
+<input type="file" id="filepick" accept="image/*" style="display:none">
+
+<script>
+/* ============================================================
+   THE KITCHEN COLLECTION
+   Rebuilt 25 October 2026. Categories are by food type.
+   ============================================================ */
+
+const BUILD_DATE = '25 Oct 2026';
+
+const CATS = [
+  {id:'asian', name:'Asian',                           colour:'var(--asian)', hex:'#c9705a'},
+  {id:'mex',   name:'Mexican',                         colour:'var(--mex)',   hex:'#d99136'},
+  {id:'med',   name:'Mediterranean & Middle Eastern',  colour:'var(--med)',   hex:'#c4553a'},
+  {id:'fish',  name:'Fish & Seafood',                  colour:'var(--fish)',  hex:'#62a0d6'},
+  {id:'salad', name:'Salads & Sides',                  colour:'var(--salad)', hex:'#86b25b'},
+  {id:'light', name:'Light Meals',                     colour:'var(--light)', hex:'#9c7fc4'},
+  {id:'sweet', name:'Baking & Sweets',                 colour:'var(--sweet)', hex:'#e5a845'},
+  {id:'basic', name:'Basics & Blends',                 colour:'var(--basic)', hex:'#7fb3a8'},
+  {id:'draft', name:'Drafts to finish',                colour:'var(--draft)', hex:'#8a929c'}
+];
+
+const FLAGS = {
+  tested:{cls:'f-tested', label:'Tested'},
+  sourced:{cls:'f-sourced', label:'Source-verified'},
+  estimated:{cls:'f-estimated', label:'Estimated'},
+  gated:{cls:'f-gated', label:'Source method gated'},
+  guidance:{cls:'f-guidance', label:'Guidance-based'},
+  draft:{cls:'f-draft', label:'Draft'}
+};
+
+/* Added or restored since the 12 October build. */
+const NEW_IDS = ['tortilla-air-fryer','san-choy-bow','prawn-gnocchi'];
+
+const RECIPES = [
+
+/* ---------------- ASIAN ---------------- */
+{
+id:'massaman', cat:'asian', flag:'estimated',
+title:'Massaman Beef Curry',
+meta:'Serves 4 · ~2 hr 15 min · Cross-checked against Thai and Thermomix sources',
+tag:'Hybrid method. Optional cast iron sear, then a long gentle braise in the bowl. Should read sweet and gently sour rather than hot.',
+ing:[
+ '700g beef chuck or gravy beef, 4cm cubes',
+ '400g potatoes, 3–4cm chunks',
+ '150g carrot, 3cm chunks (optional, not traditional)',
+ '3 shallots, halved, or 1 brown onion cut into petals',
+ '80–100g massaman curry paste (Maesri or Mae Ploy)',
+ '400ml coconut cream, or full fat coconut milk',
+ '70g roasted unsalted peanuts',
+ '2 tbsp fish sauce',
+ '1 tbsp tamarind paste, or juice of 1 lime',
+ '1–2 tbsp palm sugar',
+ '1 cinnamon stick',
+ '4 cardamom pods, bruised (or ¼–½ tsp ground)',
+ '1 star anise',
+ '3 cloves',
+ '2 bay leaves',
+ 'Jasmine rice, coriander and extra crushed peanuts, to serve'],
+steps:[
+ 'Toast the spices. Cinnamon stick (1), cardamom (4 pods), star anise (1) and cloves (3) into the dry bowl. Dry fry 5 min / 100°C / Speed 1, MC off. Tip out and wipe the bowl.',
+ 'Sear the beef (optional). Pat the beef (700g) very dry and sear hard in the cast iron in batches, about 2 minutes a side. Do not crowd it. Skip this for the more traditional route; the paste and long braise carry the dish without it.',
+ 'Shallots (3) into the bowl. Chop 3 sec / Speed 5. Scrape down.',
+ 'Crack the paste. Add the curry paste (80–100g) and 2 tbsp of the thick cream from the top of the tin. Sauté 4 min / 120°C / Speed 1 until fragrant and the oil visibly separates. This is the step that makes the dish.',
+ 'Braise. Add the beef, the remaining coconut cream (400ml total), fish sauce (2 tbsp), tamarind (1 tbsp), palm sugar (1–2 tbsp), the toasted spices and bay leaves (2). Cook 90 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid to vent steam.',
+ 'Add the vegetables. Potatoes (400g), carrot (150g) and peanuts (70g). Cook 20 min / 100°C / Reverse / Soft stir, same lid setup. If the beef is still firm, extend before this step rather than after, or the potatoes collapse.',
+ 'Rest 10 minutes off heat, uncovered. Season now: fish sauce for salt, tamarind or lime for sourness, palm sugar for depth.',
+ 'Serve over jasmine rice with coriander and crushed peanuts.'],
+notes:[
+ {b:'No salt until the end',t:'The paste and fish sauce are both high sodium. Taste at step 7 and adjust then.'},
+ {b:'Capacity',t:'These amounts land near 1.9L, under the 2.2L line but not by much. Do not scale up.'},
+ {b:'Cut',t:'Chuck or gravy beef only. Leaner cuts go dry over this braise time.'},
+ {b:'Cardamom substitute',t:'¼–½ tsp ground stands in for 4 pods, added with the paste at step 4 rather than the start of the braise. A pinch each of cinnamon and clove also works.'},
+ {b:'Raw peanuts',t:'Blanched raw peanuts in the braise are fine and have traditional precedent, they just soften. Roast a handful separately for the garnish to get the crunch back.'}]
+},
+{
+id:'sesame-noodles', cat:'asian', flag:'estimated',
+title:'Sesame Chicken Noodles with Bok Choy & Greens',
+meta:'Serves 2–3 · ~30 min · Built from technique',
+tag:'Salt held right back, since soy and oyster sauce carry it. Taste at the very end.',
+ing:[
+ '## Sauce and base',
+ '2 chicken breasts (~500g), cut into 2–3cm chunks','3 garlic cloves','2–3cm ginger, peeled',
+ '20g neutral oil, rice bran (not sesame, it burns)','60ml soy sauce','1 tbsp oyster sauce',
+ '1 tbsp honey','1 tbsp rice wine vinegar','150ml water','1–2 tsp cornflour, slurried with a splash of water',
+ '## Veg and finish',
+ '150g mushrooms, sliced','1 carrot, matchsticks or thin half-moons','1 capsicum, sliced into strips',
+ '~150g green beans, trimmed and halved','2 heads bok choy, stems and leaves separated',
+ '200g noodles (egg, udon, whatever you have)','1 tbsp sesame oil',
+ 'Sesame seeds, sliced spring onion, chilli flakes to finish'],
+steps:[
+ 'Cook the noodles (200g) separately to packet, drain, and toss with a drop of oil so they do not clump.',
+ 'Garlic (3 cloves) and ginger (2–3cm) into the bowl. Chop 3 sec / Speed 7. Scrape down.',
+ 'Add the neutral oil (20g) and mushrooms (150g). Sauté 3 min / 120°C / Reverse / Soft stir, letting them brown so they do not water down the sauce.',
+ 'Add the soy (60ml), oyster sauce (1 tbsp), honey (1 tbsp), vinegar (1 tbsp) and water (150ml). Add the chicken. Cook 8 min / 100°C / Reverse / Soft stir. Check a piece at 7 minutes, breast overcooks fast. Lift the chicken out and set aside.',
+ 'Into the sauce: green beans (150g) and carrot, 4 min / 100°C / Reverse / Soft stir. Add the bok choy stems and capsicum, 2 min. Add the leaves, 1 min, just to wilt.',
+ 'Stir the cornflour slurry (1–2 tsp) through, 1 min / 90°C / Reverse / Soft stir, to thicken to a glaze.',
+ 'Return the chicken, add the drained noodles and sesame oil (1 tbsp). Toss 1–2 min / Reverse / Soft stir, or tip into a big bowl and toss by hand to avoid breaking the noodles.',
+ 'Finish with sesame seeds, spring onion and chilli. Adjust with a splash more soy or vinegar.'],
+notes:[
+ {b:'Doneness',t:'Chicken breast wants 74°C in the thickest piece. Check it rather than relying on the 8-minute timing alone.'},
+ {b:'Watch-point',t:'That is a lot of veg, so do not overfill the bowl. Pulling the chicken out buys room. The slurry is what gets you a glaze instead of a soup.'},
+ {b:'Slurry',t:'Mix the cornflour with cold water first, then add it to the hot liquid. Straight in, it clumps.'}]
+},
+{
+id:'gochujang-chicken', cat:'asian', flag:'estimated',
+title:'Air Fryer Gochujang Chicken',
+meta:'Serves 4 · ~30 min · Built from technique',
+tag:'Sticky, spicy-sweet. Sauce made in the Thermomix, char and glaze finished in the air fryer.',
+ing:[
+ '600g chicken breast fillets','3 tbsp gochujang (Korean chilli paste)','2 tbsp soy sauce','2 tbsp honey',
+ '1 tbsp sesame oil','3 garlic cloves','1 tsp ginger, grated','1 tbsp rice wine vinegar',
+ '1 tbsp sesame seeds, to serve','2 spring onions, sliced, to serve'],
+steps:[
+ 'Add the gochujang (3 tbsp), soy (2 tbsp), honey (2 tbsp), sesame oil (1 tbsp), garlic (3 cloves), ginger (1 tsp) and vinegar (1 tbsp) to the bowl. Blitz 10 sec / Speed 4 until smooth. Set aside half for glazing.',
+ 'Coat the chicken (600g) in the remaining half. Let it sit at least 10 minutes if you have time.',
+ 'Air fry at 190°C for 6 minutes. Flip, brush with the reserved sauce, and cook a further 6–8 minutes until caramelised at the edges.',
+ 'Check the thickest part reads 74°C. If it is not quite there, give it another 2–3 minutes rather than guessing by time.',
+ 'Rest 5 minutes, then slice. Scatter with sesame seeds (1 tbsp) and spring onion (2).'],
+notes:[
+ {b:'No Thermomix',t:'Whisk the sauce by hand. Mince the garlic finely and grate the ginger so they blend smoothly. A splash of water loosens lumpy gochujang.'},
+ {b:'Salt',t:'None added. Soy and gochujang carry plenty.'},
+ {b:'To serve',t:'Over rice with the Korean cucumber salad on the side, or shredded into lettuce cups.'}]
+},
+{
+id:'san-choy-bow', cat:'asian', flag:'guidance',
+title:'Chicken Mince San Choy Bow',
+meta:'Serves 2 · ~15 min · Built from technique',
+tag:'Fast pan-fried chicken mince in lettuce cups. The Thermomix chops the aromatics, but the mince needs the pan so it browns rather than steams.',
+ing:[
+ '500g chicken mince','1 tbsp neutral oil (rice bran)','3 garlic cloves, minced','2 tsp fresh ginger, grated',
+ '3 spring onions, sliced, whites and greens separated',
+ '1 carrot, finely diced, or a small tin of water chestnuts, chopped',
+ '2 tbsp oyster sauce','1 tbsp soy sauce','1 tsp sesame oil','2 tsp rice wine vinegar or lime juice',
+ '1 iceberg lettuce, leaves separated into cups','Coriander and sliced red chilli, to serve'],
+steps:[
+ 'Mince the garlic (3 cloves), ginger (2 tsp) and the white parts of the spring onion. In the Thermomix, 3 sec / Speed 5 does this in one go. Dice the carrot by hand so it stays chunky rather than turning to pulp.',
+ 'Stir the oyster sauce (2 tbsp), soy (1 tbsp), sesame oil (1 tsp) and vinegar (2 tsp) together in a small bowl. No added salt, the oyster and soy carry plenty.',
+ 'Heat the oil (1 tbsp) in the cast iron over high heat until shimmering. Add the mince (500g) and press it flat. Leave it alone for 3 minutes to build a crust, then break it up and cook until no pink remains and the liquid has gone.',
+ 'Push the mince aside, add the garlic, ginger and spring onion whites to the bare pan for 30 seconds until fragrant, then stir through with the carrot.',
+ 'Pour in the sauce and toss 1–2 minutes until it coats the mince and looks glossy rather than wet. Taste and adjust with a splash more vinegar or soy.',
+ 'Spoon into the lettuce cups. Finish with the spring onion greens, coriander and chilli.'],
+notes:[
+ {b:'Restored',t:'This card was in the August build and dropped out of later rebuilds. Restored unchanged from the August version.'},
+ {b:'Neutral oil',t:'Rice bran is the default here. High smoke point, no flavour of its own. Extra virgin olive oil and sesame oil both burn at this heat.'},
+ {b:'Lettuce',t:'Iceberg holds its shape best. Trim the cups with scissors so they sit flat.'}]
+},
+{
+id:'pork-gyoza', cat:'asian', flag:'estimated',
+title:'Thermomix Pork Gyoza',
+meta:'Makes ~30 · ~1 hr including chill · Built from technique',
+tag:'Pork and wombok filling made in the Thermomix, bought wrappers, pan-fried for a crisp base then steamed lid-on.',
+ing:[
+ '400g pork mince (regular, not extra-lean, around 15–20% fat)',
+ '200g wombok or green cabbage, finely shredded','3 spring onions','3 garlic cloves',
+ 'Small knob of fresh ginger','30 round gyoza wrappers','Soy sauce','Sesame oil','Mirin or rice wine',
+ 'Caster sugar','White pepper','Salt, for the cabbage','Rice bran oil, for frying'],
+steps:[
+ 'Salt the shredded cabbage (200g), rest 10 minutes, then squeeze it dry in the nut milk bag. Wet cabbage is the main cause of soggy filling.',
+ 'Chop the spring onion (3), garlic (3 cloves) and ginger in the bowl, then add the mince (400g), squeezed cabbage and seasonings. Mix 20 sec / Reverse / Speed 3 so it stays textured rather than pasted.',
+ 'Chill the filling 20 minutes. Bought mince is looser than freshly minced shoulder, so do not skip this.',
+ 'Wrap: a teaspoon of filling per wrapper (30), wet the rim, pleat and press to seal.',
+ 'Heat the cast iron properly before the oil goes in, then fry the bases until golden, in batches so they are not crowded.',
+ 'Add a splash of water, cover, and steam 5–6 minutes.',
+ 'Uncover and let the base re-crisp before lifting them out.'],
+notes:[
+ {b:'Seasoning amounts still open',t:'The soy, sesame oil, mirin, sugar and white pepper quantities were never captured. Ask me to set them properly before the next batch.'},
+ {b:'No lid for the cast iron',t:'A baking tray, a dinner plate or foil over the top all work for the steam step.'},
+ {b:'Wrappers',t:'Round gyoza wrappers rather than square wonton skins. Most are sold frozen and want an hour in the fridge to thaw, otherwise they tear.'},
+ {b:'Freezing',t:'Freeze them shaped, flat on a tray, then bag them. Cook from frozen adding about 2 minutes to the steam step. Do not freeze the loose raw filling.'},
+ {b:'Air fryer',t:'190°C for 8–10 minutes with a light oil spray. All-over crunch rather than a crisp base.'}]
+},
+
+/* ---------------- MEXICAN ---------------- */
+{
+id:'mexican-beef', cat:'mex', flag:'estimated',
+title:'Thermomix Mexican Beef Bowls',
+meta:'Serves 4 · under 40 min · Thermobliss',
+tag:'The steps are from Thermobliss. Beef, stock and tomato paste amounts were estimated for a 4-serve batch, so confirm at the source.',
+ing:[
+ '600g beef rump steak, cut into large chunks','2 tsp paprika','1 tsp ground cumin',
+ '½ tsp chilli powder (optional)','1 red onion, quartered','20g olive oil','2 tsp minced garlic',
+ '500ml liquid beef stock','2 tbsp tomato paste',
+ 'To serve: Mexican rice, baby spinach, avocado, cucumber, cherry tomatoes, grated cheese, corn chips, sour cream'],
+steps:[
+ 'Toss the beef (600g) in the paprika (2 tsp), cumin (1 tsp) and chilli (½ tsp, if using) until well coated.',
+ 'Add the red onion (1) to the bowl. Chop 3 sec / Speed 5. Scrape down.',
+ 'Add the olive oil (20g) and garlic (2 tsp). Sauté 3 min / Varoma / Speed 1.',
+ 'Add the stock (500ml). Place the spiced beef in the simmering basket, insert into the bowl, and cook 25 min / Varoma / Speed 1.',
+ 'Remove the basket and set the beef aside. Discard about three-quarters of the liquid.',
+ 'Return the beef to the bowl with the tomato paste (2 tbsp). Shred 10 sec / Reverse / Speed 4. Check the seasoning.',
+ 'Serve over Mexican rice and build each bowl with the toppings.'],
+notes:[{b:'Tip',t:'Omit the chilli for kids. The shredded beef is also good in tacos, burritos or baked potatoes.'}]
+},
+{
+id:'shredded-tacos', cat:'mex', flag:'estimated',
+title:'Loaded Shredded Chicken Tacos',
+meta:'Serves 4–6 · ~35 min · Built from technique',
+tag:'Saucy shredded chicken with capsicum, beans, corn and a smoky, mole-ish edge. Spoon straight into tacos.',
+ing:[
+ '600g chicken thigh fillets (or breast, see note)','1 brown onion, halved','3 garlic cloves',
+ '1 red capsicum, in chunks','15g olive oil','1¼ tsp chilli powder','1¼ tsp ground cumin',
+ '1¼ tsp smoked paprika','¾ tsp garlic powder','¾ tsp onion powder','¾ tsp dried oregano',
+ '¼ tsp black pepper','1 pinch ground cinnamon','2 tbsp tomato paste','400g canned diced tomatoes',
+ '1 chipotle chilli in adobo, finely chopped, plus 1 tsp adobo sauce','1 tsp brown sugar',
+ '½ tsp cocoa powder (or a small square of dark chocolate)','1 bay leaf','60ml water',
+ '400g canned black beans, drained','150g corn kernels','1 lime, juiced','2 tbsp fresh coriander, chopped'],
+steps:[
+ 'Add the onion (1), garlic (3 cloves) and capsicum (1) to the bowl. Chop 4 sec / Speed 5. Scrape down.',
+ 'Add the olive oil (15g). Sauté 3 min / 120°C / Speed 1.',
+ 'Add the chicken (600g), then all the spices, the tomato paste (2 tbsp), diced tomatoes (400g), chipotle and adobo, brown sugar (1 tsp), cocoa (½ tsp), bay leaf and water (60ml). Cook 20 min / 100°C / Reverse / Soft stir, until tender.',
+ 'Remove the bay leaf. Shred 8 sec / Reverse / Speed 4, leaving the sauce in so the chicken stays moist.',
+ 'Add the black beans (400g) and corn (150g). Cook 3 min / 90°C / Reverse / Speed 1, just to warm through.',
+ 'Stir through the lime juice and coriander (2 tbsp). Taste, adjust, and spoon into warm tortillas.'],
+notes:[
+ {b:'Salt',t:'Held back deliberately. Chipotle, adobo, tomatoes and beans all carry salt. Taste after shredding and adjust then.'},
+ {b:'Chicken breast',t:'Works well since it braises in the sauce and shreds cleanly. Cut into 3–4cm chunks, check at 15 minutes, and pull it as soon as it shreds easily.'},
+ {b:'If it is too loose',t:'After shredding, cook a couple of minutes at 100°C / Reverse / Speed 1 with the MC off to let steam escape.'},
+ {b:'To serve',t:'Warm tortillas with avocado, grated cheese, shredded lettuce or cabbage, sour cream and extra lime.'}]
+},
+
+/* ---------------- MEDITERRANEAN & MIDDLE EASTERN ---------------- */
+{
+id:'sumac-traybake', cat:'med', flag:'estimated',
+title:'Sumac Chicken Traybake with Tahini Yoghurt',
+meta:'Serves 2 · ~55 min · Own recipe, first draft',
+tag:'Spiced chicken roasted on one tray with potatoes, carrot, broccoli and asparagus, finished with a lemony tahini yoghurt. Untested, so report back and I will adjust the timings.',
+ing:[
+ '2 chicken breasts (approx. 400g total)','400g potatoes, cut into 3cm chunks','1 large carrot, cut into 1cm coins',
+ '250g broccoli florets','1 bunch asparagus, woody ends snapped off','3 tbsp olive oil',
+ '2 tsp sumac, plus extra to finish','1 tsp ground cumin','1 tsp smoked paprika','2 garlic cloves, minced',
+ '1 tsp salt','¼ tsp black pepper','1 lemon, zested and juiced','120g Greek yoghurt','2 tbsp tahini',
+ '2 tbsp fresh parsley, chopped'],
+steps:[
+ 'Preheat the oven to 220°C (200°C fan-forced) and line a large tray with baking paper.',
+ 'Butterfly or slice the chicken (2 breasts) to an even 2cm thickness. Mix 1 tsp of the sumac, the cumin (1 tsp), smoked paprika (1 tsp), half the garlic (1 clove), the lemon zest, 1 tbsp of the olive oil and ½ tsp of the salt. Coat the chicken and set aside.',
+ 'Toss the potatoes (400g) and carrot (1) with 1 tbsp olive oil, the remaining salt (½ tsp) and the pepper (¼ tsp). Spread in a single layer and roast 20 minutes.',
+ 'Toss the broccoli (250g) in the last 1 tbsp olive oil and add to the tray. Push the veg aside and lay the chicken flat in the gaps. Roast 15 minutes.',
+ 'Add the asparagus (1 bunch) and roast a further 8–10 minutes, until the chicken reaches 75°C in the thickest part and the potatoes are golden.',
+ 'Rest the chicken 5 minutes. Meanwhile whisk the yoghurt (120g), tahini (2 tbsp), the remaining garlic, juice of half the lemon and a pinch of salt, loosening with a splash of water until drizzly.',
+ 'Slice the chicken and plate with the veg. Drizzle with the tahini yoghurt, then finish with the remaining sumac (approx. 1 tsp), the parsley (2 tbsp) and the other lemon half cut into wedges.'],
+notes:[
+ {b:'Confidence',t:'Amounts and timings are estimates. The 75°C internal temperature is the standard Australian poultry guideline. Watch the chicken at the 20-minute mark after it goes in.'},
+ {b:'Crowding',t:'The main risk. If the tray is full, use two trays so the veg roasts rather than steams.'},
+ {b:'Air fryer',t:'Works for a half batch on the usual staged method: potatoes and carrot at 200°C first, chicken later at 180°C.'},
+ {b:'Tahini',t:'Shelved in either the spreads or the health food aisle, so check both.'}]
+},
+{
+id:'souvlaki', cat:'med', flag:'estimated',
+title:'Air Fryer Chicken Souvlaki Wraps',
+meta:'Serves 4 · ~45 min, mostly hands-off · Built from technique',
+tag:'Lemon, garlic and oregano chicken thigh with homemade tzatziki on warm flatbread. The tzatziki comes together while the chicken marinates.',
+ing:[
+ '## Chicken',
+ '800g chicken thigh fillets, cut into 3cm pieces','2 tbsp olive oil','2 tbsp lemon juice, for the marinade',
+ '3 garlic cloves, crushed, for the marinade','2 tsp dried oregano','1 tsp salt','½ tsp black pepper, freshly ground',
+ '## Tzatziki',
+ '250g Greek yoghurt','1 Lebanese cucumber','1 garlic clove, crushed, extra','1 tbsp lemon juice, extra',
+ '1 tbsp dill or mint, finely chopped',
+ '## To build',
+ '4 pita or Greek-style flatbreads','2 tomatoes, deseeded and sliced','½ red onion, thinly sliced','2 cups cos lettuce, shredded'],
+steps:[
+ 'Combine the chicken (800g) with the olive oil (2 tbsp), lemon juice (2 tbsp), garlic (3 cloves), oregano (2 tsp), salt (1 tsp) and pepper (½ tsp). Toss well. Twenty minutes at room temperature is enough; a few hours in the fridge is better.',
+ 'Coarsely grate the cucumber (1), then squeeze it hard in the nut milk bag or a clean tea towel. Stir into the yoghurt (250g) with the garlic (1 clove), lemon juice (1 tbsp), dill or mint (1 tbsp) and a good pinch of salt. Refrigerate until serving.',
+ 'Slice the tomatoes (2) and red onion (½), and shred the lettuce (2 cups). Soak the onion in cold water for 5 minutes if you want it milder, then drain.',
+ 'Spread the chicken in a single layer in the basket, in two batches if needed. Air fry at 200°C for 12–14 minutes, shaking at the halfway point. You want charred edges, not just cooked through.',
+ 'Warm the flatbreads (4) for 30–60 seconds in the air fryer at the end, or over a gas flame for a few seconds a side.',
+ 'Spread tzatziki down each flatbread, add lettuce, tomato and onion, then the hot chicken. Roll tightly and wrap the base in foil or baking paper to hold it together.'],
+notes:[
+ {b:'Confidence',t:'The marinade and tzatziki are standard Greek proportions. The air fryer timing is a starting point, so check the chicken at 12 minutes.'},
+ {b:'Crowding',t:'A full basket steams the chicken instead of charring it. Two batches is worth the extra five minutes.'},
+ {b:'Chicken breast',t:'Butterfly each fillet into two flat pieces rather than cubing. 190°C for 10–12 minutes, pulled at 75°C internal, then rest 5 minutes and slice. Cap the lemon marinade at one hour or the outside goes chalky.'},
+ {b:'Yoghurt in the marinade',t:'Stir 2 tbsp of the Greek yoghurt into the marinade. It tenderises without the acid texture penalty and helps the char.'},
+ {b:'One-basket dinner',t:'Halved chat potatoes in oil, salt and oregano at 200°C for 15 minutes. Push aside, add the marinated chicken with capsicum, red onion wedges and zucchini chunks, and cook a further 12–14 minutes at 200°C, shaking halfway. Rest 5 minutes and finish with lemon, feta and parsley.'},
+ {b:'No air fryer',t:'Cast iron over high heat, 6–8 minutes turning once, in two batches.'},
+ {b:'Storage',t:'Raw in the marinade 2 days in the fridge, or freeze it in the marinade. Cooked, 3 days; reheat in the air fryer at 160°C for 4 minutes.'}]
+},
+{
+id:'greek-beef-bowls', cat:'med', flag:'estimated',
+title:'Greek-Style Seared Beef Rice Bowls',
+meta:'Serves 2 · ~45 min · Built from technique',
+tag:'Thin-sliced chuck seared hard with oregano and paprika, over lemon rice from the Thermomix basket, with a Greek salad and garlic yoghurt.',
+ing:[
+ '## Beef',
+ '400g chuck beef, in one piece','2 garlic cloves, minced','1 tsp dried oregano','1 tsp smoked paprika',
+ '20g olive oil, for searing','½ tsp salt','¼ tsp black pepper','1 lemon, halved',
+ '## Lemon rice',
+ '200g long grain rice','600g chicken or vegetable stock','1 bay leaf',
+ '## Salad and yoghurt',
+ '1 Lebanese cucumber, diced','2 tomatoes, deseeded and diced','¼ red onion, finely sliced','½ red capsicum, diced',
+ '60g Kalamata olives','100g fetta, crumbled','20g olive oil, for dressing','15ml red wine vinegar',
+ '½ tsp dried oregano, extra','100g Greek yoghurt','1 garlic clove, crushed, extra'],
+steps:[
+ 'Firm the chuck (400g) in the freezer for 15–20 minutes. Optional, but it makes thin slicing much easier.',
+ 'Deseed and dice the tomatoes (2), toss with a pinch of salt and leave to drain in a sieve for 10 minutes. This stops the salad flooding the rice.',
+ 'Look at the grain before cutting; chuck often changes direction partway through. Cut into two or three sections along those lines, then slice each thinly against its own grain, 3–5mm.',
+ 'Toss the beef with the garlic (2 cloves), oregano (1 tsp), smoked paprika (1 tsp), salt (½ tsp), pepper (¼ tsp) and about half the olive oil (10g). Leave while the rice cooks.',
+ 'Rinse the rice (200g) and put it in the simmering basket. Add the stock (600g), bay leaf (1) and a wide strip of lemon zest to the bowl. Insert the basket and cook 16 min / Varoma / Speed 4. Add 2 minutes if needed.',
+ 'Combine the drained tomatoes with the cucumber (1), red onion (¼), capsicum (½) and olives (60g). Dress with the olive oil (20g), red wine vinegar (15ml) and oregano (½ tsp). Scatter the fetta (100g) over rather than tossing it through.',
+ 'Stir the yoghurt (100g) with the garlic (1 clove), a squeeze of lemon and a pinch of salt. Thin with a little water to a spoonable consistency.',
+ 'Get the cast iron very hot with the remaining olive oil (10g). Sear the beef in two batches, 60–90 seconds each, tossing once. Do not crowd the pan. Squeeze the remaining lemon over off the heat.',
+ 'Fluff the rice into bowls. Spoon over the garlic yoghurt, then the beef and pan juices, with the salad alongside or piled on top.'],
+notes:[
+ {b:'Order of work',t:'Get the tomatoes salting and the beef in the freezer first, then everything else fits around the rice. Sear the beef last; it goes from good to grey quickly if it sits.'},
+ {b:'Salt',t:'The stock carries salt, so hold back in the rice and season at the end.'},
+ {b:'If the beef is chewy',t:'Next time toss the slices with 1 tsp bicarb soda, rest 20 minutes, then rinse well and pat dry before marinating.'}]
+},
+{
+id:'riojana', cat:'med', flag:'estimated',
+title:'Patatas a la Riojana',
+meta:'Serves 4 · ~60 min · Corrected against Spanish-language sources',
+tag:'The traditional build: water rather than stock, no tomato, and the potatoes fried in the rendered chorizo fat before any liquid goes in.',
+ing:[
+ '800g potatoes, torn into 3cm pieces','250g cooking chorizo, 1cm slices','1 green capsicum, in pieces',
+ '3 shallots, halved','3 garlic cloves','20g olive oil','1 tsp sweet smoked paprika, plus a pinch of hot',
+ '100ml dry white wine (optional but worth it)','500–600ml water, or 300ml stock topped up with water',
+ '2 bay leaves','Salt, to finish','Crusty bread, to serve'],
+steps:[
+ 'Tear the potatoes (800g) rather than cutting them. Push the knife in about 1.5cm, then twist and break the piece off. The ragged starchy faces are what thicken the broth.',
+ 'Shallots (3), garlic (3 cloves) and capsicum (1) into the bowl. Chop 4 sec / Speed 5. Scrape down.',
+ 'Add the olive oil (20g). Sauté 5 min / 120°C / Reverse / Soft stir until soft, without colouring.',
+ 'Add the chorizo (250g). Cook 3 min / 120°C / Reverse / Soft stir until the fat runs orange.',
+ 'Add the potatoes and cook 10 min / 120°C / Reverse / Soft stir so they coat in the fat and start to catch. Most of the flavour comes from this step.',
+ 'Add the wine (100ml) and reduce 3 min / Varoma / Reverse / Soft stir, MC off.',
+ 'Add the paprika (1 tsp sweet plus a pinch of hot), bay leaves (2) and water (500–600ml). Cook 30 min / 100°C / Reverse / Soft stir, MC off with the basket on the lid, until the potatoes give to a knife but hold their shape.',
+ 'Rest 10 minutes uncovered so the broth thickens. Taste for salt last.'],
+notes:[
+ {b:'Water, not stock',t:'The traditional approach. The chorizo does the seasoning, and 250g of it plus a salty stock would be aggressive.'},
+ {b:'Capacity',t:'This lands close to 2.0L. If it looks high at step 7, hold back 100ml of the water and add it midway.'},
+ {b:'Thickening',t:'If it stays thin, mash 2–3 potato pieces back through. Cornflour slurry is texturally wrong for this style.'},
+ {b:'Tomato variation',t:'Tomato is not part of the classic. To use fresh ones up, deseed, salt and drain them 15 minutes, then add two chopped at step 7. That is the July version of this recipe, which also used tomato paste and 300ml stock.'},
+ {b:'Speed setting',t:'Reverse / Soft stir from step 3 onward. Speed 1 is only justified for short early steps to stop catching.'},
+ {b:'Choricero',t:'Choricero pepper paste is the authentic regional ingredient. Hard to find here, so smoked paprika plus green capsicum is the reasonable substitute.'}]
+},
+{
+id:'tortilla-air-fryer', cat:'med', flag:'estimated',
+title:'Air Fryer Tortilla de Patatas',
+meta:'Serves 2 · ~45 min · Spanish source, air fryer timings sourced',
+tag:'One small Spanish tortilla with no flipping. A side for salmon, or a light dinner with a salad. Not yet cooked, so report back and I will adjust the timings.',
+ing:[
+ '500g potatoes, peeled and sliced medium-thin',
+ '75g eschalots (approx. 2) or brown onion (approx. ½), thinly sliced',
+ '1½ tbsp extra virgin olive oil, plus extra to grease the tin',
+ '½ tsp salt (estimate, adjust to taste)',
+ '4 eggs'],
+steps:[
+ 'Toss the potatoes (500g) with most of the olive oil (1½ tbsp) and most of the salt (½ tsp).',
+ 'Air fry the potatoes directly in the basket at 180°C for 9 minutes, shaking halfway.',
+ 'Toss the eschalots or onion (75g) in the remaining oil, add to the basket, shake, and cook a further 8 minutes, until the potatoes are tender and the onion is soft.',
+ 'Beat the eggs (4) with the remaining salt. Grease a 15–18cm tin or silicone liner, tip in the potatoes and onion, and pour over the egg, pressing the potatoes down so they are covered.',
+ 'Place the tin in the basket, leaving space around it, and cook at 160°C for 17 minutes.',
+ 'Increase to 180°C for 5 minutes to set the centre and colour the top. A knife in the centre should come out without runny egg.',
+ 'Rest in the tin 5 minutes, then run a knife around the edge and turn out. Serve warm or at room temperature.'],
+notes:[
+ {b:'Confidence',t:'Quantities are halved from Diez Minutos (Spain). Air fryer temperatures and times are from Recipe This. Estimated: the salt, oil and eschalot weight, and the split of the 17-minute potato cook into 9 plus 8 minutes so the eschalots do not scorch.'},
+ {b:'Silicone liner',t:'Use it for the egg stage only. Put it in the basket before filling. A 20cm liner gives a thinner tortilla, so start checking the centre at 12–15 minutes at 160°C (estimate). Expect a paler base than a metal tin.'},
+ {b:'Potato stage',t:'Straight in the basket, not the liner. The liner blocks airflow and the slices steam unevenly. If you do use it to save washing up, shake more often and allow a few extra minutes.'},
+ {b:'Shallots on the label',t:'In Queensland, shallots often means spring onions. Those cook too fast to fry with the potatoes, so stir them through the egg instead.'},
+ {b:'Full batch',t:'Use the servings control for 4. That needs two tins cooked one after the other, unless one larger tin fits the basket with room for air.'},
+ {b:'Pan version',t:'The Diez Minutos original: 1kg potatoes and 1 onion fried in 150ml extra virgin olive oil, drained, split between two bowls of 4 beaten eggs each, then cooked as two tortillas in a 16–18cm pan and flipped with a plate. The source ingredient list says 7 eggs but the method uses 8.'},
+ {b:'Thermomix',t:'Not much use here. It cannot brown or set the tortilla. Slicing the onion is the only real time-saver.'}]
+},
+{
+id:'beef-ragu', cat:'med', flag:'estimated',
+title:'Thermomix Beef Chuck Ragù',
+meta:'Serves 4 · ~2 hr 15 min · Braise structure sourced, timing estimated',
+tag:'Slow-braised chuck with a single star anise for depth. Seared in cast iron, braised in the Thermomix. Better the next day.',
+ing:[
+ '800g beef chuck, cut into 4cm cubes','2 tbsp olive oil','1 brown onion, quartered','1 carrot, in pieces',
+ '2 celery stalks, in pieces','3 garlic cloves','2 tbsp tomato paste','125ml dry red wine',
+ '400g tinned diced tomatoes','250ml beef stock','1 star anise','1 bay leaf','1 tsp salt','½ tsp black pepper',
+ '400g pappardelle or rigatoni'],
+steps:[
+ 'Pat the chuck (800g) completely dry and season with the salt (1 tsp) and pepper (½ tsp). Sear in a hot cast iron pan with half the olive oil (1 tbsp), in two or three batches, until each side is properly dark. Do not crowd the pan. Set aside with any resting juices.',
+ 'Onion (1), carrot (1), celery (2 stalks) and garlic (3 cloves) into the bowl. Chop 5 sec / Speed 5. Scrape down.',
+ 'Add the remaining olive oil (1 tbsp). Sauté 5 min / 120°C / Speed 1, until softened and fragrant.',
+ 'Add the tomato paste (2 tbsp). Cook 2 min / 120°C / Reverse / Speed 1 to take the raw edge off it.',
+ 'Pour the red wine (125ml) into the hot cast iron and scrape up the fond, then tip it into the bowl. Cook 5 min / 120°C / Reverse / Speed 1, MC off, to reduce by about half.',
+ 'Add the tomatoes (400g), stock (250ml), bay leaf (1) and star anise (1). Return the beef and its juices. Do not fill past the 2L mark.',
+ 'Cook 90 min / 98°C / Reverse / Soft stir, MC on. On a TM6, Slow Cook mode for 90 minutes to 2 hours also works. Check at 80 minutes: the beef should give way under a fork.',
+ 'Remove the star anise and bay leaf before you shred. Left in through the shredding, the anise stops being background and starts tasting like five spice.',
+ 'Shred 5–10 sec / Reverse / Speed 3, checking as you go. If the sauce is loose, cook 10 min / Varoma / Reverse / Soft stir, MC off, to tighten it. Taste and adjust the salt.',
+ 'Cook the pasta (400g) a minute short of the packet time. Drain, reserving a cup of the water, and toss through the ragù with a splash of it until it clings.'],
+notes:[
+ {b:'Confidence',t:'The braise structure and the single star anise are sourced (Blumenthal adds one to Hazan\'s method). The 90-minute timing is my estimate for 4cm chuck cubes, so check at 80 minutes. Not confirmed whether a TM5 accepts a single 90-minute timer; if it caps at 60, run it twice.'},
+ {b:'Capacity',t:'Do not scale past 4 serves in the bowl. 800g of beef with the sauce is already close to the limit.'},
+ {b:'1kg of beef',t:'Too much for one Thermomix batch. Sear in the cast iron and finish in a covered dish in the oven at 150°C for 2.5–3 hours, then freeze half the finished sauce. That version has not been written up as its own card yet.'},
+ {b:'How long is too long',t:'Sweet spot is about 90 minutes to 2 hours in the Thermomix, 2.5–3 hours in the oven at 150°C. Past that the beef dries and the tomato goes flat, and in the Thermomix the blade turns the meat to paste. To go longer, use the oven at 130°C.'},
+ {b:'Frozen beef',t:'Cold water thaw in a sealed bag, about 30 minutes per 500g, changing the water every 30 minutes. Pat very dry before searing; frozen or wet beef steams rather than browns.'},
+ {b:'Further upgrades, not on this card',t:'Sourced options for next time: a parmesan rind in the simmering basket, 2–3 anchovies melted into the soffritto, a tablespoon of cold butter stirred through at the end, or a 50/50 split of shin and chuck.'}]
+},
+{
+id:'bolognese', cat:'med', flag:'estimated',
+title:'One-Pot Thermomix Bolognese with Kalamata Olives',
+meta:'Serves 6 · ~1 hr · Not Quite Nigella base, adapted',
+tag:'Everything in the Thermomix bowl: beef, fresh and canned tomatoes, olives, oregano and a little chilli. No celery or pancetta.',
+ing:[
+ '250g salad tomatoes, quartered','1 large brown onion, quartered','3 carrots, in rough chunks','4 garlic cloves, peeled',
+ '50ml olive oil','500g beef mince','1 tbsp dried oregano','1 bay leaf',
+ '125ml red wine, or 125ml water plus 1 tbsp balsamic vinegar','150ml beef stock','2 beef stock cubes, crumbled',
+ '400g canned diced tomatoes','125ml tomato paste','1 tbsp Worcestershire sauce','½ tsp chilli flakes (optional)',
+ '70g pitted Kalamata olives, halved','1 pinch ground nutmeg','1 tsp sugar, only if needed','Salt, only if needed',
+ 'Black pepper, to taste'],
+steps:[
+ 'Salad tomatoes (250g) into the bowl. Blitz 5 sec / Speed 6. Pour into a jug and set aside. No need to wash the bowl.',
+ 'Onion (1), carrots (3) and garlic (4 cloves) into the bowl. Chop 30 sec / Speed 7. Scrape down.',
+ 'Add the olive oil (50ml). Cook 8 min / 120°C / Speed 1, MC off, to drive off moisture and get some colour on the base.',
+ 'Add the mince (500g), oregano (1 tbsp) and bay leaf (1). Break up the mince with the spatula. Cook 5 min / 100°C / Reverse / Speed 1, with the simmering basket on the lid in place of the MC.',
+ 'Add the red wine, or the water and balsamic (125ml). Cook 3 min / 100°C / Reverse / Speed 1, basket still on the lid.',
+ 'Add the blitzed fresh tomatoes, stock (150ml), stock cubes (2), canned tomatoes (400g), tomato paste (125ml), Worcestershire (1 tbsp) and chilli flakes (½ tsp) if using. Check it sits below the max line. Cook 35 min / 100°C / Reverse / Gentle stir, basket on the lid.',
+ 'Add the olives (70g) through the lid. Cook 5 min / 100°C / Reverse / Gentle stir. If still thin, add 5–10 minutes at the same setting.',
+ 'Remove the bay leaf. Stir through the nutmeg (1 pinch), then taste. Sugar (1 tsp) only if it tastes sharp, salt only if needed, and pepper to taste.'],
+notes:[
+ {b:'Confidence',t:'Base quantities are from Not Quite Nigella (Lorraine Elliott), and the mince step follows a Cookidoo-linked method. The olives, fresh tomatoes, extra carrot, spices and Worcestershire are my adaptation and untested.'},
+ {b:'One-pot trade-off',t:'The Thermomix cannot brown, so the mince comes out greyer and the sauce lighter. For more depth, brown the mince in the cast iron first and add it at step 4; that was the version before this one.'},
+ {b:'Roasted tomato option',t:'Halve the salad tomatoes, toss in 1 tsp oil and air fry cut side up at 200°C for 10–12 minutes until charred at the edges, then blitz as in step 1.'},
+ {b:'No red wine',t:'125ml water plus 1 tbsp balsamic or red wine vinegar. Use water rather than extra stock, since the stock cubes and olives already carry plenty of salt.'},
+ {b:'Capacity',t:'Roughly 2kg of sauce, close to the bowl limit, so cook the pasta separately. A true one-pot with pasta would need about half the sauce (my estimate).'},
+ {b:'Model',t:'The 120°C sauté needs a TM5 or TM6. Serve with tagliatelle or spaghetti and parmesan. Freezes well.'}]
+},
+{
+id:'prawn-gnocchi', cat:'med', flag:'estimated',
+title:'Garlic Prawns with Crisp Gnocchi',
+meta:'Serves 2 · ~25 min · Cast iron, one pan',
+tag:'The gnocchi goes in dry and crisps like a potato. The prawns go in last.',
+ing:[
+ '400g raw prawns in garlic sauce','500g shelf-stable potato gnocchi',
+ '3 medium tomatoes (roma or truss if you have them)','2 tbsp rice bran or olive oil','30g butter',
+ '2 tbsp lemon juice','½ tsp chilli flakes','3 tbsp flat-leaf parsley, roughly chopped',
+ '½ tsp salt, for drawing water from the tomatoes'],
+steps:[
+ 'Quarter the tomatoes (3), scoop out the seeds and watery pulp with your thumb, then cut into rough 2cm chunks. Toss with the salt (½ tsp) and sit in a colander to drain 10 minutes. This is the step that keeps the pan from going watery.',
+ 'Heat the cast iron over medium-high with the oil (2 tbsp). Add the gnocchi (500g) straight from the packet in a single layer, no boiling. Leave it alone to catch colour, then toss and give it another few minutes until golden on two or three sides. Tip onto a plate.',
+ 'Pat the tomatoes dry. Same pan, still medium-high, cut side down. Leave them until they collapse and start to catch, about 4 minutes, then push to one side.',
+ 'Drop the heat to medium. Add the prawns (400g) with all the sauce in one layer. Turn once. They are done when opaque and curled into a loose C. A tight O means overcooked. Pull the pan off the heat the moment they get there.',
+ 'Off the heat, add the butter (30g), lemon juice (2 tbsp) and chilli flakes (½ tsp). Swirl until the butter melts into the garlic sauce and goes glossy. Return the gnocchi and tomatoes, toss to coat, and scatter the parsley (3 tbsp).'],
+notes:[
+ {b:'Restored',t:'This card was in the August build and dropped out of later rebuilds. Restored unchanged from the August version.'},
+ {b:'Butter off heat',t:'Adding it off the heat emulsifies the sauce. Straight into a hot pan it splits.'},
+ {b:'Salt',t:'The bought garlic sauce is already seasoned. Hold the salt until you have tasted at the end.'},
+ {b:'Draining the tomatoes',t:'Not optional. Skip it and the gnocchi loses its crust in the toss.'}]
+},
+{
+id:'chorizo-chicken-pasta', cat:'med', flag:'gated',
+title:'Chorizo & Chicken Pasta',
+meta:'Serves 6 · ~50 min · Cookidoo AU (4.2★)',
+tag:'Verified ingredients, general method. Amounts are from Cookidoo AU; the official steps are subscription-gated.',
+ing:[
+ '700g skinless chicken breast fillets, cut into strips (approx. 5 × 2 cm)',
+ '250g chorizo sausage (approx. 2), sliced 5mm','20g olive oil','1 brown onion (approx. 150g), halved',
+ '3 garlic cloves','1–2 long red chillies, deseeded if preferred','½ red capsicum (approx. 90g), in pieces',
+ '1 carrot (approx. 160g), in pieces','150g zucchini, in pieces','90g tomato paste',
+ '400g canned diced tomatoes','½ tsp sea salt','¼ tsp ground black pepper','180g shell pasta'],
+steps:[
+ 'Chop the onion (150g), garlic (3 cloves) and chilli (1–2) 3 sec / Speed 5. Scrape down.',
+ 'Add the olive oil (20g) and sauté 3 min / 120°C / Speed 1.',
+ 'Add the chorizo (250g) and sauté 3 min / 120°C / Reverse / Speed 1 to render some fat and flavour the base.',
+ 'Add the capsicum (90g), carrot (160g) and zucchini (150g). Chop 4 sec / Speed 5.',
+ 'Add the tomato paste (90g), diced tomatoes (400g), salt (½ tsp) and pepper (¼ tsp). Add the chicken (700g) and pasta (180g) with enough water to cover the pasta.',
+ 'Cook 18–20 min / 100°C / Reverse / Speed 1, until the pasta is tender and the chicken cooked through. Rest a few minutes before serving.'],
+notes:[{b:'Reminder',t:'For the exact tested timings, check the recipe on Cookidoo. Treat the method here as a working guide.'}]
+},
+{
+id:'risotto', cat:'med', flag:'estimated',
+title:'Chicken, Bacon & Mushroom Risotto',
+meta:'Serves 4 · ~35 min · Built from technique',
+tag:'Amounts estimated and scaled to 4 serves. Taste a grain near the end and adjust.',
+ing:[
+ '60g parmesan, in pieces (plus extra to serve)','1 brown onion, halved','2 garlic cloves',
+ '150g bacon, roughly chopped','20g butter, plus a cold knob to finish','10g olive oil',
+ '320g arborio rice','80ml dry white wine (optional)','750ml liquid chicken stock',
+ '400g chicken breast, diced 2cm','200g mushrooms, sliced','½ tsp salt','¼ tsp black pepper',
+ 'To finish: squeeze of lemon, chopped parsley','To serve: dry-cooked cherry tomatoes'],
+steps:[
+ 'Grate the parmesan (60g) 10 sec / Speed 9. Set aside.',
+ 'Add the onion (1), garlic (2 cloves) and bacon (150g). Chop 4 sec / Speed 5. Scrape down.',
+ 'Add the butter (20g) and oil (10g). Sauté 5 min / 120°C / Speed 1.',
+ 'Insert the butterfly. Add the rice (320g) and wine (80ml), sauté 3 min / 120°C / Reverse / Speed 1 with the MC off. Scrape the bowl base so nothing catches.',
+ 'Add the stock (750ml) and chicken (400g), not the mushrooms. Do not exceed the MAX line. Cook 18 min / 100°C / Reverse / Speed 1, MC off.',
+ 'Sear the mushrooms (200g) separately in a hot pan so they brown rather than steam.',
+ 'Stir through half the parmesan (30g), the salt (½ tsp), pepper (¼ tsp) and a cold knob of butter off the heat. Rest 5 minutes.',
+ 'Fold the seared mushrooms through. Finish with lemon, parsley and blistered cherry tomatoes.'],
+notes:[
+ {b:'Butter off heat',t:'The cold knob goes in with the heat off. It emulsifies rather than splits.'},
+ {b:'Dry white wine',t:'Sauvignon blanc, pinot grigio or an unoaked chardonnay. If you would rather not open a bottle, use extra stock plus a squeeze of lemon.'},
+ {b:'Zucchini',t:'Optional. Add it in the last 5–6 minutes, or sear it separately with the mushrooms.'},
+ {b:'Herbs',t:'Dried thyme is the best match for mushroom and bacon.'}]
+},
+
+/* ---------------- FISH & SEAFOOD ---------------- */
+{
+id:'cast-iron-salmon', cat:'fish', flag:'estimated',
+title:'Cast Iron Salmon with Air Fryer Veg & Shallot Butter',
+meta:'Serves 2 · ~45 min · Built from technique',
+tag:'Roasted chats, honey-cumin carrots, onion, broccoli and tomatoes from the air fryer, with cast iron salmon, a shallot butter from the fond and a lemon dill yoghurt.',
+ing:[
+ '2 salmon fillets, skin on (approx. 150g each)','400g chat potatoes, halved','300g carrots, cut into 1cm batons',
+ '1 brown onion, cut into 6 wedges through the root','200g broccoli, cut into small florets','150g cherry tomatoes, left whole',
+ '2 shallots (eschalots), finely sliced','3 tbsp olive oil','1 tsp olive oil, extra, for searing','20g butter',
+ '1 tsp ground cumin','1–2 tsp honey','1½ tsp sea salt','¼ tsp black pepper','200g Greek yoghurt',
+ '1 garlic clove, finely grated','3 tbsp fresh dill, finely chopped','1 lemon, zested and juiced',
+ '½ Lebanese cucumber, coarsely grated (optional)'],
+steps:[
+ 'Toss the potatoes (400g) with 1 tbsp of the olive oil, ½ tsp of the salt and the pepper (¼ tsp). Air fry at 200°C for 15 minutes in a single layer, shaking once.',
+ 'Toss the carrots (300g) and onion (1) with 1 tbsp olive oil, the cumin (1 tsp) and a pinch of salt. Add to the basket and cook a further 10 minutes at 200°C.',
+ 'Make the yoghurt while that runs. If using the cucumber (½), squeeze it firmly in the nut milk bag. Stir together the yoghurt (200g), garlic (1 clove), 2 tbsp of the dill, the lemon zest, roughly half the juice, the cucumber and a good pinch of salt. Taste, then refrigerate.',
+ 'Thin the honey (1–2 tsp) with a teaspoon of hot water. Toss the broccoli (200g) and tomatoes (150g) with the last 1 tbsp olive oil and a pinch of salt and add to the basket. Drizzle the honey over the carrots and shake once. Cook a final 10 minutes at 200°C, until the broccoli tips char and the tomatoes split.',
+ 'While that last stage runs, heat the cast iron over medium-high for about 4 minutes. Pat the salmon (2 fillets) completely dry, rub with the extra oil (1 tsp) and season with the remaining salt.',
+ 'Lay the salmon skin-side down and press each fillet flat for about 20 seconds. Cook undisturbed 4–5 minutes, until the skin releases on its own. Turn and cook a further 1–2 minutes, until just opaque through the thickest part. Rest on a plate.',
+ 'Drop the heat to medium-low. Add the butter (20g) and shallots (2) and cook 2 minutes, scraping up the fond, until golden at the edges. Off the heat, add the rest of the lemon juice and the last 1 tbsp dill, and swirl.',
+ 'Plate the veg with the yoghurt spooned over. Set the salmon alongside and pour the shallot butter over the fish, with any resting juices.'],
+notes:[
+ {b:'Confidence',t:'The cast iron sear is standard technique. The basket timings for the onion and broccoli and the sauce ratios have not been cooked yet. Three things to check: whether the carrots want longer, whether the broccoli is done in 10 minutes, and whether half a lemon is enough in the yoghurt.'},
+ {b:'Honey goes in late',t:'Twenty minutes of honey at 200°C goes past caramelised into bitter. To be cautious, hold it back to the last 5 minutes. The plate runs sweeter with it, so be a little heavier on the lemon in the yoghurt.'},
+ {b:'Mustard in the yoghurt',t:'Optional. ½ tsp Dijon is a background note; 1 tsp wholegrain gives texture. Add it before the lemon and hold back some juice. Avoid hot English, which fights the dill. A ¼ tsp of honey alongside ties the plate together.'},
+ {b:'Skin',t:'Get the pan properly hot and do not move the fillets. The skin releases on its own when crisp, usually around 4 minutes; pulling early tears it.'},
+ {b:'Frozen salmon',t:'Cold water thaw, 20–30 minutes for 150g fillets. Take it out of any vacuum pack first, keep it submerged, and change the water halfway. Then pat very dry, press, and dry again.'},
+ {b:'One sauce instead of two',t:'Skip the butter step and fold the sliced shallots raw through the yoghurt after soaking them in cold water for 10 minutes.'},
+ {b:'Basket-only version',t:'The earlier draft cooked the salmon in the basket at 180°C for 9–10 minutes with the broccoli and tomatoes, lifting the potatoes and carrots out to make room and returning them for a 2-minute reheat.'}]
+},
+{
+id:'air-fryer-salmon', cat:'fish', flag:'tested',
+title:'Air Fryer Salmon with Roasted Veg',
+meta:'Serves 2 · ~35 min, mostly hands-off · Own recipe',
+tag:'',
+ing:[
+ '2 salmon fillets','300g chat potatoes, halved','1 capsicum, cut into chunks','1 red onion, cut into wedges',
+ '2 tomatoes, halved','2 tbsp olive oil','1 tsp garlic powder','1 tsp smoked paprika','½ tsp salt',
+ '¼ tsp black pepper','1 lemon'],
+steps:[
+ 'Toss the potatoes (300g) in 1 tbsp of the olive oil with the garlic powder (1 tsp), smoked paprika (1 tsp), salt (½ tsp) and pepper (¼ tsp).',
+ 'Air fry the potatoes at 200°C for about 17 minutes, until starting to turn golden.',
+ 'Add the capsicum (1), red onion (1) and tomatoes (2) to the basket. Drizzle with the remaining oil (1 tbsp), toss gently, and cook a further 10 minutes.',
+ 'Pat the salmon (2 fillets) completely dry, which is the key to crisp skin. Rub with a little olive oil, salt and a pinch of smoked paprika.',
+ 'Push the veg to the sides, place the salmon skin-side down at 180°C, and cook about 9 minutes, until just opaque through the centre.',
+ 'Rest the salmon 2 minutes. Squeeze lemon (1) over everything and plate with the veg and chats.'],
+notes:[{b:'Frozen salmon',t:'Thaw under cold water in its packaging for 15–20 minutes for the best skin, or cook from frozen at 180°C adding 5–7 minutes. Pat dry either way.'}]
+},
+{
+id:'pumpkin-salmon-bowl', cat:'fish', flag:'tested',
+title:'Roasted Pumpkin & Chickpea Salmon Bowl',
+meta:'Serves 2 · ~40 min · Own recipe',
+tag:'Smoky roasted chickpeas, caramelised pumpkin, lemon-soy salmon and a silky tahini-Dijon dressing over rice.',
+ing:[
+ '2 salmon fillets','400g pumpkin, peeled and cubed (2–3cm)','1 cup canned chickpeas, drained and rinsed',
+ '1 cup rice (jasmine or basmati)','3 tbsp olive oil','1 tsp ground cumin','1 tsp smoked paprika',
+ '3 garlic cloves, minced','½ tsp chilli flakes','2 tbsp soy sauce','1 lemon','1 tbsp butter',
+ '3 tbsp tahini','1 tsp Dijon mustard','3 tbsp warm water','1 tbsp sesame seeds','20g parmesan, shaved',
+ '2 tbsp fresh parsley, chopped','1 cup Japanese cabbage salad, to serve'],
+steps:[
+ 'Preheat the oven to 220°C. Toss the pumpkin (400g) with 2 tbsp olive oil, half the garlic, the cumin (1 tsp), smoked paprika (1 tsp) and chilli flakes (½ tsp). Spread on a lined tray in a single layer.',
+ 'Roast 15 minutes, until starting to colour. Meanwhile cook the rice (1 cup).',
+ 'Pat the chickpeas (1 cup) dry and toss in a little oil, cumin and paprika. Add to the tray and roast a further 12–15 minutes, until crisp. Add the sesame seeds (1 tbsp) for the last few minutes.',
+ 'Pan-sear the salmon in the butter (1 tbsp), then glaze with the soy sauce (2 tbsp), a squeeze of lemon and the remaining garlic.',
+ 'Whisk the tahini (3 tbsp), Dijon (1 tsp), a squeeze of lemon and the warm water (3 tbsp) to a pourable dressing.',
+ 'Build the bowls: rice, roasted pumpkin and chickpeas, salmon, then the cabbage salad (1 cup). Drizzle with the dressing and finish with shaved parmesan (20g) and parsley (2 tbsp).'],
+notes:[{b:'Tip',t:'The tahini dressing is the magic element. Make extra; it keeps in the fridge for a week.'}]
+},
+
+/* ---------------- SALADS & SIDES ---------------- */
+{
+id:'sesame-cabbage', cat:'salad', flag:'guidance',
+title:'Japanese Sesame Cabbage Salad',
+meta:'Serves 2 · ~10 min · Built live',
+tag:'Built during a cooking session rather than from a fixed recipe card, so treat the amounts as a starting point.',
+ing:[
+ '200–250g cabbage, finely shredded','1 tbsp rice wine vinegar (a splash more if skipping the sesame oil)',
+ '1 tbsp sesame seeds, lightly toasted','1 tsp sesame oil (optional)',
+ 'Spring onion, sliced, or a little red onion soaked in cold water 5–10 min to mellow','Pinch of salt'],
+steps:[
+ 'Shred the cabbage (200–250g). In the Thermomix, use the butterfly and pulse in short 2–3 sec bursts at Speed 4, in batches, with the bowl no more than half full.',
+ 'Toast the sesame seeds (1 tbsp) in a dry pan 2–3 minutes until fragrant. Worth doing if you are leaving out the sesame oil.',
+ 'Toss the cabbage with the vinegar (1 tbsp), sesame oil (1 tsp) if using, sesame seeds, onion and a pinch of salt.',
+ 'Taste and adjust. A little more vinegar brightens it if there is no sesame oil.'],
+notes:[]
+},
+{
+id:'oi-muchim', cat:'salad', flag:'sourced',
+title:'Korean Cucumber Salad (Oi Muchim)',
+meta:'Serves 4 · ~15 min · Cross-referenced',
+tag:'Crisp, spicy-sweet banchan that cuts through rich, saucy mains. The ingredient list is well-sourced; the ratios are a middle-of-the-range starting point.',
+ing:[
+ '2 Lebanese cucumbers','½ tsp salt, for drawing out water','1 tbsp soy sauce','1 tbsp rice wine vinegar',
+ '1 tsp gochugaru (Korean chilli flakes)','1 tsp sesame oil','1 tsp sugar','1 garlic clove, grated',
+ '1 spring onion, sliced','1 tsp sesame seeds'],
+steps:[
+ 'Slice the cucumbers (2) thinly. Toss with the salt (½ tsp) and leave 10 minutes, then drain off the water that comes out.',
+ 'Whisk the soy (1 tbsp), vinegar (1 tbsp), gochugaru (1 tsp), sesame oil (1 tsp), sugar (1 tsp) and grated garlic (1 clove) together.',
+ 'Toss the cucumber through the dressing with the spring onion (1).',
+ 'Taste and adjust: more vinegar to brighten, more gochugaru for heat, a pinch more sugar to round it out. Finish with the sesame seeds (1 tsp).'],
+notes:[{b:'Cucumber',t:'Lebanese is the best Australian supermarket option here. Thin skin, few seeds, stays crisp.'}]
+},
+{
+id:'sunomono', cat:'salad', flag:'estimated',
+title:'Sunomono (Cucumber Vinegar Salad)',
+meta:'Serves 4 · ~15 min plus chilling · Built from technique',
+tag:'Thin cucumber in a sweet-sharp rice vinegar dressing. No Thermomix needed, and it can be made while the gyoza filling chills.',
+ing:[
+ '2 Lebanese cucumbers','½ tsp salt','5g dried wakame (optional)','3 tbsp rice wine vinegar',
+ '1 tbsp caster sugar','1 tsp soy sauce','1 tsp toasted sesame seeds'],
+steps:[
+ 'Slice the cucumbers (2) as thinly as you can, ideally on a mandoline. Toss with the salt (½ tsp) and leave 10 minutes, then squeeze gently to shed the water. Do not skip this or the dressing dilutes.',
+ 'If using the wakame (5g), cover with cold water and leave 10 minutes to rehydrate, then drain and squeeze out.',
+ 'Stir the vinegar (3 tbsp), sugar (1 tbsp) and soy (1 tsp) together until the sugar dissolves.',
+ 'Toss the cucumber and wakame through the dressing and chill until serving. Scatter with the sesame seeds (1 tsp) at the table.'],
+notes:[
+ {b:'Timing',t:'Best made no more than a couple of hours ahead, as the cucumber softens.'},
+ {b:'Variations',t:'A pinch of chilli flakes or a few strips of ginger are common additions. Carrot in fine matchsticks takes it closer to a namasu. For sharper, drop the sugar to 2 tsp.'}]
+},
+
+/* ---------------- LIGHT MEALS ---------------- */
+{
+id:'jacket-potato', cat:'light', flag:'estimated',
+title:'Air Fryer Jacket Potatoes',
+meta:'Serves 2 · ~55 min · General method, not yet confirmed',
+tag:'Crisp salty skin and a fluffy centre, no oven preheat. Report back on the timing and I will formalise it.',
+ing:[
+ '2 large floury potatoes (sebago, russet or coliban), approx. 300g each',
+ '1 tbsp olive oil','1 tsp salt flakes','30g butter','60g tasty cheese, grated',
+ '1 spring onion, sliced','¼ tsp ground black pepper'],
+steps:[
+ 'Scrub the potatoes (2) well and dry thoroughly. Prick each one 6–8 times all over with a fork so steam can escape.',
+ 'Rub the skins with the olive oil (1 tbsp), then the salt flakes (1 tsp). The salt draws moisture out of the skin, which is what makes it crisp rather than leathery.',
+ 'Air fry at 200°C for 45–50 minutes, turning once halfway. Done when a skewer slides through the centre with no resistance. Smaller 200g potatoes need closer to 35 minutes.',
+ 'Rest 3–4 minutes, then cut a cross in the top and squeeze the ends towards each other to push the flesh up and open.',
+ 'Fork the butter (30g) through the flesh while still hot. Top with the cheese (60g), spring onion (1) and pepper (¼ tsp). Back in for 2 minutes if you want the cheese properly melted.'],
+notes:[
+ {b:'Confidence',t:'General method rather than a tested card. The timings are calibrated to a 300g potato and will shift with your machine. Check with a skewer rather than trusting the clock.'},
+ {b:'Potato variety',t:'Waxy potatoes (desiree, kipfler, chat) will not work. You need a floury, high-starch variety or the centre stays dense.'},
+ {b:'No foil',t:'It traps steam and softens the skin.'},
+ {b:'Oven',t:'200°C fan, 60–75 minutes, same prep. Slightly better skin, much longer.'},
+ {b:'Fillings that suit your pantry',t:'Bacon and sour cream; chorizo with smoked paprika; gochujang butter with spring onion; leftover shredded taco chicken with cheese.'}]
+},
+{
+id:'zucchini-slice', cat:'light', flag:'estimated',
+title:'Zucchini, Bacon & Cheese Slice',
+meta:'Serves 6 · ~50 min · Built from technique',
+tag:'Thermomix for the prep, oven for the bake. Bacon crisped separately so it stays crunchy rather than going soggy.',
+ing:[
+ '600g zucchini, grated','150g bacon rashers, chopped','1 brown onion','5 large eggs',
+ '150g self-raising flour','150g tasty cheese, grated','60ml olive oil','¼ tsp salt','¼ tsp black pepper'],
+steps:[
+ 'Preheat the oven to 180°C and line a slice tin (approx. 20 × 30cm).',
+ 'In a pan, cook the bacon (150g) over medium heat until crisp. Set aside.',
+ 'Grate the zucchini (600g) 5 sec / Speed 5. Tip into the nut milk bag and squeeze out as much liquid as possible. This step decides whether the slice sets.',
+ 'Add the onion (1) to the bowl. Chop 3 sec / Speed 5. Scrape down.',
+ 'Add the squeezed zucchini, crisped bacon, eggs (5), flour (150g), cheese (150g), oil (60ml), salt (¼ tsp) and pepper (¼ tsp). Mix 15 sec / Reverse / Speed 3 until just combined.',
+ 'Pour into the lined tin and bake about 35 minutes, until golden and set in the centre.',
+ 'Cool in the tin 10 minutes before slicing.'],
+notes:[
+ {b:'Golden on top but liquid in the middle',t:'Cover with foil, drop the oven to 150°C, and keep going in 10–15 minute increments, checking with a skewer.'},
+ {b:'Air fryer',t:'A slice tin that fits takes about 25–30 minutes at 160–170°C. Watch the edges so they do not dry out.'},
+ {b:'Storage',t:'5 days in the fridge, 3 months in the freezer. Wrap individual portions before putting them in an airtight container.'},
+ {b:'Veg swaps',t:'Yellow squash, carrot and pumpkin all work in place of the zucchini.'}]
+},
+
+/* ---------------- BAKING & SWEETS ---------------- */
+{
+id:'bliss-balls', cat:'sweet', flag:'estimated',
+title:'Cacao & Almond Bliss Balls',
+meta:'Makes ~20 · ~15 min plus chilling · Built from technique',
+tag:'Whole ingredients, no added sugar beyond the dates. Four variations underneath, all on the same method.',
+ing:[
+ '100g raw almonds','30g rolled oats','180g medjool dates, pitted','50g desiccated coconut',
+ '20g raw cacao powder','1 tsp natural vanilla extract','¼ tsp sea salt','20g water, as needed',
+ '30g extra desiccated coconut, for rolling'],
+steps:[
+ 'Add the almonds (100g) and oats (30g) to the bowl. Mill 8 sec / Speed 7 to a coarse meal. Scrape down.',
+ 'Add the dates (180g), coconut (50g), cacao (20g), vanilla (1 tsp) and salt (¼ tsp). Mix 20 sec / Speed 6, then scrape down thoroughly.',
+ 'Squeeze a little between your fingers. If it holds, stop. If it is crumbly, add the water (20g) a teaspoon at a time and mix 10 sec / Speed 5 until it clumps.',
+ 'Roll heaped tablespoons into balls, about 20g each, then roll through the extra coconut (30g) to coat.',
+ 'Refrigerate at least 30 minutes before eating. They firm up noticeably.'],
+notes:[
+ {b:'Resist adding liquid early',t:'The mixture looks too dry in the bowl and comes together once you press it.'},
+ {b:'Peanut butter and oat',t:'Drop the cacao, use 100g peanuts instead of almonds, add 60g natural peanut butter and reduce the dates to 120g. Denser and more savoury. Peanuts mill faster than almonds because of their oil, so check after 5 seconds.'},
+ {b:'Lemon and coconut',t:'No cacao, use 100g cashews, and add the zest of 1 lemon plus 20g lemon juice. Roll in extra coconut.'},
+ {b:'Apricot and pistachio',t:'Swap the dates for 120g dried apricots plus 60g dates, since apricots alone are too tart to bind. Pistachios for the nuts, no cacao, plus 1 tsp ground cardamom.'},
+ {b:'Choc mint',t:'The base recipe plus a few drops of peppermint extract and 20g cacao nibs pulsed in at the very end, 3 sec / Speed 4, so they stay crunchy.'},
+ {b:'Nut choice',t:'Almonds suit the cacao base best. Cashews give a smoother, richer ball. Peanuts dominate with their own flavour.'},
+ {b:'Making them lighter',t:'Reducing the dates is the only change that meaningfully lowers the sugar. Seeds, hemp or tahini add nutrients on top without reducing it.'},
+ {b:'Cocoa instead of cacao',t:'A straight 1:1 swap. Avoid drinking chocolate or Milo, which carry sugar and milk solids.'},
+ {b:'Batch size',t:'A double batch mills fine in the 2.2L bowl but mixes unevenly. Do the blending in two lots.'},
+ {b:'Storage',t:'2 weeks airtight in the fridge, 3 months frozen. If the dates are dry, soak in hot water 10 minutes and drain well first.'}]
+},
+{
+id:'banana-bread', cat:'sweet', flag:'gated',
+title:'Thermomix Banana Bread',
+meta:'Makes 1 loaf · ~10 min prep + ~50 min bake · Cookidoo AU',
+tag:'Verified ingredients, general method. The amounts are from Cookidoo AU; the exact steps are subscription-gated.',
+ing:[
+ '350g bananas (approx. 4), broken into pieces, riper is better',
+ '150g caster sugar','2 eggs','220g plain flour','2 tsp baking powder','1 pinch salt',
+ '1 tsp bicarbonate of soda','100g buttermilk','2 tsp natural vanilla extract'],
+steps:[
+ 'Preheat the oven to 180°C and line a loaf tin with baking paper.',
+ 'Add the bananas (350g) to the bowl and mash 10 sec / Speed 4. Scrape down.',
+ 'Add the sugar (150g), eggs (2), buttermilk (100g) and vanilla (2 tsp). Mix 15 sec / Speed 4.',
+ 'Add the flour (220g), baking powder (2 tsp), bicarbonate of soda (1 tsp) and salt (1 pinch). Mix 15 sec / Speed 4 until just combined. Do not overmix or the loaf turns dense.',
+ 'Pour into the lined tin and bake 45–50 minutes, until a skewer comes out clean.',
+ 'Cool in the tin 10 minutes, then turn out onto a rack to cool fully before slicing.'],
+notes:[
+ {b:'Swaps and add-ins',t:'Raw sugar works 1:1 with a little more caramel depth. Oat milk replaces the buttermilk at the same quantity. Using self-raising flour? Omit the bicarbonate of soda. For coconut and cranberry, fold a handful of each through and scatter extra coconut on top. For chocolate, swirl a cocoa-sugar paste through or replace 30–40g of flour with cocoa.'},
+ {b:'Storage',t:'A few days in a bread box once fully cool, up to a week wrapped in the fridge, or sliced and frozen up to 3 months. Toasting from frozen with butter is excellent.'}]
+},
+{
+id:'honey-spice-cake', cat:'sweet', flag:'estimated',
+title:'Honey Spice Cake',
+meta:'Serves 8–10 · ~20 min prep + 40–45 min bake · Built live',
+tag:'A medieval-leaning honey cake made for a D&D session. Works in the Thermomix or the Ambiano mixer.',
+ing:[
+ '250g plain flour','200g honey','150g butter, softened','150g brown sugar','3 eggs','150g milk',
+ 'Zest of 1 orange','2 tsp ground ginger','1½ tsp ground cinnamon','Ground cloves, to taste',
+ 'Ground nutmeg, to taste','Baking powder (see note on amounts)'],
+steps:[
+ 'Preheat the oven to 170°C and line a cake tin.',
+ 'Cream the butter (150g) and brown sugar (150g) until pale and light.',
+ 'Beat in the eggs (3) one at a time, then the honey (200g), milk (150g) and orange zest (1 orange).',
+ 'Fold through the flour (250g), ginger (2 tsp), cinnamon (1½ tsp), the other spices and the baking powder until just combined.',
+ 'Bake 40–45 minutes, until a skewer comes out clean. If the centre is still liquid, tent with foil and give it more time rather than more heat.',
+ 'Cool in the tin before turning out.'],
+notes:[
+ {b:'Amounts still open',t:'Flour, honey, butter, sugar, eggs, milk, ginger and cinnamon are confirmed from the original session. The clove, nutmeg and baking powder amounts were not captured. Ask me to rebuild this card before you bake it again.'},
+ {b:'Whole cloves instead of ground',t:'Grind them with the brown sugar, 20–30 sec / Speed 9. Repeat if any pieces survive.'},
+ {b:'Fresh ginger instead of ground',t:'About 1 tbsp grated fresh per ¼ tsp ground, so 2–3 tbsp here. Grate very fine, or grind with the sugar.'},
+ {b:'If you forget the honey',t:'Warm it with a splash of water or orange juice until pourable, skewer holes across the warm cake, and spoon it over.'},
+ {b:'Storage',t:'Airtight at room temperature 3–4 days. Often better on day two.'}]
+},
+
+/* ---------------- BASICS ---------------- */
+{
+id:'taco-seasoning', cat:'basic', flag:'sourced',
+title:'Homemade Taco Seasoning',
+meta:'One batch seasons 500g mince · Cross-referenced',
+tag:'A preservative-free blend that replaces one store-bought packet.',
+ing:[
+ '1 tsp chilli powder (mild, see note)','1 tsp ground cumin','1 tsp smoked paprika','½ tsp garlic powder',
+ '½ tsp onion powder','½ tsp dried oregano','½ tsp salt','¼ tsp black pepper',
+ '¼ tsp chilli flakes (optional, for heat)'],
+steps:[
+ 'Combine all the spices in a small airtight jar or bowl.',
+ 'Seal and shake, or stir, to combine. No Thermomix needed.',
+ 'If using whole spices, mill them first 1 min / Speed 9 before combining.',
+ 'Use the full batch for 500g of mince, or store in a cool, dark place up to 12 months.'],
+notes:[{b:'Australian chilli powder',t:'Here chilli powder is pure ground chilli, much hotter than the American blend. Start with ½ tsp and build up. A quadruple batch in a jar is handy for future taco nights.'}]
+},
+{
+id:'sushi-rice', cat:'basic', flag:'guidance',
+title:'Sushi Rice',
+meta:'Makes 4–5 rolls · ~45 min including rest · General guidance',
+tag:'Seasoned short-grain rice for home rolls. Saucepan method; a Thermomix version has not been written up.',
+ing:[
+ '2 cups Japanese short-grain (sushi) rice','2 cups water','80ml rice vinegar','2 tbsp caster sugar','1 tsp salt'],
+steps:[
+ 'Rinse the rice (2 cups) in cold water, swirling and draining, until the water runs clear.',
+ 'Bring the rice and water (2 cups) to the boil in a saucepan, cover, drop to the lowest heat and cook 12 minutes. Take off the heat and rest 10 minutes with the lid on.',
+ 'Meanwhile stir the vinegar (80ml), sugar (2 tbsp) and salt (1 tsp) until dissolved, warming gently if needed.',
+ 'Turn the hot rice into a wide, shallow bowl. Pour the seasoning over the paddle and fold it through with a cutting motion, fanning as you go, so the grains turn glossy rather than mushy.',
+ 'Cover with a damp tea towel and keep at room temperature until rolling. Do not refrigerate; it hardens.'],
+notes:[
+ {b:'Confidence',t:'The rice, water and seasoning amounts are from our earlier session. The saucepan timings are general guidance rather than a tested card, and a Thermomix method would need checking against Cookidoo first.'},
+ {b:'Spoon size',t:'2 tbsp of sugar is 40ml at the Australian 20ml standard, but 30ml if the ratio came from a 15ml-spoon source. Start at the lower end and taste.'},
+ {b:'Shortcut',t:'Pre-seasoned sushi vinegar, such as Mizkan, replaces the vinegar, sugar and salt.'},
+ {b:'Easy fillings',t:'No-cook: cucumber and avocado, tuna with Kewpie mayo, smoked salmon with cream cheese. Two or three fillings per roll, cut into thin strips, and do not overfill. Raw fish only if it is sashimi-grade from a trusted fishmonger.'},
+ {b:'Equipment',t:'Bamboo rolling mat, wide shallow bowl, rice paddle, and something to fan with.'}]
+},
+
+/* ---------------- DRAFTS ---------------- */
+{
+id:'ginger-soy-braise', cat:'draft', flag:'draft',
+title:'Ginger-Soy Chicken & Bok Choy Braise',
+meta:'Thermomix · Direction only',
+tag:'Sketched out but never written up. The Sesame Chicken Noodles came out of the same session and took the sauce base in a looser direction.',
+ing:['## Shape of the dish','Chicken thigh or breast, in chunks','Soy, ginger and garlic sauce base',
+ 'Bok choy, stems and leaves separated','Green beans','Rice, to serve'],
+steps:[
+ 'Braise the chicken in the soy-ginger-garlic sauce.',
+ 'Add the green beans with about 5–6 minutes left, the bok choy stems a couple of minutes after that, and the leafy tops right at the end.',
+ 'Serve over rice.'],
+notes:[
+ {b:'Texture',t:'Bok choy and green beans braise rather than char in the Thermomix, and beans especially go khaki if overcooked. A quick blast in the air fryer is the hybrid move.'},
+ {b:'Next step',t:'Ask me to build this into a full card and I will scale and time it properly.'}]
+},
+{
+id:'egg-muffin', cat:'draft', flag:'draft',
+title:'Bacon, Egg, Onion & Tomato Muffin Filling',
+meta:'Thermomix · Method developed, amounts not captured',
+tag:'A scrambled egg muffin filling worked out in an earlier session. The method exists but the quantities were never written down.',
+ing:['## Known elements','Bacon, cooked separately until browned','Eggs','Onion, caramelised separately',
+ 'Tomato, deseeded, salted and drained','Grated cheese, to tighten the mix if loose'],
+steps:[
+ 'Cook the bacon and onion separately. The Thermomix cannot brown either.',
+ 'Deseed, salt and drain the tomato for 15 minutes. Tomato water is what ruins a muffin filling.',
+ 'Scramble the eggs with the butterfly, about 6 min / 90°C / Reverse / Speed 2, checking at 5 minutes for a just-set result.',
+ 'Fold everything through off the heat. Hold the salt until the end, since the bacon carries plenty.'],
+notes:[{b:'Next step',t:'Ask me to scale it and write it as a proper card.'}]
+},
+{
+id:'lemon-olive-chicken', cat:'draft', flag:'draft',
+title:'Braised Chicken with Lemon & Green Olives',
+meta:'A Bite to Eat with Alice, recipe by Anisa Nanduala · Waiting on the source text',
+tag:'The ABC page could not be fetched. Paste the recipe text into a chat and I will adapt it for the Thermomix.',
+ing:['## Nothing recorded yet'],
+steps:['Paste the recipe text into a chat and I will adapt it and add it to the Collection.'],
+notes:[]
+},
+{
+id:'ideas-queue', cat:'draft', flag:'draft',
+title:'Development queue',
+meta:'Ideas shortlist',
+tag:'Written up as ideas only. Pick one and ask me to build it into a full card.',
+ing:[
+ '## Curry-style',
+ 'Butter Chicken (Murgh Makhani), the easiest crowd-pleaser',
+ 'Red Lentil Dal, vegetarian, blends to a smooth restaurant texture',
+ 'Creamy Coconut Chicken Curry, lighter than butter chicken but still saucy',
+ '## Braises and stews',
+ 'Moroccan Lamb Tagine, spiced lamb with dates and apricots, about 2 hours',
+ 'Shakshuka, eggs poached in a smoky spiced tomato sauce',
+ 'Beef & Red Wine Stew / Bourguignon, rich and slow'],
+steps:['Pick one and ask me to write it up.'],
+notes:[]
+}
+];
+
+/* Pairings drawn from what has actually been cooked together. */
+const PAIRS = {
+  'gochujang-chicken':['oi-muchim','sesame-cabbage'],
+  'pork-gyoza':['sunomono','sesame-cabbage'],
+  'sesame-noodles':['sesame-cabbage'],
+  'massaman':['sunomono'],
+  'riojana':['sesame-cabbage'],
+  'shredded-tacos':['taco-seasoning','jacket-potato'],
+  'mexican-beef':['taco-seasoning','jacket-potato'],
+  'air-fryer-salmon':['sesame-cabbage'],
+  'pumpkin-salmon-bowl':['sesame-cabbage'],
+  'oi-muchim':['gochujang-chicken'],
+  'sunomono':['pork-gyoza'],
+  'sesame-cabbage':['air-fryer-salmon','gochujang-chicken'],
+  'jacket-potato':['shredded-tacos'],
+  'zucchini-slice':['sesame-cabbage'],
+  'risotto':['sesame-cabbage']
+};
+
+/* Woolworths and Coles aisle order. First rule that matches wins. */
+const AISLES = [
+  ['Fridge & deli', /gyoza wrapper|wonton|noodle|tofu|kimchi/i],
+  ['Pantry', /tomato paste|canned|tinned|diced tomatoes|chickpea|black bean|stock|coconut|tahini|passata|gnocchi/i],
+  ['Spices & baking', /paprika|cumin|oregano|cinnamon|cardamom|ground clove|^\d+\s+cloves\b|nutmeg|bay lea|gochugaru|chilli powder|chilli flake|black pepper|white pepper|sea salt|salt flake|\bsalt\b|vanilla|baking powder|bicarbonate|garlic powder|onion powder|star anise|turmeric|ground ginger|caster sugar|brown sugar|palm sugar|\bsugar\b|self-raising|plain flour|cocoa|cacao|sumac/i],
+  ['Dairy & eggs', /butter(?!milk)|buttermilk|cheese|parmesan|milk|\begg|yoghurt|sour cream|\bcream\b|fetta|feta|haloumi/i],
+  ['Meat & seafood', /chicken|beef|pork|lamb|bacon|chorizo|mince(?!d)|salmon|prawn|chuck/i],
+  ['Bakery', /bread|tortilla|naan|pita|flatbread/i],
+  ['Fridge & deli', /gyoza wrapper|wonton|noodle|tofu|kimchi/i],
+  ['Fruit & veg', /potato|tomato|onion|shallot|garlic|ginger|carrot|capsicum|zucchini|cucumber|cabbage|wombok|bok choy|lemon|lime|orange|banana|pumpkin|mushroom|chilli|parsley|coriander|spinach|avocado|green bean|lettuce|corn|broccoli|asparagus|celery|\bdill\b|\bmint\b/i],
+  ['Freezer', /frozen/i],
+  ['Pantry', /rice|pasta|pappardelle|rigatoni|spaghetti|flour|honey|oil|vinegar|soy|oyster|fish sauce|gochujang|curry paste|tamarind|mirin|sesame|date|almond|peanut|cashew|pistachio|oat|apricot|wine|cornflour|wakame|mustard|olive|worcestershire|balsamic/i]
+];
+const AISLE_ORDER = ['Fruit & veg','Meat & seafood','Fridge & deli','Dairy & eggs','Bakery','Pantry','Spices & baking','Freezer','Other'];
+function aisleFor(line){
+  for(const [name,re] of AISLES){ if(re.test(line)) return name; }
+  return 'Other';
+}
+/* Lines that are not shopping: plain water, and serving suggestions written as sentences. */
+function isShoppable(line){
+  if(/^\s*[\d½¼¾⅓⅔.\s–-]*\s*(cups?|ml|g|tbsp|tsp)?\s*(warm |cold |hot |boiling )?water\b/i.test(line)) return false;
+  if(/^(to serve|to finish|nothing recorded)/i.test(line)) return false;
+  return true;
+}
+
+/* ============================================================
+   Servings
+   Scales the ingredient list and amounts written in brackets
+   in the method. Times, temperatures and settings stay as written.
+   ============================================================ */
+const FR = {'½':0.5,'¼':0.25,'¾':0.75,'⅓':1/3,'⅔':2/3,'⅛':0.125};
+const QN = '(?:\\d+(?:\\.\\d+)?(?:\\s*[½¼¾⅓⅔⅛])?|[½¼¾⅓⅔⅛])';
+const LEAD = new RegExp('^(~?)(' + QN + ')(?:(\\s*[–-]\\s*)(' + QN + '))?');
+const NOSCALE = /^\s*(°|cm\b|mm\b|×|%|x\s|sec|min|hour|hr\b)/i;
+const METRIC = /^\s*(g|kg|ml|l)(?![a-z])/i;
+function parseQ(q){
+  const m = q.trim().match(/^(\d+(?:\.\d+)?)?\s*([½¼¾⅓⅔⅛])?$/);
+  if(!m) return NaN;
+  return (m[1] ? parseFloat(m[1]) : 0) + (m[2] ? FR[m[2]] : 0);
+}
+function fmtQ(v, metric){
+  if(metric){
+    const n = v >= 50 ? Math.round(v/5)*5 : v >= 10 ? Math.round(v) : Math.round(v*2)/2;
+    return String(n);
+  }
+  if(v >= 10) return String(Math.round(v));
+  const opts = [[0,''],[0.125,'⅛'],[0.25,'¼'],[1/3,'⅓'],[0.5,'½'],[2/3,'⅔'],[0.75,'¾'],[1,'']];
+  let whole = Math.floor(v + 1e-9), frac = v - whole, best = opts[0];
+  opts.forEach(o=>{ if(Math.abs(o[0]-frac) < Math.abs(best[0]-frac)) best = o; });
+  if(best[0] === 1){ whole += 1; best = opts[0]; }
+  if(!whole && !best[1]) return '⅛';
+  return (whole ? String(whole) : '') + best[1];
+}
+function scaleLead(str, f){
+  const m = str.match(LEAD);
+  if(!m || !m[2]) return null;
+  const rest = str.slice(m[0].length);
+  if(NOSCALE.test(rest)) return null;
+  const a = parseQ(m[2]); if(isNaN(a)) return null;
+  const met = METRIC.test(rest);
+  let out = m[1] + fmtQ(a*f, met);
+  if(m[4]){ const b = parseQ(m[4]); if(isNaN(b)) return null; out += m[3] + fmtQ(b*f, met); }
+  return out + rest;
+}
+function scaleLine(line, f){
+  if(f === 1 || line.startsWith('## ')) return line;
+  let s = scaleLead(line, f) || line;
+  return s.replace(/\((~|approx\.\s)?([^()]*)\)/g, function(all, pre, inner){
+    const m = inner.match(LEAD);
+    if(!m || !m[2]) return all;
+    const rest = inner.slice(m[0].length);
+    if(!/^\s*(g|kg|ml)?\s*(total)?$/i.test(rest)) return all;
+    const sc = scaleLead(inner, f);
+    return sc === null ? all : '(' + (pre||'') + sc + ')';
+  });
+}
+function scaleStep(text, f){
+  if(f === 1) return text;
+  return text.replace(/\((approx\.\s)?([^()]*)\)/g, function(all, pre, inner){
+    const sc = scaleLead(inner, f);
+    return sc === null ? all : '(' + (pre||'') + sc + ')';
+  });
+}
+function serveInfo(r){
+  if(r.cat === 'draft') return null;
+  const m = r.meta.match(/^(Serves|Makes)\s*(~?)(\d+)/i);
+  if(m){
+    const nm = r.meta.match(/^Makes\s*~?\d+(?:–\d+)?\s+([a-z]+)/i);
+    return {kind: m[1].toLowerCase(), base: +m[3], approx: m[2], noun: nm ? nm[1] : ''};
+  }
+  return {kind:'batch', base:1, approx:''};
+}
+function factorFor(id){ return (PREFS.serves && PREFS.serves[id]) || 1; }
+const MULTS = [0.5, 1, 1.5, 2, 3, 4];
+function serveText(r, f){
+  const si = serveInfo(r); if(!si) return '';
+  if(si.kind === 'serves') return 'Serves ' + fmtQ(si.base*f, false);
+  if(si.kind === 'makes'){
+    const v = si.base*f;
+    let noun = si.noun;
+    if(noun === 'loaf' && v > 1 + 1e-6) noun = 'loaves';
+    return 'Makes ' + si.approx + fmtQ(v, false) + (noun ? ' ' + noun : '');
+  }
+  return '×' + fmtQ(f, false) + ' batch';
+}
+function stepServe(id, dir){
+  const r = rec(id), si = serveInfo(r); if(!si) return;
+  let f = factorFor(id);
+  if(si.kind === 'serves'){
+    let n = Math.round(si.base*f) + dir;
+    n = Math.max(1, Math.min(24, n)); f = n/si.base;
+  } else {
+    let i = MULTS.findIndex(x=>Math.abs(x-f) < 1e-6); if(i < 0) i = 1;
+    i = Math.max(0, Math.min(MULTS.length-1, i+dir)); f = MULTS[i];
+  }
+  PREFS.serves = PREFS.serves || {};
+  if(Math.abs(f-1) < 1e-9) delete PREFS.serves[id]; else PREFS.serves[id] = f;
+}
+function serveLimits(r){
+  const si = serveInfo(r), f = factorFor(r.id);
+  if(si.kind === 'serves'){ const n = Math.round(si.base*f); return {min:n<=1, max:n>=24}; }
+  return {min: f<=MULTS[0]+1e-6, max: f>=MULTS[MULTS.length-1]-1e-6};
+}
+
+/* ============================================================
+   What can I make
+   Each ingredient line maps to one key. Salt, pepper, oil, sugar,
+   water and everyday dried spices are assumed. Optional and
+   serving lines do not count against a recipe.
+   ============================================================ */
+const HAVE_GROUPS = ['Meat, seafood & eggs','Fruit, veg & herbs','Dairy','Pantry','Spices & extras'];
+const KEYS = [
+ ['Stock','Pantry',/stock/i],
+ ['Noodles','Pantry',/noodle/i],
+ ['Gyoza wrappers','Pantry',/gyoza wrapper/i],
+ ['Coconut cream or milk','Pantry',/coconut (cream|milk)/i],
+ ['Desiccated coconut','Pantry',/desiccated coconut/i],
+ ['Prawns','Meat, seafood & eggs',/prawn/i],
+ ['Chicken mince','Meat, seafood & eggs',/chicken mince/i],
+ ['Gnocchi','Pantry',/gnocchi/i],
+ ['Chicken thigh','Meat, seafood & eggs',/chicken thigh/i],
+ ['Chicken breast','Meat, seafood & eggs',/chicken breast|breast fillets/i],
+ ['Beef mince','Meat, seafood & eggs',/beef mince/i],
+ ['Beef chuck or gravy beef','Meat, seafood & eggs',/chuck|gravy beef/i],
+ ['Beef rump','Meat, seafood & eggs',/rump/i],
+ ['Pork mince','Meat, seafood & eggs',/pork mince/i],
+ ['Salmon','Meat, seafood & eggs',/salmon/i],
+ ['Chorizo','Meat, seafood & eggs',/chorizo/i],
+ ['Bacon','Meat, seafood & eggs',/bacon/i],
+ ['Eggs','Meat, seafood & eggs',/\beggs?\b/i],
+ ['Tomato paste','Pantry',/tomato paste/i],
+ ['Canned tomatoes','Pantry',/(canned|tinned) diced tomatoes/i],
+ ['Chipotle in adobo','Pantry',/chipotle/i],
+ ['Tamarind','Pantry',/tamarind/i],
+ ['Palm sugar','Spices & extras',/palm sugar/i],
+ ['Sumac','Spices & extras',/sumac/i],
+ ['Gochugaru','Spices & extras',/gochugaru/i],
+ ['Star anise','Spices & extras',/star anise/i],
+ ['Cardamom','Spices & extras',/cardamom/i],
+ ['Whole cloves','Spices & extras',/^\d+\s+cloves\b|ground cloves/i],
+ ['Cinnamon stick','Spices & extras',/cinnamon stick/i],
+ ['Vanilla','Spices & extras',/vanilla/i],
+ ['Ginger (fresh)','Fruit, veg & herbs',/(?<!ground )ginger/i],
+ ['Garlic','Fruit, veg & herbs',/garlic(?! powder)/i],
+ ['Potatoes','Fruit, veg & herbs',/potato/i],
+ ['Tomatoes','Fruit, veg & herbs',/tomato/i],
+ ['Spring onion','Fruit, veg & herbs',/spring onion/i],
+ ['Shallots','Fruit, veg & herbs',/shallot|eschalot/i],
+ ['Red onion','Fruit, veg & herbs',/red onion/i],
+ ['Brown onion','Fruit, veg & herbs',/\bonion\b(?! powder)/i],
+ ['Carrot','Fruit, veg & herbs',/carrot/i],
+ ['Celery','Fruit, veg & herbs',/celery/i],
+ ['Broccoli','Fruit, veg & herbs',/broccoli/i],
+ ['Asparagus','Fruit, veg & herbs',/asparagus/i],
+ ['Zucchini','Fruit, veg & herbs',/zucchini/i],
+ ['Capsicum','Fruit, veg & herbs',/capsicum/i],
+ ['Cucumber','Fruit, veg & herbs',/cucumber/i],
+ ['Cabbage','Fruit, veg & herbs',/cabbage|wombok/i],
+ ['Bok choy','Fruit, veg & herbs',/bok choy/i],
+ ['Mushrooms','Fruit, veg & herbs',/mushroom/i],
+ ['Pumpkin','Fruit, veg & herbs',/pumpkin/i],
+ ['Green beans','Fruit, veg & herbs',/green bean/i],
+ ['Corn','Fruit, veg & herbs',/corn kernel/i],
+ ['Fresh chilli','Fruit, veg & herbs',/long red chill/i],
+ ['Bananas','Fruit, veg & herbs',/banana/i],
+ ['Lemon','Fruit, veg & herbs',/lemon/i],
+ ['Rice vinegar','Pantry',/rice (wine )?vinegar/i],
+ ['Lime','Fruit, veg & herbs',/\blime\b/i],
+ ['Orange','Fruit, veg & herbs',/orange/i],
+ ['Dill','Fruit, veg & herbs',/\bdill\b/i],
+ ['Parsley','Fruit, veg & herbs',/parsley/i],
+ ['Coriander (fresh)','Fruit, veg & herbs',/coriander/i],
+ ['Lettuce','Fruit, veg & herbs',/lettuce/i],
+ ['Greek yoghurt','Dairy',/yoghurt/i],
+ ['Buttermilk','Dairy',/buttermilk/i],
+ ['Butter','Dairy',/butter/i],
+ ['Parmesan','Dairy',/parmesan/i],
+ ['Fetta','Dairy',/fett?a\b/i],
+ ['Tasty cheese','Dairy',/cheese/i],
+ ['Milk','Dairy',/\bmilk\b/i],
+ ['Arborio rice','Pantry',/arborio/i],
+ ['Rice','Pantry',/\brice\b(?!\s*(wine|vinegar|bran))/i],
+ ['Pasta','Pantry',/pasta|pappardelle|rigatoni|spaghetti/i],
+ ['Flatbreads or pita','Pantry',/pita|flatbread/i],
+ ['Chickpeas','Pantry',/chickpea/i],
+ ['Black beans','Pantry',/black bean/i],
+ ['Tahini','Pantry',/tahini/i],
+ ['Gochujang','Pantry',/gochujang/i],
+ ['Curry paste','Pantry',/curry paste/i],
+ ['Fish sauce','Pantry',/fish sauce/i],
+ ['Oyster sauce','Pantry',/oyster sauce/i],
+ ['Soy sauce','Pantry',/\bsoy\b/i],
+ ['Worcestershire sauce','Pantry',/worcestershire/i],
+ ['Dijon or wholegrain mustard','Pantry',/mustard/i],
+ ['Honey','Pantry',/honey/i],
+ ['Sesame oil','Pantry',/sesame oil/i],
+ ['Sesame seeds','Pantry',/sesame seeds/i],
+ ['Mirin','Pantry',/mirin/i],
+ ['Red wine or balsamic vinegar','Pantry',/vinegar|balsamic/i],
+ ['Red wine','Pantry',/red wine/i],
+ ['White wine','Pantry',/white wine/i],
+ ['Olives','Pantry',/olive(?!\s*oil)/i],
+ ['Peanuts','Pantry',/peanut/i],
+ ['Almonds','Pantry',/almond/i],
+ ['Dates','Pantry',/\bdates\b/i],
+ ['Rolled oats','Pantry',/\boats\b/i],
+ ['Cocoa or cacao','Pantry',/cacao|cocoa/i],
+ ['Plain flour','Pantry',/plain flour/i],
+ ['Self-raising flour','Pantry',/self-raising/i],
+ ['Cornflour','Pantry',/cornflour/i],
+ ['Wakame','Pantry',/wakame/i]
+].map(k=>({label:k[0], group:k[1], re:k[2]}));
+const BASICS = /\bsalt\b|pepper|\boil\b|water|\bsugar\b|paprika|cumin|oregano|cinnamon|bay lea|chilli flake|chilli powder|garlic powder|onion powder|nutmeg|ground ginger|baking powder|bicarbonate/i;
+function lineKey(line){
+  if(line.startsWith('## ')) return null;
+  for(const k of KEYS){ if(k.re.test(line)) return k.label; }
+  return null;
+}
+const isOptionalLine = l => /\boptional\b|(^|, |\()to (serve|finish)\b/i.test(l);
+const RINFO = {};
+RECIPES.forEach(function(r){
+  const req = new Set(), lines = [];
+  r.ing.forEach(function(l){
+    const k = lineKey(l); if(!k) return;
+    const opt = isOptionalLine(l);
+    lines.push({line:l, key:k, opt:opt});
+    if(!opt) req.add(k);
+  });
+  RINFO[r.id] = {req:req, lines:lines};
+});
+const USED_KEYS = new Set();
+RECIPES.forEach(r=>{ if(r.cat!=='draft') RINFO[r.id].req.forEach(k=>USED_KEYS.add(k)); });
+const CHIP_KEYS = KEYS.filter(k=>USED_KEYS.has(k.label)).sort((a,b)=>a.label.localeCompare(b.label));
+function matchRecipes(){
+  const have = new Set(PREFS.have || []);
+  if(!have.size) return [];
+  const out = [];
+  RECIPES.forEach(function(r){
+    if(r.cat === 'draft') return;
+    const req = [...RINFO[r.id].req];
+    if(!req.length) return;
+    const matched = req.filter(k=>have.has(k));
+    if(!matched.length) return;
+    const missing = req.filter(k=>!have.has(k));
+    if(missing.length > 2 && matched.length/req.length < 0.3) return;
+    out.push({r:r, req:req, matched:matched, missing:missing});
+  });
+  out.sort((a,b)=> a.missing.length - b.missing.length || b.matched.length - a.matched.length || a.r.title.localeCompare(b.r.title));
+  return out;
+}
+
+/* ============================================================
+   Storage
+   Prefs live in IndexedDB on this device, and sync through the
+   artifact database when the page is opened inside Claude.
+   Photos stay on the device that took them.
+   ============================================================ */
+function defaults(){ return {fav:[], cooked:{}, shop:[], lists:[], meal:[], tbsp:20, serves:{}, have:[], updated:''}; }
+let PREFS = defaults();
+let PHOTOS = {};
+let MEM = {};
+let ticks = {ing:new Set(), step:new Set()};
+let view = {name:'home', id:null, q:'', hq:''};
+let SYNC = 'device';
+
+const IDB = {
+  db:null,
+  open(){
+    return new Promise(res=>{
+      try{
+        const r = indexedDB.open('kitchen-collection', 1);
+        r.onupgradeneeded = ()=>{ r.result.createObjectStore('kv'); };
+        r.onsuccess = ()=>{ this.db = r.result; res(true); };
+        r.onerror = ()=>res(false);
+        r.onblocked = ()=>res(false);
+      }catch(e){ res(false); }
+    });
+  },
+  get(k){
+    return new Promise(res=>{
+      if(!this.db) return res(MEM[k]);
+      try{
+        const q = this.db.transaction('kv').objectStore('kv').get(k);
+        q.onsuccess = ()=>res(q.result); q.onerror = ()=>res(MEM[k]);
+      }catch(e){ res(MEM[k]); }
+    });
+  },
+  set(k,v){
+    MEM[k] = v;
+    return new Promise(res=>{
+      if(!this.db) return res(false);
+      try{
+        const tx = this.db.transaction('kv','readwrite');
+        tx.objectStore('kv').put(v,k);
+        tx.oncomplete = ()=>res(true); tx.onerror = ()=>res(false); tx.onabort = ()=>res(false);
+      }catch(e){ res(false); }
+    });
+  },
+  photos(){
+    return new Promise(res=>{
+      const out = {};
+      if(!this.db) return res(out);
+      try{
+        const q = this.db.transaction('kv').objectStore('kv').openCursor();
+        q.onsuccess = ()=>{
+          const c = q.result;
+          if(c){ if(String(c.key).startsWith('photo:')) out[String(c.key).slice(6)] = c.value; c.continue(); }
+          else res(out);
+        };
+        q.onerror = ()=>res(out);
+      }catch(e){ res(out); }
+    });
+  }
+};
+
+function clonePrefs(){ return JSON.parse(JSON.stringify(PREFS)); }
+
+let CLOUD = null, pushing = false, pendingPush = false;
+async function pushCloud(){
+  if(!CLOUD) return;
+  if(pushing){ pendingPush = true; return; }
+  pushing = true;
+  try{ await CLOUD.set(clonePrefs()); SYNC = 'cloud'; }
+  catch(e){ SYNC = 'device'; }
+  pushing = false;
+  if(pendingPush){ pendingPush = false; pushCloud(); }
+}
+
+async function connectCloud(){
+  try{
+    if(!window.claude || typeof window.claude.use !== 'function') return;
+    const db = await window.claude.use('db');
+    const user = await window.claude.use('user');
+    if(!db || !user) return;
+    const uid = await user.id();
+    if(!uid) return;
+    const ref = db.doc('data/users/' + uid + '/prefs');
+    const snap = await ref.get();
+    CLOUD = ref;
+    const remote = snap.exists ? snap.data() : null;
+    if(remote && (remote.updated || '') > (PREFS.updated || '')){
+      PREFS = Object.assign(defaults(), JSON.parse(JSON.stringify(remote)));
+      await IDB.set('prefs', clonePrefs());
+      SYNC = 'cloud';
+      render(false);
+    } else {
+      await pushCloud();
+      if(view.name === 'home') render(false);
+    }
+  }catch(e){ /* stays device-only */ }
+}
+
+async function loadAll(){
+  await IDB.open();
+  const p = await IDB.get('prefs');
+  if(p) PREFS = Object.assign(defaults(), p);
+  PHOTOS = await IDB.photos();
+}
+
+let warnedSave = false;
+async function savePrefs(){
+  PREFS.updated = new Date().toISOString();
+  const ok = await IDB.set('prefs', clonePrefs());
+  pushCloud();
+  if(!ok && !CLOUD && !warnedSave){ warnedSave = true; toast('Storage is unavailable here. Changes last this session only.'); }
+}
+
+/* ============================================================
+   Helpers
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cat = id => CATS.find(c=>c.id===id);
+const rec = id => RECIPES.find(r=>r.id===id);
+const cooking = RECIPES.filter(r=>r.cat!=='draft');
+const plainIng = r => r.ing.filter(l=>!l.startsWith('## '));
+
+let toastTimer;
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+/* Thermomix settings become monospace readouts. */
+const SEG = '(?:\\d{2,3}°C|Varoma|Reverse|Speed\\s*\\d|Soft stir|Gentle stir|Soft speed|[Ss]poon(?:\\s+speed)?)';
+const SETTINGS = new RegExp('(\\d+(?:[–-]\\d+)?\\s*(?:sec|min)(?:\\s*\\/\\s*' + SEG + ')+)|(\\b\\d{2,3}°C\\b)', 'g');
+function marked(text){ return esc(text).replace(SETTINGS, m => '<code class="set">'+m.trim()+'</code>'); }
+
+/* Spoon conversions. Australian standard tablespoon is 20ml (AS 1325). */
+const FRACS = {'½':0.5,'¼':0.25,'¾':0.75,'⅓':1/3,'⅔':2/3,'⅛':0.125};
+function spoonML(line){
+  const m = line.match(/(\d+)?\s*([½¼¾⅓⅔⅛])?\s*(tbsp|tsp)\b/i);
+  if(!m) return null;
+  const whole = m[1] ? parseFloat(m[1]) : 0;
+  const frac = m[2] ? FRACS[m[2]] : 0;
+  let n = whole + frac;
+  if(!n) n = 1;
+  const unit = m[3].toLowerCase();
+  const per = unit === 'tsp' ? 5 : PREFS.tbsp;
+  const ml = Math.round(n * per * 10) / 10;
+  const label = unit === 'tsp' ? 'tsp = 5ml' : ('tbsp = ' + PREFS.tbsp + 'ml' + (PREFS.tbsp===20 ? ' (AU)' : ' (intl)'));
+  return ml + 'ml · 1 ' + label;
+}
+
+/* First duration of a minute or more in a step, for the timer button. */
+const DUR = /(\d+)(?:\s*(?:–|-|to)\s*\d+)?\s*(seconds?|sec|minutes?|mins?|hours?|hr)\b/gi;
+function stepSeconds(text){
+  for(const m of text.matchAll(DUR)){
+    const n = +m[1]; const u = m[2].toLowerCase();
+    const s = u.startsWith('h') ? n*3600 : u.startsWith('s') ? n : n*60;
+    if(s >= 60) return s;
+  }
+  return 0;
+}
+function fmtDur(s){
+  s = Math.max(0, Math.round(s));
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+  return (h ? h+':'+String(m).padStart(2,'0') : m) + ':' + String(sec).padStart(2,'0');
+}
+function durLabel(s){
+  if(s >= 3600){ const h = Math.floor(s/3600), m = Math.round((s%3600)/60); return h+' hr'+(m?' '+m+' min':''); }
+  return Math.round(s/60) + ' min';
+}
+
+/* Deterministic plate artwork, used until a real photo is added. */
+function seedFrom(str){ let h=2166136261; for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);} return h>>>0; }
+function rng(seed){ return function(){ seed|=0; seed=seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function plateSVG(id, hex, w, h){
+  const r = rng(seedFrom(id)); const cx=w/2, cy=h/2, R=Math.min(w,h)*0.36;
+  let s = '<svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
+  s += '<rect width="'+w+'" height="'+h+'" fill="#0f1115"/>';
+  s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+(R*1.28)+'" fill="none" stroke="'+hex+'" stroke-opacity=".16" stroke-width="1"/>';
+  s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="'+hex+'" fill-opacity=".07" stroke="'+hex+'" stroke-opacity=".34" stroke-width="1.2"/>';
+  const n = 5 + Math.floor(r()*4);
+  for(let i=0;i<n;i++){
+    const a = (i/n)*Math.PI*2 + r()*0.5;
+    const d = R*(0.18 + r()*0.5);
+    const x = cx + Math.cos(a)*d, y = cy + Math.sin(a)*d;
+    const size = R*(0.13 + r()*0.2);
+    const op = (0.22 + r()*0.4).toFixed(2);
+    if(r() > 0.55){
+      s += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+size.toFixed(1)+'" fill="'+hex+'" fill-opacity="'+op+'"/>';
+    } else {
+      const rot = (r()*180).toFixed(0);
+      s += '<rect x="'+(x-size).toFixed(1)+'" y="'+(y-size*0.45).toFixed(1)+'" width="'+(size*2).toFixed(1)+'" height="'+(size*0.9).toFixed(1)+'" rx="'+(size*0.45).toFixed(1)+'" fill="'+hex+'" fill-opacity="'+op+'" transform="rotate('+rot+' '+x.toFixed(1)+' '+y.toFixed(1)+')"/>';
+    }
+  }
+  for(let i=0;i<7;i++){
+    const a=r()*Math.PI*2, d=R*(0.55+r()*0.42);
+    s += '<circle cx="'+(cx+Math.cos(a)*d).toFixed(1)+'" cy="'+(cy+Math.sin(a)*d).toFixed(1)+'" r="'+(1+r()*1.8).toFixed(1)+'" fill="'+hex+'" fill-opacity=".5"/>';
+  }
+  return s + '</svg>';
+}
+function thumbFor(r, w, h){
+  if(PHOTOS[r.id]) return '<img src="'+PHOTOS[r.id]+'" alt="">';
+  return plateSVG(r.id, cat(r.cat).hex, w, h);
+}
+function niceDate(iso){ return new Date(iso).toLocaleDateString('en-AU',{day:'numeric',month:'short'}); }
+
+/* ============================================================
+   Views
+   ============================================================ */
+function render(toTop){
+  const y = window.scrollY;
+  const app = $('#app');
+  const v = view.name;
+  if(v==='home') app.innerHTML = homeView();
+  else if(v==='cat') app.innerHTML = catView(view.id);
+  else if(v==='recipe') app.innerHTML = recipeView(view.id);
+  else if(v==='favs') app.innerHTML = favsView();
+  else if(v==='shop') app.innerHTML = shopView();
+  else if(v==='meal') app.innerHTML = mealView();
+  else if(v==='have'){ app.innerHTML = haveView(); applyChipFilter(); }
+  renderNav();
+  if(v==='home' && view.q) runSearch(view.q);
+  window.scrollTo(0, toTop === false ? y : 0);
+}
+
+function homeView(){
+  const counts = {}; RECIPES.forEach(r=>counts[r.cat]=(counts[r.cat]||0)+1);
+  const tiles = CATS.map(c=>
+    '<button class="tile" style="--c:'+c.colour+'" data-go="cat" data-id="'+c.id+'">'+
+      '<span class="glyph">'+plateSVG(c.id, c.hex, 34, 34)+'</span>'+
+      '<span class="tt"><b>'+esc(c.name)+'</b><span>'+(counts[c.id]||0)+' '+(counts[c.id]===1?'recipe':'recipes')+'</span></span>'+
+    '</button>').join('');
+
+  const fresh = NEW_IDS.map(rec).filter(Boolean);
+  const freshHTML = '<h2 class="sect">Recently added</h2><div class="list">'+fresh.map(r=>cardHTML(r)).join('')+'</div>';
+
+  const recent = Object.entries(PREFS.cooked).sort((a,b)=>b[1].localeCompare(a[1])).slice(0,3);
+  const recentHTML = recent.length
+    ? '<h2 class="sect">Last cooked</h2><div class="list">'+recent.map(function(p){const r=rec(p[0]); return r?cardHTML(r,'Cooked '+niceDate(p[1])):''}).join('')+'</div>'
+    : '';
+
+  const syncLine = SYNC==='cloud'
+    ? 'Saved recipes, lists and cook log sync across your devices. Photos stay on the device that took them.'
+    : 'Saved on this device.';
+
+  return ''+
+  '<header class="mast">'+
+    '<p class="kicker">Thermomix · Air fryer · Everyday dinners</p>'+
+    '<h1>The<em>Kitchen</em>Collection</h1>'+
+    '<p class="count">'+cooking.length+' recipes · '+(RECIPES.length-cooking.length)+' drafts · updated '+BUILD_DATE+'</p>'+
+  '</header>'+
+  '<div class="searchrow"><input class="search" id="q" type="search" aria-label="Search recipes or ingredients" placeholder="Search recipes or ingredients" value="'+esc(view.q)+'" autocomplete="off"></div>'+
+  '<div id="results"></div>'+
+  '<div class="actions" style="--c:var(--salad);margin-top:12px"><button class="btn" data-tab="have">What can I make with what I have?</button></div>'+
+  '<h2 class="sect">Browse by type</h2><div class="tiles">'+tiles+'</div>'+
+  recentHTML+
+  '<h2 class="sect">Spoon measure</h2>'+
+  '<div class="pillrow">'+
+    '<button class="pill'+(PREFS.tbsp===20?' on':'')+'" data-tbsp="20">Australian · 20ml</button>'+
+    '<button class="pill'+(PREFS.tbsp===15?' on':'')+'" data-tbsp="15">International · 15ml</button>'+
+  '</div>'+
+  '<p style="color:var(--muted);font-size:14px;margin-top:10px">Conversions show under any ingredient measured in spoons. The Australian standard tablespoon is 20ml under AS 1325, so overseas recipes written to 15ml need the second setting.</p>'+
+  '<p class="sync">'+syncLine+'</p>'+
+  '<details class="legend"><summary>How the flags work</summary><div>'+
+    '<p><span class="flag f-tested">Tested</span> Cooked and confirmed in your kitchen.</p>'+
+    '<p><span class="flag f-sourced">Source-verified</span> Amounts came from a named source or a cross-referenced blend.</p>'+
+    '<p><span class="flag f-estimated">Estimated</span> Method is sourced or standard technique, but some quantities or timings are my best estimate.</p>'+
+    '<p><span class="flag f-gated">Source method gated</span> Ingredients are verified, but the official steps sit behind a Cookidoo subscription.</p>'+
+    '<p><span class="flag f-guidance">Guidance-based</span> Built live or from general guidance, so amounts are a starting point.</p>'+
+    '<p><span class="flag f-draft">Draft</span> Not finished. Some amounts were never written down.</p>'+
+    '<p style="margin-top:14px">Thermomix speeds, times and temperatures are written for a TM5 or TM6. Steps with a time of a minute or more have a timer button underneath.</p>'+
+  '</div></details>'+
+  freshHTML;
+}
+
+function cardHTML(r, sub){
+  const c = cat(r.cat);
+  const fav = PREFS.fav.includes(r.id) ? ' <span class="star">★</span>' : '';
+  const nw = NEW_IDS.includes(r.id) ? '<span class="newdot" title="New in this build"></span>' : '';
+  return '<button class="card" style="--c:'+c.colour+'" data-go="recipe" data-id="'+r.id+'">'+
+    '<span class="thumb">'+thumbFor(r,96,110)+'</span>'+
+    '<span class="cb"><b>'+esc(r.title)+fav+nw+'</b>'+
+    '<span class="m">'+esc(sub || r.meta)+'</span>'+
+    '<span class="m" style="margin-top:6px;display:inline-block"><span class="flag '+FLAGS[r.flag].cls+'">'+FLAGS[r.flag].label+'</span></span>'+
+    '</span></button>';
+}
+
+function catView(id){
+  const c = cat(id);
+  const all = RECIPES.filter(r=>r.cat===id);
+  const rs = all.filter(r=>!NEW_IDS.includes(r.id)).concat(all.filter(r=>NEW_IDS.includes(r.id)));
+  return '<button class="back" data-go="home">← All types</button>'+
+    '<h1 class="rtitle" style="font-size:clamp(24px,7vw,34px)">'+esc(c.name)+'</h1>'+
+    '<p class="rmeta">'+rs.length+' '+(rs.length===1?'recipe':'recipes')+'</p>'+
+    '<div class="list">'+rs.map(r=>cardHTML(r)).join('')+'</div>';
+}
+
+function recipeView(id){
+  const r = rec(id); const c = cat(r.cat);
+  const fav = PREFS.fav.includes(id);
+  const cooked = PREFS.cooked[id];
+  const f = factorFor(id);
+  const si = serveInfo(r);
+
+  const ing = r.ing.map(function(line,i){
+    if(line.startsWith('## ')) return '<li class="group">'+esc(line.slice(3))+'</li>';
+    const on = ticks.ing.has(i);
+    const shown = scaleLine(line, f);
+    const conv = spoonML(shown);
+    return '<li><button class="'+(on?'on':'')+'" data-tick="ing" data-i="'+i+'" aria-pressed="'+on+'">'+
+      '<span class="box">'+(on?'✓':'')+'</span>'+
+      '<span class="txt">'+esc(shown)+(conv?'<span class="conv">'+esc(conv)+'</span>':'')+'</span></button></li>';
+  }).join('');
+
+  let serveHTML = '';
+  if(si){
+    const lim = serveLimits(r);
+    const tmx = /Speed|Varoma|Reverse|Soft stir/.test(r.steps.join(' '));
+    serveHTML = '<div class="serve" style="--c:'+c.colour+'"><span class="lab">'+(si.kind==='serves'?'Servings':'Batch size')+'</span>'+
+      '<span class="stepper"><button data-serve="-1" data-id="'+id+'" aria-label="Fewer"'+(lim.min?' disabled':'')+'>−</button>'+
+      '<output aria-live="polite">'+esc(serveText(r,f))+'</output>'+
+      '<button data-serve="1" data-id="'+id+'" aria-label="More"'+(lim.max?' disabled':'')+'>+</button></span>'+
+      (f!==1 ? '<button class="linkbtn" data-servereset="'+id+'">Back to '+esc(serveText(r,1).toLowerCase())+'</button>' : '')+
+      '</div>'+
+      (f!==1 ? '<p class="scalenote">Scaled ×'+fmtQ(f,false)+'. The ingredient list and amounts in brackets in the method are scaled. Amounts written into the step text, times, temperatures and Thermomix settings are not, and bigger batches can need longer.'+
+        (f>1 && tmx ? ' The Thermomix bowl holds 2.2L and several cards are already close at the written amount, so check any capacity note or cook in two batches.' : '')+'</p>' : '');
+  }
+
+  const steps = r.steps.map(function(line,i){
+    const on = ticks.step.has(i);
+    const secs = stepSeconds(line);
+    const shownStep = scaleStep(line, f);
+    const tb = secs ? '<button class="tbtn" data-timer="'+secs+'" data-label="'+esc(r.title+', step '+(i+1))+'">Start '+durLabel(secs)+' timer</button>' : '';
+    return '<li><button class="st'+(on?' on':'')+'" data-tick="step" data-i="'+i+'" aria-pressed="'+on+'">'+
+      '<span class="n">'+(on?'✓':(i+1))+'</span><span class="txt">'+marked(shownStep)+'</span></button>'+tb+'</li>';
+  }).join('');
+
+  const notes = (r.notes||[]).map(n=>'<div class="note" style="--c:'+c.colour+'"><b>'+esc(n.b)+'</b>'+marked(n.t)+'</div>').join('');
+
+  const pairIds = (PAIRS[id]||[]).filter(p=>rec(p));
+  const pairs = pairIds.length
+    ? '<div class="blockhead" style="--c:'+c.colour+'"><h3>Goes with</h3><span class="aside">Tap to open, or build a meal</span></div>'+
+      '<div class="list" style="margin-top:12px">'+pairIds.map(p=>cardHTML(rec(p))).join('')+'</div>'+
+      '<div class="actions" style="--c:'+c.colour+'"><button class="btn" data-meal="'+id+'">Build a meal from these</button></div>'
+    : '';
+
+  return '<button class="back" data-go="cat" data-id="'+r.cat+'">← '+esc(c.name)+'</button>'+
+  '<div class="hero" style="--c:'+c.colour+'">'+
+    (PHOTOS[id] ? '<img class="art" src="'+PHOTOS[id]+'" alt="">' : plateSVG(id, c.hex, 500, 300))+
+    '<button class="photobtn" data-photo="'+id+'">'+(PHOTOS[id]?'Change photo':'Add a photo')+'</button>'+
+  '</div>'+
+  '<h1 class="rtitle">'+esc(r.title)+'</h1>'+
+  '<p class="rmeta">'+esc(r.meta)+'</p>'+
+  '<p><span class="flag '+FLAGS[r.flag].cls+'">'+FLAGS[r.flag].label+'</span></p>'+
+  (r.tag?'<p class="rtag">'+esc(r.tag)+'</p>':'')+
+  serveHTML+
+  '<div class="actions" style="--c:'+c.colour+'">'+
+    '<button class="btn '+(fav?'pri':'')+'" data-fav="'+id+'">'+(fav?'★ Saved':'☆ Save')+'</button>'+
+    '<button class="btn" data-shop="'+id+'">Add to shopping list</button>'+
+    '<button class="btn" data-cooked="'+id+'">'+(cooked?'Cooked '+niceDate(cooked):'Mark as cooked')+'</button>'+
+  '</div>'+
+  '<div class="blockhead" style="--c:'+c.colour+'"><h3>Ingredients</h3>'+
+    '<span class="aside">'+(f!==1?'×'+fmtQ(f,false)+' · ':'')+ticks.ing.size+'/'+plainIng(r).length+' gathered</span></div>'+
+  '<ul class="ing" style="--c:'+c.colour+'">'+ing+'</ul>'+
+  '<div class="blockhead" style="--c:'+c.colour+'"><h3>Method</h3>'+
+    '<span class="aside">Tap a step to mark it done</span></div>'+
+  '<ol class="steps" style="--c:'+c.colour+'">'+steps+'</ol>'+
+  notes+
+  pairs+
+  '<div class="actions" style="--c:'+c.colour+'"><button class="btn" data-reset="1">Clear the ticks</button></div>';
+}
+
+function favsView(){
+  const rs = PREFS.fav.map(rec).filter(Boolean);
+  return '<h1 class="rtitle" style="margin-top:26px">Saved</h1>'+
+    '<p class="rmeta">'+rs.length+' '+(rs.length===1?'recipe':'recipes')+'</p>'+
+    (rs.length ? '<div class="list">'+rs.map(r=>cardHTML(r)).join('')+'</div>'
+      : '<p class="empty">Nothing saved yet. Open a recipe and tap Save to keep it here.</p>');
+}
+
+/* ============================================================
+   Shopping list grouping
+   Lines are stored one per recipe so a recipe can be removed
+   cleanly. They are grouped at display time: the same item from
+   different recipes shows once, with each recipe's amount below.
+   Grams and millilitres are totalled; other units are listed.
+   ============================================================ */
+function shopBaseName(line){
+  let x = line.replace(LEAD, '');
+  for(let i=0;i<3;i++) x = x.replace(/^\s*(kg|g|ml|l|tsp|tbsp|cups?|pinch|bunch|handful|small|medium|large|heaped|level|x)\b\.?\s*(of\s+)?/i, '');
+  x = x.split(/[,(]/)[0].trim().toLowerCase();
+  return x || line.toLowerCase();
+}
+function singular(x){
+  if(/leaves$/.test(x)) return x.slice(0,-6) + 'leaf';
+  if(/oes$/.test(x)) return x.slice(0,-2);
+  if(x.length > 3 && /[^su]s$/.test(x)) return x.slice(0,-1);
+  return x;
+}
+function shopGroupOf(line){
+  /* Match on the item name only, so a description such as
+     'salt, for drawing water from the tomatoes' is not filed under tomatoes. */
+  let n = shopBaseName(line);
+  const generic = /\bground\b|powder|\bdried\b|peanut butter|almond butter|\bflakes?\b/i.test(n);
+  const k = generic ? null : lineKey(n);
+  if(k) return {key:'k:'+k, label:k};
+  n = singular(n);
+  return {key:'n:'+n, label:n.charAt(0).toUpperCase()+n.slice(1)};
+}
+function shopQty(line){
+  const m = line.match(LEAD);
+  if(!m || !m[2] || m[4]) return null;
+  const u = line.slice(m[0].length).match(/^\s*(kg|g|ml|l)(?![a-z])/i);
+  if(!u) return null;
+  let v = parseQ(m[2]); if(isNaN(v)) return null;
+  const unit = u[1].toLowerCase();
+  if(unit === 'kg') return {v:v*1000, d:'g'};
+  if(unit === 'l') return {v:v*1000, d:'ml'};
+  return {v:v, d:unit};
+}
+function fmtTotal(v, d){
+  if(v >= 1000) return (Math.round(v/100)/10) + (d === 'g' ? 'kg' : 'L');
+  return Math.round(v) + d;
+}
+function shopGroups(){
+  const map = new Map();
+  PREFS.shop.forEach(function(it, i){
+    const g = shopGroupOf(it.t);
+    if(!map.has(g.key)) map.set(g.key, {key:g.key, label:g.label, items:[]});
+    map.get(g.key).items.push([it, i]);
+  });
+  const groups = [...map.values()];
+  groups.forEach(function(g){
+    g.done = g.items.every(p=>p[0].done);
+    g.doneAt = Math.max.apply(null, g.items.map(p=>p[0].doneAt || 0));
+    const live = g.items.find(p=>!p[0].done) || g.items[0];
+    g.aisle = live[0].aisle;
+    const qs = g.items.map(p=>shopQty(p[0].t));
+    g.total = (g.items.length > 1 && qs.every(q=>q && q.d === qs[0].d))
+      ? fmtTotal(qs.reduce((a,q)=>a+q.v, 0), qs[0].d) : '';
+  });
+  return groups;
+}
+function shopSources(){
+  const out = [];
+  PREFS.shop.forEach(function(it){
+    let s = out.find(x=>x.from === it.from);
+    if(!s){ s = {from:it.from, n:0, done:0}; out.push(s); }
+    s.n++; if(it.done) s.done++;
+  });
+  return out;
+}
+let SHOP_GROUPS = [], SHOP_SOURCES = [], SHOP_DROP = null, SHOP_DROP_TIMER = null;
+
+function shopText(){
+  const groups = shopGroups();
+  const line = function(g){
+    if(g.items.length === 1) return g.items[0][0].t;
+    return g.label + (g.total ? ' (' + g.total + ' total)' : '') + ': ' +
+      g.items.map(p=>p[0].t + ' [' + p[0].from + ']').join('; ');
+  };
+  let out = 'The Kitchen Collection: shopping list\n';
+  AISLE_ORDER.forEach(function(a){
+    const gs = groups.filter(g=>!g.done && g.aisle === a);
+    if(!gs.length) return;
+    out += '\n' + a.toUpperCase() + '\n';
+    gs.forEach(function(g){ out += '[ ] ' + line(g) + '\n'; });
+  });
+  const done = groups.filter(g=>g.done).sort((x,y)=>x.doneAt-y.doneAt);
+  if(done.length){
+    out += '\nTICKED OFF\n';
+    done.forEach(function(g){ out += '[x] ' + line(g) + '\n'; });
+  }
+  return out;
+}
+
+function shopItemHTML(g, idx){
+  const on = g.done;
+  let inner;
+  if(g.items.length === 1){
+    const it = g.items[0][0];
+    inner = esc(it.t) + '<span class="from">' + esc(it.from) + '</span>';
+  } else {
+    inner = '<b>' + esc(g.label) + '</b>' + (g.total ? '<span class="tot">' + esc(g.total) + ' total</span>' : '') +
+      g.items.map(function(p){
+        return '<span class="amt">' + esc(p[0].t) + ' <span class="src">· ' + esc(p[0].from) + '</span></span>';
+      }).join('');
+  }
+  return '<button class="shopitem'+(on?' on':'')+'" data-shoptick="'+idx+'" aria-pressed="'+on+'">'+
+    '<span class="box">'+(on?'✓':'')+'</span><span class="txt">'+inner+'</span></button>';
+}
+
+function shopView(){
+  const items = PREFS.shop;
+  SHOP_GROUPS = shopGroups();
+  SHOP_SOURCES = shopSources();
+  const open = SHOP_GROUPS.filter(g=>!g.done), done = SHOP_GROUPS.filter(g=>g.done).sort((x,y)=>x.doneAt-y.doneAt);
+
+  let body = '';
+  AISLE_ORDER.forEach(function(a){
+    const gs = open.filter(g=>g.aisle === a);
+    if(!gs.length) return;
+    body += '<p class="aisle">'+esc(a)+'</p>' + gs.map(g=>shopItemHTML(g, SHOP_GROUPS.indexOf(g))).join('');
+  });
+  if(done.length){
+    body += '<p class="aisle">Ticked off</p>' + done.map(g=>shopItemHTML(g, SHOP_GROUPS.indexOf(g))).join('');
+  }
+
+  const sources = SHOP_SOURCES.length
+    ? '<h2 class="sect">Recipes on this list</h2>' + SHOP_SOURCES.map(function(src, i){
+        const confirm = SHOP_DROP === src.from;
+        return '<div class="srcrow"><span class="nm">'+esc(src.from)+
+          '<span class="sub">'+src.n+' '+(src.n===1?'line':'lines')+(src.done?' · '+src.done+' ticked':'')+'</span></span>'+
+          '<button class="btn'+(confirm?' warn':'')+'" data-shopdrop="'+i+'">'+(confirm?'Tap again to remove':'Remove')+'</button></div>';
+      }).join('')
+    : '';
+
+  const lists = PREFS.lists.length
+    ? '<h2 class="sect">Saved lists</h2>'+PREFS.lists.map(function(l,i){
+        return '<button class="rowbtn" data-loadlist="'+i+'"><span><b>'+esc(l.name)+'</b>'+
+          '<span class="sub">'+l.items.length+' items · '+niceDate(l.date)+'</span></span>'+
+          '<span class="sub">Load</span></button>';
+      }).join('')
+    : '';
+
+  const n = SHOP_GROUPS.length;
+  return '<h1 class="rtitle" style="margin-top:26px">Shopping list</h1>'+
+    '<p class="rmeta">'+n+' '+(n===1?'item':'items')+(done.length?' · '+done.length+' ticked':'')+' · aisle order</p>'+
+    (items.length
+      ? body + '<div class="actions" style="--c:var(--salad)">'+
+          '<button class="btn" data-copyshop="1">Copy as text</button>'+
+          '<button class="btn" data-savelist="1">Save this list</button>'+
+          '<button class="btn" data-shopclear="1">Clear the list</button></div>' + sources
+      : '<p class="empty">Empty. Open a recipe and tap Add to shopping list, or build a meal and send the lot across.</p>')+
+    lists;
+}
+
+function mealView(){
+  const rs = PREFS.meal.map(rec).filter(Boolean);
+  return '<h1 class="rtitle" style="margin-top:26px">Meal</h1>'+
+    '<p class="rmeta">'+rs.length+' '+(rs.length===1?'dish':'dishes')+'</p>'+
+    (rs.length
+      ? '<div class="list">'+rs.map(r=>cardHTML(r)).join('')+'</div>'+
+        '<div class="actions" style="--c:var(--fish)">'+
+        '<button class="btn pri" data-mealshop="1">Send ingredients to the list</button>'+
+        '<button class="btn" data-mealclear="1">Clear the meal</button></div>'
+      : '<p class="empty">No dishes yet. Open a recipe, look under Goes with, and tap Build a meal from these.</p>');
+}
+
+function haveView(){
+  const have = new Set(PREFS.have || []);
+  const groups = {};
+  CHIP_KEYS.forEach(k=>{ (groups[k.group] = groups[k.group] || []).push(k); });
+  const picker = HAVE_GROUPS.filter(g=>groups[g]).map(function(g){
+    return '<div class="cgroup"><p class="aisle">'+esc(g)+'</p><div class="chips">'+
+      groups[g].map(function(k){
+        const on = have.has(k.label);
+        return '<button class="chip'+(on?' on':'')+'" data-have="'+esc(k.label)+'" aria-pressed="'+on+'">'+esc(k.label)+'</button>';
+      }).join('')+'</div></div>';
+  }).join('');
+
+  const res = matchRecipes();
+  const ready = res.filter(m=>!m.missing.length);
+  const close = res.filter(m=>m.missing.length && m.missing.length<=2);
+  const shop = res.filter(m=>m.missing.length>2);
+  function block(title, arr){
+    if(!arr.length) return '';
+    return '<h2 class="sect">'+title+'</h2>'+arr.map(function(m){
+      const sub = 'Have '+m.matched.length+' of '+m.req.length+(m.missing.length ? ' · Missing: '+m.missing.join(', ').toLowerCase() : '');
+      return '<div class="match">'+cardHTML(m.r, sub)+
+        (m.missing.length ? '<button class="btn" data-addmissing="'+m.r.id+'">Add missing to list</button>' : '')+'</div>';
+    }).join('');
+  }
+  const summary = have.size
+    ? have.size+' ticked · '+ready.length+' ready to cook · '+res.length+' close'
+    : 'Nothing ticked yet';
+
+  return '<h1 class="rtitle" style="margin-top:26px">What can I make?</h1>'+
+    '<p style="color:var(--muted);font-size:14.5px;margin:0 0 10px;max-width:62ch">Tick what you have. Salt, pepper, oil, sugar and everyday dried spices are assumed, and optional or serving ingredients do not count against a recipe.</p>'+
+    '<p class="rmeta">'+summary+'</p>'+
+    '<div class="actions" style="--c:var(--salad);margin-top:6px">'+
+      '<button class="btn pri" data-jump="matches"'+(have.size?'':' disabled')+'>See matches</button>'+
+      '<button class="btn" data-haveclear="1"'+(have.size?'':' disabled')+'>Clear ticks</button></div>'+
+    '<div class="searchrow"><input class="search" id="hq" type="search" aria-label="Filter ingredients" placeholder="Filter ingredients" value="'+esc(view.hq||'')+'" autocomplete="off"></div>'+
+    picker+
+    '<div id="matches" style="scroll-margin-top:12px"></div>'+
+    (have.size
+      ? (res.length ? block('Ready to cook', ready)+block('One or two things short', close)+block('Worth a shop', shop)
+                    : '<h2 class="sect">Matches</h2><p class="empty">Nothing in the collection uses enough of that yet. Tick a protein or a couple of vegetables to widen it.</p>')
+      : '<h2 class="sect">Matches</h2><p class="empty">Tick a few ingredients above and matching recipes appear here, with what you are missing.</p>');
+}
+function applyChipFilter(){
+  const q = (view.hq||'').trim().toLowerCase();
+  document.querySelectorAll('.cgroup').forEach(function(g){
+    let any = false;
+    g.querySelectorAll('.chip').forEach(function(c){
+      const show = !q || c.textContent.toLowerCase().includes(q);
+      c.style.display = show ? '' : 'none'; if(show) any = true;
+    });
+    g.style.display = any ? '' : 'none';
+  });
+}
+
+function renderNav(){
+  const tabs = [
+    {id:'home', ic:'◍', label:'Recipes'},
+    {id:'have', ic:'✓', label:'Have'},
+    {id:'favs', ic:'★', label:'Saved'},
+    {id:'meal', ic:'◑', label:'Meal'},
+    {id:'shop', ic:'▤', label:'List'}
+  ];
+  $('#nav').innerHTML = tabs.map(function(t){
+    const on = (t.id==='home' && ['home','cat','recipe'].includes(view.name)) || view.name===t.id;
+    return '<button class="'+(on?'on':'')+'" data-tab="'+t.id+'"><span class="ic" aria-hidden="true">'+t.ic+'</span>'+t.label+'</button>';
+  }).join('');
+}
+
+/* ============================================================
+   Search
+   ============================================================ */
+function runSearch(q){
+  const box = $('#results'); if(!box) return;
+  const s = q.trim().toLowerCase();
+  if(s.length < 2){ box.innerHTML=''; return; }
+  const hits = RECIPES.filter(r =>
+    r.title.toLowerCase().includes(s) ||
+    r.ing.some(i=>i.toLowerCase().includes(s)) ||
+    (r.tag||'').toLowerCase().includes(s)
+  );
+  box.innerHTML = hits.length
+    ? '<h2 class="sect">'+hits.length+' '+(hits.length===1?'match':'matches')+'</h2><div class="list">'+hits.map(r=>cardHTML(r)).join('')+'</div>'
+    : '<p class="empty">Nothing matches that. Try an ingredient, like gochujang or chorizo.</p>';
+}
+
+/* ============================================================
+   Shopping list
+   ============================================================ */
+function addToShop(ids){
+  const have = new Set(PREFS.shop.map(x=>x.t+'|'+x.from));
+  let added = 0;
+  ids.forEach(function(id){
+    const r = rec(id); if(!r || r.cat==='draft') return;
+    added += addLines(r, plainIng(r).filter(isShoppable), have);
+  });
+  return added;
+}
+
+function addLines(r, lines, have){
+  have = have || new Set(PREFS.shop.map(x=>x.t+'|'+x.from));
+  const f = factorFor(r.id);
+  const from = r.title + (f!==1 ? ' ('+serveText(r,f).toLowerCase()+')' : '');
+  let added = 0;
+  lines.forEach(function(l){
+    const t = scaleLine(l, f);
+    const k = t+'|'+from;
+    if(!have.has(k)){ PREFS.shop.push({t:t, from:from, aisle:aisleFor(l), done:false}); have.add(k); added++; }
+  });
+  return added;
+}
+function addMissing(id){
+  const r = rec(id);
+  const have = new Set(PREFS.have || []);
+  const lines = RINFO[id].lines.filter(x=>!x.opt && !have.has(x.key)).map(x=>x.line);
+  return addLines(r, lines);
+}
+
+async function copyText(text){
+  try{
+    if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return true; }
+  }catch(e){}
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); document.body.removeChild(ta); return ok;
+  }catch(e){ return false; }
+}
+
+/* ============================================================
+   Timers
+   ============================================================ */
+let TIMERS = [], timerInt = null, actx = null, tSeq = 0;
+function ensureAudio(){
+  try{
+    if(!actx){ const AC = window.AudioContext || window.webkitAudioContext; if(AC) actx = new AC(); }
+    if(actx && actx.state === 'suspended') actx.resume();
+  }catch(e){}
+}
+function beep(){
+  try{
+    if(!actx) return;
+    const t0 = actx.currentTime;
+    for(let i=0;i<3;i++){
+      const o = actx.createOscillator(), g = actx.createGain();
+      o.frequency.value = 880; o.connect(g); g.connect(actx.destination);
+      const st = t0 + i*0.45;
+      g.gain.setValueAtTime(0.0001, st);
+      g.gain.exponentialRampToValueAtTime(0.35, st+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, st+0.3);
+      o.start(st); o.stop(st+0.32);
+    }
+  }catch(e){}
+  try{ if(navigator.vibrate) navigator.vibrate([250,120,250,120,250]); }catch(e){}
+}
+function startTimer(secs, label){
+  ensureAudio();
+  TIMERS.push({id:++tSeq, label:label, end:Date.now()+secs*1000, done:false});
+  if(!timerInt) timerInt = setInterval(tickTimers, 500);
+  tickTimers();
+  toast(durLabel(secs)+' timer started.');
+}
+function tickTimers(){
+  const now = Date.now();
+  TIMERS.forEach(function(t){
+    if(!t.done && now >= t.end){ t.done = true; beep(); toast('Time: '+t.label); }
+  });
+  $('#timerlist').innerHTML = TIMERS.map(function(t){
+    const left = (t.end - now)/1000;
+    return '<div class="trow'+(t.done?' done':'')+'"><span class="tl">'+esc(t.label)+'</span>'+
+      '<span class="tc">'+(t.done?'Done':fmtDur(left))+'</span>'+
+      '<button data-tcancel="'+t.id+'">'+(t.done?'Dismiss':'Cancel')+'</button></div>';
+  }).join('');
+  document.body.style.paddingBottom = (96 + TIMERS.length*52) + 'px';
+  if(!TIMERS.length && timerInt){ clearInterval(timerInt); timerInt = null; }
+}
+
+/* ============================================================
+   Photos
+   ============================================================ */
+let pendingPhoto = null;
+$('#filepick').addEventListener('change', async function(e){
+  const f = e.target.files[0]; if(!f || !pendingPhoto) return;
+  const id = pendingPhoto; pendingPhoto = null; e.target.value='';
+  try{
+    const data = await shrink(f, 900, 0.72);
+    PHOTOS[id] = data;
+    render(false);
+    const ok = await IDB.set('photo:'+id, data);
+    toast(ok ? 'Photo saved on this device.' : 'Photo added, but it will not be kept after closing.');
+  }catch(err){ toast('That image could not be read. Try a JPEG or PNG.'); }
+});
+
+function shrink(file, maxDim, quality){
+  return new Promise(function(res,rej){
+    const fr = new FileReader();
+    fr.onerror = function(){ rej(new Error('read')); };
+    fr.onload = function(){
+      const img = new Image();
+      img.onerror = function(){ rej(new Error('decode')); };
+      img.onload = function(){
+        const scale = Math.min(1, maxDim/Math.max(img.width,img.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.round(img.width*scale); cv.height = Math.round(img.height*scale);
+        cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+        res(cv.toDataURL('image/jpeg', quality));
+      };
+      img.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+
+/* ============================================================
+   Events
+   ============================================================ */
+document.addEventListener('click', async function(e){
+  const sel = '[data-go],[data-tab],[data-tick],[data-fav],[data-shop],[data-cooked],[data-reset],[data-photo],'+
+              '[data-shoptick],[data-shopdrop],[data-shopclear],[data-copyshop],[data-savelist],[data-loadlist],[data-meal],'+
+              '[data-mealshop],[data-mealclear],[data-tbsp],[data-timer],[data-tcancel],'+
+              '[data-serve],[data-servereset],[data-have],[data-haveclear],[data-addmissing],[data-jump]';
+  const t = e.target.closest(sel);
+  if(!t) return;
+  const d = t.dataset;
+
+  if(d.timer){ return startTimer(+d.timer, d.label || 'Timer'); }
+  if(d.serve){ stepServe(d.id, +d.serve); render(false); return savePrefs(); }
+  if(d.servereset){ delete PREFS.serves[d.servereset]; render(false); return savePrefs(); }
+  if(d.have){
+    const set = new Set(PREFS.have || []);
+    if(set.has(d.have)) set.delete(d.have); else set.add(d.have);
+    PREFS.have = [...set];
+    render(false); return savePrefs();
+  }
+  if(d.haveclear){ PREFS.have = []; render(false); return savePrefs(); }
+  if(d.addmissing){
+    const n = addMissing(d.addmissing);
+    toast(n ? n+' missing items added to the list.' : 'Already on the list.');
+    return savePrefs();
+  }
+  if(d.jump){ const el = document.getElementById(d.jump); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  if(d.tcancel){ TIMERS = TIMERS.filter(x=>x.id !== +d.tcancel); return tickTimers(); }
+
+  if(d.go){
+    view = {name:d.go, id:d.id||null, q:''};
+    if(view.name==='recipe') ticks = {ing:new Set(), step:new Set()};
+    return render();
+  }
+  if(d.tab){ view = {name:d.tab, id:null, q:'', hq:''}; return render(); }
+
+  if(d.tick){
+    const set = ticks[d.tick]; const i = +d.i;
+    if(set.has(i)) set.delete(i); else set.add(i);
+    return render(false);
+  }
+  if(d.reset){ ticks = {ing:new Set(), step:new Set()}; return render(false); }
+
+  if(d.tbsp){ PREFS.tbsp = +d.tbsp; render(false); return savePrefs(); }
+
+  if(d.fav){
+    if(PREFS.fav.includes(d.fav)) PREFS.fav = PREFS.fav.filter(x=>x!==d.fav);
+    else PREFS.fav.push(d.fav);
+    render(false); return savePrefs();
+  }
+  if(d.cooked){
+    PREFS.cooked[d.cooked] = new Date().toISOString().slice(0,10);
+    render(false); toast('Logged for today.'); return savePrefs();
+  }
+  if(d.shop){
+    const added = addToShop([d.shop]);
+    toast(added ? added+' items added to the list.' : 'Already on the list.');
+    return savePrefs();
+  }
+  if(d.shoptick){
+    const g = SHOP_GROUPS[+d.shoptick]; if(!g) return;
+    const now = Date.now(), to = !g.done;
+    g.items.forEach(function(p){ p[0].done = to; if(to) p[0].doneAt = now; else delete p[0].doneAt; });
+    render(false); return savePrefs();
+  }
+  if(d.shopdrop){
+    const src = SHOP_SOURCES[+d.shopdrop]; if(!src) return;
+    clearTimeout(SHOP_DROP_TIMER);
+    if(SHOP_DROP !== src.from){
+      SHOP_DROP = src.from;
+      SHOP_DROP_TIMER = setTimeout(function(){ SHOP_DROP = null; if(view.name === 'shop') render(false); }, 4000);
+      return render(false);
+    }
+    SHOP_DROP = null;
+    const before = PREFS.shop.length;
+    PREFS.shop = PREFS.shop.filter(it=>it.from !== src.from);
+    render(false); toast('Removed ' + (before - PREFS.shop.length) + ' lines from ' + src.from + '.');
+    return savePrefs();
+  }
+  if(d.shopclear){ PREFS.shop = []; render(false); return savePrefs(); }
+  if(d.copyshop){
+    const ok = await copyText(shopText());
+    return toast(ok ? 'List copied.' : 'Copy failed. Select and copy by hand.');
+  }
+  if(d.savelist){
+    if(!PREFS.shop.length) return toast('Nothing to save yet.');
+    let name = null;
+    try{ name = prompt('Name this list', 'Shop ' + niceDate(new Date().toISOString())); }catch(err){ name = 'Shop ' + niceDate(new Date().toISOString()); }
+    if(!name) return;
+    PREFS.lists.unshift({name:name, items:PREFS.shop.slice(), date:new Date().toISOString()});
+    PREFS.lists = PREFS.lists.slice(0,12);
+    render(false); toast('List saved.'); return savePrefs();
+  }
+  if(d.loadlist){
+    const l = PREFS.lists[+d.loadlist];
+    PREFS.shop = l.items.map(x=>Object.assign({}, x));
+    render(false); toast('Loaded ' + l.name + '.'); return savePrefs();
+  }
+
+  if(d.meal){
+    const ids = [d.meal].concat(PAIRS[d.meal]||[]);
+    ids.forEach(function(id){ if(!PREFS.meal.includes(id)) PREFS.meal.push(id); });
+    view = {name:'meal', id:null, q:''};
+    render();
+    toast('Meal built. Send the ingredients across when ready.');
+    return savePrefs();
+  }
+  if(d.mealshop){
+    const added = addToShop(PREFS.meal);
+    view = {name:'shop', id:null, q:''};
+    render();
+    toast(added ? added+' items added.' : 'Already on the list.');
+    return savePrefs();
+  }
+  if(d.mealclear){ PREFS.meal = []; render(false); return savePrefs(); }
+
+  if(d.photo){ pendingPhoto = d.photo; $('#filepick').click(); }
+});
+
+document.addEventListener('input', function(e){
+  if(e.target.id==='q'){ view.q = e.target.value; runSearch(view.q); }
+  if(e.target.id==='hq'){ view.hq = e.target.value; applyChipFilter(); }
+});
+
+/* ============================================================
+   Go
+   ============================================================ */
+(async function(){
+  await loadAll();
+  render();
+  connectCloud();
+})();
+</script>
+<!--PWA-SCRIPT-->
+</body>
+</html>

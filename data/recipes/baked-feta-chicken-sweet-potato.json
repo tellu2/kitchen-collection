@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "baked-feta-chicken-sweet-potato",
+  "title": "Baked Feta Chicken & Sweet Potato Tray Bake",
+  "description": "Sweet potato, broccoli, chickpeas and feta roasted on one tray, with chicken added part-way through. Good for meal prep.",
+  "category": "Easy & Healthy",
+  "tags": ["chicken", "tray-bake", "meal-prep", "high-protein"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~10 min prep + 50–55 min roast", "totalMinutes": 65 },
+  "appliances": ["oven"],
+  "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 199. Rated 8.5/10." },
+  "confidence": { "level": "estimated", "note": "Amounts are from the creator's caption. The caption's method doesn't say when the chickpeas and olive oil go in; adding them with the vegetables is an assumption. Not yet cooked and confirmed at home." },
+  "nutrition": { "basis": "per serve", "calories": 470, "protein": 41, "carbs": 42, "fat": 14, "fibre": 8, "note": "As stated by the source (fibre estimated by the source); not independently checked." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "sweet-potato", "qty": 500, "unit": "g", "item": "sweet potato", "prep": "diced" },
+        { "id": "chicken", "qty": 500, "unit": "g", "item": "chicken breast" },
+        { "id": "feta", "qty": 150, "unit": "g", "item": "feta", "prep": "crumbled" },
+        { "id": "chickpeas", "qty": 240, "unit": "g", "item": "chickpeas", "prep": "drained" },
+        { "id": "broccoli", "qty": 200, "unit": "g", "item": "broccoli", "prep": "in florets" },
+        { "id": "onion", "qty": 200, "unit": "g", "item": "onion", "prep": "chopped" },
+        { "id": "oil", "qty": 4, "unit": "ml", "item": "olive oil", "note": "Approx. ¾ tsp" },
+        { "id": "seasoning", "qty": null, "item": "salt, garlic granules, mixed herbs and pepper", "note": "To taste" }
+      ]
+    }
+  ],
+  "steps": [
+    { "title": "Load the tray", "text": "Preheat the oven to 200°C. Add the sweet potato ({{sweet-potato}}), broccoli ({{broccoli}}), onion ({{onion}}), chickpeas ({{chickpeas}}) and crumbled feta ({{feta}}) to a baking tray. Drizzle with the oil ({{oil}}) and season well with salt, garlic granules, mixed herbs and pepper.", "settings": { "appliance": "oven", "temp": "200°C" } },
+    { "title": "Roast", "text": "Roast the vegetables and feta.", "settings": { "appliance": "oven", "time": "30 min", "timerSeconds": 1800, "temp": "200°C" } },
+    { "title": "Add chicken", "text": "Add the chicken ({{chicken}}) to the tray and cook until cooked through.", "settings": { "appliance": "oven", "time": "20–25 min", "timerSeconds": 1200, "temp": "200°C" } },
+    { "title": "Serve", "text": "Serve straight from the tray, or divide into containers for meal prep." }
+  ],
+  "notes": [
+    { "title": "Worth watching", "text": "The broccoli spends 50–55 minutes at 200°C in this method, which may char it. If it browns too fast, add it with the chicken instead." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

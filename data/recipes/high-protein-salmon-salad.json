@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "high-protein-salmon-salad",
+  "title": "High Protein Salmon Salad",
+  "description": "Creamy, crunchy salmon salad that takes about two minutes. Good on toast, crackers, wraps or jacket potatoes.",
+  "category": "Easy & Healthy",
+  "tags": ["salmon", "lunch", "no-cook", "high-protein"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~2 min (with cooked salmon)", "totalMinutes": 2 },
+  "appliances": ["none"],
+  "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 207. Rated 9/10." },
+  "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. Not yet cooked and confirmed at home." },
+  "nutrition": { "basis": "per serve", "calories": 278, "protein": 29, "carbs": 6, "fat": 16, "fibre": 3, "note": "As stated by the source; not independently checked." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "salmon", "qty": 240, "unit": "g", "item": "cooked salmon fillets", "note": "Approx. 2 fillets" },
+        { "id": "avocado", "qty": 70, "unit": "g", "item": "avocado", "note": "Approx. ½ medium avocado" },
+        { "id": "yoghurt", "qty": 80, "unit": "g", "item": "0% fat Greek yoghurt" },
+        { "id": "lemon", "qty": 1, "item": "lemon", "prep": "juiced" },
+        { "id": "cucumber", "qty": 100, "unit": "g", "item": "cucumber", "prep": "diced" },
+        { "id": "salt-pepper", "qty": null, "item": "salt and pepper", "note": "To taste" },
+        { "id": "hot-sauce", "qty": null, "item": "hot sauce", "optional": true, "note": "To taste" },
+        { "id": "dill", "qty": null, "item": "fresh dill", "optional": true, "note": "To taste" }
+      ]
+    }
+  ],
+  "steps": [
+    { "title": "Mix", "text": "Put the salmon ({{salmon}}), avocado ({{avocado}}), yoghurt ({{yoghurt}}), lemon juice ({{lemon}}) and cucumber ({{cucumber}}) in a bowl with salt, pepper, and hot sauce and dill if using. Mix well, breaking up the salmon as you go." },
+    { "title": "Serve", "text": "Serve on toast, crackers, wraps or jacket potatoes." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

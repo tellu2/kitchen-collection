@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "shredded-tacos",
+  "title": "Loaded Shredded Chicken Tacos",
+  "description": "Saucy shredded chicken with capsicum, beans, corn and a smoky, mole-ish edge. Spoon straight into tacos.",
+  "category": "Mexican",
+  "tags": ["chicken", "tacos"],
+  "yield": { "qty": 4, "unit": "serves", "note": "Serves 4–6" },
+  "time": { "label": "~35 min", "totalMinutes": 35 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "chicken", "qty": 600, "unit": "g", "item": "chicken thigh fillets", "note": "Or breast, see note" },
+        { "id": "onion", "qty": 1, "item": "brown onion", "prep": "halved" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "capsicum", "qty": 1, "item": "red capsicum", "prep": "in chunks" },
+        { "id": "oil", "qty": 15, "unit": "g", "item": "olive oil" },
+        { "id": "chilli-powder", "qty": 1.25, "unit": "tsp", "item": "chilli powder" },
+        { "id": "cumin", "qty": 1.25, "unit": "tsp", "item": "ground cumin" },
+        { "id": "smoked-paprika", "qty": 1.25, "unit": "tsp", "item": "smoked paprika" },
+        { "id": "garlic-powder", "qty": 0.75, "unit": "tsp", "item": "garlic powder" },
+        { "id": "onion-powder", "qty": 0.75, "unit": "tsp", "item": "onion powder" },
+        { "id": "oregano", "qty": 0.75, "unit": "tsp", "item": "dried oregano" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" },
+        { "id": "cinnamon", "qty": 1, "unit": "pinch", "item": "ground cinnamon" },
+        { "id": "tomato-paste", "qty": 2, "unit": "tbsp", "item": "tomato paste" },
+        { "id": "tomatoes", "qty": 400, "unit": "g", "item": "canned diced tomatoes" },
+        { "id": "chipotle", "qty": 1, "item": "chipotle chilli in adobo", "prep": "finely chopped", "note": "Plus 1 tsp adobo sauce" },
+        { "id": "brown-sugar", "qty": 1, "unit": "tsp", "item": "brown sugar" },
+        { "id": "cocoa", "qty": 0.5, "unit": "tsp", "item": "cocoa powder", "note": "Or a small square of dark chocolate" },
+        { "id": "bay", "qty": 1, "item": "bay leaf" },
+        { "id": "water", "qty": 60, "unit": "ml", "item": "water" },
+        { "id": "beans", "qty": 400, "unit": "g", "item": "canned black beans", "prep": "drained" },
+        { "id": "corn", "qty": 150, "unit": "g", "item": "corn kernels" },
+        { "id": "lime", "qty": 1, "item": "lime", "prep": "juiced" },
+        { "id": "coriander", "qty": 2, "unit": "tbsp", "item": "fresh coriander", "prep": "chopped" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Add the onion ({{onion}}), garlic ({{garlic}} cloves) and capsicum ({{capsicum}}) to the bowl. Chop 4 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "4 sec", "speed": "5" } },
+    { "text": "Add the olive oil ({{oil}}). Sauté 3 min / 120°C / Speed 1.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "1" } },
+    { "text": "Add the chicken ({{chicken}}), then all the spices, the tomato paste ({{tomato-paste}}), diced tomatoes ({{tomatoes}}), chipotle and adobo, brown sugar ({{brown-sugar}}), cocoa ({{cocoa}}), bay leaf and water ({{water}}). Cook 20 min / 100°C / Reverse / Soft stir, until tender.", "settings": { "appliance": "thermomix", "time": "20 min", "timerSeconds": 1200, "temp": "100°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Remove the bay leaf. Shred 8 sec / Reverse / Speed 4, leaving the sauce in so the chicken stays moist.", "settings": { "appliance": "thermomix", "time": "8 sec", "speed": "4", "reverse": true } },
+    { "text": "Add the black beans ({{beans}}) and corn ({{corn}}). Cook 3 min / 90°C / Reverse / Speed 1, just to warm through.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "90°C", "speed": "1", "reverse": true } },
+    { "text": "Stir through the lime juice and coriander ({{coriander}}). Taste, adjust, and spoon into warm tortillas." }
+  ],
+  "notes": [
+    { "title": "Salt", "text": "Held back deliberately. Chipotle, adobo, tomatoes and beans all carry salt. Taste after shredding and adjust then." },
+    { "title": "Chicken breast", "text": "Works well since it braises in the sauce and shreds cleanly. Cut into 3–4cm chunks, check at 15 minutes, and pull it as soon as it shreds easily." },
+    { "title": "If it is too loose", "text": "After shredding, cook a couple of minutes at 100°C / Reverse / Speed 1 with the MC off to let steam escape." },
+    { "title": "To serve", "text": "Warm tortillas with avocado, grated cheese, shredded lettuce or cabbage, sour cream and extra lime." }
+  ],
+  "pairings": ["taco-seasoning", "jacket-potato"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

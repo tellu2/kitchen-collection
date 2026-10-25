@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "egg-muffin",
+  "title": "Bacon, Egg, Onion & Tomato Muffin Filling",
+  "description": "A scrambled egg muffin filling worked out in an earlier session. The method exists but the quantities were never written down.",
+  "category": "Drafts to finish",
+  "tags": ["bacon", "eggs", "breakfast"],
+  "yield": { "qty": 1, "unit": "batch", "note": "Not set" },
+  "time": { "label": "Not recorded" },
+  "appliances": ["thermomix", "stovetop"],
+  "confidence": { "level": "draft", "note": "Method developed, amounts not captured." },
+  "ingredientGroups": [
+    {
+      "title": "Known elements",
+      "items": [
+        { "id": "bacon", "qty": null, "item": "bacon", "note": "Cooked separately until browned" },
+        { "id": "eggs", "qty": null, "item": "eggs" },
+        { "id": "onion", "qty": null, "item": "onion", "note": "Caramelised separately" },
+        { "id": "tomato", "qty": null, "item": "tomato", "prep": "deseeded, salted and drained" },
+        { "id": "cheese", "qty": null, "item": "grated cheese", "note": "To tighten the mix if loose" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Cook the bacon and onion separately. The Thermomix cannot brown either." },
+    { "text": "Deseed, salt and drain the tomato for 15 minutes. Tomato water is what ruins a muffin filling.", "settings": { "appliance": "none", "time": "15 min", "timerSeconds": 900 } },
+    { "text": "Scramble the eggs with the butterfly, about 6 min / 90°C / Reverse / Speed 2, checking at 5 minutes for a just-set result.", "settings": { "appliance": "thermomix", "time": "~6 min", "timerSeconds": 360, "temp": "90°C", "speed": "2", "reverse": true, "accessory": "butterfly whisk" } },
+    { "text": "Fold everything through off the heat. Hold the salt until the end, since the bacon carries plenty." }
+  ],
+  "notes": [
+    { "title": "Next step", "text": "Ask me to scale it and write it as a proper card." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

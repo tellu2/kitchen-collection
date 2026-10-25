@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "lemon-olive-chicken",
+  "title": "Braised Chicken with Lemon & Green Olives",
+  "description": "The ABC page could not be fetched. Paste the recipe text into a chat and I will adapt it for the Thermomix.",
+  "category": "Drafts to finish",
+  "tags": ["chicken"],
+  "yield": { "qty": 1, "unit": "batch", "note": "Not set" },
+  "time": { "label": "Not recorded" },
+  "appliances": ["thermomix"],
+  "source": { "name": "A Bite to Eat with Alice", "note": "Recipe by Anisa Nanduala" },
+  "confidence": { "level": "draft", "note": "Waiting on the source text. The ABC page could not be fetched." },
+  "ingredientGroups": [],
+  "steps": [
+    { "text": "Paste the recipe text into a chat and I will adapt it and add it to the Collection." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

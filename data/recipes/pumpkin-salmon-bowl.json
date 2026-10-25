@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "pumpkin-salmon-bowl",
+  "title": "Roasted Pumpkin & Chickpea Salmon Bowl",
+  "description": "Smoky roasted chickpeas, caramelised pumpkin, lemon-soy salmon and a silky tahini-Dijon dressing over rice.",
+  "category": "Fish & Seafood",
+  "tags": ["salmon", "bowls", "rice"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~40 min", "totalMinutes": 40 },
+  "appliances": ["oven", "stovetop"],
+  "source": { "name": "Own recipe" },
+  "confidence": { "level": "tested", "note": "Own recipe." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "salmon", "qty": 2, "item": "salmon fillets" },
+        { "id": "pumpkin", "qty": 400, "unit": "g", "item": "pumpkin", "prep": "peeled and cubed (2–3cm)" },
+        { "id": "chickpeas", "qty": 1, "unit": "cup", "item": "canned chickpeas", "prep": "drained and rinsed" },
+        { "id": "rice", "qty": 1, "unit": "cup", "item": "rice", "note": "Jasmine or basmati" },
+        { "id": "oil", "qty": 3, "unit": "tbsp", "item": "olive oil" },
+        { "id": "cumin", "qty": 1, "unit": "tsp", "item": "ground cumin" },
+        { "id": "smoked-paprika", "qty": 1, "unit": "tsp", "item": "smoked paprika" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves", "prep": "minced" },
+        { "id": "chilli", "qty": 0.5, "unit": "tsp", "item": "chilli flakes" },
+        { "id": "soy", "qty": 2, "unit": "tbsp", "item": "soy sauce" },
+        { "id": "lemon", "qty": 1, "item": "lemon" },
+        { "id": "butter", "qty": 1, "unit": "tbsp", "item": "butter" },
+        { "id": "tahini", "qty": 3, "unit": "tbsp", "item": "tahini" },
+        { "id": "dijon", "qty": 1, "unit": "tsp", "item": "Dijon mustard" },
+        { "id": "water", "qty": 3, "unit": "tbsp", "item": "warm water" },
+        { "id": "sesame", "qty": 1, "unit": "tbsp", "item": "sesame seeds" },
+        { "id": "parmesan", "qty": 20, "unit": "g", "item": "parmesan", "prep": "shaved" },
+        { "id": "parsley", "qty": 2, "unit": "tbsp", "item": "fresh parsley", "prep": "chopped" },
+        { "id": "cabbage-salad", "qty": 1, "unit": "cup", "item": "Japanese cabbage salad", "note": "To serve", "recipeRef": "sesame-cabbage" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Preheat the oven to 220°C. Toss the pumpkin ({{pumpkin}}) with 2 tbsp olive oil, half the garlic, the cumin ({{cumin}}), smoked paprika ({{smoked-paprika}}) and chilli flakes ({{chilli}}). Spread on a lined tray in a single layer.", "settings": { "appliance": "oven", "temp": "220°C" } },
+    { "text": "Roast 15 minutes, until starting to colour. Meanwhile cook the rice ({{rice}}).", "settings": { "appliance": "oven", "time": "15 min", "timerSeconds": 900, "temp": "220°C" } },
+    { "text": "Pat the chickpeas ({{chickpeas}}) dry and toss in a little oil, cumin and paprika. Add to the tray and roast a further 12–15 minutes, until crisp. Add the sesame seeds ({{sesame}}) for the last few minutes.", "settings": { "appliance": "oven", "time": "12–15 min", "timerSeconds": 720, "temp": "220°C" } },
+    { "text": "Pan-sear the salmon in the butter ({{butter}}), then glaze with the soy sauce ({{soy}}), a squeeze of lemon and the remaining garlic." },
+    { "text": "Whisk the tahini ({{tahini}}), Dijon ({{dijon}}), a squeeze of lemon and the warm water ({{water}}) to a pourable dressing." },
+    { "text": "Build the bowls: rice, roasted pumpkin and chickpeas, salmon, then the cabbage salad ({{cabbage-salad}}). Drizzle with the dressing and finish with shaved parmesan ({{parmesan}}) and parsley ({{parsley}})." }
+  ],
+  "notes": [
+    { "title": "Tip", "text": "The tahini dressing is the magic element. Make extra; it keeps in the fridge for a week." }
+  ],
+  "pairings": ["sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

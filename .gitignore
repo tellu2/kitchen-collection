@@ -1,0 +1,27 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Layout references (local only)
+reference/
+
+# Android build output and local config
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.apk
+*.aab
+
+# Signing material never goes in git
+*.jks
+*.keystore
+keystore.properties
+
+# Local environment
+.env
+.env.*
+.DS_Store
+Thumbs.db

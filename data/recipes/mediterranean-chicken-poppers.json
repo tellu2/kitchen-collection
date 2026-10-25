@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mediterranean-chicken-poppers",
+  "title": "Mediterranean Chicken Poppers",
+  "description": "Spiced chicken mince rolled in rice paper and air fried until crisp, with a dill yoghurt dip.",
+  "category": "Easy & Healthy",
+  "tags": ["chicken", "air-fryer", "snack", "high-protein"],
+  "yield": { "qty": 1, "unit": "batch", "note": "The source gives nutrition per 6 poppers; the total count wasn't captured." },
+  "time": { "label": "~10 min prep + 14 min air fry", "totalMinutes": 25 },
+  "appliances": ["air-fryer"],
+  "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax. Episode number and rating not captured." },
+  "confidence": { "level": "estimated", "note": "Spice amounts converted assuming the source used 15ml tablespoons (US or UK), so 2 tbsp is given as 6 tsp. Measure in teaspoons: Australian tablespoons are 20ml. Chicken is 92% lean mince in the source; chicken breast mince is the closest local equivalent." },
+  "ingredientGroups": [
+    {
+      "title": "Poppers",
+      "items": [
+        { "id": "chicken", "qty": 450, "unit": "g", "item": "lean chicken mince", "note": "Source uses 448g of 92/8 mince; chicken breast mince is closest" },
+        { "id": "cumin", "qty": 6, "unit": "tsp", "item": "ground cumin", "note": "2 tbsp in the source" },
+        { "id": "allspice", "qty": 3, "unit": "tsp", "item": "ground allspice", "note": "1 tbsp in the source" },
+        { "id": "coriander", "qty": 3, "unit": "tsp", "item": "ground coriander", "note": "Ground seed, not fresh leaves. 1 tbsp in the source" },
+        { "id": "cayenne", "qty": 1.5, "unit": "tsp", "item": "cayenne pepper", "note": "½ tbsp in the source; quite hot, consider starting with half" },
+        { "id": "garlic", "qty": 2, "item": "garlic cloves", "prep": "grated" },
+        { "id": "parsley", "qty": null, "item": "fresh parsley", "prep": "chopped", "note": "A handful" },
+        { "id": "salt-pepper", "qty": null, "item": "salt and pepper", "note": "To taste" },
+        { "id": "rice-paper", "qty": 4, "item": "rice paper sheets" }
+      ]
+    },
+    {
+      "title": "Dip",
+      "items": [
+        { "id": "yoghurt", "qty": 85, "unit": "g", "item": "Greek yoghurt" },
+        { "id": "vinegar", "qty": null, "item": "apple cider vinegar", "note": "A splash, to taste" },
+        { "id": "dill", "qty": null, "item": "dill", "note": "To taste" },
+        { "id": "dip-salt", "qty": null, "item": "salt", "note": "To taste" }
+      ]
+    }
+  ],
+  "steps": [
+    { "title": "Season the chicken", "text": "Mix the chicken mince ({{chicken}}) well with the cumin ({{cumin}}), allspice ({{allspice}}), coriander ({{coriander}}), cayenne ({{cayenne}}), garlic ({{garlic}}), parsley, salt and pepper." },
+    { "title": "Wet the rice paper", "text": "Quickly wet the rice paper sheets ({{rice-paper}}), one at a time. Make sure each is fully coated but take it straight out; don't let it soak." },
+    { "title": "Roll", "text": "Portion the chicken mixture and roll it up inside the damp rice paper." },
+    { "title": "Air fry", "text": "Air fry until golden and crispy.", "settings": { "appliance": "air-fryer", "time": "14 min", "timerSeconds": 840, "temp": "200°C" } },
+    { "title": "Make the dip", "text": "Whisk the yoghurt ({{yoghurt}}) with a splash of apple cider vinegar, dill and salt. Serve with the hot poppers." }
+  ],
+  "notes": [
+    { "title": "Reheating", "text": "From the fridge, air fry for 5 minutes at 200°C to bring the crunch back." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

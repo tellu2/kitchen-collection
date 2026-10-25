@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "cast-iron-salmon",
+  "title": "Cast Iron Salmon with Air Fryer Veg & Shallot Butter",
+  "description": "Roasted chats, honey-cumin carrots, onion, broccoli and tomatoes from the air fryer, with cast iron salmon, a shallot butter from the fond and a lemon dill yoghurt.",
+  "category": "Fish & Seafood",
+  "tags": ["salmon"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~45 min", "totalMinutes": 45 },
+  "appliances": ["air-fryer", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "salmon", "qty": 2, "item": "salmon fillets", "prep": "skin on", "note": "Approx. 150g each" },
+        { "id": "potatoes", "qty": 400, "unit": "g", "item": "chat potatoes", "prep": "halved" },
+        { "id": "carrots", "qty": 300, "unit": "g", "item": "carrots", "prep": "cut into 1cm batons" },
+        { "id": "onion", "qty": 1, "item": "brown onion", "prep": "cut into 6 wedges through the root" },
+        { "id": "broccoli", "qty": 200, "unit": "g", "item": "broccoli", "prep": "cut into small florets" },
+        { "id": "tomatoes", "qty": 150, "unit": "g", "item": "cherry tomatoes", "prep": "left whole" },
+        { "id": "shallots", "qty": 2, "item": "shallots (eschalots)", "prep": "finely sliced" },
+        { "id": "oil", "qty": 3, "unit": "tbsp", "item": "olive oil" },
+        { "id": "oil-extra", "qty": 1, "unit": "tsp", "item": "olive oil", "note": "Extra, for searing" },
+        { "id": "butter", "qty": 20, "unit": "g", "item": "butter" },
+        { "id": "cumin", "qty": 1, "unit": "tsp", "item": "ground cumin" },
+        { "id": "honey", "qty": 1, "qtyMax": 2, "unit": "tsp", "item": "honey" },
+        { "id": "salt", "qty": 1.5, "unit": "tsp", "item": "sea salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" },
+        { "id": "yoghurt", "qty": 200, "unit": "g", "item": "Greek yoghurt" },
+        { "id": "garlic", "qty": 1, "item": "garlic clove", "prep": "finely grated" },
+        { "id": "dill", "qty": 3, "unit": "tbsp", "item": "fresh dill", "prep": "finely chopped" },
+        { "id": "lemon", "qty": 1, "item": "lemon", "prep": "zested and juiced" },
+        { "id": "cucumber", "qty": 0.5, "item": "Lebanese cucumber", "prep": "coarsely grated", "optional": true }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Toss the potatoes ({{potatoes}}) with 1 tbsp of the olive oil, ½ tsp of the salt and the pepper ({{pepper}}). Air fry at 200°C for 15 minutes in a single layer, shaking once.", "settings": { "appliance": "air-fryer", "time": "15 min", "timerSeconds": 900, "temp": "200°C" } },
+    { "text": "Toss the carrots ({{carrots}}) and onion ({{onion}}) with 1 tbsp olive oil, the cumin ({{cumin}}) and a pinch of salt. Add to the basket and cook a further 10 minutes at 200°C.", "settings": { "appliance": "air-fryer", "time": "10 min", "timerSeconds": 600, "temp": "200°C" } },
+    { "text": "Make the yoghurt while that runs. If using the cucumber ({{cucumber}}), squeeze it firmly in the nut milk bag. Stir together the yoghurt ({{yoghurt}}), garlic ({{garlic}} clove), 2 tbsp of the dill, the lemon zest, roughly half the juice, the cucumber and a good pinch of salt. Taste, then refrigerate." },
+    { "text": "Thin the honey ({{honey}}) with a teaspoon of hot water. Toss the broccoli ({{broccoli}}) and tomatoes ({{tomatoes}}) with the last 1 tbsp olive oil and a pinch of salt and add to the basket. Drizzle the honey over the carrots and shake once. Cook a final 10 minutes at 200°C, until the broccoli tips char and the tomatoes split.", "settings": { "appliance": "air-fryer", "time": "10 min", "timerSeconds": 600, "temp": "200°C" } },
+    { "text": "While that last stage runs, heat the cast iron over medium-high for about 4 minutes. Pat the salmon ({{salmon}} fillets) completely dry, rub with the extra oil ({{oil-extra}}) and season with the remaining salt.", "settings": { "appliance": "stovetop", "time": "~4 min", "timerSeconds": 240 } },
+    { "text": "Lay the salmon skin-side down and press each fillet flat for about 20 seconds. Cook undisturbed 4–5 minutes, until the skin releases on its own. Turn and cook a further 1–2 minutes, until just opaque through the thickest part. Rest on a plate.", "settings": { "appliance": "stovetop", "time": "4–5 min", "timerSeconds": 240 } },
+    { "text": "Drop the heat to medium-low. Add the butter ({{butter}}) and shallots ({{shallots}}) and cook 2 minutes, scraping up the fond, until golden at the edges. Off the heat, add the rest of the lemon juice and the last 1 tbsp dill, and swirl.", "settings": { "appliance": "stovetop", "time": "2 min", "timerSeconds": 120 } },
+    { "text": "Plate the veg with the yoghurt spooned over. Set the salmon alongside and pour the shallot butter over the fish, with any resting juices." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "The cast iron sear is standard technique. The basket timings for the onion and broccoli and the sauce ratios have not been cooked yet. Three things to check: whether the carrots want longer, whether the broccoli is done in 10 minutes, and whether half a lemon is enough in the yoghurt." },
+    { "title": "Honey goes in late", "text": "Twenty minutes of honey at 200°C goes past caramelised into bitter. To be cautious, hold it back to the last 5 minutes. The plate runs sweeter with it, so be a little heavier on the lemon in the yoghurt." },
+    { "title": "Mustard in the yoghurt", "text": "Optional. ½ tsp Dijon is a background note; 1 tsp wholegrain gives texture. Add it before the lemon and hold back some juice. Avoid hot English, which fights the dill. A ¼ tsp of honey alongside ties the plate together." },
+    { "title": "Skin", "text": "Get the pan properly hot and do not move the fillets. The skin releases on its own when crisp, usually around 4 minutes; pulling early tears it." },
+    { "title": "Frozen salmon", "text": "Cold water thaw, 20–30 minutes for 150g fillets. Take it out of any vacuum pack first, keep it submerged, and change the water halfway. Then pat very dry, press, and dry again." },
+    { "title": "One sauce instead of two", "text": "Skip the butter step and fold the sliced shallots raw through the yoghurt after soaking them in cold water for 10 minutes." },
+    { "title": "Basket-only version", "text": "The earlier draft cooked the salmon in the basket at 180°C for 9–10 minutes with the broccoli and tomatoes, lifting the potatoes and carrots out to make room and returning them for a 2-minute reheat." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

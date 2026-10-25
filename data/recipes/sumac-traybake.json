@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "sumac-traybake",
+  "title": "Sumac Chicken Traybake with Tahini Yoghurt",
+  "description": "Spiced chicken roasted on one tray with potatoes, carrot, broccoli and asparagus, finished with a lemony tahini yoghurt. Untested, so report back and I will adjust the timings.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["chicken", "tray-bake"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~55 min", "totalMinutes": 55 },
+  "appliances": ["oven"],
+  "source": { "name": "Own recipe, first draft" },
+  "confidence": { "level": "estimated", "note": "Own recipe, first draft. Untested, so report back and I will adjust the timings." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "chicken", "qty": 2, "item": "chicken breasts", "note": "Approx. 400g total" },
+        { "id": "potatoes", "qty": 400, "unit": "g", "item": "potatoes", "prep": "cut into 3cm chunks" },
+        { "id": "carrot", "qty": 1, "item": "large carrot", "prep": "cut into 1cm coins" },
+        { "id": "broccoli", "qty": 250, "unit": "g", "item": "broccoli florets" },
+        { "id": "asparagus", "qty": 1, "item": "bunch asparagus", "prep": "woody ends snapped off" },
+        { "id": "oil", "qty": 3, "unit": "tbsp", "item": "olive oil" },
+        { "id": "sumac", "qty": 2, "unit": "tsp", "item": "sumac", "note": "Plus extra to finish" },
+        { "id": "cumin", "qty": 1, "unit": "tsp", "item": "ground cumin" },
+        { "id": "smoked-paprika", "qty": 1, "unit": "tsp", "item": "smoked paprika" },
+        { "id": "garlic", "qty": 2, "item": "garlic cloves", "prep": "minced" },
+        { "id": "salt", "qty": 1, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" },
+        { "id": "lemon", "qty": 1, "item": "lemon", "prep": "zested and juiced" },
+        { "id": "yoghurt", "qty": 120, "unit": "g", "item": "Greek yoghurt" },
+        { "id": "tahini", "qty": 2, "unit": "tbsp", "item": "tahini" },
+        { "id": "parsley", "qty": 2, "unit": "tbsp", "item": "fresh parsley", "prep": "chopped" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Preheat the oven to 220°C (200°C fan-forced) and line a large tray with baking paper.", "settings": { "appliance": "oven", "temp": "220°C (200°C fan-forced)" } },
+    { "text": "Butterfly or slice the chicken ({{chicken}} breasts) to an even 2cm thickness. Mix 1 tsp of the sumac, the cumin ({{cumin}}), smoked paprika ({{smoked-paprika}}), half the garlic ({{garlic*0.5}} clove), the lemon zest, 1 tbsp of the olive oil and ½ tsp of the salt. Coat the chicken and set aside." },
+    { "text": "Toss the potatoes ({{potatoes}}) and carrot ({{carrot}}) with 1 tbsp olive oil, the remaining salt ({{salt*0.5}}) and the pepper ({{pepper}}). Spread in a single layer and roast 20 minutes.", "settings": { "appliance": "oven", "time": "20 min", "timerSeconds": 1200, "temp": "220°C" } },
+    { "text": "Toss the broccoli ({{broccoli}}) in the last 1 tbsp olive oil and add to the tray. Push the veg aside and lay the chicken flat in the gaps. Roast 15 minutes.", "settings": { "appliance": "oven", "time": "15 min", "timerSeconds": 900, "temp": "220°C" } },
+    { "text": "Add the asparagus ({{asparagus}} bunch) and roast a further 8–10 minutes, until the chicken reaches 75°C in the thickest part and the potatoes are golden.", "settings": { "appliance": "oven", "time": "8–10 min", "timerSeconds": 480, "temp": "220°C" } },
+    { "text": "Rest the chicken 5 minutes. Meanwhile whisk the yoghurt ({{yoghurt}}), tahini ({{tahini}}), the remaining garlic, juice of half the lemon and a pinch of salt, loosening with a splash of water until drizzly.", "settings": { "appliance": "none", "time": "5 min", "timerSeconds": 300 } },
+    { "text": "Slice the chicken and plate with the veg. Drizzle with the tahini yoghurt, then finish with the remaining sumac (approx. {{sumac*0.5}}), the parsley ({{parsley}}) and the other lemon half cut into wedges." }
+  ],
+  "notes": [
+    { "title": "Confidence", "text": "Amounts and timings are estimates. The 75°C internal temperature is the standard Australian poultry guideline. Watch the chicken at the 20-minute mark after it goes in." },
+    { "title": "Crowding", "text": "The main risk. If the tray is full, use two trays so the veg roasts rather than steams." },
+    { "title": "Air fryer", "text": "Works for a half batch on the usual staged method: potatoes and carrot at 200°C first, chicken later at 180°C." },
+    { "title": "Tahini", "text": "Shelved in either the spreads or the health food aisle, so check both." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

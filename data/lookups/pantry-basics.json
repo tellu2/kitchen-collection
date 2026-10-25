@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "description": "Ingredients the Have tab assumes are always in the kitchen, and the test for optional or serving lines that do not count against a recipe. Extracted from the legacy BASICS and isOptionalLine. Patterns are JavaScript regular expression sources tested against an ingredient's line text.",
+  "assumed": ["salt", "pepper", "oil", "water", "sugar", "paprika", "cumin", "oregano", "cinnamon", "bay leaves", "chilli flakes", "chilli powder", "garlic powder", "onion powder", "nutmeg", "ground ginger", "baking powder", "bicarbonate of soda"],
+  "assumedPattern": { "pattern": "\\bsalt\\b|pepper|\\boil\\b|water|\\bsugar\\b|paprika|cumin|oregano|cinnamon|bay lea|chilli flake|chilli powder|garlic powder|onion powder|nutmeg|ground ginger|baking powder|bicarbonate", "flags": "i" },
+  "optionalLinePattern": { "pattern": "\\boptional\\b|(^|, |\\()to (serve|finish)\\b", "flags": "i" }
+}

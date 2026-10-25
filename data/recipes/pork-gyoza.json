@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "pork-gyoza",
+  "title": "Thermomix Pork Gyoza",
+  "description": "Pork and wombok filling made in the Thermomix, bought wrappers, pan-fried for a crisp base then steamed lid-on.",
+  "category": "Asian",
+  "tags": ["pork", "mince", "dumplings", "freezer-friendly"],
+  "yield": { "qty": 30, "unit": "gyoza", "note": "Approx." },
+  "time": { "label": "~1 hr including chill", "totalMinutes": 60 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "mince", "qty": 400, "unit": "g", "item": "pork mince", "note": "Regular, not extra-lean, around 15–20% fat" },
+        { "id": "cabbage", "qty": 200, "unit": "g", "item": "wombok or green cabbage", "prep": "finely shredded" },
+        { "id": "spring-onion", "qty": 3, "item": "spring onions" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "ginger", "qty": null, "item": "fresh ginger", "note": "Small knob" },
+        { "id": "wrappers", "qty": 30, "item": "round gyoza wrappers" },
+        { "id": "soy", "qty": null, "item": "soy sauce" },
+        { "id": "sesame-oil", "qty": null, "item": "sesame oil" },
+        { "id": "mirin", "qty": null, "item": "mirin or rice wine" },
+        { "id": "sugar", "qty": null, "item": "caster sugar" },
+        { "id": "white-pepper", "qty": null, "item": "white pepper" },
+        { "id": "salt", "qty": null, "item": "salt", "note": "For the cabbage" },
+        { "id": "oil", "qty": null, "item": "rice bran oil", "note": "For frying" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Salt the shredded cabbage ({{cabbage}}), rest 10 minutes, then squeeze it dry in the nut milk bag. Wet cabbage is the main cause of soggy filling.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Chop the spring onion ({{spring-onion}}), garlic ({{garlic}} cloves) and ginger in the bowl, then add the mince ({{mince}}), squeezed cabbage and seasonings. Mix 20 sec / Reverse / Speed 3 so it stays textured rather than pasted.", "settings": { "appliance": "thermomix", "time": "20 sec", "speed": "3", "reverse": true } },
+    { "text": "Chill the filling 20 minutes. Bought mince is looser than freshly minced shoulder, so do not skip this.", "settings": { "appliance": "none", "time": "20 min", "timerSeconds": 1200 } },
+    { "text": "Wrap: a teaspoon of filling per wrapper ({{wrappers}}), wet the rim, pleat and press to seal." },
+    { "text": "Heat the cast iron properly before the oil goes in, then fry the bases until golden, in batches so they are not crowded." },
+    { "text": "Add a splash of water, cover, and steam 5–6 minutes.", "settings": { "appliance": "stovetop", "time": "5–6 min", "timerSeconds": 300 } },
+    { "text": "Uncover and let the base re-crisp before lifting them out." }
+  ],
+  "notes": [
+    { "title": "Seasoning amounts still open", "text": "The soy, sesame oil, mirin, sugar and white pepper quantities were never captured. Ask me to set them properly before the next batch." },
+    { "title": "No lid for the cast iron", "text": "A baking tray, a dinner plate or foil over the top all work for the steam step." },
+    { "title": "Wrappers", "text": "Round gyoza wrappers rather than square wonton skins. Most are sold frozen and want an hour in the fridge to thaw, otherwise they tear." },
+    { "title": "Freezing", "text": "Freeze them shaped, flat on a tray, then bag them. Cook from frozen adding about 2 minutes to the steam step. Do not freeze the loose raw filling." },
+    { "title": "Air fryer", "text": "190°C for 8–10 minutes with a light oil spray. All-over crunch rather than a crisp base." }
+  ],
+  "pairings": ["sunomono", "sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

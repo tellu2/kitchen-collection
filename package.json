@@ -1,0 +1,18 @@
+{
+  "name": "kitchen-collection",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Kitchen Collection recipe app and recipe data",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build:index": "node scripts/build-index.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  }
+}

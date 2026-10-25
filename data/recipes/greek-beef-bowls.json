@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "greek-beef-bowls",
+  "title": "Greek-Style Seared Beef Rice Bowls",
+  "description": "Thin-sliced chuck seared hard with oregano and paprika, over lemon rice from the Thermomix basket, with a Greek salad and garlic yoghurt.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["beef", "rice", "bowls"],
+  "yield": { "qty": 2, "unit": "serves" },
+  "time": { "label": "~45 min", "totalMinutes": 45 },
+  "appliances": ["thermomix", "stovetop"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "title": "Beef",
+      "items": [
+        { "id": "beef", "qty": 400, "unit": "g", "item": "chuck beef", "prep": "in one piece" },
+        { "id": "garlic", "qty": 2, "item": "garlic cloves", "prep": "minced" },
+        { "id": "oregano", "qty": 1, "unit": "tsp", "item": "dried oregano" },
+        { "id": "smoked-paprika", "qty": 1, "unit": "tsp", "item": "smoked paprika" },
+        { "id": "oil", "qty": 20, "unit": "g", "item": "olive oil", "note": "For searing" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" },
+        { "id": "lemon", "qty": 1, "item": "lemon", "prep": "halved" }
+      ]
+    },
+    {
+      "title": "Lemon rice",
+      "items": [
+        { "id": "rice", "qty": 200, "unit": "g", "item": "long grain rice" },
+        { "id": "stock", "qty": 600, "unit": "g", "item": "chicken or vegetable stock" },
+        { "id": "bay", "qty": 1, "item": "bay leaf" }
+      ]
+    },
+    {
+      "title": "Salad and yoghurt",
+      "items": [
+        { "id": "cucumber", "qty": 1, "item": "Lebanese cucumber", "prep": "diced" },
+        { "id": "tomatoes", "qty": 2, "item": "tomatoes", "prep": "deseeded and diced" },
+        { "id": "onion", "qty": 0.25, "item": "red onion", "prep": "finely sliced" },
+        { "id": "capsicum", "qty": 0.5, "item": "red capsicum", "prep": "diced" },
+        { "id": "olives", "qty": 60, "unit": "g", "item": "Kalamata olives" },
+        { "id": "fetta", "qty": 100, "unit": "g", "item": "fetta", "prep": "crumbled" },
+        { "id": "dressing-oil", "qty": 20, "unit": "g", "item": "olive oil", "note": "For dressing" },
+        { "id": "vinegar", "qty": 15, "unit": "ml", "item": "red wine vinegar" },
+        { "id": "oregano-extra", "qty": 0.5, "unit": "tsp", "item": "dried oregano", "note": "Extra" },
+        { "id": "yoghurt", "qty": 100, "unit": "g", "item": "Greek yoghurt" },
+        { "id": "garlic-extra", "qty": 1, "item": "garlic clove", "prep": "crushed", "note": "Extra" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Firm the chuck ({{beef}}) in the freezer for 15–20 minutes. Optional, but it makes thin slicing much easier.", "settings": { "appliance": "none", "time": "15–20 min", "timerSeconds": 900 } },
+    { "text": "Deseed and dice the tomatoes ({{tomatoes}}), toss with a pinch of salt and leave to drain in a sieve for 10 minutes. This stops the salad flooding the rice.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Look at the grain before cutting; chuck often changes direction partway through. Cut into two or three sections along those lines, then slice each thinly against its own grain, 3–5mm." },
+    { "text": "Toss the beef with the garlic ({{garlic}} cloves), oregano ({{oregano}}), smoked paprika ({{smoked-paprika}}), salt ({{salt}}), pepper ({{pepper}}) and about half the olive oil ({{oil*0.5}}). Leave while the rice cooks." },
+    { "text": "Rinse the rice ({{rice}}) and put it in the simmering basket. Add the stock ({{stock}}), bay leaf ({{bay}}) and a wide strip of lemon zest to the bowl. Insert the basket and cook 16 min / Varoma / Speed 4. Add 2 minutes if needed.", "settings": { "appliance": "thermomix", "time": "16 min", "timerSeconds": 960, "temp": "Varoma", "speed": "4", "accessory": "simmering basket" } },
+    { "text": "Combine the drained tomatoes with the cucumber ({{cucumber}}), red onion ({{onion}}), capsicum ({{capsicum}}) and olives ({{olives}}). Dress with the olive oil ({{dressing-oil}}), red wine vinegar ({{vinegar}}) and oregano ({{oregano-extra}}). Scatter the fetta ({{fetta}}) over rather than tossing it through." },
+    { "text": "Stir the yoghurt ({{yoghurt}}) with the garlic ({{garlic-extra}} clove), a squeeze of lemon and a pinch of salt. Thin with a little water to a spoonable consistency." },
+    { "text": "Get the cast iron very hot with the remaining olive oil ({{oil*0.5}}). Sear the beef in two batches, 60–90 seconds each, tossing once. Do not crowd the pan. Squeeze the remaining lemon over off the heat.", "settings": { "appliance": "stovetop", "time": "60–90 sec", "timerSeconds": 60 } },
+    { "text": "Fluff the rice into bowls. Spoon over the garlic yoghurt, then the beef and pan juices, with the salad alongside or piled on top." }
+  ],
+  "notes": [
+    { "title": "Order of work", "text": "Get the tomatoes salting and the beef in the freezer first, then everything else fits around the rice. Sear the beef last; it goes from good to grey quickly if it sits." },
+    { "title": "Salt", "text": "The stock carries salt, so hold back in the rice and season at the end." },
+    { "title": "If the beef is chewy", "text": "Next time toss the slices with 1 tsp bicarb soda, rest 20 minutes, then rinse well and pat dry before marinating." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

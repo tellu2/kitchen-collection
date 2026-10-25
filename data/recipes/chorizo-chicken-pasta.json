@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "chorizo-chicken-pasta",
+  "title": "Chorizo & Chicken Pasta",
+  "description": "Verified ingredients, general method. Amounts are from Cookidoo AU; the official steps are subscription-gated.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["chicken", "chorizo", "pasta", "one-pot"],
+  "yield": { "qty": 6, "unit": "serves" },
+  "time": { "label": "~50 min", "totalMinutes": 50 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Cookidoo AU", "note": "Rated 4.2★" },
+  "confidence": { "level": "gated", "note": "Verified ingredients, general method. Amounts are from Cookidoo AU; the official steps are subscription-gated." },
+  "methodLabel": "General method (not the official Cookidoo steps)",
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "chicken", "qty": 700, "unit": "g", "item": "skinless chicken breast fillets", "prep": "cut into strips", "note": "Approx. 5 × 2 cm" },
+        { "id": "chorizo", "qty": 250, "unit": "g", "item": "chorizo sausage", "prep": "sliced 5mm", "note": "Approx. 2" },
+        { "id": "oil", "qty": 20, "unit": "g", "item": "olive oil" },
+        { "id": "onion", "qty": 1, "item": "brown onion", "prep": "halved", "note": "Approx. 150g" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "chilli", "qty": 1, "qtyMax": 2, "item": "long red chillies", "prep": "deseeded if preferred" },
+        { "id": "capsicum", "qty": 0.5, "item": "red capsicum", "prep": "in pieces", "note": "Approx. 90g" },
+        { "id": "carrot", "qty": 1, "item": "carrot", "prep": "in pieces", "note": "Approx. 160g" },
+        { "id": "zucchini", "qty": 150, "unit": "g", "item": "zucchini", "prep": "in pieces" },
+        { "id": "tomato-paste", "qty": 90, "unit": "g", "item": "tomato paste" },
+        { "id": "tomatoes", "qty": 400, "unit": "g", "item": "canned diced tomatoes" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "sea salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "ground black pepper" },
+        { "id": "pasta", "qty": 180, "unit": "g", "item": "shell pasta" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Chop the onion (150g), garlic ({{garlic}} cloves) and chilli ({{chilli}}) 3 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "3 sec", "speed": "5" } },
+    { "text": "Add the olive oil ({{oil}}) and sauté 3 min / 120°C / Speed 1.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "1" } },
+    { "text": "Add the chorizo ({{chorizo}}) and sauté 3 min / 120°C / Reverse / Speed 1 to render some fat and flavour the base.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "1", "reverse": true } },
+    { "text": "Add the capsicum (90g), carrot (160g) and zucchini ({{zucchini}}). Chop 4 sec / Speed 5.", "settings": { "appliance": "thermomix", "time": "4 sec", "speed": "5" } },
+    { "text": "Add the tomato paste ({{tomato-paste}}), diced tomatoes ({{tomatoes}}), salt ({{salt}}) and pepper ({{pepper}}). Add the chicken ({{chicken}}) and pasta ({{pasta}}) with enough water to cover the pasta." },
+    { "text": "Cook 18–20 min / 100°C / Reverse / Speed 1, until the pasta is tender and the chicken cooked through. Rest a few minutes before serving.", "settings": { "appliance": "thermomix", "time": "18–20 min", "timerSeconds": 1080, "temp": "100°C", "speed": "1", "reverse": true } }
+  ],
+  "notes": [
+    { "title": "Reminder", "text": "For the exact tested timings, check the recipe on Cookidoo. Treat the method here as a working guide." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

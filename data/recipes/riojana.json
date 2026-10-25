@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "riojana",
+  "title": "Patatas a la Riojana",
+  "description": "The traditional build: water rather than stock, no tomato, and the potatoes fried in the rendered chorizo fat before any liquid goes in.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["chorizo", "potatoes", "stew"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~60 min", "totalMinutes": 60 },
+  "appliances": ["thermomix"],
+  "source": { "name": "Corrected against Spanish-language sources" },
+  "confidence": { "level": "estimated", "note": "Corrected against Spanish-language sources." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "potatoes", "qty": 800, "unit": "g", "item": "potatoes", "prep": "torn into 3cm pieces" },
+        { "id": "chorizo", "qty": 250, "unit": "g", "item": "cooking chorizo", "prep": "1cm slices" },
+        { "id": "capsicum", "qty": 1, "item": "green capsicum", "prep": "in pieces" },
+        { "id": "shallots", "qty": 3, "item": "shallots", "prep": "halved" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "oil", "qty": 20, "unit": "g", "item": "olive oil" },
+        { "id": "paprika", "qty": 1, "unit": "tsp", "item": "sweet smoked paprika", "note": "Plus a pinch of hot" },
+        { "id": "wine", "qty": 100, "unit": "ml", "item": "dry white wine", "optional": true, "note": "Worth it" },
+        { "id": "water", "qty": 500, "qtyMax": 600, "unit": "ml", "item": "water", "note": "Or 300ml stock topped up with water" },
+        { "id": "bay", "qty": 2, "item": "bay leaves" },
+        { "id": "salt", "qty": null, "item": "salt", "note": "To finish" },
+        { "id": "bread", "qty": null, "item": "crusty bread", "note": "To serve" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Tear the potatoes ({{potatoes}}) rather than cutting them. Push the knife in about 1.5cm, then twist and break the piece off. The ragged starchy faces are what thicken the broth." },
+    { "text": "Shallots ({{shallots}}), garlic ({{garlic}} cloves) and capsicum ({{capsicum}}) into the bowl. Chop 4 sec / Speed 5. Scrape down.", "settings": { "appliance": "thermomix", "time": "4 sec", "speed": "5" } },
+    { "text": "Add the olive oil ({{oil}}). Sauté 5 min / 120°C / Reverse / Soft stir until soft, without colouring.", "settings": { "appliance": "thermomix", "time": "5 min", "timerSeconds": 300, "temp": "120°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Add the chorizo ({{chorizo}}). Cook 3 min / 120°C / Reverse / Soft stir until the fat runs orange.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "120°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Add the potatoes and cook 10 min / 120°C / Reverse / Soft stir so they coat in the fat and start to catch. Most of the flavour comes from this step.", "settings": { "appliance": "thermomix", "time": "10 min", "timerSeconds": 600, "temp": "120°C", "speed": "Soft stir", "reverse": true } },
+    { "text": "Add the wine ({{wine}}) and reduce 3 min / Varoma / Reverse / Soft stir, MC off.", "settings": { "appliance": "thermomix", "time": "3 min", "timerSeconds": 180, "temp": "Varoma", "speed": "Soft stir", "reverse": true } },
+    { "text": "Add the paprika (1 tsp sweet plus a pinch of hot), bay leaves ({{bay}}) and water ({{water}}). Cook 30 min / 100°C / Reverse / Soft stir, MC off with the basket on the lid, until the potatoes give to a knife but hold their shape.", "settings": { "appliance": "thermomix", "time": "30 min", "timerSeconds": 1800, "temp": "100°C", "speed": "Soft stir", "reverse": true, "accessory": "simmering basket on the lid" } },
+    { "text": "Rest 10 minutes uncovered so the broth thickens. Taste for salt last.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } }
+  ],
+  "notes": [
+    { "title": "Water, not stock", "text": "The traditional approach. The chorizo does the seasoning, and 250g of it plus a salty stock would be aggressive." },
+    { "title": "Capacity", "text": "This lands close to 2.0L. If it looks high at step 7, hold back 100ml of the water and add it midway." },
+    { "title": "Thickening", "text": "If it stays thin, mash 2–3 potato pieces back through. Cornflour slurry is texturally wrong for this style." },
+    { "title": "Tomato variation", "text": "Tomato is not part of the classic. To use fresh ones up, deseed, salt and drain them 15 minutes, then add two chopped at step 7. That is the July version of this recipe, which also used tomato paste and 300ml stock." },
+    { "title": "Speed setting", "text": "Reverse / Soft stir from step 3 onward. Speed 1 is only justified for short early steps to stop catching." },
+    { "title": "Choricero", "text": "Choricero pepper paste is the authentic regional ingredient. Hard to find here, so smoked paprika plus green capsicum is the reasonable substitute." }
+  ],
+  "pairings": ["sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

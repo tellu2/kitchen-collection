@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "sunomono",
+  "title": "Sunomono (Cucumber Vinegar Salad)",
+  "description": "Thin cucumber in a sweet-sharp rice vinegar dressing. No Thermomix needed, and it can be made while the gyoza filling chills.",
+  "category": "Salads & Sides",
+  "tags": ["salad", "side", "vegetarian"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~15 min plus chilling", "totalMinutes": 15 },
+  "appliances": ["none"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "cucumbers", "qty": 2, "item": "Lebanese cucumbers" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt" },
+        { "id": "wakame", "qty": 5, "unit": "g", "item": "dried wakame", "optional": true },
+        { "id": "vinegar", "qty": 3, "unit": "tbsp", "item": "rice wine vinegar" },
+        { "id": "sugar", "qty": 1, "unit": "tbsp", "item": "caster sugar" },
+        { "id": "soy", "qty": 1, "unit": "tsp", "item": "soy sauce" },
+        { "id": "sesame", "qty": 1, "unit": "tsp", "item": "toasted sesame seeds" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Slice the cucumbers ({{cucumbers}}) as thinly as you can, ideally on a mandoline. Toss with the salt ({{salt}}) and leave 10 minutes, then squeeze gently to shed the water. Do not skip this or the dressing dilutes.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "If using the wakame ({{wakame}}), cover with cold water and leave 10 minutes to rehydrate, then drain and squeeze out.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Stir the vinegar ({{vinegar}}), sugar ({{sugar}}) and soy ({{soy}}) together until the sugar dissolves." },
+    { "text": "Toss the cucumber and wakame through the dressing and chill until serving. Scatter with the sesame seeds ({{sesame}}) at the table." }
+  ],
+  "notes": [
+    { "title": "Timing", "text": "Best made no more than a couple of hours ahead, as the cucumber softens." },
+    { "title": "Variations", "text": "A pinch of chilli flakes or a few strips of ginger are common additions. Carrot in fine matchsticks takes it closer to a namasu. For sharper, drop the sugar to 2 tsp." }
+  ],
+  "pairings": ["pork-gyoza"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

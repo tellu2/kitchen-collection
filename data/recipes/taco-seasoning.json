@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "taco-seasoning",
+  "title": "Homemade Taco Seasoning",
+  "description": "A preservative-free blend that replaces one store-bought packet.",
+  "category": "Basics & Blends",
+  "tags": ["spice-blend", "pantry"],
+  "yield": { "qty": 1, "unit": "batch", "note": "One batch seasons 500g mince" },
+  "time": { "label": "Not recorded" },
+  "appliances": ["none", "thermomix"],
+  "source": { "name": "Cross-referenced" },
+  "confidence": { "level": "sourced", "note": "Cross-referenced." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "chilli-powder", "qty": 1, "unit": "tsp", "item": "chilli powder", "note": "Mild, see note" },
+        { "id": "cumin", "qty": 1, "unit": "tsp", "item": "ground cumin" },
+        { "id": "smoked-paprika", "qty": 1, "unit": "tsp", "item": "smoked paprika" },
+        { "id": "garlic-powder", "qty": 0.5, "unit": "tsp", "item": "garlic powder" },
+        { "id": "onion-powder", "qty": 0.5, "unit": "tsp", "item": "onion powder" },
+        { "id": "oregano", "qty": 0.5, "unit": "tsp", "item": "dried oregano" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt" },
+        { "id": "pepper", "qty": 0.25, "unit": "tsp", "item": "black pepper" },
+        { "id": "chilli-flakes", "qty": 0.25, "unit": "tsp", "item": "chilli flakes", "optional": true, "note": "For heat" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Combine all the spices in a small airtight jar or bowl." },
+    { "text": "Seal and shake, or stir, to combine. No Thermomix needed." },
+    { "text": "If using whole spices, mill them first 1 min / Speed 9 before combining.", "settings": { "appliance": "thermomix", "time": "1 min", "timerSeconds": 60, "speed": "9" } },
+    { "text": "Use the full batch for 500g of mince, or store in a cool, dark place up to 12 months." }
+  ],
+  "notes": [
+    { "title": "Australian chilli powder", "text": "Here chilli powder is pure ground chilli, much hotter than the American blend. Start with ½ tsp and build up. A quadruple batch in a jar is handy for future taco nights." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

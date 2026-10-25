@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "banana-bread",
+  "title": "Thermomix Banana Bread",
+  "description": "Verified ingredients, general method. The amounts are from Cookidoo AU; the exact steps are subscription-gated.",
+  "category": "Baking & Sweets",
+  "tags": ["baking", "loaf", "vegetarian"],
+  "yield": { "qty": 1, "unit": "loaf" },
+  "time": { "label": "~10 min prep + ~50 min bake", "totalMinutes": 60 },
+  "appliances": ["thermomix", "oven"],
+  "source": { "name": "Cookidoo AU" },
+  "confidence": { "level": "gated", "note": "Verified ingredients, general method. The amounts are from Cookidoo AU; the exact steps are subscription-gated." },
+  "methodLabel": "General method (not the official Cookidoo steps)",
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "bananas", "qty": 350, "unit": "g", "item": "bananas", "prep": "broken into pieces", "note": "Approx. 4, riper is better" },
+        { "id": "sugar", "qty": 150, "unit": "g", "item": "caster sugar" },
+        { "id": "eggs", "qty": 2, "item": "eggs" },
+        { "id": "flour", "qty": 220, "unit": "g", "item": "plain flour" },
+        { "id": "baking-powder", "qty": 2, "unit": "tsp", "item": "baking powder" },
+        { "id": "salt", "qty": 1, "unit": "pinch", "item": "salt" },
+        { "id": "bicarb", "qty": 1, "unit": "tsp", "item": "bicarbonate of soda" },
+        { "id": "buttermilk", "qty": 100, "unit": "g", "item": "buttermilk" },
+        { "id": "vanilla", "qty": 2, "unit": "tsp", "item": "natural vanilla extract" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Preheat the oven to 180°C and line a loaf tin with baking paper.", "settings": { "appliance": "oven", "temp": "180°C" } },
+    { "text": "Add the bananas ({{bananas}}) to the bowl and mash 10 sec / Speed 4. Scrape down.", "settings": { "appliance": "thermomix", "time": "10 sec", "speed": "4" } },
+    { "text": "Add the sugar ({{sugar}}), eggs ({{eggs}}), buttermilk ({{buttermilk}}) and vanilla ({{vanilla}}). Mix 15 sec / Speed 4.", "settings": { "appliance": "thermomix", "time": "15 sec", "speed": "4" } },
+    { "text": "Add the flour ({{flour}}), baking powder ({{baking-powder}}), bicarbonate of soda ({{bicarb}}) and salt ({{salt}}). Mix 15 sec / Speed 4 until just combined. Do not overmix or the loaf turns dense.", "settings": { "appliance": "thermomix", "time": "15 sec", "speed": "4" } },
+    { "text": "Pour into the lined tin and bake 45–50 minutes, until a skewer comes out clean.", "settings": { "appliance": "oven", "time": "45–50 min", "timerSeconds": 2700, "temp": "180°C" } },
+    { "text": "Cool in the tin 10 minutes, then turn out onto a rack to cool fully before slicing.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } }
+  ],
+  "notes": [
+    { "title": "Swaps and add-ins", "text": "Raw sugar works 1:1 with a little more caramel depth. Oat milk replaces the buttermilk at the same quantity. Using self-raising flour? Omit the bicarbonate of soda. For coconut and cranberry, fold a handful of each through and scatter extra coconut on top. For chocolate, swirl a cocoa-sugar paste through or replace 30–40g of flour with cocoa." },
+    { "title": "Storage", "text": "A few days in a bread box once fully cool, up to a week wrapped in the fridge, or sliced and frozen up to 3 months. Toasting from frozen with butter is excellent." }
+  ],
+  "version": 1,
+  "updated": "2026-10-25"
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "oi-muchim",
+  "title": "Korean Cucumber Salad (Oi Muchim)",
+  "description": "Crisp, spicy-sweet banchan that cuts through rich, saucy mains. The ingredient list is well-sourced; the ratios are a middle-of-the-range starting point.",
+  "category": "Salads & Sides",
+  "tags": ["salad", "side", "vegetarian"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~15 min", "totalMinutes": 15 },
+  "appliances": ["none"],
+  "source": { "name": "Cross-referenced" },
+  "confidence": { "level": "sourced", "note": "Cross-referenced. The ingredient list is well-sourced; the ratios are a middle-of-the-range starting point." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "cucumbers", "qty": 2, "item": "Lebanese cucumbers" },
+        { "id": "salt", "qty": 0.5, "unit": "tsp", "item": "salt", "note": "For drawing out water" },
+        { "id": "soy", "qty": 1, "unit": "tbsp", "item": "soy sauce" },
+        { "id": "vinegar", "qty": 1, "unit": "tbsp", "item": "rice wine vinegar" },
+        { "id": "gochugaru", "qty": 1, "unit": "tsp", "item": "gochugaru", "note": "Korean chilli flakes" },
+        { "id": "sesame-oil", "qty": 1, "unit": "tsp", "item": "sesame oil" },
+        { "id": "sugar", "qty": 1, "unit": "tsp", "item": "sugar" },
+        { "id": "garlic", "qty": 1, "item": "garlic clove", "prep": "grated" },
+        { "id": "spring-onion", "qty": 1, "item": "spring onion", "prep": "sliced" },
+        { "id": "sesame", "qty": 1, "unit": "tsp", "item": "sesame seeds" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Slice the cucumbers ({{cucumbers}}) thinly. Toss with the salt ({{salt}}) and leave 10 minutes, then drain off the water that comes out.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Whisk the soy ({{soy}}), vinegar ({{vinegar}}), gochugaru ({{gochugaru}}), sesame oil ({{sesame-oil}}), sugar ({{sugar}}) and grated garlic ({{garlic}} clove) together." },
+    { "text": "Toss the cucumber through the dressing with the spring onion ({{spring-onion}})." },
+    { "text": "Taste and adjust: more vinegar to brighten, more gochugaru for heat, a pinch more sugar to round it out. Finish with the sesame seeds ({{sesame}})." }
+  ],
+  "notes": [
+    { "title": "Cucumber", "text": "Lebanese is the best Australian supermarket option here. Thin skin, few seeds, stays crisp." }
+  ],
+  "pairings": ["gochujang-chicken"],
+  "version": 1,
+  "updated": "2026-10-25"
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "gochujang-chicken",
+  "title": "Air Fryer Gochujang Chicken",
+  "description": "Sticky, spicy-sweet. Sauce made in the Thermomix, char and glaze finished in the air fryer.",
+  "category": "Asian",
+  "tags": ["chicken"],
+  "yield": { "qty": 4, "unit": "serves" },
+  "time": { "label": "~30 min", "totalMinutes": 30 },
+  "appliances": ["thermomix", "air-fryer"],
+  "source": { "name": "Built from technique" },
+  "confidence": { "level": "estimated", "note": "Built from technique." },
+  "ingredientGroups": [
+    {
+      "items": [
+        { "id": "chicken", "qty": 600, "unit": "g", "item": "chicken breast fillets" },
+        { "id": "gochujang", "qty": 3, "unit": "tbsp", "item": "gochujang", "note": "Korean chilli paste" },
+        { "id": "soy", "qty": 2, "unit": "tbsp", "item": "soy sauce" },
+        { "id": "honey", "qty": 2, "unit": "tbsp", "item": "honey" },
+        { "id": "sesame-oil", "qty": 1, "unit": "tbsp", "item": "sesame oil" },
+        { "id": "garlic", "qty": 3, "item": "garlic cloves" },
+        { "id": "ginger", "qty": 1, "unit": "tsp", "item": "ginger", "prep": "grated" },
+        { "id": "vinegar", "qty": 1, "unit": "tbsp", "item": "rice wine vinegar" },
+        { "id": "sesame-seeds", "qty": 1, "unit": "tbsp", "item": "sesame seeds", "note": "To serve" },
+        { "id": "spring-onion", "qty": 2, "item": "spring onions", "prep": "sliced", "note": "To serve" }
+      ]
+    }
+  ],
+  "steps": [
+    { "text": "Add the gochujang ({{gochujang}}), soy ({{soy}}), honey ({{honey}}), sesame oil ({{sesame-oil}}), garlic ({{garlic}} cloves), ginger ({{ginger}}) and vinegar ({{vinegar}}) to the bowl. Blitz 10 sec / Speed 4 until smooth. Set aside half for glazing.", "settings": { "appliance": "thermomix", "time": "10 sec", "speed": "4" } },
+    { "text": "Coat the chicken ({{chicken}}) in the remaining half. Let it sit at least 10 minutes if you have time.", "settings": { "appliance": "none", "time": "10 min", "timerSeconds": 600 } },
+    { "text": "Air fry at 190°C for 6 minutes. Flip, brush with the reserved sauce, and cook a further 6–8 minutes until caramelised at the edges.", "settings": { "appliance": "air-fryer", "time": "6 min", "timerSeconds": 360, "temp": "190°C" } },
+    { "text": "Check the thickest part reads 74°C. If it is not quite there, give it another 2–3 minutes rather than guessing by time.", "settings": { "appliance": "air-fryer", "time": "2–3 min", "timerSeconds": 120 } },
+    { "text": "Rest 5 minutes, then slice. Scatter with sesame seeds ({{sesame-seeds}}) and spring onion ({{spring-onion}}).", "settings": { "appliance": "none", "time": "5 min", "timerSeconds": 300 } }
+  ],
+  "notes": [
+    { "title": "No Thermomix", "text": "Whisk the sauce by hand. Mince the garlic finely and grate the ginger so they blend smoothly. A splash of water loosens lumpy gochujang." },
+    { "title": "Salt", "text": "None added. Soy and gochujang carry plenty." },
+    { "title": "To serve", "text": "Over rice with the Korean cucumber salad on the side, or shredded into lettuce cups." }
+  ],
+  "pairings": ["oi-muchim", "sesame-cabbage"],
+  "version": 1,
+  "updated": "2026-10-25"
+}
