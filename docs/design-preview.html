@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen Collection design preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14161a;--surface:#1b1e24;--raised:#22262e;--line:#2e343d;--text:#e9ebee;--muted:#98a1ac;--accent:#f2e3c6;--on:#12141a;
+  --asian:#d27b64;--mex:#d99136;--med:#dc6b4f;--fish:#62a0d6;--salad:#86b25b;--lightm:#a38ac9;--easy:#d98ba6;--sweet:#e5a845;--basic:#7fb3a8;--draft:#8a929c;
+  --serif:"Fraunces",Georgia,serif;--sans:"Atkinson Hyperlegible Next",system-ui,sans-serif;--mono:"Atkinson Hyperlegible Mono",ui-monospace,monospace}
+.light{--bg:#eceff2;--surface:#ffffff;--raised:#f3f5f7;--line:#d3d9e0;--text:#14181d;--muted:#5b6470;--accent:#14181d;--on:#ffffff;
+  --asian:#a84c37;--mex:#9a5c0f;--med:#a8402a;--fish:#2b6ca6;--salad:#4e7428;--lightm:#7354a3;--easy:#a8466a;--sweet:#8f620d;--basic:#37766a;--draft:#646d78}
+*{box-sizing:border-box}
+body{margin:0;background:#0b0c0e;color:#e9ebee;font-family:var(--sans);padding:24px 16px 48px}
+h1.page{font-family:var(--serif);font-weight:700;margin:0 0 4px;font-size:28px}
+p.lead{color:#98a1ac;margin:0 0 24px;max-width:70ch}
+.row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.label{font:600 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#98a1ac;margin:0 0 8px}
+.phone{width:360px;max-width:100%;height:740px;border-radius:28px;border:1px solid #2e343d;background:var(--bg);color:var(--text);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.scroll{flex:1;overflow:hidden;padding:18px 16px 0}
+.nav{display:flex;border-top:1px solid var(--line);background:var(--surface)}
+.nav div{flex:1;text-align:center;padding:10px 0 12px;font-size:12px;color:var(--muted)}
+.nav div.on{color:var(--text);font-weight:700}
+.nav svg{display:block;margin:0 auto 3px;width:22px;height:22px}
+.head{display:flex;justify-content:space-between;align-items:flex-start}
+.word{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.05;letter-spacing:-.01em}
+.sync{font:14px var(--sans);color:var(--muted);margin-top:4px}
+.gear{width:48px;height:48px;display:grid;place-items:center;border-radius:12px;color:var(--muted)}
+.search{margin:14px 0 10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 14px;color:var(--muted);font-size:17px}
+.chips{display:flex;gap:8px;overflow:hidden;margin-bottom:12px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:10px 14px;font-size:15px;white-space:nowrap;background:var(--surface)}
+.chip.on{background:var(--accent);color:var(--on);border-color:var(--accent);font-weight:700}
+.sect{font:600 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:12px;min-height:84px}
+.tile b{display:block;font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.2}
+.tile span{font-size:14px;color:var(--muted)}
+.hero{height:190px;margin:-18px -16px 0;position:relative}
+.hero svg{width:100%;height:100%;display:block}
+.photo{position:absolute;right:12px;bottom:12px;background:rgba(10,12,15,.8);color:#e9ebee;border-radius:10px;padding:10px 12px;font-size:14px}
+.rt{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.1;margin:14px 0 6px}
+.meta{color:var(--muted);font-size:15px;display:flex;gap:12px;flex-wrap:wrap}
+.flag{display:inline-block;margin:10px 0 0;font:600 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px;color:var(--fl);border:1px solid color-mix(in srgb,var(--fl) 45%,transparent);background:color-mix(in srgb,var(--fl) 12%,transparent)}
+.stepper{display:flex;align-items:center;gap:10px;margin:14px 0 4px}
+.stepper .ctl{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+.stepper button{all:unset;width:48px;height:48px;display:grid;place-items:center;font-size:22px;color:var(--c)}
+.stepper output{min-width:96px;text-align:center;font-weight:700}
+.tabs{display:flex;border-bottom:1px solid var(--line);margin-top:12px}
+.tabs div{flex:1;text-align:center;padding:12px 0;color:var(--muted);font-weight:600}
+.tabs div.on{color:var(--text);box-shadow:inset 0 -3px 0 var(--c)}
+.ing{list-style:none;margin:0;padding:0}
+.ing li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
+.box{flex:0 0 22px;height:22px;border:2px solid var(--line);border-radius:6px;margin-top:2px}
+.amt{font-weight:700}
+.conv{display:block;font:13px var(--mono);color:var(--muted);margin-top:2px}
+.cta{padding:12px 16px 14px;background:var(--surface);border-top:1px solid var(--line)}
+.cta div{background:var(--c);color:var(--on);border-radius:14px;text-align:center;padding:15px;font-weight:700;font-size:17px}
+.cook{padding:18px 18px 0;flex:1;display:flex;flex-direction:column}
+.ctop{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:15px}
+.bar{height:6px;background:var(--line);border-radius:6px;margin:12px 0 18px}
+.bar i{display:block;height:100%;width:62%;background:var(--c);border-radius:6px}
+.uses{font-size:16px;color:var(--muted);margin-bottom:10px}
+.uses b{color:var(--text)}
+.steptext{font-size:23px;line-height:1.45}
+.sets{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.set{display:flex;align-items:center;gap:8px;font:600 22px var(--mono);background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-height:56px}
+.set.time{border-color:var(--c);color:var(--c)}
+.set small{font:13px var(--sans);color:var(--muted);display:block}
+.pn{display:flex;gap:10px;margin-top:auto;padding:14px 0 16px}
+.pn div{flex:1;text-align:center;padding:17px;border-radius:14px;font-weight:700;font-size:18px;border:1px solid var(--line)}
+.pn .next{background:var(--c);color:var(--on);border-color:var(--c)}
+.tray{position:absolute;left:12px;right:12px;bottom:70px;background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.tray b{font:600 18px var(--mono)}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;max-width:1140px}
+.swatch{border-radius:12px;overflow:hidden;border:1px solid #2e343d;font-size:13px}
+.swatch .c{height:46px;display:flex}
+.swatch .c i{flex:1}
+.swatch div.t{padding:8px 10px;background:#1b1e24;color:#e9ebee;font-family:var(--mono)}
+section{margin-bottom:36px}
+</style>
+</head>
+<body>
+<h1 class="page">Kitchen Collection design preview</h1>
+<p class="lead">Static mock-ups to go with docs/design-plan.md. These are not the app: real screens will use the same tokens, type and layout. Dark is the default; one screen is shown in light for comparison.</p>
+
+<section>
+<p class="label">Screens</p>
+<div class="row">
+
+<div>
+<p class="label">Home · dark</p>
+<div class="phone">
+  <div class="scroll">
+    <div class="head"><div><div class="word">Kitchen<br>Collection</div><div class="sync">38 recipes · synced 25 Oct</div></div>
+      <div class="gear"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div></div>
+    <div class="search">Search recipes or ingredients</div>
+    <div class="chips"><span class="chip on">All</span><span class="chip">Thermomix</span><span class="chip">Air fryer</span><span class="chip">Oven</span></div>
+    <p class="sect">Browse by type</p>
+    <div class="grid">
+      <div class="tile" style="--c:var(--asian)"><b>Asian</b><span>5 recipes</span></div>
+      <div class="tile" style="--c:var(--mex)"><b>Mexican</b><span>2 recipes</span></div>
+      <div class="tile" style="--c:var(--med)"><b>Mediterranean &amp; Middle Eastern</b><span>10 recipes</span></div>
+      <div class="tile" style="--c:var(--fish)"><b>Fish &amp; Seafood</b><span>3 recipes</span></div>
+      <div class="tile" style="--c:var(--salad)"><b>Salads &amp; Sides</b><span>3 recipes</span></div>
+      <div class="tile" style="--c:var(--lightm)"><b>Light Meals</b><span>2 recipes</span></div>
+      <div class="tile" style="--c:var(--easy)"><b>Easy &amp; Healthy</b><span>5 recipes</span></div>
+      <div class="tile" style="--c:var(--sweet)"><b>Baking &amp; Sweets</b><span>3 recipes</span></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg>Recipes</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Have</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Saved</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/></svg>Meal</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>List</div>
+  </div>
+</div>
+</div>
+
+<div>
+<p class="label">Recipe · dark</p>
+<div class="phone" style="--c:var(--asian)">
+  <div class="scroll">
+    <div class="hero"><svg viewBox="0 0 360 190"><rect width="360" height="190" fill="#0f1115"/><circle cx="180" cy="95" r="86" fill="none" stroke="#d27b64" stroke-opacity=".18"/><circle cx="180" cy="95" r="66" fill="#d27b64" fill-opacity=".08" stroke="#d27b64" stroke-opacity=".35"/><circle cx="160" cy="80" r="14" fill="#d27b64" fill-opacity=".45"/><circle cx="205" cy="105" r="11" fill="#d27b64" fill-opacity=".3"/><ellipse cx="185" cy="72" rx="16" ry="7" fill="#d27b64" fill-opacity=".5" transform="rotate(30 185 72)"/><ellipse cx="165" cy="115" rx="18" ry="8" fill="#d27b64" fill-opacity=".38" transform="rotate(-20 165 115)"/></svg><span class="photo">Add photo</span></div>
+    <div class="rt">Massaman Beef Curry</div>
+    <div class="meta"><span>~2 hr 15 min</span><span>Serves 4</span><span>Thermomix · Stovetop</span></div>
+    <span class="flag" style="--fl:#e0b463">Estimated</span>
+    <div class="stepper"><span style="color:var(--muted);font-size:15px">Servings</span><span class="ctl"><button>−</button><output>Serves 4</output><button>+</button></span></div>
+    <div class="tabs"><div class="on">Ingredients</div><div>Method</div><div>Notes</div></div>
+    <ul class="ing">
+      <li><span class="box"></span><span><span class="amt">700g</span> beef chuck or gravy beef, 4cm cubes</span></li>
+      <li><span class="box"></span><span><span class="amt">80–100g</span> massaman curry paste<br><span style="color:var(--muted);font-size:15px">Maesri or Mae Ploy</span></span></li>
+      <li><span class="box"></span><span><span class="amt">2 tbsp</span> fish sauce<span class="conv">40ml · 1 tbsp = 20ml (AU)</span></span></li>
+    </ul>
+  </div>
+  <div class="cta"><div>Start cooking</div></div>
+</div>
+</div>
+
+<div>
+<p class="label">Cooking mode · dark</p>
+<div class="phone" style="--c:var(--asian)">
+  <div class="cook">
+    <div class="ctop"><span style="font-size:22px">×</span><span>Massaman Beef Curry</span><span>Step 5 of 8</span></div>
+    <div class="bar"><i></i></div>
+    <div class="uses">Uses <b>400ml</b> coconut cream, <b>2 tbsp</b> fish sauce, <b>1 tbsp</b> tamarind</div>
+    <div class="steptext">Braise. Add the beef, the remaining coconut cream, fish sauce, tamarind, palm sugar, the toasted spices and bay leaves.</div>
+    <div class="sets">
+      <div class="set time">90 min</div>
+      <div class="set">100°C</div>
+      <div class="set">↺ Soft stir</div>
+      <div class="set" style="font-size:16px">Simmering basket on the lid</div>
+    </div>
+    <div class="pn"><div>Previous</div><div class="next">Next</div></div>
+  </div>
+  <div class="tray" style="bottom:86px"><span>Massaman, step 1</span><b>3:42</b><span style="color:var(--muted)">Cancel</span></div>
+</div>
+</div>
+
+<div>
+<p class="label">Home · light</p>
+<div class="phone light">
+  <div class="scroll">
+    <div class="head"><div><div class="word">Kitchen<br>Collection</div><div class="sync">38 recipes · synced 25 Oct</div></div><div class="gear">⚙</div></div>
+    <div class="search">Search recipes or ingredients</div>
+    <div class="chips"><span class="chip on">All</span><span class="chip">Thermomix</span><span class="chip">Air fryer</span><span class="chip">Oven</span></div>
+    <p class="sect">Browse by type</p>
+    <div class="grid">
+      <div class="tile" style="--c:var(--asian)"><b>Asian</b><span>5 recipes</span></div>
+      <div class="tile" style="--c:var(--mex)"><b>Mexican</b><span>2 recipes</span></div>
+      <div class="tile" style="--c:var(--med)"><b>Mediterranean &amp; Middle Eastern</b><span>10 recipes</span></div>
+      <div class="tile" style="--c:var(--fish)"><b>Fish &amp; Seafood</b><span>3 recipes</span></div>
+      <div class="tile" style="--c:var(--salad)"><b>Salads &amp; Sides</b><span>3 recipes</span></div>
+      <div class="tile" style="--c:var(--lightm)"><b>Light Meals</b><span>2 recipes</span></div>
+      <div class="tile" style="--c:var(--easy)"><b>Easy &amp; Healthy</b><span>5 recipes</span></div>
+      <div class="tile" style="--c:var(--sweet)"><b>Baking &amp; Sweets</b><span>3 recipes</span></div>
+    </div>
+  </div>
+  <div class="nav"><div class="on">Recipes</div><div>Have</div><div>Saved</div><div>Meal</div><div>List</div></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<p class="label">Category colours (dark | light)</p>
+<div class="sw">
+  <div class="swatch"><div class="c"><i style="background:#d27b64"></i><i style="background:#a84c37"></i></div><div class="t">Asian</div></div>
+  <div class="swatch"><div class="c"><i style="background:#d99136"></i><i style="background:#9a5c0f"></i></div><div class="t">Mexican</div></div>
+  <div class="swatch"><div class="c"><i style="background:#dc6b4f"></i><i style="background:#a8402a"></i></div><div class="t">Med &amp; Middle Eastern</div></div>
+  <div class="swatch"><div class="c"><i style="background:#62a0d6"></i><i style="background:#2b6ca6"></i></div><div class="t">Fish &amp; Seafood</div></div>
+  <div class="swatch"><div class="c"><i style="background:#86b25b"></i><i style="background:#4e7428"></i></div><div class="t">Salads &amp; Sides</div></div>
+  <div class="swatch"><div class="c"><i style="background:#a38ac9"></i><i style="background:#7354a3"></i></div><div class="t">Light Meals</div></div>
+  <div class="swatch"><div class="c"><i style="background:#d98ba6"></i><i style="background:#a8466a"></i></div><div class="t">Easy &amp; Healthy (new)</div></div>
+  <div class="swatch"><div class="c"><i style="background:#e5a845"></i><i style="background:#8f620d"></i></div><div class="t">Baking &amp; Sweets</div></div>
+  <div class="swatch"><div class="c"><i style="background:#7fb3a8"></i><i style="background:#37766a"></i></div><div class="t">Basics &amp; Blends</div></div>
+  <div class="swatch"><div class="c"><i style="background:#8a929c"></i><i style="background:#646d78"></i></div><div class="t">Drafts</div></div>
+</div>
+</section>
+</body>
+</html>
