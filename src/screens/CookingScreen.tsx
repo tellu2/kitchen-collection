@@ -95,7 +95,7 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
         <p className="cook-text"><StepText text={s.text} ingredients={ingMap} factor={factor} /></p>
 
         {set && (set.time || set.temp || set.speed || set.reverse || set.accessory) && (
-          <div className="settings">
+          <div className="cook-settings">
             {set.time && (
               set.timerSeconds ? (
                 <button type="button" className="setting setting-time" onClick={() => start(set.timerSeconds!, label)}>

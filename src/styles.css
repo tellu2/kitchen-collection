@@ -137,7 +137,7 @@ p { margin: 0 0 10px; }
 .field input { min-height: 50px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface); padding: 0 14px; font-weight: 400; font-size: 17px; }
 
 .segmented { display: flex; background: var(--sunk); border-radius: 14px; padding: 4px; gap: 4px; margin: 8px 0 10px; }
-.segmented button { flex: 1; min-height: 46px; border-radius: 11px; font-weight: 700; font-size: 15px; color: var(--muted); }
+.segmented button { flex: 1; min-width: 0; min-height: 46px; padding: 6px 8px; line-height: 1.2; border-radius: 11px; font-weight: 700; font-size: 15px; color: var(--muted); }
 .segmented button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
 
 /* ---------- Headings ---------- */
@@ -389,7 +389,7 @@ button.flag { min-height: 40px; }
 .need { background: var(--surface); box-shadow: var(--shadow); border-radius: 999px; padding: 8px 14px; font-size: 16px; }
 .cook-text { font-size: 23px; line-height: 1.5; overflow-wrap: anywhere; }
 .cook-text .readout { font-size: 20px; }
-.settings { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0 14px; }
+.cook-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0 14px; }
 .setting { background: var(--surface); box-shadow: var(--shadow); border-radius: 16px; padding: 12px 14px; text-align: left; min-height: 76px; display: grid; align-content: center; gap: 2px; min-width: 0; }
 .setting small { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13.5px; font-weight: 700; }
 .setting b { font-family: var(--mono); font-size: 24px; line-height: 1.2; overflow-wrap: anywhere; }
