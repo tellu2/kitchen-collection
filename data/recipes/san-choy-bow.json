@@ -10,6 +10,8 @@
   "appliances": ["stovetop", "thermomix"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "guidance", "note": "Built from technique." },
+  "image": "images/san-choy-bow.jpg",
+  "imageCredit": {"name":"Amanda Lim","url":"https://www.pexels.com/photo/a-person-holding-a-green-vegetable-with-pork-barbecue-8178929/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

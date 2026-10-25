@@ -10,6 +10,8 @@
   "appliances": ["oven", "stovetop"],
   "source": { "name": "Own recipe" },
   "confidence": { "level": "tested", "note": "Own recipe." },
+  "image": "images/pumpkin-salmon-bowl.jpg",
+  "imageCredit": {"name":"Kantharos Sangsuwan","url":"https://www.pexels.com/photo/close-up-of-food-in-a-pan-7531245/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

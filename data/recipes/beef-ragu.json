@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Braise structure sourced, timing estimated" },
   "confidence": { "level": "estimated", "note": "Braise structure sourced, timing estimated." },
+  "image": "images/beef-ragu.jpg",
+  "imageCredit": {"name":"Tugce Turan","url":"https://www.pexels.com/photo/pasta-dish-on-ceramic-plate-13640223/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

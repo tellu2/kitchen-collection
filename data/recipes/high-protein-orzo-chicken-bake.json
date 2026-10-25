@@ -11,6 +11,8 @@
   "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 203 (Simple High Protein Orzo Chicken Pasta). Rated 9/10." },
   "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. The caption doesn't say how to cut the chicken or chorizo; bite-sized pieces are assumed. Not yet cooked and confirmed at home." },
   "nutrition": { "basis": "per serve", "calories": 502, "protein": 40, "carbs": 42, "fat": 20, "note": "As stated by the source; not independently checked. Fibre figure not captured." },
+  "image": "images/high-protein-orzo-chicken-bake.jpg",
+  "imageCredit": {"name":"Zehra Yılmaz","url":"https://www.pexels.com/photo/person-hand-holding-spoon-in-bowl-of-food-25749300/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

@@ -1,7 +1,7 @@
 // Validates everything under data/. Exits 1 if anything fails.
 // Checks: schema, filename = id, unique ids, {{token}} resolution,
 // recipeRef and pairings targets, lookup patterns, no em dashes.
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
@@ -34,8 +34,8 @@ function readJson(path) {
   }
 }
 
-// No em dashes anywhere in data/
-for (const path of walk(dataDir)) {
+// No em dashes anywhere in data/ (text files only)
+for (const path of walk(dataDir).filter(p => /\.(json|md|txt)$/i.test(p))) {
   const text = readFileSync(path, 'utf8');
   const lines = text.split('\n');
   lines.forEach((line, i) => {
@@ -92,6 +92,9 @@ for (const { r, rel } of recipes.values()) {
     const stray = text.replace(TOKEN, '');
     if (stray.includes('{{') || stray.includes('}}')) fail(rel, `step ${i + 1}: unmatched braces`);
   });
+  if (r.image && !/^https?:\/\//.test(r.image) && !existsSync(join(dataDir, r.image))) {
+    fail(rel, `image "${r.image}" not found under data/`);
+  }
   for (const p of r.pairings ?? []) {
     if (!recipes.has(p)) fail(rel, `pairing "${p}" does not exist`);
     if (p === r.id) fail(rel, 'pairs with itself');
@@ -134,6 +137,21 @@ const basics = readJson(join(lookupsDir, 'pantry-basics.json'));
 if (basics) {
   checkPattern('data/lookups/pantry-basics.json', 'assumedPattern', basics.assumedPattern);
   checkPattern('data/lookups/pantry-basics.json', 'optionalLinePattern', basics.optionalLinePattern);
+}
+
+const categories = readJson(join(lookupsDir, 'categories.json'));
+if (categories) {
+  const rel = 'data/lookups/categories.json';
+  const names = schema.properties.category.enum;
+  for (const name of names) {
+    const cover = categories.covers?.[name];
+    if (!cover) { fail(rel, `no cover for "${name}"`); continue; }
+    if (cover.recipe && !recipes.get(cover.recipe)?.r.image) fail(rel, `"${name}": recipe "${cover.recipe}" missing or has no image`);
+    if (cover.image && !existsSync(join(dataDir, cover.image))) fail(rel, `"${name}": image "${cover.image}" not found`);
+  }
+  for (const name of Object.keys(categories.covers ?? {})) {
+    if (!names.includes(name)) fail(rel, `unknown category "${name}"`);
+  }
 }
 
 if (errors.length) {

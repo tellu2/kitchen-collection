@@ -10,6 +10,8 @@
   "appliances": ["air-fryer"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/souvlaki.jpg",
+  "imageCredit": {"name":"Aurora Ferrari","url":"https://www.pexels.com/photo/traditional-greek-meal-with-souvlaki-and-salad-38150502/","source":"Pexels"},
   "ingredientGroups": [
     {
       "title": "Chicken",

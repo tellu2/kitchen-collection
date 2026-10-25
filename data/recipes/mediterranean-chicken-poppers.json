@@ -10,6 +10,8 @@
   "appliances": ["air-fryer"],
   "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax. Episode number and rating not captured." },
   "confidence": { "level": "estimated", "note": "Spice amounts converted assuming the source used 15ml tablespoons (US or UK), so 2 tbsp is given as 6 tsp. Measure in teaspoons: Australian tablespoons are 20ml. Chicken is 92% lean mince in the source; chicken breast mince is the closest local equivalent." },
+  "image": "images/mediterranean-chicken-poppers.jpg",
+  "imageCredit": {"name":"Valeria Boltneva","url":"https://www.pexels.com/photo/close-up-photograph-of-a-paper-bag-with-spring-rolls-13717449/","source":"Pexels"},
   "ingredientGroups": [
     {
       "title": "Poppers",

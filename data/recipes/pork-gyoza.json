@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/pork-gyoza.jpg",
+  "imageCredit": {"name":"Anna Tarazevich","url":"https://www.pexels.com/photo/close-up-shot-of-fried-dumplings-7287702/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

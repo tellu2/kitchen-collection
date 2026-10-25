@@ -30,6 +30,7 @@ const recipes = readdirSync(recipesDir)
       updated: r.updated
     };
     if (r.added) entry.added = r.added;
+    if (r.image) entry.image = r.image;
     return entry;
   })
   .sort((a, b) =>

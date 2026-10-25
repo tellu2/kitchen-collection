@@ -10,6 +10,8 @@
   "appliances": ["air-fryer"],
   "source": { "name": "General method, not yet confirmed" },
   "confidence": { "level": "estimated", "note": "General method, not yet confirmed. Report back on the timing and I will formalise it." },
+  "image": "images/jacket-potato.jpg",
+  "imageCredit": {"name":"Polina Tankilevitch","url":"https://www.pexels.com/photo/close-up-photo-of-sliced-potato-4110470/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

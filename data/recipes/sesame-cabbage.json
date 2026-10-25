@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Built live" },
   "confidence": { "level": "guidance", "note": "Built live. Built during a cooking session rather than from a fixed recipe card, so treat the amounts as a starting point." },
+  "image": "images/sesame-cabbage.jpg",
+  "imageCredit": {"name":"Zizi zi","url":"https://www.pexels.com/photo/shredded-cabbage-and-green-arugula-7726010/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

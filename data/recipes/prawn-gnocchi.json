@@ -10,6 +10,8 @@
   "appliances": ["stovetop"],
   "confidence": { "level": "estimated", "note": "No confidence note was recorded in the legacy card." },
   "methodLabel": "Cast iron, one pan",
+  "image": "images/prawn-gnocchi.jpg",
+  "imageCredit": {"name":"Kaboompics","url":"https://www.pexels.com/photo/a-close-up-shot-of-a-gnocchi-6659690/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

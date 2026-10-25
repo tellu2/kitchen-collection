@@ -10,6 +10,8 @@
   "appliances": ["thermomix"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/bliss-balls.jpg",
+  "imageCredit": {"name":"Ella Olsson","url":"https://www.pexels.com/photo/close-up-photo-of-baked-goods-3026811/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

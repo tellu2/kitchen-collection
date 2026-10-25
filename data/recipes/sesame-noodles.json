@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/sesame-noodles.jpg",
+  "imageCredit": {"name":"Lunarly","url":"https://www.pexels.com/photo/delicious-asian-noodle-dish-with-chicken-39303250/","source":"Pexels"},
   "ingredientGroups": [
     {
       "title": "Sauce and base",

@@ -10,6 +10,8 @@
   "appliances": ["thermomix"],
   "source": { "name": "Not Quite Nigella base, adapted" },
   "confidence": { "level": "estimated", "note": "Not Quite Nigella base, adapted." },
+  "image": "images/bolognese.jpg",
+  "imageCredit": {"name":"Ketut Subiyanto","url":"https://www.pexels.com/photo/pasta-bolognaise-served-on-plate-on-table-4349774/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

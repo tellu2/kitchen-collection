@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "oven", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/zucchini-slice.jpg",
+  "imageCredit": {"name":"Anya Dunes","url":"https://www.pexels.com/photo/vegetable-frittata-with-fresh-bread-on-marble-33922142/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

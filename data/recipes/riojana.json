@@ -10,6 +10,8 @@
   "appliances": ["thermomix"],
   "source": { "name": "Corrected against Spanish-language sources" },
   "confidence": { "level": "estimated", "note": "Corrected against Spanish-language sources." },
+  "image": "images/riojana.jpg",
+  "imageCredit": {"name":"Istvan Szabo","url":"https://www.pexels.com/photo/a-bowl-of-chicken-stew-10338448/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

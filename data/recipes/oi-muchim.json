@@ -10,6 +10,8 @@
   "appliances": ["none"],
   "source": { "name": "Cross-referenced" },
   "confidence": { "level": "sourced", "note": "Cross-referenced. The ingredient list is well-sourced; the ratios are a middle-of-the-range starting point." },
+  "image": "images/oi-muchim.jpg",
+  "imageCredit": {"name":"makafood","url":"https://www.pexels.com/photo/slices-of-cucumber-with-chili-on-a-black-container-8983115/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

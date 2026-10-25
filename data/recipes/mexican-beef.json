@@ -10,6 +10,8 @@
   "appliances": ["thermomix"],
   "source": { "name": "Thermobliss" },
   "confidence": { "level": "estimated", "note": "The steps are from Thermobliss. Beef, stock and tomato paste amounts were estimated for a 4-serve batch, so confirm at the source." },
+  "image": "images/mexican-beef.jpg",
+  "imageCredit": {"name":"Nourishment Decoded","url":"https://www.pexels.com/photo/meal-in-bowl-10696501/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

@@ -10,6 +10,8 @@
   "appliances": ["oven"],
   "source": { "name": "Own recipe, first draft" },
   "confidence": { "level": "estimated", "note": "Own recipe, first draft. Untested, so report back and I will adjust the timings." },
+  "image": "images/sumac-traybake.jpg",
+  "imageCredit": {"name":"Masuma Rahaman","url":"https://www.pexels.com/photo/roasted-chicken-leg-with-vegetables-on-a-plate-36480176/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

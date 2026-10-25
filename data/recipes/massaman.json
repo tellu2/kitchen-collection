@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Cross-checked against Thai and Thermomix sources" },
   "confidence": { "level": "estimated", "note": "Cross-checked against Thai and Thermomix sources." },
+  "image": "images/massaman.jpg",
+  "imageCredit": {"name":"Jonathan Cooper","url":"https://www.pexels.com/photo/beef-chunks-in-grease-15131224/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

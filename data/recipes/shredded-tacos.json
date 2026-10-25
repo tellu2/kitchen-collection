@@ -10,6 +10,8 @@
   "appliances": ["thermomix"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/shredded-tacos.jpg",
+  "imageCredit": {"name":"Shameel Mukkath","url":"https://www.pexels.com/photo/tacos-on-plate-with-dipping-sauce-14930613/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

@@ -10,6 +10,8 @@
   "appliances": ["oven"],
   "source": { "name": "Built live" },
   "confidence": { "level": "estimated", "note": "Built live." },
+  "image": "images/honey-spice-cake.jpg",
+  "imageCredit": {"name":"Mohammed Albilali","url":"https://www.pexels.com/photo/cake-on-red-cloth-16564859/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

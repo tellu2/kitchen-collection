@@ -11,6 +11,8 @@
   "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 207. Rated 9/10." },
   "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. Not yet cooked and confirmed at home." },
   "nutrition": { "basis": "per serve", "calories": 278, "protein": 29, "carbs": 6, "fat": 16, "fibre": 3, "note": "As stated by the source; not independently checked." },
+  "image": "images/high-protein-salmon-salad.jpg",
+  "imageCredit": {"name":"สุธาสินี เมฆี","url":"https://www.pexels.com/photo/top-view-of-roasted-fish-and-vegetables-17679709/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

@@ -69,7 +69,9 @@ src/  android/  .github/workflows/
 - every `recipeRef` and every `pairings` entry points to an existing recipe
 - no em dashes (U+2014) in any data file
 
-`npm run build:index` writes `data/index.json`: `schemaVersion`, `generated`, and a `recipes` array of `{ id, title, category, tags, appliances, time, yield, confidenceLevel, version, updated, added }` (`added` only when present).
+`npm run build:index` writes `data/index.json`: `schemaVersion`, `generated`, and a `recipes` array of `{ id, title, category, tags, appliances, time, yield, confidenceLevel, version, updated, added, image }` (`added` and `image` only when present).
+
+Recipe photos live in `data/images/<id>.jpg` (about 1200px wide), referenced by the recipe's `image` field with an `imageCredit`. Category tile covers are set in `data/lookups/categories.json`.
 
 GitHub Action on push to `main`: validate, build the index, deploy `data/` to GitHub Pages. If validation fails, the deploy does not run.
 

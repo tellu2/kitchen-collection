@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "description": "Cover photo for each category tile on Home. Either a recipe id (its photo is reused) or an image path with a credit. Display order and colours come from the schema and the app.",
+  "covers": {
+    "Asian": { "recipe": "massaman" },
+    "Mexican": { "recipe": "shredded-tacos" },
+    "Mediterranean & Middle Eastern": { "recipe": "souvlaki" },
+    "Fish & Seafood": { "recipe": "cast-iron-salmon" },
+    "Salads & Sides": { "recipe": "oi-muchim" },
+    "Light Meals": { "recipe": "zucchini-slice" },
+    "Easy & Healthy": { "recipe": "high-protein-salmon-salad" },
+    "Baking & Sweets": { "recipe": "banana-bread" },
+    "Basics & Blends": { "recipe": "taco-seasoning" },
+    "Drafts to finish": {
+      "image": "images/category-drafts.jpg",
+      "imageCredit": { "name": "Derya Nur", "url": "https://www.pexels.com/photo/vintage-mixing-bowls-and-brass-measuring-cups-33669381/", "source": "Pexels" }
+    }
+  }
+}

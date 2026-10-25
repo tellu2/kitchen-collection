@@ -11,6 +11,8 @@
   "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax, Episode 199. Rated 8.5/10." },
   "confidence": { "level": "estimated", "note": "Amounts are from the creator's caption. The caption's method doesn't say when the chickpeas and olive oil go in; adding them with the vegetables is an assumption. Not yet cooked and confirmed at home." },
   "nutrition": { "basis": "per serve", "calories": 470, "protein": 41, "carbs": 42, "fat": 14, "fibre": 8, "note": "As stated by the source (fibre estimated by the source); not independently checked." },
+  "image": "images/baked-feta-chicken-sweet-potato.jpg",
+  "imageCredit": {"name":"Sylwester Ficek","url":"https://www.pexels.com/photo/roasted-sweet-potatoes-with-broccoli-and-oranges-31254448/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

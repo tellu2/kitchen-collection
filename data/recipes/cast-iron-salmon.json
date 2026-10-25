@@ -10,6 +10,8 @@
   "appliances": ["air-fryer", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/cast-iron-salmon.jpg",
+  "imageCredit": {"name":"Krisztina Papp","url":"https://www.pexels.com/photo/cooked-fish-on-plate-2374946/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

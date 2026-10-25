@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/greek-beef-bowls.jpg",
+  "imageCredit": {"name":"Markus Winkler","url":"https://www.pexels.com/photo/beef-slices-served-with-pasta-19802119/","source":"Pexels"},
   "ingredientGroups": [
     {
       "title": "Beef",

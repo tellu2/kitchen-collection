@@ -10,6 +10,8 @@
   "appliances": ["none"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/sunomono.jpg",
+  "imageCredit": {"name":"Polina Tankilevitch","url":"https://www.pexels.com/photo/sliced-cucumber-salad-in-white-ceramic-bowl-5848497/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

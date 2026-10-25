@@ -11,6 +11,8 @@
   "source": { "name": "Cookidoo AU", "note": "Rated 4.2★" },
   "confidence": { "level": "gated", "note": "Verified ingredients, general method. Amounts are from Cookidoo AU; the official steps are subscription-gated." },
   "methodLabel": "General method (not the official Cookidoo steps)",
+  "image": "images/chorizo-chicken-pasta.jpg",
+  "imageCredit": {"name":"Amit Fulwaria","url":"https://www.pexels.com/photo/penne-pasta-with-tomato-sauce-and-chicken-20115313/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

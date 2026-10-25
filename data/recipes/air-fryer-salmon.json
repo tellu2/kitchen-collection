@@ -9,6 +9,8 @@
   "appliances": ["air-fryer"],
   "source": { "name": "Own recipe" },
   "confidence": { "level": "tested", "note": "Own recipe." },
+  "image": "images/air-fryer-salmon.jpg",
+  "imageCredit": {"name":"Vidal Balielo Jr.","url":"https://www.pexels.com/photo/salmon-dish-on-a-ceramic-plate-14515103/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

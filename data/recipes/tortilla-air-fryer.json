@@ -10,6 +10,8 @@
   "appliances": ["air-fryer"],
   "source": { "name": "Spanish source, air fryer timings sourced" },
   "confidence": { "level": "estimated", "note": "Spanish source, air fryer timings sourced. Not yet cooked, so report back and I will adjust the timings." },
+  "image": "images/tortilla-air-fryer.jpg",
+  "imageCredit": {"name":"MikeGz","url":"https://www.pexels.com/photo/food-on-plate-14941246/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

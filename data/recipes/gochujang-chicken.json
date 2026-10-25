@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "air-fryer"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique." },
+  "image": "images/gochujang-chicken.jpg",
+  "imageCredit": {"name":"Momo King","url":"https://www.pexels.com/photo/glazed-fried-meat-in-a-black-plate-5409022/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

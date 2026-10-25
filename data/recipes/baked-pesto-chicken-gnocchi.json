@@ -11,6 +11,8 @@
   "source": { "name": "Firsttakehadrian (Instagram)", "url": "https://www.instagram.com/firsttakehadrian/", "note": "Hype or Hoax. Rated 8.5/10. Episode number and original title not captured; title here is descriptive." },
   "confidence": { "level": "sourced", "note": "Amounts as given in the creator's caption. The recipe title wasn't in the screenshot, so this one is descriptive. Not yet cooked and confirmed at home." },
   "nutrition": { "basis": "per serve", "calories": 500, "protein": 50, "carbs": 38, "fat": 16, "fibre": 6, "note": "As stated by the source (fibre estimated by the source); not independently checked." },
+  "image": "images/baked-pesto-chicken-gnocchi.jpg",
+  "imageCredit": {"name":"Kaboompics","url":"https://www.pexels.com/photo/overhead-shot-of-a-gold-fork-beside-a-plate-with-gnocchi-and-spinach-leaves-6659550/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

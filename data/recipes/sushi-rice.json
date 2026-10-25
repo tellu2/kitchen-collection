@@ -10,6 +10,8 @@
   "appliances": ["stovetop"],
   "source": { "name": "General guidance" },
   "confidence": { "level": "guidance", "note": "General guidance. Saucepan method; a Thermomix version has not been written up." },
+  "image": "images/sushi-rice.jpg",
+  "imageCredit": {"name":"Valeria Boltneva","url":"https://www.pexels.com/photo/a-wooden-cutting-board-with-sushi-rolls-and-other-food-28291544/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [

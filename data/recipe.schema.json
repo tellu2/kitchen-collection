@@ -154,6 +154,28 @@
       "type": "string",
       "description": "Optional relative path or URL"
     },
+    "imageCredit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "source"
+      ],
+      "description": "Credit for a stock photo; shown under the hero image",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source": {
+          "type": "string",
+          "description": "e.g. Pexels"
+        }
+      }
+    },
     "ingredientGroups": {
       "type": "array",
       "minItems": 0,

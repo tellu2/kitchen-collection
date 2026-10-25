@@ -10,6 +10,8 @@
   "appliances": ["thermomix", "stovetop"],
   "source": { "name": "Built from technique" },
   "confidence": { "level": "estimated", "note": "Built from technique. Amounts estimated and scaled to 4 serves." },
+  "image": "images/risotto.jpg",
+  "imageCredit": {"name":"Nadin Sh","url":"https://www.pexels.com/photo/risotto-in-plate-on-table-17402673/","source":"Pexels"},
   "ingredientGroups": [
     {
       "items": [
