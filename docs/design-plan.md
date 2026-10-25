@@ -1,13 +1,20 @@
 # Design plan
 
-Status: revision 2 for review, 2026-10-25. Nothing is built yet.
+Status: revision 3 for review, 2026-10-25. Nothing is built yet.
+
+Revision 3 changes (your feedback):
+- **Real photos instead of illustrations.** These are free Pexels stock photos, picked by you in `docs/photo-review.html`, then your own photos as you take them.
+- **Home shows every category**, as two-column photo tiles, then **all recipes A to Z** in rows with letter headings. Tonight's pick stays at the top.
+- **Add to list** stays on the recipe page, beside Start cooking, as do Meal's and Have's list buttons.
+
+`docs/design-preview.html` still shows the revision 2 drawings and the old Home. The colours, type, recipe page and cooking mode in it are unchanged.
 
 ## Direction
 
 Light, airy and image-led, following the reference shots you supplied: a warm off-white page, white cards with soft rounded corners, food imagery leading every card, a featured recipe at the top of Home, round category icons, and one clear primary button per screen.
 
 Confirmed choices:
-- **Illustrated plates** until you add photos
+- **Real photos**: free stock photos first, then your own (revision 3)
 - **Light default**, with dark available
 - **Terracotta accent**
 - **Home: featured card, then category icons, then a photo grid**
@@ -29,7 +36,7 @@ The preview is `docs/design-preview.html`.
 
 ## Principles
 
-1. **Food first.** Every recipe shows an image: your photo, or its illustrated plate. Text sits on calm white cards.
+1. **Food first.** Every recipe shows a photo: yours, or a stock photo of a similar dish. Text sits on calm white cards.
 2. **Light and warm by default.** Dark is a full theme, chosen in Settings or by following the phone.
 3. **Readable at arm's length.** Body text is 17px, and cooking mode starts at 22px.
 4. **One hand, wet hands.** Primary actions sit in the bottom third, and every tap target is at least 48px.
@@ -57,9 +64,9 @@ A bottom bar with five tabs: **Recipes, Have, Saved, Meal, List**. The active ta
    - "Asian · 2 hr 15 min · Serves 4"
    - a terracotta **Start cooking** button
    - a different non-draft recipe each day, chosen deterministically from the date
-4. **Categories:** a horizontal row of round icons (64px circles tinted in each category colour) with labels. "All" comes first. Tapping one filters the grid below, and "See all" opens the full category page.
-5. **Recipe grid:** two columns of photo cards. Each card has its image (flag chip top-left, heart top-right), then the time, the title, and New or Updated where relevant.
-6. **Last cooked** (horizontal row), the **Ideas** row and the flag legend.
+4. **Categories:** all 10 shown at once, as two-column photo tiles. Each tile has a photo with a soft dark gradient at the bottom, the category name in white Fraunces, the recipe count and a thin category-colour bar. Tapping a tile opens the category page.
+5. **All recipes, A to Z:** compact rows grouped under letter headings (A, B, C…). Each row has a 64px rounded photo, the title, the time and yield, and the confidence flag, plus New or Updated where relevant. Drafts are listed too, marked Draft.
+6. **Last cooked** (horizontal row of small cards), the **Ideas** row and the flag legend.
 7. **Recently added** at the bottom, only when there are recipes with an `added` date.
 
 Pull down to refresh.
@@ -177,18 +184,21 @@ Sizes:
 - **Spacing:** 16px page gutters, 12px between grid cards, generous section headings (20px Fraunces with a "See all" link).
 - **Motion:** cards lift 2px on press, sheets slide up 200ms, and the tab underline glides. All motion is off under reduced motion.
 
-## Illustrated plates
+## Photos
 
-Each recipe gets a deterministic top-down illustration, seeded from its id so it never changes:
+**Stock photos.** One free Pexels photo per recipe, chosen by you in `docs/photo-review.html`.
+- The Pexels licence allows use in a personal app, with no attribution required. The app credits the photographer anyway.
+- Each photo is saved in `data/images/<id>.jpg`, resized to 1200px wide and compressed (about 120–200KB each, roughly 6MB for all of them).
+- Like the recipes, the photos are bundled into the app for offline use and will sync from GitHub Pages later, so adding a photo never needs a rebuild once GitHub is connected.
+- The recipe's `image` field points to the file. A new optional `imageCredit` field (`{ name, url, source }`) holds the credit. This is a small schema addition.
 
-- A table surface tinted with the category colour, and a soft plate shadow.
-- One of three vessels, chosen from the recipe:
-  - a **bowl** for curries, braises, soups, noodles and rice dishes
-  - a **plate** for everything else
-  - a **board** for Baking & Sweets and slices
-- The food is built from rounded shapes in tones of the category colour, with green garnish leaves and a scatter of seeds or herbs.
+**Labelling.** On the recipe page a small caption reads "Stock photo of a similar dish · Photographer / Pexels". Cards show no caption.
 
-They are drawn as SVG at runtime, which is small, sharp at any size and works offline. Your photo replaces the illustration wherever you add one, and stays on the phone.
+**Your photos.** "Add photo" on the recipe page stores your own photo on the phone and replaces the stock photo for you. It never leaves the phone. Removing your photo brings the stock photo back.
+
+**No photo.** For drafts, or a recipe you leave without one, the image area shows a soft tile in the category colour with the category icon. There are no illustrations.
+
+**Category tiles** reuse one recipe photo each (for example Asian uses the Massaman photo), except Drafts, which gets its own.
 
 ## Icons and logo
 

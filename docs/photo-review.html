@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo review</title>
+<style>
+:root{--page:#f7f4ef;--surface:#fff;--line:#e6dfd5;--text:#211d18;--muted:#6b6359;--accent:#b9482f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text);font-family:system-ui,"Segoe UI",sans-serif;padding:24px 16px 60px}
+h1{font-family:Georgia,serif;margin:0 0 6px;font-size:28px}
+.lead{color:var(--muted);max-width:75ch;margin:0 0 20px;line-height:1.5}
+.rec{background:var(--surface);border-radius:16px;padding:14px;margin:0 0 14px;box-shadow:0 1px 2px rgba(33,29,24,.06),0 6px 20px rgba(33,29,24,.06);max-width:1000px}
+.rec h2{font-family:Georgia,serif;font-size:18px;margin:0 0 2px}
+.rec small{color:var(--muted)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+figure{margin:0;position:relative}
+figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;background:#efe9e0}
+figure span{position:absolute;top:8px;left:8px;background:rgba(255,255,255,.94);border-radius:8px;padding:3px 9px;font-weight:700}
+figure.pick span{background:var(--accent);color:#fff}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.35}
+figcaption a{color:var(--muted)}
+@media (max-width:600px){.opts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<h1>Photo review</h1>
+<p class="lead">Three free Pexels photos for each recipe. <b>A</b> (marked in terracotta) is my pick. They show a similar dish, not your exact recipe, and the app will label them as stock photos with the photographer's credit. Reply with changes, for example "massaman C, riojana none", or "all A" to accept my picks. "None" leaves a recipe on its category tile until you add your own photo. Category tiles on Home reuse one recipe photo each.</p>
+<div id="list"></div>
+<script>
+const R=[
+["massaman","Massaman Beef Curry","Asian",[["15131224","Rich beef curry with herbs and spices"],["10692537","Beef stew with carrots and potatoes"],["9397205","Thai chicken curry in a metal bowl"]]],
+["sesame-noodles","Sesame Chicken Noodles with Bok Choy & Greens","Asian",[["39303250","Asian noodles with chicken and sesame"],["24738507","Chicken noodles with sesame seeds"],["13065215","Noodles with grilled chicken and vegetables"]]],
+["gochujang-chicken","Air Fryer Gochujang Chicken","Asian",[["5409022","Spicy Korean chicken with gochujang"],["3386854","Korean chicken bowl with sesame"],["6368735","Spicy chicken topped with sesame"]]],
+["san-choy-bow","Chicken Mince San Choy Bow","Asian",[["8178929","Pork in a lettuce wrap"],["9045157","Asian dish on a ceramic plate"],["7230474","Mince, pak choi, garlic and ginger flat lay"]]],
+["pork-gyoza","Thermomix Pork Gyoza","Asian",[["7287702","Golden pan-fried dumplings"],["5182675","Fried gyoza on a bamboo mat"],["2098120","Japanese gyoza on a ceramic plate"]]],
+["mexican-beef","Thermomix Mexican Beef Bowls","Mexican",[["10696501","Burrito bowl with guacamole and beans"],["9258726","Mexican bowl with corn and avocado"],["14866629","Chilli con carne with tortilla chips"]]],
+["shredded-tacos","Loaded Shredded Chicken Tacos","Mexican",[["14930613","Chicken tacos with salsa and sour cream"],["17429140","Four chicken tacos with onion and coriander"],["4958640","Chicken taco with avocado and lime"]]],
+["sumac-traybake","Sumac Chicken Traybake with Tahini Yoghurt","Mediterranean & Middle Eastern",[["36480176","Roast chicken with carrots, broccoli, potatoes"],["21517324","Roast chicken with colourful vegetables"],["28246109","Baked vegetables with chicken"]]],
+["souvlaki","Air Fryer Chicken Souvlaki Wraps","Mediterranean & Middle Eastern",[["38150502","Souvlaki, tzatziki, salad and pita"],["32727455","Greek gyro wrap held up"],["29906167","Two gyros with tomato and herbs"]]],
+["greek-beef-bowls","Greek-Style Seared Beef Rice Bowls","Mediterranean & Middle Eastern",[["19802119","Beef steak rice bowl"],["32167344","Rice bowl with steak and broccoli"],["34293330","Greek salad with feta and olives"]]],
+["riojana","Patatas a la Riojana","Mediterranean & Middle Eastern",[["10338448","Spanish stew with vegetables"],["35156471","Stew with potatoes and herbs"],["30635676","Hearty stew with potatoes"]]],
+["tortilla-air-fryer","Air Fryer Tortilla de Patatas","Mediterranean & Middle Eastern",[["14941246","Slice of Spanish tortilla"],["4765652","Spanish tortilla slices on a board"],["18109104","Spanish tortilla with parsley"]]],
+["beef-ragu","Thermomix Beef Chuck Ragù","Mediterranean & Middle Eastern",[["13640223","Tagliatelle with ragù"],["14537702","Pappardelle with tomato sauce"],["6164213","Pasta with meat sauce in a bowl"]]],
+["bolognese","One-Pot Thermomix Bolognese with Kalamata Olives","Mediterranean & Middle Eastern",[["4349774","Spaghetti bolognese from above"],["30406652","Spaghetti bolognese with garlic bread"],["30392939","Bolognese with cheese and parsley"]]],
+["prawn-gnocchi","Garlic Prawns with Crisp Gnocchi","Mediterranean & Middle Eastern",[["6659690","Golden pan-fried gnocchi with herbs"],["8697543","Garlic herb prawns in a dish"],["679454","Prawns sizzling in a pan"]]],
+["chorizo-chicken-pasta","Chorizo & Chicken Pasta","Mediterranean & Middle Eastern",[["20115313","Chicken pasta in tomato sauce"],["4730662","Chicken pasta with cherry tomatoes"],["37180268","Rigatoni in tomato sauce"]]],
+["risotto","Chicken, Bacon & Mushroom Risotto","Mediterranean & Middle Eastern",[["17402673","Chicken risotto with chives"],["5175523","Chicken risotto with herbs"],["11190139","Creamy mushroom risotto"]]],
+["cast-iron-salmon","Cast Iron Salmon with Air Fryer Veg & Shallot Butter","Fish & Seafood",[["2374946","Pan-seared salmon with lemon"],["8243229","Salmon sizzling in a pan"],["14542171","Salmon with potatoes and asparagus"]]],
+["air-fryer-salmon","Air Fryer Salmon with Roasted Veg","Fish & Seafood",[["14515103","Salmon with roasted vegetables"],["31890213","Salmon and roasted veg on a board"],["5741440","Baked salmon with potatoes and lemon"]]],
+["pumpkin-salmon-bowl","Roasted Pumpkin & Chickpea Salmon Bowl","Fish & Seafood",[["7531245","Salmon over rice with vegetables"],["37332351","Salmon and rice bowl"],["6066041","Roasted pumpkin and chickpea salad"]]],
+["sesame-cabbage","Japanese Sesame Cabbage Salad","Salads & Sides",[["7726010","Red and Chinese cabbage salad"],["7726007","Mixed cabbage salad from above"],["29872968","Shredded cabbage beside tonkatsu"]]],
+["oi-muchim","Korean Cucumber Salad (Oi Muchim)","Salads & Sides",[["8983115","Spicy Korean cucumber salad"],["12077975","Cucumber salad with chilli and sesame"],["15881321","Cucumber salad with spicy sesame sauce"]]],
+["sunomono","Sunomono (Cucumber Vinegar Salad)","Salads & Sides",[["5848497","Cucumber salad with chopsticks"],["12077975","Cucumber salad with sesame"],["5848501","Asian cucumber salad"]]],
+["jacket-potato","Air Fryer Jacket Potatoes","Light Meals",[["4110470","Baked potato with melting butter"],["4110468","Baked potato halves with butter"],["9203737","Twice-baked potatoes with cheese"]]],
+["zucchini-slice","Zucchini, Bacon & Cheese Slice","Light Meals",[["33922142","Vegetable frittata with cheese"],["14302155","Vegetable frittata in cast iron"],["13119151","Frittata with tomato and feta"]]],
+["bliss-balls","Cacao & Almond Bliss Balls","Baking & Sweets",[["3026811","Coconut bliss balls"],["6306538","Homemade bliss balls"],["28354485","Energy balls with nuts and dates"]]],
+["banana-bread","Thermomix Banana Bread","Baking & Sweets",[["33739660","Banana bread slices on a board"],["4114142","Banana bread with bananas"],["4114145","Banana walnut loaf"]]],
+["honey-spice-cake","Honey Spice Cake","Baking & Sweets",[["16564859","Honey cake, sliced"],["5741615","Spiced cake with cinnamon and nutmeg"],["5741651","Spiced cake with cinnamon and cloves"]]],
+["taco-seasoning","Homemade Taco Seasoning","Basics & Blends",[["32281630","Spices in black bowls"],["672046","Whole and ground spices"],["8980448","Spice mix in a bowl"]]],
+["sushi-rice","Sushi Rice","Basics & Blends",[["28291544","Salmon and avocado sushi rolls"],["5241660","Sushi roll platter"],["18891319","Vegetarian sushi rolls"]]],
+["baked-feta-chicken-sweet-potato","Baked Feta Chicken & Sweet Potato Tray Bake","Easy & Healthy",[["31254448","Roasted sweet potato and broccoli"],["4929676","Chicken, broccoli and potato meal prep"],["11385547","Broccoli and seasoned potatoes"]]],
+["baked-pesto-chicken-gnocchi","Baked Pesto Chicken Gnocchi","Easy & Healthy",[["6659550","Spinach gnocchi with parmesan"],["6659554","Green gnocchi from above"],["11889305","Baked gnocchi with basil"]]],
+["high-protein-orzo-chicken-bake","High Protein Orzo Chicken Bake","Easy & Healthy",[["25749300","Orzo with chicken and herbs"],["38163945","Chicken orzo on a wooden table"],["7239441","Orzo in a rustic orange pot"]]],
+["high-protein-salmon-salad","High Protein Salmon Salad","Easy & Healthy",[["17679709","Grilled salmon salad"],["11654303","Salmon, avocado and vegetable salad"],["6428279","Grilled salmon salad with avocado"]]],
+["mediterranean-chicken-poppers","Mediterranean Chicken Poppers","Easy & Healthy",[["13717449","Crispy rolls with creamy dip"],["39536486","Spring rolls with dipping sauces"],["8178765","Fried rolls in a dish"]]],
+["(drafts tile)","Drafts to finish (category tile only)","Drafts to finish",[["33669381","Handwritten recipe in a kitchen"],["8715616","Turning a handwritten cookbook page"],["7932698","Ingredients on a chopping board"]]]
+];
+const src=id=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=480`;
+document.getElementById('list').innerHTML=R.map(([id,title,cat,opts])=>`<div class="rec"><h2>${title}</h2><small>${cat} · ${id}</small><div class="opts">${opts.map((o,i)=>`<figure class="${i?'':'pick'}"><img loading="lazy" src="${src(o[0])}" alt="${o[1]}"><span>${'ABC'[i]}</span><figcaption>${o[1]} · <a href="https://www.pexels.com/photo/${o[0]}/" target="_blank" rel="noopener">Pexels ${o[0]}</a></figcaption></figure>`).join('')}</div></div>`).join('');
+</script>
+</body>
+</html>
