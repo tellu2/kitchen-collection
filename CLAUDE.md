@@ -142,7 +142,7 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 
 ### Changing the app
 
-Increment `versionCode` and `versionName`, build, `npx cap sync android`, assemble a signed release APK. Keystore and passwords never go in git.
+Bump `version` in `package.json` (`versionName` and `versionCode` are derived from it in `android/app/build.gradle`), run `npm run android:sync`, then `gradlew assembleRelease` in `android/`. Local signing reads `android/keystore.properties` (gitignored); the keystore lives outside the repo in `%USERPROFILE%\KitchenCollection-signing\`. Keystore and passwords never go in git. Install steps for the phone: `docs/install-android.md`.
 
 ### Delivering APKs
 

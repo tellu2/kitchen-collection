@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Kitchen Collection mark: a terracotta-rimmed plate with an upright herb sprig. Original artwork. -->
+  <circle cx="512" cy="512" r="452" fill="#b9482f"/>
+  <circle cx="512" cy="512" r="372" fill="#f7f4ef"/>
+  <circle cx="512" cy="512" r="300" fill="none" stroke="#ecdccf" stroke-width="8"/>
+  <path d="M512 742 C 500 620, 520 470, 512 318" fill="none" stroke="#4e7a32" stroke-width="20" stroke-linecap="round"/>
+  <path d="M512 300 C 572 350, 572 450, 512 498 C 452 450, 452 350, 512 300 Z" fill="#5f8f3e"/>
+  <path d="M505 600 C 450 640, 360 630, 330 560 C 400 520, 470 540, 505 600 Z" fill="#6f9f4a"/>
+  <path d="M515 520 C 570 560, 660 550, 690 480 C 620 440, 550 460, 515 520 Z" fill="#5f8f3e"/>
+  <path d="M508 690 C 470 720, 410 716, 390 676 C 430 650, 480 660, 508 690 Z" fill="#6f9f4a"/>
+</svg>

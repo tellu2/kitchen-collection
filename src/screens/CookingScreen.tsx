@@ -6,18 +6,7 @@ import { Empty, catVar } from '../ui/components';
 import { useTimers, useToast } from '../ui/feedback';
 import { StepText } from '../ui/StepText';
 import { go, replace } from '../ui/router';
-
-/** Keeps the screen on while cooking. Phase 4 swaps in the native plugin. */
-export const keepAwake = {
-  async on(): Promise<() => void> {
-    try {
-      const lock = await (navigator as Navigator & { wakeLock?: { request: (t: 'screen') => Promise<{ release: () => Promise<void> }> } }).wakeLock?.request('screen');
-      return () => void lock?.release();
-    } catch {
-      return () => {};
-    }
-  }
-};
+import { keepAwake } from '../ui/keepAwake';
 
 export function CookingScreen({ id, step }: { id: string; step: number }) {
   const { byId, factorFor, updatePrefs } = useApp();

@@ -7,6 +7,7 @@ import type { SavedList, ShopItem } from '../lib/shopping';
 import { BUILD_TIME, bundledIdeas, bundledImage, bundledLookups, bundledRecipes } from './bundle';
 import { dbDelete, dbEntries, dbGet, dbSet } from './db';
 import { type CachedData, mergeBundleAndCache, normaliseBase, syncData } from './sync';
+import { setNativeTheme } from '../native';
 
 export type Theme = 'light' | 'dark' | 'system';
 
@@ -141,6 +142,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const dark = prefs.theme === 'dark' || (prefs.theme === 'system' && media.matches);
       document.documentElement.dataset.theme = dark ? 'dark' : 'light';
       document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#171512' : '#f7f4ef');
+      setNativeTheme(dark);
     };
     apply();
     media.addEventListener('change', apply);
