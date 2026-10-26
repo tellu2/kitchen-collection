@@ -49,7 +49,18 @@ If nothing happens, or you see a message about **Auto Blocker**:
   1. Go to **Settings > Apps > Kitchen Collection > Battery**.
   2. Choose **Unrestricted**.
 
-## Installing an update over the top (keeps your data)
+## Updating from inside the app (the usual way)
+
+When a new version is released, the app shows **Version X is ready** at the top of the Recipes screen, and under **Settings > App updates**.
+
+1. Tap **Download**. Chrome downloads the APK.
+2. When it finishes, tap the download notification, or open **My Files > Downloads**, and tap the file.
+3. The first time, Android may ask you to allow installs from **Chrome** (or My Files). Turn on **Allow from this source** and press back.
+4. Tap **Update**. Your lists, favourites, cook log and photos stay.
+
+All releases are also listed at https://github.com/tellu2/kitchen-collection/releases.
+
+## Installing an update over the top by hand (keeps your data)
 
 Your favourites, shopping lists, saved lists, cook log, Have ticks, settings and photos live inside the app on the phone. An update keeps all of them, **as long as you install over the top and never uninstall.**
 
@@ -67,7 +78,7 @@ Your favourites, shopping lists, saved lists, cook log, Have ticks, settings and
 
 ## Recipe updates without a new APK
 
-New and changed recipes don't need a new APK once GitHub Pages is set up. You set the recipe source address in **Settings**, then pull down on Home to refresh. Until then, recipe changes arrive with a new APK.
+New and changed recipes publish to https://tellu2.github.io/kitchen-collection/ and the app fetches them by itself: on launch, or when you pull down on the Recipes screen. No new APK is needed. New recipes show a **New** badge, and changed ones show **Updated**.
 
 ## Building a new APK on the PC
 

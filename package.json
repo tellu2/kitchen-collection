@@ -15,7 +15,9 @@
     "typecheck": "tsc --noEmit",
     "validate": "node scripts/validate.mjs",
     "build:index": "node scripts/build-index.mjs",
-    "android:sync": "npm run build && cap sync android"
+    "android:sync": "npm run build && cap sync android",
+    "publish:recipes": "node scripts/publish-recipes.mjs",
+    "release": "node scripts/release.mjs"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",

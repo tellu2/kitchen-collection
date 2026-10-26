@@ -4,7 +4,9 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { Category, Credit, IdeasFile, LookupFiles, Recipe } from '../types';
 import { compileLookups, type CompiledLookups } from '../lib/lookups';
 import type { SavedList, ShopItem } from '../lib/shopping';
-import { BUILD_TIME, bundledIdeas, bundledImage, bundledLookups, bundledRecipes } from './bundle';
+import { APP_VERSION, BUILD_TIME, bundledIdeas, bundledImage, bundledLookups, bundledRecipes } from './bundle';
+import { type AppUpdate, checkForUpdate } from './updates';
+import { DEFAULT_SOURCE } from '../config';
 import { dbDelete, dbEntries, dbGet, dbSet } from './db';
 import { type CachedData, mergeBundleAndCache, normaliseBase, syncData } from './sync';
 import { setNativeTheme } from '../native';
@@ -63,6 +65,10 @@ interface AppState {
   coverFor: (c: Category) => ImageInfo;
   setPhoto: (id: string, blob: Blob | null) => Promise<void>;
   factorFor: (id: string) => number;
+  /** The recipe source actually in use (Settings address, or the default) */
+  source: string;
+  update: AppUpdate | null;
+  checkUpdates: () => Promise<string>;
 }
 
 const Ctx = createContext<AppState | null>(null);
@@ -98,6 +104,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [sync, setSync] = useState<SyncStatus>({ lastSynced: null, syncing: false, message: null });
   const [photos, setPhotos] = useState<Record<string, string>>({});
   const [cachedImages, setCachedImages] = useState<Record<string, string>>({});
+  const [update, setUpdate] = useState<AppUpdate | null>(null);
+  // An address typed in Settings wins; otherwise the published GitHub Pages copy
+  const source = prefs.sourceUrl.trim() || DEFAULT_SOURCE;
   const sessionSeen = useRef<Record<string, number> | null>(null);
   const prefsLoaded = useRef(false);
   const syncing = useRef(false);
@@ -154,7 +163,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const updatePrefs = useCallback((fn: (p: Prefs) => Prefs) => setPrefs(p => fn(p)), []);
 
   const refresh = useCallback(async () => {
-    const base = normaliseBase(prefs.sourceUrl);
+    const base = normaliseBase(source);
     if (!base) {
       setSync(s => ({ ...s, message: 'No recipe source is set yet. Recipes come from the app itself.' }));
       return;
@@ -188,23 +197,38 @@ export function AppProvider({ children }: { children: ReactNode }) {
     } finally {
       syncing.current = false;
     }
-  }, [prefs.sourceUrl, byId, lookupFiles, ideas]);
+  }, [source, byId, lookupFiles, ideas]);
 
   // Background sync once on launch, without blocking anything
   const launched = useRef(false);
   useEffect(() => {
     if (!ready || launched.current) return;
     launched.current = true;
-    if (normaliseBase(prefs.sourceUrl)) void refresh();
-  }, [ready, prefs.sourceUrl, refresh]);
+    if (normaliseBase(source)) void refresh();
+  }, [ready, source, refresh]);
+
+  const checkUpdates = useCallback(async (): Promise<string> => {
+    try {
+      const found = await checkForUpdate(APP_VERSION);
+      setUpdate(found);
+      return found ? `Version ${found.version} is ready to download.` : `You have the latest version (${APP_VERSION}).`;
+    } catch (e) {
+      return `Could not check for updates: ${(e as Error).message}`;
+    }
+  }, []);
+
+  // Check GitHub Releases once per launch, quietly
+  useEffect(() => {
+    if (ready) void checkUpdates();
+  }, [ready, checkUpdates]);
 
   const resolvePath = useCallback(
     (path?: string) => {
       if (!path) return null;
       if (/^https?:/.test(path)) return path;
-      return cachedImages[path] ?? bundledImage(path) ?? (prefs.sourceUrl ? normaliseBase(prefs.sourceUrl) + path : null);
+      return cachedImages[path] ?? bundledImage(path) ?? (source ? normaliseBase(source) + path : null);
     },
-    [cachedImages, prefs.sourceUrl]
+    [cachedImages, source]
   );
 
   const imageFor = useCallback(
@@ -246,9 +270,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const value = useMemo<AppState>(
     () => ({
       ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs,
-      badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor
+      badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates
     }),
-    [ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor]
+    [ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates]
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

@@ -1,0 +1,27 @@
+// npm run release [-- patch|minor|major]   (default: patch)
+// Tests, bumps the version, commits, tags vX.Y.Z and pushes. The tag starts
+// .github/workflows/release.yml, which builds the signed APK and publishes a
+// GitHub Release; the app then shows "Update available".
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+
+const level = process.argv[2] ?? 'patch';
+if (!['patch', 'minor', 'major'].includes(level)) {
+  console.error('Use patch, minor or major.');
+  process.exit(1);
+}
+const run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' });
+const out = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', shell: process.platform === 'win32' }).trim();
+
+if (out('git', ['status', '--porcelain'])) {
+  console.error('Commit or discard your changes first, so the release matches what is in git.');
+  process.exit(1);
+}
+run('npm', ['test']);
+run('npm', ['run', 'validate']);
+// npm version updates package.json and package-lock.json, commits and tags vX.Y.Z
+run('npm', ['version', level, '-m', 'Release %s']);
+run('git', ['push', '--follow-tags']);
+const { version } = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+console.log(`\nReleased v${version}. GitHub builds the signed APK in about 5 minutes:`);
+console.log('https://github.com/tellu2/kitchen-collection/actions');

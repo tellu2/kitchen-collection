@@ -5,6 +5,7 @@ import type { Recipe } from '../types';
 import { type Theme, useApp } from '../data/store';
 import { APP_VERSION, BUILD_TIME } from '../data/bundle';
 import { niceDate } from '../lib/misc';
+import { DEFAULT_SOURCE } from '../config';
 import { addItems, itemsFor } from '../lib/shopping';
 import { Empty, RecipeCard, ScreenHeader, SectionHead } from '../ui/components';
 import { useToast } from '../ui/feedback';
@@ -99,8 +100,10 @@ function Segmented<T extends string | number>({ value, options, onChange, label 
 }
 
 export function SettingsScreen() {
-  const { prefs, updatePrefs, sync, refresh } = useApp();
+  const { prefs, updatePrefs, sync, refresh, source, update, checkUpdates } = useApp();
   const [url, setUrl] = useState(prefs.sourceUrl);
+  const [updateMsg, setUpdateMsg] = useState<string | null>(null);
+  const [checking, setChecking] = useState(false);
   const toast = useToast();
 
   return (
@@ -135,21 +138,48 @@ export function SettingsScreen() {
           <RefreshCw size={18} aria-hidden="true" className={sync.syncing ? 'spin' : ''} /> {sync.syncing ? 'Refreshing' : 'Refresh recipes now'}
         </button>
         {sync.message && <p className="muted small" role="status">{sync.message}</p>}
-        <label className="field">
-          <span>Recipe source address</span>
-          <input type="url" inputMode="url" placeholder="Set up once GitHub is connected" value={url} onChange={e => setUrl(e.target.value)} />
-        </label>
-        <button
-          type="button"
-          className="btn btn-quiet"
-          onClick={() => {
-            updatePrefs(p => ({ ...p, sourceUrl: url.trim() }));
-            toast(url.trim() ? 'Source saved. Tap Refresh recipes now.' : 'Source cleared. Recipes come from the app itself.');
-          }}
-        >
-          Save address
-        </button>
-        <p className="muted small">Until this is set, the app uses the recipes built into it.</p>
+        <p className="muted small">New and changed recipes come from <span className="break">{source}</span>. Pull down on the Recipes screen to check at any time.</p>
+        <details className="advanced">
+          <summary>Use a different recipe address</summary>
+          <label className="field">
+            <span>Recipe source address</span>
+            <input type="url" inputMode="url" placeholder={DEFAULT_SOURCE} value={url} onChange={e => setUrl(e.target.value)} />
+          </label>
+          <button
+            type="button"
+            className="btn btn-quiet"
+            onClick={() => {
+              updatePrefs(p => ({ ...p, sourceUrl: url.trim() }));
+              toast(url.trim() ? 'Address saved. Tap Refresh recipes now.' : 'Back to the default address.');
+            }}
+          >
+            Save address
+          </button>
+          <p className="muted small">Leave it empty to use the default.</p>
+        </details>
+      </section>
+
+      <section className="setting-block">
+        <h2>App updates</h2>
+        <p>Installed: <b>version {APP_VERSION}</b></p>
+        {update ? (
+          <a className="btn btn-primary" href={update.url} target="_blank" rel="noopener noreferrer">Download version {update.version}</a>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-outline"
+            disabled={checking}
+            onClick={async () => {
+              setChecking(true);
+              setUpdateMsg(await checkUpdates());
+              setChecking(false);
+            }}
+          >
+            {checking ? 'Checking' : 'Check for updates'}
+          </button>
+        )}
+        {updateMsg && <p className="muted small" role="status">{updateMsg}</p>}
+        <p className="muted small">After downloading, open the file and tap Update. Never uninstall first: that deletes your lists, favourites and photos.</p>
       </section>
 
       <section className="setting-block">

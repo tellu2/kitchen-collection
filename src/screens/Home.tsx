@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { ChevronRight, Lightbulb, RefreshCw, Search, Settings, UtensilsCrossed, X } from 'lucide-react';
+import { ChevronRight, Download, Lightbulb, RefreshCw, Search, Settings, UtensilsCrossed, X } from 'lucide-react';
 import { CATEGORIES, type Appliance, type Recipe } from '../types';
 import { useApp } from '../data/store';
 import { alphabetical, byTitle, featuredFor, greeting, niceDate } from '../lib/misc';
@@ -25,7 +25,7 @@ function matchesQuery(r: Recipe, q: string): boolean {
 }
 
 export function Home() {
-  const { recipes, ideas, prefs, byId, coverFor, imageFor, refresh, sync, factorFor, updatePrefs, lookups } = useApp();
+  const { recipes, ideas, prefs, byId, coverFor, imageFor, refresh, sync, factorFor, updatePrefs, lookups, update } = useApp();
   const toast = useToast();
   const today = prefs.today.map(id => byId[id]).filter(Boolean) as Recipe[];
   const addTodayToList = () => {
@@ -128,6 +128,17 @@ export function Home() {
         </section>
       ) : (
         <>
+          {update && (
+            <section className="update-card" aria-label="App update">
+              <Download size={22} aria-hidden="true" />
+              <div>
+                <b>Version {update.version} is ready</b>
+                <small>Download it, open the file, then tap Update. Your lists and favourites stay.</small>
+              </div>
+              <a className="btn btn-primary small-btn" href={update.url} target="_blank" rel="noopener noreferrer">Download</a>
+            </section>
+          )}
+
           {today.length > 0 && (
             <section className="today" aria-label="Cooking today">
               <SectionHead

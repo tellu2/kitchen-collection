@@ -137,16 +137,22 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 1. Save to `data/recipes/<id>.json`.
 2. Run `npm run validate`. Fix failures and report exactly what changed. Never change quantities, times or temperatures to pass validation; ask instead.
 3. For a new recipe, set `added` and `updated` to today. For an update, increment `version` and set `updated` to today; leave `added` alone.
-4. Run `npm run build:index`.
-5. Commit "Add recipe: <title>" or "Update recipe: <title>" and push.
+4. A photo goes in `data/images/<id>.jpg` (about 1200px wide, under 300KB) with `image` and `imageCredit` set. Only use photos the user supplies or that are free to use (Pexels or Unsplash licence), and credit them.
+5. Run `npm run publish:recipes -- "Add recipe: <title>"` (or "Update recipe: <title>"). It validates, rebuilds the index, commits `data/` and pushes. The Pages workflow publishes it; the phone fetches it on pull-to-refresh or next launch.
+
+Repository: https://github.com/tellu2/kitchen-collection (public). Recipes publish to https://tellu2.github.io/kitchen-collection/, which is the app's built-in source (`src/config.ts`).
 
 ### Changing the app
 
-Bump `version` in `package.json` (`versionName` and `versionCode` are derived from it in `android/app/build.gradle`), run `npm run android:sync`, then `gradlew assembleRelease` in `android/`. Local signing reads `android/keystore.properties` (gitignored); the keystore lives outside the repo in `%USERPROFILE%\KitchenCollection-signing\`. Keystore and passwords never go in git. Install steps for the phone: `docs/install-android.md`.
+1. Make the change, run `npm test` and check it in the browser (`npm run dev`) at phone width. Commit.
+2. Run `npm run release` (or `npm run release -- minor` for new features). It tests, bumps the version in `package.json`, commits, tags `vX.Y.Z` and pushes.
+3. The release workflow builds and signs the APK and publishes a GitHub Release. The installed app shows "Version X is ready" on Home with a Download button.
 
-### Delivering APKs
+`versionName` and `versionCode` come from `package.json` in `android/app/build.gradle`. Changes under `android/` need `npm run android:sync` locally before committing if they depend on web assets.
 
-GitHub Action on tags matching `v*` builds a signed APK and attaches it to a GitHub Release. Signing material comes from Actions secrets.
+### Signing
+
+Actions secrets `KC_KEYSTORE_BASE64`, `KC_KEYSTORE_PASSWORD`, `KC_KEY_ALIAS`, `KC_KEY_PASSWORD` sign releases. For a local build, `android/keystore.properties` (gitignored) points at the keystore in `%USERPROFILE%\KitchenCollection-signing\`; then `npm run android:sync` and `gradlew assembleRelease` with JDK 21. Keystore and passwords never go in git. Phone install and update steps: `docs/install-android.md`.
 
 ## Working style
 
