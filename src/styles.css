@@ -231,7 +231,7 @@ button.flag { min-height: 40px; }
 
 .letter {
   font-family: var(--serif); font-weight: 700; font-size: 1.25rem; color: var(--accent);
-  position: sticky; top: 0; z-index: 2; background: var(--page); padding: 10px 0 6px;
+  position: sticky; top: var(--sat); z-index: 2; background: var(--page); padding: 10px 0 6px;
 }
 .az-toggle {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left;
@@ -347,7 +347,7 @@ button.flag { min-height: 40px; }
 .pill-btn.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
 /* Start cooking: fixed above the bottom nav, in thumb reach */
 .cook-bar {
-  position: fixed; left: 0; right: 0; z-index: 18; bottom: calc(var(--nav-h) + var(--sab));
+  position: fixed; left: 0; right: 0; z-index: 18; bottom: calc(var(--nav-h) + var(--sab) + 1px);
   padding: 10px var(--gutter) 10px; background: linear-gradient(to top, var(--page) 72%, transparent);
 }
 .cook-bar .btn { display: flex; width: 100%; max-width: 688px; margin: 0 auto; min-height: 54px; font-size: 1.0625rem; box-shadow: 0 8px 22px rgba(185, 72, 47, .28); }
@@ -365,8 +365,8 @@ button.flag { min-height: 40px; }
 .scale-note { font-size: 0.9063rem; color: var(--muted); background: var(--sunk); border-radius: 12px; padding: 10px 12px; }
 
 .tabs {
-  display: flex; position: sticky; top: 0; z-index: 5; background: var(--surface);
-  border-bottom: 1px solid var(--line); margin: calc(10px - var(--sat)) calc(-1 * var(--gutter)) 0; padding: var(--sat) var(--gutter) 0;
+  display: flex; position: sticky; top: var(--sat); z-index: 5; background: var(--surface);
+  border-bottom: 1px solid var(--line); margin: 10px calc(-1 * var(--gutter)) 0; padding: 0 var(--gutter);
 }
 .tabs { overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
@@ -531,3 +531,10 @@ button.flag { min-height: 40px; }
 .tab-body .scaler { margin: 0 0 4px; }
 .tab-body .stepper button { width: 44px; height: 44px; }
 .hero { min-height: 160px; }
+/* Solid strip behind the Android status bar, so scrolled content never shows
+   under the clock. The sticky tab bar sits just below it rather than being
+   pulled up into it (which overlapped the buttons above on the phone). */
+.app::before {
+  content: ""; position: fixed; top: 0; left: 0; right: 0; height: var(--sat); z-index: 45;
+  background: var(--page); pointer-events: none;
+}
