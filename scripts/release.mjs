@@ -20,7 +20,8 @@ if (out('git', ['status', '--porcelain'])) {
 run('npm', ['test']);
 run('npm', ['run', 'validate']);
 // npm version updates package.json and package-lock.json, commits and tags vX.Y.Z
-run('npm', ['version', level, '-m', 'Release %s']);
+// On Windows npm runs through cmd, so the message needs its own quotes
+run('npm', ['version', level, '-m', process.platform === 'win32' ? '"Release %s"' : 'Release %s']);
 run('git', ['push', '--follow-tags']);
 const { version } = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 console.log(`\nReleased v${version}. GitHub builds the signed APK in about 5 minutes:`);
