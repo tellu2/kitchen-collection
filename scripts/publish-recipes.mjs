@@ -3,8 +3,11 @@
 // then publishes to GitHub Pages and phones pick it up on the next refresh.
 import { execFileSync } from 'node:child_process';
 
-const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32', ...opts });
-const out = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', shell: process.platform === 'win32' }).trim();
+// Only npm needs a shell on Windows (it is npm.cmd); git runs directly so
+// arguments with spaces, such as the commit message, stay intact.
+const shell = cmd => process.platform === 'win32' && cmd === 'npm';
+const run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit', shell: shell(cmd) });
+const out = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', shell: shell(cmd) }).trim();
 
 run('npm', ['run', 'validate']);
 run('npm', ['run', 'build:index']);

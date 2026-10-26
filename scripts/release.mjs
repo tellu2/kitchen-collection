@@ -10,8 +10,10 @@ if (!['patch', 'minor', 'major'].includes(level)) {
   console.error('Use patch, minor or major.');
   process.exit(1);
 }
-const run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' });
-const out = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', shell: process.platform === 'win32' }).trim();
+// Only npm needs a shell on Windows (it is npm.cmd); git runs directly.
+const shell = cmd => process.platform === 'win32' && cmd === 'npm';
+const run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit', shell: shell(cmd) });
+const out = (cmd, args) => execFileSync(cmd, args, { encoding: 'utf8', shell: shell(cmd) }).trim();
 
 if (out('git', ['status', '--porcelain'])) {
   console.error('Commit or discard your changes first, so the release matches what is in git.');
