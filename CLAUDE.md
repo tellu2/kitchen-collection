@@ -134,17 +134,20 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 
 ### Adding or updating a recipe (no rebuild)
 
-1. Save to `data/recipes/<id>.json`.
+The user usually pastes several recipes at once, exported from their Cooking project in Claude ("Export as app JSON"). Handle the whole batch in one pass and publish it once.
+
+1. Save each to `data/recipes/<id>.json`. If an id already exists, treat it as an update, not a new recipe.
 2. Run `npm run validate`. Fix failures and report exactly what changed. Never change quantities, times or temperatures to pass validation; ask instead.
 3. For a new recipe, set `added` and `updated` to today. For an update, increment `version` and set `updated` to today; leave `added` alone.
 4. Every new recipe gets a stock photo from Pexels (the user's standing choice), unless they supply their own.
    - Find candidates in the Browser pane: open https://www.pexels.com, then fetch `/search/<terms>/` same-origin and parse it with DOMParser. Photo links are `/photo/<slug>-<id>/`, and the img `alt` describes the photo. Try the dish name, then broader terms (the main protein plus the dish type).
-   - Show the user three options as thumbnails (`https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=480`), the best match first, and say how close each is to the dish. Wait for their pick; "you choose" means use the first.
+   - Choose the best match yourself without asking (the user's standing instruction, which also covers downloading it). Prefer a photo of the same dish, then the same main ingredient and style, then a close relative. Look at the thumbnail (`https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=480`) before choosing; don't rely on the alt text alone.
+   - Afterwards, list each recipe's chosen photo with a few words on how close it is ("same dish", "similar curry, not massaman"), so the user can ask for a swap. If nothing on Pexels is reasonably close, use no photo and say so; don't force a poor match.
    - Get the photographer's name from the photo page (`/photo/<id>/`, first `a[href^="/@"]` with a name). Strip emoji and tidy spacing.
    - Run `npm run photo:add -- <recipe-id> <pexels-id> "<photographer>" <photo page url>`. It downloads the 1200px JPEG to `data/images/<id>.jpg` and sets `image` and `imageCredit`.
    - The user's own photo: save it as `data/images/<id>.jpg` (about 1200px wide, under 300KB) and set `image` with no `imageCredit`.
    - Never use photos from recipe sites, Cookidoo, Instagram or other sources without a free licence.
-5. Run `npm run publish:recipes -- "Add recipe: <title>"` (or "Update recipe: <title>"). It validates, rebuilds the index, commits `data/` and pushes. The Pages workflow publishes it; the phone fetches it on pull-to-refresh or next launch.
+5. Run `npm run publish:recipes -- "<message>"`, once for the whole batch: "Add recipe: <title>" for one, or "Add recipes: <title>, <title>; update <title>" for several. It validates, rebuilds the index, commits `data/` and pushes. The Pages workflow publishes it; the phone fetches it on pull-to-refresh or next launch.
 
 Repository: https://github.com/tellu2/kitchen-collection (public). Recipes publish to https://tellu2.github.io/kitchen-collection/, which is the app's built-in source (`src/config.ts`).
 
