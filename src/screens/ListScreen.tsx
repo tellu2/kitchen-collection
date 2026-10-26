@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Copy, Save } from 'lucide-react';
+import { ChevronRight, Copy, Save } from 'lucide-react';
 import { useApp } from '../data/store';
 import { niceDate } from '../lib/misc';
 import { arrange, groupList, listAsText, removeSource, setGroupDone, sources, type ShopGroup } from '../lib/shopping';
 import { ConfirmButton, Empty, ScreenHeader, SectionHead, Sheet, Tick } from '../ui/components';
 import { useToast } from '../ui/feedback';
+import { href } from '../ui/router';
 
 const MAX_LISTS = 12;
 
@@ -29,26 +30,34 @@ async function copy(text: string): Promise<boolean> {
   }
 }
 
-function GroupItem({ g, onToggle }: { g: ShopGroup; onToggle: () => void }) {
+function RecipeLink({ id, label }: { id: string; label: string }) {
   return (
-    <button type="button" className={`shop-item ${g.done ? 'on' : ''}`} aria-pressed={g.done} onClick={onToggle}>
-      <Tick on={g.done} />
-      <span className="shop-text">
-        {g.items.length === 1 ? (
-          <>
-            <span className="shop-main">{g.items[0].t}</span>
-            <small className="muted">{g.items[0].from}</small>
-          </>
-        ) : (
-          <>
-            <span className="shop-main"><b>{g.label}</b>{g.total && <span className="shop-total">{g.total} total</span>}</span>
-            {g.items.map((it, i) => (
-              <small key={i} className="shop-sub">{it.t} <span className="muted">· {it.from}</span></small>
-            ))}
-          </>
-        )}
-      </span>
-    </button>
+    <a className="shop-from" href={href('recipe', id)}>
+      {label} <ChevronRight size={14} aria-hidden="true" />
+    </a>
+  );
+}
+
+/** Tap the item to tick it; tap the recipe name under it to open that recipe. */
+function GroupItem({ g, onToggle }: { g: ShopGroup; onToggle: () => void }) {
+  const single = g.items.length === 1;
+  return (
+    <div className={`shop-item ${g.done ? 'on' : ''}`}>
+      <button type="button" className="shop-toggle" aria-pressed={g.done} onClick={onToggle}>
+        <Tick on={g.done} />
+        <span className="shop-main">
+          {single ? g.items[0].t : <><b>{g.label}</b>{g.total && <span className="shop-total">{g.total} total</span>}</>}
+        </span>
+      </button>
+      <div className="shop-subs">
+        {g.items.map((it, i) => (
+          <div key={i} className="shop-sub">
+            {!single && <span className="shop-amount">{it.t}</span>}
+            <RecipeLink id={it.recipeId} label={it.from} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -108,10 +117,10 @@ export function ListScreen() {
           <div className="source-list">
             {srcs.map(s => (
               <div key={s.from} className="source-row">
-                <span>
+                <a className="source-link" href={href('recipe', s.recipeId)}>
                   <span className="source-name">{s.from}</span>
-                  <small className="muted">{s.n} {s.n === 1 ? 'line' : 'lines'}{s.done ? ` · ${s.done} ticked` : ''}</small>
-                </span>
+                  <small className="muted">{s.n} {s.n === 1 ? 'line' : 'lines'}{s.done ? ` · ${s.done} ticked` : ''} · Open recipe</small>
+                </a>
                 <ConfirmButton
                   label="Remove"
                   confirmLabel="Tap again to remove"

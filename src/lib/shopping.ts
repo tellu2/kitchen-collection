@@ -168,10 +168,10 @@ export function setGroupDone(list: ShopItem[], key: string, done: boolean, now =
 }
 
 export function sources(list: ShopItem[]) {
-  const out: { from: string; n: number; done: number }[] = [];
+  const out: { from: string; recipeId: string; n: number; done: number }[] = [];
   for (const it of list) {
     let s = out.find(x => x.from === it.from);
-    if (!s) out.push((s = { from: it.from, n: 0, done: 0 }));
+    if (!s) out.push((s = { from: it.from, recipeId: it.recipeId, n: 0, done: 0 }));
     s.n++;
     if (it.done) s.done++;
   }

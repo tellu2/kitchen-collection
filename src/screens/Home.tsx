@@ -1,10 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
-import { ChevronRight, Lightbulb, RefreshCw, Search, Settings, X } from 'lucide-react';
+import { ChevronRight, Lightbulb, RefreshCw, Search, Settings, UtensilsCrossed, X } from 'lucide-react';
 import { CATEGORIES, type Appliance, type Recipe } from '../types';
 import { useApp } from '../data/store';
 import { alphabetical, byTitle, featuredFor, greeting, niceDate } from '../lib/misc';
 import { yieldText } from '../lib/scale';
 import { lineText } from '../lib/lookups';
+import { addItems, itemsFor } from '../lib/shopping';
+import { useToast } from '../ui/feedback';
 import { CATEGORY_META, FLAGS, Flag, Photo, RecipeCard, RecipeRow, SectionHead, catVar } from '../ui/components';
 import { go, href } from '../ui/router';
 
@@ -23,7 +25,20 @@ function matchesQuery(r: Recipe, q: string): boolean {
 }
 
 export function Home() {
-  const { recipes, ideas, prefs, byId, coverFor, imageFor, refresh, sync, factorFor } = useApp();
+  const { recipes, ideas, prefs, byId, coverFor, imageFor, refresh, sync, factorFor, updatePrefs, lookups } = useApp();
+  const toast = useToast();
+  const today = prefs.today.map(id => byId[id]).filter(Boolean) as Recipe[];
+  const addTodayToList = () => {
+    let list = prefs.shop;
+    let added = 0;
+    for (const r of today) {
+      const res = addItems(list, itemsFor(r, factorFor(r.id), lookups));
+      list = res.list;
+      added += res.added;
+    }
+    updatePrefs(p => ({ ...p, shop: list }));
+    toast(added ? `${added} items added to the list.` : 'Already on the list.');
+  };
   const [query, setQuery] = useState('');
   const [appliance, setAppliance] = useState<Appliance | 'all'>('all');
   const [pull, setPull] = useState(0);
@@ -113,21 +128,45 @@ export function Home() {
         </section>
       ) : (
         <>
+          {today.length > 0 && (
+            <section className="today" aria-label="Cooking today">
+              <SectionHead
+                title="Cooking today"
+                action={<button type="button" className="link" onClick={addTodayToList}>Add all to list</button>}
+              />
+              <div className="rows">
+                {today.map(r => (
+                  <RecipeRow key={r.id} recipe={r}>
+                    <div className="row-actions">
+                      <button type="button" className="btn btn-primary small-btn" onClick={() => go('cook', r.id, 0)}>
+                        <UtensilsCrossed size={16} aria-hidden="true" /> Start cooking
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-quiet small-btn"
+                        onClick={() => updatePrefs(p => ({ ...p, today: p.today.filter(x => x !== r.id) }))}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </RecipeRow>
+                ))}
+              </div>
+            </section>
+          )}
+
           {featured && (
             <div className="featured" style={{ ['--c' as string]: catVar(featured.category) }}>
-              <a className="featured-img" href={href('recipe', featured.id)} aria-label={featured.title}>
-                <Photo url={featuredImg!.url} category={featured.category} />
-                <span className="overlay-chip">Tonight's pick</span>
-              </a>
+              <Photo url={featuredImg!.url} category={featured.category} />
+              <a className="featured-link" href={href('recipe', featured.id)} aria-label={`Open ${featured.title}`} />
+              <span className="overlay-chip">Tonight's pick</span>
               <div className="featured-body">
-                <a href={href('recipe', featured.id)} className="featured-text">
-                  <b className="featured-title">{featured.title}</b>
-                  <small className="muted">
-                    {CATEGORY_META[featured.category].short} · {featured.time.label} · {yieldText(featured, factorFor(featured.id))}
-                  </small>
-                </a>
-                <button type="button" className="btn btn-primary" onClick={() => go('cook', featured.id, 0)}>
-                  Start cooking
+                <b className="featured-title">{featured.title}</b>
+                <small className="featured-meta">
+                  {CATEGORY_META[featured.category].short} · {featured.time.label} · {yieldText(featured, factorFor(featured.id))}
+                </small>
+                <button type="button" className="btn btn-primary featured-btn" onClick={() => go('cook', featured.id, 0)}>
+                  <UtensilsCrossed size={18} aria-hidden="true" /> Start cooking
                 </button>
               </div>
             </div>

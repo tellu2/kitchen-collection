@@ -47,7 +47,11 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
 
   const goStep = (k: number) => replace('cook', id, Math.max(0, Math.min(n - 1, k)));
   const finish = () => {
-    updatePrefs(p => ({ ...p, cooked: { ...p.cooked, [id]: new Date().toISOString().slice(0, 10) } }));
+    updatePrefs(p => ({
+      ...p,
+      cooked: { ...p.cooked, [id]: new Date().toISOString().slice(0, 10) },
+      today: p.today.filter(x => x !== id)
+    }));
     toast('Logged as cooked today.');
     go('recipe', id);
   };

@@ -17,6 +17,8 @@ export interface Prefs {
   shop: ShopItem[];
   lists: SavedList[];
   meal: string[];
+  /** Recipes planned for today ("Cook today"), in the order added */
+  today: string[];
   tbsp: 15 | 20;
   serves: Record<string, number>;
   have: string[];
@@ -27,7 +29,7 @@ export interface Prefs {
 }
 
 export const defaultPrefs = (): Prefs => ({
-  fav: [], cooked: {}, shop: [], lists: [], meal: [], tbsp: 20, serves: {}, have: [],
+  fav: [], cooked: {}, shop: [], lists: [], meal: [], today: [], tbsp: 20, serves: {}, have: [],
   theme: 'light', sourceUrl: '', seen: null
 });
 

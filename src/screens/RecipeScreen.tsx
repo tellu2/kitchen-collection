@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { Camera, CalendarCheck, ChevronLeft, Clock, ListPlus, Minus, Plus, Timer, Users, UtensilsCrossed } from 'lucide-react';
+import { Camera, CalendarCheck, CalendarPlus, Check, ChevronLeft, Clock, ListPlus, Minus, Plus, Timer, Users, UtensilsCrossed } from 'lucide-react';
 import type { Recipe } from '../types';
 import { useApp } from '../data/store';
 import { formatAmount } from '../lib/format';
@@ -76,8 +76,18 @@ export function RecipeScreen({ id }: { id: string }) {
   };
 
   const markCooked = () => {
-    updatePrefs(p => ({ ...p, cooked: { ...p.cooked, [id]: new Date().toISOString().slice(0, 10) } }));
-    toast('Logged for today.');
+    updatePrefs(p => ({
+      ...p,
+      cooked: { ...p.cooked, [id]: new Date().toISOString().slice(0, 10) },
+      today: p.today.filter(x => x !== id)
+    }));
+    toast('Logged as cooked today.');
+  };
+
+  const planned = prefs.today.includes(id);
+  const toggleToday = () => {
+    updatePrefs(p => ({ ...p, today: planned ? p.today.filter(x => x !== id) : [...p.today, id] }));
+    toast(planned ? 'Taken off Cooking today.' : 'Added to Cooking today on Home.');
   };
 
   const buildMeal = () => {
@@ -159,9 +169,15 @@ export function RecipeScreen({ id }: { id: string }) {
             <ListPlus size={20} aria-hidden="true" /> Add to list
           </button>
         </div>
-        <button type="button" className="btn btn-quiet full" onClick={markCooked}>
-          <CalendarCheck size={20} aria-hidden="true" /> {cooked ? `Cooked ${niceDate(cooked)} · log again today` : 'Mark as cooked today'}
-        </button>
+        <div className="cta-row secondary">
+          <button type="button" className={`btn ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday}>
+            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}
+            {planned ? 'Cooking today' : 'Cook today'}
+          </button>
+          <button type="button" className="btn btn-quiet" onClick={markCooked}>
+            <Check size={20} aria-hidden="true" /> {cooked === new Date().toISOString().slice(0, 10) ? 'Cooked today' : 'Mark as cooked'}
+          </button>
+        </div>
 
         {kind && (
           <div className="scaler">
