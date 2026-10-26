@@ -136,9 +136,9 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 
 #### Importing a batch (the usual way, about once a fortnight)
 
-The user pastes one block from their Cooking project: a JSON object with `"kitchenCollectionBatch": 1` and `recipes`, `remove`, `ideas` and `requests`. The format is described in `scripts/import-batch.mjs` and in `RECIPE_EXPORT_INSTRUCTIONS.md` (one folder above the repo). On "import this batch":
+The user attaches a batch file (`kitchen-collection-batch-YYYY-MM-DD.json`) or pastes its contents, built by their Cooking project with "Build the app batch". It is a JSON object with `"kitchenCollectionBatch": 1` and `recipes`, `remove`, `ideas` and `requests`. The format is described in `scripts/import-batch.mjs` and in `RECIPE_EXPORT_INSTRUCTIONS.md` (one folder above the repo). On "import this batch":
 
-1. Save the pasted text to a file in the scratchpad (not in the repo) and run `npm run import:batch -- <file> --dry-run`. Report what it will add, update and remove, and stop to ask only if something looks wrong (for example, a removal of a recipe the user favourites often, or problems listed).
+1. Use the attached file's path directly, or save pasted text to a file in the scratchpad (not in the repo), and run `npm run import:batch -- <file> --dry-run`. Report what it will add, update and remove, and stop to ask only if something looks wrong (for example, a removal of a recipe the user favourites often, or problems listed).
 2. Run it for real: `npm run import:batch -- <file>`. It sets versions and dates, keeps existing photos on updated recipes, and deletes removed recipes with their photos.
 3. Add a stock photo to every id in `needsPhoto` (step 4 below).
 4. Run `npm run validate`. If it fails, fix the structure but never amounts, times or temperatures; ask instead.
