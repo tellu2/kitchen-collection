@@ -1,6 +1,6 @@
 {
   "name": "kitchen-collection",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
   "description": "Kitchen Collection recipe app and recipe data",

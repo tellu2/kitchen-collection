@@ -23,6 +23,10 @@
   --sans: "Atkinson Hyperlegible Next", system-ui, sans-serif;
   --mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
   --gutter: 16px;
+  /* Status and navigation bar insets: CSS env() where the WebView supports it,
+     otherwise the variables Capacitor injects (SystemBars insetsHandling: css) */
+  --sat: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+  --sab: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
   --nav-h: 68px;
   --radius: 16px;
   color-scheme: light;
@@ -74,14 +78,14 @@ p { margin: 0 0 10px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- App frame ---------- */
-.app { min-height: 100vh; padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 24px); }
+.app { min-height: 100vh; padding-bottom: calc(var(--nav-h) + var(--sab) + 24px); }
 .app.is-cooking { padding-bottom: 0; }
-.screen { max-width: 720px; margin: 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 18px) var(--gutter) 24px; }
+.screen { max-width: 720px; margin: 0 auto; padding: calc(var(--sat) + 18px) var(--gutter) 24px; }
 
 .bottom-nav {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
   display: flex; background: var(--surface); border-top: 1px solid var(--line);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom: var(--sab);
 }
 .bottom-nav a {
   flex: 1; min-height: var(--nav-h); display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -280,12 +284,12 @@ button.flag { min-height: 40px; }
 .cat-hero-text { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 18px; color: #fff; z-index: 1; }
 .cat-hero-text h1 { font-family: var(--serif); font-weight: 700; font-size: 30px; line-height: 1.1; }
 .cat-hero-text p { margin: 4px 0 0; opacity: .9; }
-.hero-back { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px; z-index: 3; }
+.hero-back { position: absolute; top: calc(var(--sat) + 14px); left: 14px; z-index: 3; }
 
 /* ---------- Recipe ---------- */
 .recipe { padding-top: 0; }
-.hero { position: relative; height: 42vh; min-height: 260px; max-height: 420px; margin: 0 calc(-1 * var(--gutter)); background: var(--sunk); }
-.hero-actions { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); right: 14px; display: flex; gap: 10px; z-index: 3; }
+.hero { position: relative; height: 34vh; min-height: 220px; max-height: 360px; margin: 0 calc(-1 * var(--gutter)); background: var(--sunk); }
+.hero-actions { position: absolute; top: calc(var(--sat) + 14px); right: 14px; display: flex; gap: 10px; z-index: 3; }
 .hero-actions .fav { width: 48px; height: 48px; }
 .hero-credit {
   position: absolute; left: 12px; bottom: 34px; margin: 0; max-width: calc(100% - 24px);
@@ -312,6 +316,8 @@ button.flag { min-height: 40px; }
 .nutri-row b { font-size: 18px; }
 .nutri-row small { color: var(--muted); font-size: 13px; }
 .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 10px; }
+.recipe-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 16px; }
+.recipe-actions .btn { min-height: 50px; padding: 0 8px; font-size: 15px; }
 .cta-row .btn { min-height: 54px; padding: 0 10px; }
 
 .scaler { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 18px 0 6px; }
@@ -324,7 +330,7 @@ button.flag { min-height: 40px; }
 
 .tabs {
   display: flex; position: sticky; top: 0; z-index: 5; background: var(--surface);
-  border-bottom: 1px solid var(--line); margin: 16px calc(-1 * var(--gutter)) 0; padding: env(safe-area-inset-top, 0px) var(--gutter) 0;
+  border-bottom: 1px solid var(--line); margin: calc(16px - var(--sat)) calc(-1 * var(--gutter)) 0; padding: var(--sat) var(--gutter) 0;
 }
 .tabs button { flex: 1; min-height: 52px; font-weight: 700; color: var(--muted); font-size: 16px; }
 .tabs button.on { color: var(--text); box-shadow: inset 0 -3px 0 var(--accent); }
@@ -374,7 +380,7 @@ button.flag { min-height: 40px; }
 .sheet-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(20, 16, 12, .45); display: flex; align-items: flex-end; justify-content: center; animation: fade .15s; }
 .sheet {
   background: var(--surface); width: 100%; max-width: 640px; border-radius: 24px 24px 0 0;
-  padding: 10px var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 22px); max-height: 85vh; overflow-y: auto; animation: rise .2s;
+  padding: 10px var(--gutter) calc(var(--sab) + 22px); max-height: 85vh; overflow-y: auto; animation: rise .2s;
 }
 .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .sheet-head h2 { font-family: var(--serif); font-weight: 600; font-size: 21px; }
@@ -385,7 +391,7 @@ button.flag { min-height: 40px; }
 
 /* ---------- Toast and timers ---------- */
 .toast {
-  position: fixed; left: 50%; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 16px); z-index: 60;
+  position: fixed; left: 50%; bottom: calc(var(--nav-h) + var(--sab) + 16px); z-index: 60;
   transform: translate(-50%, 10px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
   background: #211d18; color: #f2ede6; border-radius: 12px; padding: 12px 16px; font-size: 15px; max-width: calc(100vw - 32px); text-align: center;
 }
@@ -393,9 +399,9 @@ button.flag { min-height: 40px; }
 .is-cooking ~ .toast, .app.is-cooking + .toast { bottom: 100px; }
 .timer-tray {
   position: fixed; left: 12px; right: 12px; z-index: 30; display: grid; gap: 8px;
-  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 10px); max-width: 640px; margin: 0 auto;
+  bottom: calc(var(--nav-h) + var(--sab) + 10px); max-width: 640px; margin: 0 auto;
 }
-.is-cooking .timer-tray { bottom: calc(env(safe-area-inset-bottom, 0px) + 100px); }
+.is-cooking .timer-tray { bottom: calc(var(--sab) + 100px); }
 .timer {
   display: flex; align-items: center; gap: 12px; background: #211d18; color: #f2ede6;
   border-radius: 14px; padding: 4px 4px 4px 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
@@ -406,7 +412,7 @@ button.flag { min-height: 40px; }
 .timer-btn { min-height: 44px; padding: 0 14px; font-weight: 700; font-size: 15px; opacity: .85; }
 
 /* ---------- Cooking mode ---------- */
-.cook { min-height: 100vh; display: flex; flex-direction: column; max-width: 720px; margin: 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 8px) var(--gutter) 0; }
+.cook { min-height: 100vh; display: flex; flex-direction: column; max-width: 720px; margin: 0 auto; padding: calc(var(--sat) + 8px) var(--gutter) 0; }
 .cook-top { display: flex; align-items: center; gap: 8px; }
 .cook-name { flex: 1; min-width: 0; font-family: var(--serif); font-weight: 600; font-size: 17px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cook-count { color: var(--muted); font-size: 15px; white-space: nowrap; }
@@ -426,13 +432,13 @@ button.flag { min-height: 40px; }
 .setting-time { background: var(--accent); color: var(--on-accent); }
 .setting-time small { color: inherit; opacity: .9; }
 .setting-wide { grid-column: 1 / -1; }
-.cook-nav { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; padding: 14px 0 calc(env(safe-area-inset-bottom, 0px) + 16px); position: sticky; bottom: 0; background: var(--page); }
+.cook-nav { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; padding: 14px 0 calc(var(--sab) + 16px); position: sticky; bottom: 0; background: var(--page); }
 
 /* ---------- Have ---------- */
 .have-group .chip { min-height: 46px; }
 .summary-bar {
   position: fixed; left: 12px; right: 12px; z-index: 25; max-width: 640px; margin: 0 auto;
-  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + 10px);
+  bottom: calc(var(--nav-h) + var(--sab) + 10px);
   display: flex; align-items: center; gap: 8px; background: var(--surface); box-shadow: 0 8px 24px rgba(33, 29, 24, .18);
   border-radius: 16px; padding: 8px 8px 8px 16px; font-weight: 700; font-size: 15px;
 }

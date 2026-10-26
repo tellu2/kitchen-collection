@@ -129,6 +129,23 @@ export function RecipeScreen({ id }: { id: string }) {
       </div>
 
       <div className="recipe-sheet">
+        {/* Actions sit straight under the photo so they're reachable without scrolling */}
+        <div className="recipe-actions">
+          <button type="button" className="btn btn-primary" disabled={!recipe.steps.length} onClick={() => go('cook', id, 0)}>
+            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
+          </button>
+          <button type="button" className="btn btn-outline" disabled={isDraft} onClick={addToList}>
+            <ListPlus size={20} aria-hidden="true" /> Add to list
+          </button>
+          <button type="button" className={`btn ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday}>
+            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}
+            {planned ? 'Cooking today' : 'Cook today'}
+          </button>
+          <button type="button" className="btn btn-quiet" onClick={markCooked}>
+            <Check size={20} aria-hidden="true" /> {cooked === new Date().toISOString().slice(0, 10) ? 'Cooked today' : 'Mark cooked'}
+          </button>
+        </div>
+
         <div className="pills">
           <a className="pill pill-cat" href={href('category', recipe.category)}>{CATEGORY_META[recipe.category].short}</a>
           {recipe.appliances.map(a => <span key={a} className="pill">{APPLIANCE_LABEL[a]}</span>)}
@@ -160,24 +177,6 @@ export function RecipeScreen({ id }: { id: string }) {
             </div>
           </div>
         )}
-
-        <div className="cta-row">
-          <button type="button" className="btn btn-primary" disabled={!recipe.steps.length} onClick={() => go('cook', id, 0)}>
-            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
-          </button>
-          <button type="button" className="btn btn-outline" disabled={isDraft} onClick={addToList}>
-            <ListPlus size={20} aria-hidden="true" /> Add to list
-          </button>
-        </div>
-        <div className="cta-row secondary">
-          <button type="button" className={`btn ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday}>
-            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}
-            {planned ? 'Cooking today' : 'Cook today'}
-          </button>
-          <button type="button" className="btn btn-quiet" onClick={markCooked}>
-            <Check size={20} aria-hidden="true" /> {cooked === new Date().toISOString().slice(0, 10) ? 'Cooked today' : 'Mark as cooked'}
-          </button>
-        </div>
 
         {kind && (
           <div className="scaler">
