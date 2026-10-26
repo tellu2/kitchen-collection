@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "cheeseburger-smash-tacos",
+  "title": "Cheeseburger Smash Tacos",
+  "description": "Big Mac-style smash tacos: lean mince pressed onto a mini wrap and fried until crisp, finished with cheese, lettuce and burger sauce.",
+  "category": "Light Meals",
+  "tags": ["beef","quick","tacos"],
+  "yield": {"qty":4,"unit":"tacos","note":"About 2 serves. The original post is for 1 taco."},
+  "time": {"label":"~10 min","totalMinutes":10},
+  "appliances": ["stovetop"],
+  "source": {"name":"Social media post (creator not recorded)","note":"Original post gives amounts for 1 taco and no cooking times."},
+  "confidence": {"level":"estimated","note":"Ingredients and method from the original post. Scaling to 4 tacos, the pan timers, oil spray, seasoning, lettuce quantity, homemade sauce and variations were added by Claude and are untested."},
+  "image": "images/cheeseburger-smash-tacos.jpg",
+  "imageCredit": {"name":"Eden FC","url":"https://www.pexels.com/photo/delicious-tacos-with-fresh-lime-close-up-35225169/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"mince","qty":320,"unit":"g","item":"beef mince","note":"5% fat"},
+        {"id":"wraps","qty":4,"item":"mini wraps"},
+        {"id":"cheese","qty":4,"item":"cheese slices"},
+        {"id":"lettuce","qty":1,"unit":"cup","item":"iceberg lettuce","prep":"shredded","note":"Original post says to taste"},
+        {"id":"sauce","qty":40,"unit":"g","item":"burger sauce","note":"Bought, or see the homemade sauce in notes"},
+        {"id":"salt-pepper","qty":null,"item":"salt and pepper","note":"To taste"},
+        {"id":"oil","qty":null,"item":"oil spray"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Press the mince","text":"Divide the mince ({{mince}}) into 4 equal portions of about {{mince*0.25}}. Press each portion thinly and evenly onto a mini wrap, right to the edges, aiming for about 3mm thick. Season the meat side with salt and pepper."},
+    {"title":"Fry mince-side down","text":"Heat a large frying pan or cast iron pan over medium-high heat with a light coat of oil spray, as lean mince can catch without it. Fry the tacos mince-side down, without moving them, until the meat is browned, crispy at the edges and cooked through with no pink showing. Most pans fit 2 at a time.","settings":{"appliance":"stovetop","time":"about 3 min","timerSeconds":180,"temp":"Medium-high"}},
+    {"title":"Flip and melt cheese","text":"Flip each taco, lay a cheese slice on the meat and cook until the cheese melts and the wrap is lightly toasted.","settings":{"appliance":"stovetop","time":"about 1 min","timerSeconds":60,"temp":"Medium-high"}},
+    {"title":"Fill and fold","text":"Remove from the pan. Add the shredded lettuce and burger sauce ({{sauce*0.25}} each), then fold or roll into a taco. Eat straight away while the wrap is crisp."}
+  ],
+  "notes": [
+    {"title":"Homemade burger sauce","text":"Makes enough for about 8 tacos. Mix 4 tbsp mayonnaise, 1 tbsp finely chopped gherkin or sweet relish, 1 tsp yellow mustard, 1 tsp white vinegar, and 1/4 tsp each of smoked paprika, onion powder and garlic powder. Rest 10 minutes before using. Untested estimate, not from the original post."},
+    {"title":"Closer to a Big Mac","text":"Scatter finely diced white onion and sliced pickles over the lettuce, and press a few sesame seeds into the raw mince before frying."},
+    {"title":"Variations (untested)","items":["Mexican beef: mix about two-thirds of a batch of Homemade Taco Seasoning into the mince before pressing. Top with cheddar, lettuce, tomato, sour cream and hot sauce instead of burger sauce.","Korean beef: mix 1 tbsp gochujang, 2 tsp soy sauce and 1 tsp minced garlic into the mince. Top with Japanese Sesame Cabbage Salad and Kewpie mixed with sriracha.","Middle Eastern lamb: use lamb mince with 1 tsp ground cumin, 1 tsp ground coriander and 1 minced garlic clove. Finish with tomato, cucumber, parsley and tahini dressing or garlic yoghurt. Skip the oil spray.","Chicken: press chicken mince slightly thinner and cook a little longer so it is cooked right through. Finish Caesar-style with cos lettuce, parmesan and Caesar dressing.","Air fryer: mince-side up at 200°C for about 6 to 8 minutes, cheese on for the final minute. Less crust on the meat, and light wraps can lift in the fan, so treat this as a trial."]}
+  ],
+  "version": 1,
+  "updated": "2026-10-26",
+  "added": "2026-10-26"
+}

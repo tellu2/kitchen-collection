@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-10-25T11:14:37.053Z",
+  "generated": "2026-10-26T07:31:20.133Z",
   "recipes": [
     {
       "id": "gochujang-chicken",
@@ -608,6 +608,33 @@
       "image": "images/jacket-potato.jpg"
     },
     {
+      "id": "cheeseburger-smash-tacos",
+      "title": "Cheeseburger Smash Tacos",
+      "category": "Light Meals",
+      "tags": [
+        "beef",
+        "quick",
+        "tacos"
+      ],
+      "appliances": [
+        "stovetop"
+      ],
+      "time": {
+        "label": "~10 min",
+        "totalMinutes": 10
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "tacos",
+        "note": "About 2 serves. The original post is for 1 taco."
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-26",
+      "added": "2026-10-26",
+      "image": "images/cheeseburger-smash-tacos.jpg"
+    },
+    {
       "id": "zucchini-slice",
       "title": "Zucchini, Bacon & Cheese Slice",
       "category": "Light Meals",
@@ -686,6 +713,34 @@
       "version": 1,
       "updated": "2026-10-25",
       "image": "images/baked-pesto-chicken-gnocchi.jpg"
+    },
+    {
+      "id": "creamy-buffalo-chicken",
+      "title": "Creamy Buffalo Chicken",
+      "category": "Easy & Healthy",
+      "tags": [
+        "chicken",
+        "high protein",
+        "meal prep",
+        "buffalo"
+      ],
+      "appliances": [
+        "thermomix",
+        "air-fryer"
+      ],
+      "time": {
+        "label": "~35 min",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 2,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-10-26",
+      "added": "2026-10-26",
+      "image": "images/creamy-buffalo-chicken.jpg"
     },
     {
       "id": "high-protein-orzo-chicken-bake",

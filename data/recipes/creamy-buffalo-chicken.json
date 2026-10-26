@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "creamy-buffalo-chicken",
+  "title": "Creamy Buffalo Chicken",
+  "description": "Shredded chicken in a creamy cottage cheese and hot sauce mix, topped with cheese and grilled until bubbling. High protein and good the next day.",
+  "category": "Easy & Healthy",
+  "tags": ["chicken","high protein","meal prep","buffalo"],
+  "yield": {"qty":2,"unit":"serves"},
+  "time": {"label":"~35 min","totalMinutes":35},
+  "appliances": ["thermomix","air-fryer"],
+  "source": {"name":"Social media post","note":"Creator not recorded. Ingredient list from the post; Thermomix and air fryer method adapted in chat."},
+  "confidence": {"level":"estimated","note":"Ingredients from the source post. The method, Thermomix settings, air fryer settings and steaming time were adapted in chat and have not been test-cooked. Hot sauce quantity is to taste; the 2 tbsp starting point is an estimate."},
+  "nutrition": {"basis":"per serve","protein":59,"note":"As stated by the source post; not checked. Likely assumes cooked chicken weight."},
+  "image": "images/creamy-buffalo-chicken.jpg",
+  "imageCredit": {"name":"Sylwester Ficek","url":"https://www.pexels.com/photo/cheesy-vegetable-baked-casserole-in-white-dish-32039641/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"chicken","qty":300,"unit":"g","item":"chicken breast","note":"Source does not say whether this is raw or cooked weight"},
+        {"id":"cottage-cheese","qty":250,"unit":"g","item":"low-fat cottage cheese"},
+        {"id":"hot-sauce","qty":null,"item":"hot sauce","note":"To taste. Frank's RedHot for classic buffalo flavour; Cholula also works but is less vinegary"},
+        {"id":"garlic-powder","qty":1,"unit":"tsp","item":"garlic powder"},
+        {"id":"celery","qty":1,"item":"celery stalk","prep":"in pieces"},
+        {"id":"onion","qty":0.25,"item":"brown onion","prep":"in pieces"},
+        {"id":"cheddar","qty":30,"unit":"g","item":"cheddar","prep":"grated","note":"Or parmesan"}
+      ]
+    },
+    {
+      "title": "For steaming",
+      "items": [
+        {"id":"water","qty":500,"unit":"g","item":"water"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop the veg","text":"Chop the celery ({{celery}}) and onion ({{onion}}). Scrape down and set aside.","settings":{"appliance":"thermomix","time":"3 sec","speed":"5"}},
+    {"title":"Steam the chicken","text":"Add the water ({{water}}) to the bowl. Place the chicken ({{chicken}}) in the Varoma tray and steam until cooked through (75°C at the thickest point). Thicker breasts may need longer.","settings":{"appliance":"thermomix","time":"20 min","timerSeconds":1200,"temp":"Varoma","speed":"1","accessory":"Varoma"}},
+    {"title":"Shred","text":"Empty the water. Add the chicken to the bowl and shred.","settings":{"appliance":"thermomix","time":"5–8 sec","speed":"4","reverse":true}},
+    {"title":"Mix","text":"Add the cottage cheese ({{cottage-cheese}}), hot sauce, garlic powder ({{garlic-powder}}) and the reserved celery and onion. Mix, then taste and adjust the hot sauce.","settings":{"appliance":"thermomix","time":"15 sec","speed":"2","reverse":true}},
+    {"title":"Top with cheese","text":"Transfer to a small oven-safe dish that fits the air fryer basket. Top with the cheddar ({{cheddar}})."},
+    {"title":"Grill","text":"Air fry until golden and bubbling. The oven grill also works.","settings":{"appliance":"air-fryer","time":"4–6 min","timerSeconds":240,"temp":"200°C"}}
+  ],
+  "notes": [
+    {"title":"Hot sauce","text":"Start with about 2 tbsp of Frank's and build from there."},
+    {"title":"Smoother texture","text":"If you dislike cottage cheese curds, blend the cottage cheese on its own for 10-15 sec on Speed 6 before shredding the chicken."},
+    {"title":"Air fryer chicken","text":"Instead of steaming, cook the chicken breast at 180°C for roughly 12-15 min, then shred in the Thermomix as above."},
+    {"title":"Storage","text":"Keeps 3 days in the fridge. Reheat until piping hot."}
+  ],
+  "version": 1,
+  "updated": "2026-10-26",
+  "added": "2026-10-26"
+}
