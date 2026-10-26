@@ -6,6 +6,7 @@ import { type Theme, useApp } from '../data/store';
 import { APP_VERSION, BUILD_TIME } from '../data/bundle';
 import { niceDate } from '../lib/misc';
 import { DEFAULT_SOURCE } from '../config';
+import { BackupSection } from './BackupSection';
 import { addItems, itemsFor } from '../lib/shopping';
 import { Empty, RecipeCard, ScreenHeader, SectionHead } from '../ui/components';
 import { useToast } from '../ui/feedback';
@@ -158,6 +159,8 @@ export function SettingsScreen() {
           <p className="muted small">Leave it empty to use the default.</p>
         </details>
       </section>
+
+      <BackupSection />
 
       <section className="setting-block">
         <h2>App updates</h2>

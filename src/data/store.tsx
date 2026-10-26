@@ -6,6 +6,7 @@ import { compileLookups, type CompiledLookups } from '../lib/lookups';
 import type { SavedList, ShopItem } from '../lib/shopping';
 import { APP_VERSION, BUILD_TIME, bundledIdeas, bundledImage, bundledLookups, bundledRecipes } from './bundle';
 import { type AppUpdate, checkForUpdate } from './updates';
+import { type BackupFile, buildBackup, dataUrlToBlob } from './backup';
 import { DEFAULT_SOURCE } from '../config';
 import { dbDelete, dbEntries, dbGet, dbSet } from './db';
 import { type CachedData, mergeBundleAndCache, normaliseBase, syncData } from './sync';
@@ -69,6 +70,8 @@ interface AppState {
   source: string;
   update: AppUpdate | null;
   checkUpdates: () => Promise<string>;
+  exportBackup: () => Promise<BackupFile>;
+  importBackup: (b: BackupFile) => Promise<void>;
 }
 
 const Ctx = createContext<AppState | null>(null);
@@ -264,15 +267,36 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const factorFor = useCallback((id: string) => prefs.serves[id] ?? 1, [prefs.serves]);
 
+  const exportBackup = useCallback(async (): Promise<BackupFile> => {
+    const photoBlobs = Object.fromEntries((await dbEntries<Blob>('files', 'photo:')).map(([k, b]) => [k.slice(6), b]));
+    return buildBackup(prefs, photoBlobs, APP_VERSION);
+  }, [prefs]);
+
+  /** Replaces everything personal on this phone with the backup's contents. */
+  const importBackup = useCallback(async (b: BackupFile) => {
+    const next: Prefs = { ...defaultPrefs(), ...b.prefs, seen: prefs.seen };
+    for (const [key] of await dbEntries<Blob>('files', 'photo:')) await dbDelete('files', key);
+    const urls: Record<string, string> = {};
+    for (const [id, dataUrl] of Object.entries(b.photos ?? {})) {
+      const blob = dataUrlToBlob(dataUrl);
+      await dbSet('files', 'photo:' + id, blob);
+      urls[id] = URL.createObjectURL(blob);
+    }
+    setPhotos(urls);
+    setPrefs(next);
+    await dbSet('kv', 'prefs', next);
+  }, [prefs.seen]);
+
   const lookups = useMemo(() => compileLookups(lookupFiles), [lookupFiles]);
   const recipes = useMemo(() => Object.values(byId), [byId]);
 
   const value = useMemo<AppState>(
     () => ({
       ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs,
-      badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates
+      badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates,
+      exportBackup, importBackup
     }),
-    [ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates]
+    [ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates, exportBackup, importBackup]
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

@@ -483,6 +483,9 @@ button.flag { min-height: 40px; }
 .idea p { margin: 4px 0 0; font-size: 15px; }
 .setting-block { background: var(--surface); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); margin-bottom: 14px; }
 .break { overflow-wrap: anywhere; }
+.action-row.tight { margin: 10px 0 0; }
+.backup-summary { margin: 0 0 12px; padding-left: 20px; }
+.backup-summary li { margin: 2px 0; }
 .advanced { margin-top: 8px; }
 .advanced summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; color: var(--muted); cursor: pointer; }
 .setting-block .btn + .muted, .setting-block .btn { margin-top: 6px; }

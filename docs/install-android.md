@@ -76,6 +76,23 @@ Your favourites, shopping lists, saved lists, cook log, Have ticks, settings and
 - **Every APK must be signed with the same key:** `C:\Users\trist\KitchenCollection-signing\kitchen-collection-release.jks`. If Android says **App not installed** or **package conflicts with an existing package**, the APK was signed with a different key. Don't uninstall to get around it. Rebuild it with the right key.
 - **Back up the signing folder** (`C:\Users\trist\KitchenCollection-signing\`) somewhere safe, such as a USB stick or a password manager. If it's lost, future updates can't go over the top.
 
+## Backing up your data
+
+Your favourites, shopping and saved lists, cook log, Cooking today, Have ticks, settings and your own photos live only on the phone. Back them up now and then, and before you change phones.
+
+**Export**
+1. Go to **Settings > Backup** and tap **Export backup**.
+2. The share sheet opens. Choose **Drive** (Google Drive) and tap **Save**.
+
+The file is called `kitchen-collection-backup-<date>.json`.
+
+**Restore** (for example on a new phone, after installing the app)
+1. Go to **Settings > Backup** and tap **Import backup**.
+2. Pick the backup file. Google Drive appears in the file picker's menu.
+3. Check the summary (saved recipes, lists, photos) and tap **Replace with this backup**.
+
+Restoring replaces what's currently on the phone. Recipes aren't affected; they come from the app and GitHub.
+
 ## Recipe updates without a new APK
 
 New and changed recipes publish to https://tellu2.github.io/kitchen-collection/ and the app fetches them by itself: on launch, or when you pull down on the Recipes screen. No new APK is needed. New recipes show a **New** badge, and changed ones show **Updated**.
