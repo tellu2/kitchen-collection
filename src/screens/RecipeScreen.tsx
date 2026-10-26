@@ -129,79 +129,52 @@ export function RecipeScreen({ id }: { id: string }) {
       </div>
 
       <div className="recipe-sheet">
-        {/* Actions sit straight under the photo so they're reachable without scrolling */}
-        <div className="recipe-actions">
-          <button type="button" className="btn btn-primary" disabled={!recipe.steps.length} onClick={() => go('cook', id, 0)}>
-            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
-          </button>
-          <button type="button" className="btn btn-outline" disabled={isDraft} onClick={addToList}>
-            <ListPlus size={20} aria-hidden="true" /> Add to list
-          </button>
-          <button type="button" className={`btn ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday}>
-            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}
-            {planned ? 'Cooking today' : 'Cook today'}
-          </button>
-          <button type="button" className="btn btn-quiet" onClick={markCooked}>
-            <Check size={20} aria-hidden="true" /> {cooked === new Date().toISOString().slice(0, 10) ? 'Cooked today' : 'Mark cooked'}
-          </button>
-        </div>
-
-        <div className="pills">
-          <a className="pill pill-cat" href={href('category', recipe.category)}>{CATEGORY_META[recipe.category].short}</a>
-          {recipe.appliances.map(a => <span key={a} className="pill">{APPLIANCE_LABEL[a]}</span>)}
-          <BadgeChip badge={badges[id]} />
-        </div>
+        {/* Kept short so the ingredients and method start high on the screen */}
         <h1 className="recipe-title">{recipe.title}</h1>
         <div className="meta">
-          {recipe.time.label !== 'Not recorded' && <span><Clock size={18} aria-hidden="true" /> {recipe.time.label}</span>}
-          {!isDraft && <span><Users size={18} aria-hidden="true" /> {yieldText(recipe, factor)}</span>}
-          {cooked && <span><CalendarCheck size={18} aria-hidden="true" /> Cooked {niceDate(cooked)}</span>}
+          {recipe.time.label !== 'Not recorded' && <span><Clock size={16} aria-hidden="true" /> {recipe.time.label}</span>}
+          {!isDraft && <span><Users size={16} aria-hidden="true" /> {yieldText(recipe, factor)}</span>}
+          <Flag level={recipe.confidence.level} small onClick={() => setFlagOpen(true)} />
+          <BadgeChip badge={badges[id]} />
         </div>
-        <Flag level={recipe.confidence.level} onClick={() => setFlagOpen(true)} />
-        {recipe.description && <p className="description">{recipe.description}</p>}
-        {recipe.source && (
-          <p className="credit">
-            Source: {recipe.source.url ? <a href={recipe.source.url} target="_blank" rel="noopener noreferrer">{recipe.source.name}</a> : recipe.source.name}
-            {recipe.source.note ? ` · ${recipe.source.note}` : ''}
-          </p>
-        )}
-        {recipe.nutrition && (
-          <div className="nutrition">
-            <p className="muted small">{recipe.nutrition.basis} · From the source, not checked</p>
-            <div className="nutri-row">
-              {(['calories', 'protein', 'carbs', 'fat', 'fibre'] as const).map(k =>
-                recipe.nutrition![k] != null ? (
-                  <span key={k}><b>{recipe.nutrition![k]}{k === 'calories' ? '' : 'g'}</b><small>{k === 'calories' ? 'Cal' : k[0].toUpperCase() + k.slice(1)}</small></span>
-                ) : null
-              )}
-            </div>
-          </div>
-        )}
 
-        {kind && (
-          <div className="scaler">
-            <span className="scaler-label">{kind === 'serves' ? 'Servings' : 'Batch size'}</span>
-            <span className="stepper">
-              <button type="button" aria-label="Fewer" disabled={limits.min} onClick={() => setFactor(stepFactor(recipe, factor, -1))}><Minus size={20} /></button>
-              <output aria-live="polite">{yieldText(recipe, factor)}</output>
-              <button type="button" aria-label="More" disabled={limits.max} onClick={() => setFactor(stepFactor(recipe, factor, 1))}><Plus size={20} /></button>
-            </span>
-            {factor !== 1 && <button type="button" className="link" onClick={() => setFactor(1)}>Back to {yieldText(recipe, 1).toLowerCase()}</button>}
-          </div>
-        )}
-        {scaleNote(recipe, factor) && <p className="scale-note">{scaleNote(recipe, factor)}</p>}
+        <div className="recipe-actions">
+          <button type="button" className="btn btn-primary act-main" disabled={!recipe.steps.length} onClick={() => go('cook', id, 0)}>
+            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
+          </button>
+          <button type="button" className="btn btn-quiet act" disabled={isDraft} onClick={addToList} aria-label="Add to shopping list">
+            <ListPlus size={20} aria-hidden="true" /><span>List</span>
+          </button>
+          <button type="button" className={`btn act ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday} aria-label={planned ? 'Cooking today, tap to remove' : 'Cook today'}>
+            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}<span>Today</span>
+          </button>
+          <button type="button" className={`btn act ${cooked === new Date().toISOString().slice(0, 10) ? 'btn-on' : 'btn-quiet'}`} onClick={markCooked} aria-label="Mark as cooked today">
+            <Check size={20} aria-hidden="true" /><span>Cooked</span>
+          </button>
+        </div>
 
         <div className="tabs" role="tablist">
           {(['ingredients', 'method', 'notes'] as Tab[]).map(t => (
             <button key={t} type="button" role="tab" aria-selected={tab === t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>
-              {t === 'ingredients' ? 'Ingredients' : t === 'method' ? 'Method' : `Notes${recipe.notes?.length ? ` (${recipe.notes.length})` : ''}`}
+              {t === 'ingredients' ? 'Ingredients' : t === 'method' ? 'Method' : 'About'}
             </button>
           ))}
         </div>
 
         {tab === 'ingredients' && (
           <section className="tab-body">
-            {plainCount ? <p className="muted small">{ticks.ing.size} of {plainCount} gathered{factor !== 1 ? ' · scaled' : ''}</p> : <Empty>No ingredients recorded yet.</Empty>}
+            {kind && (
+              <div className="scaler">
+                <span className="stepper">
+                  <button type="button" aria-label="Fewer" disabled={limits.min} onClick={() => setFactor(stepFactor(recipe, factor, -1))}><Minus size={20} /></button>
+                  <output aria-live="polite">{yieldText(recipe, factor)}</output>
+                  <button type="button" aria-label="More" disabled={limits.max} onClick={() => setFactor(stepFactor(recipe, factor, 1))}><Plus size={20} /></button>
+                </span>
+                {factor !== 1 && <button type="button" className="link" onClick={() => setFactor(1)}>Reset</button>}
+              </div>
+            )}
+            {scaleNote(recipe, factor) && <p className="scale-note">{scaleNote(recipe, factor)}</p>}
+            {plainCount ? <p className="muted small">{ticks.ing.size} of {plainCount} gathered</p> : <Empty>No ingredients recorded yet.</Empty>}
             {recipe.ingredientGroups.map((g, gi) => (
               <div key={gi}>
                 {g.title && <h3 className="group-title">{g.title}</h3>}
@@ -278,17 +251,43 @@ export function RecipeScreen({ id }: { id: string }) {
 
         {tab === 'notes' && (
           <section className="tab-body">
-            {recipe.notes?.length ? (
-              recipe.notes.map((n, i) => (
-                <div key={i} className="note">
-                  <b>{n.title}</b>
-                  {n.text && <p><NoteText text={n.text} /></p>}
-                  {n.items && <ul>{n.items.map((x, j) => <li key={j}>{x}</li>)}</ul>}
-                </div>
-              ))
-            ) : (
-              <Empty>No notes for this recipe.</Empty>
+            <div className="pills">
+              <a className="pill pill-cat" href={href('category', recipe.category)}>{CATEGORY_META[recipe.category].short}</a>
+              {recipe.appliances.map(a => <span key={a} className="pill">{APPLIANCE_LABEL[a]}</span>)}
+            </div>
+            {recipe.description && <p className="description">{recipe.description}</p>}
+            {cooked && <p className="muted small"><CalendarCheck size={16} aria-hidden="true" /> Last cooked {niceDate(cooked)}</p>}
+            <button type="button" className="link" onClick={() => setFlagOpen(true)}>How sure is this recipe?</button>
+            {recipe.source && (
+              <p className="credit">
+                Source: {recipe.source.url ? <a href={recipe.source.url} target="_blank" rel="noopener noreferrer">{recipe.source.name}</a> : recipe.source.name}
+                {recipe.source.note ? ` · ${recipe.source.note}` : ''}
+              </p>
             )}
+            {recipe.nutrition && (
+              <div className="nutrition">
+                <p className="muted small">{recipe.nutrition.basis} · From the source, not checked</p>
+                <div className="nutri-row">
+                  {(['calories', 'protein', 'carbs', 'fat', 'fibre'] as const).map(k =>
+                    recipe.nutrition![k] != null ? (
+                      <span key={k}><b>{recipe.nutrition![k]}{k === 'calories' ? '' : 'g'}</b><small>{k === 'calories' ? 'Cal' : k[0].toUpperCase() + k.slice(1)}</small></span>
+                    ) : null
+                  )}
+                </div>
+              </div>
+            )}
+            {recipe.notes?.length ? (
+              <>
+                <h3 className="group-title">Notes</h3>
+                {recipe.notes.map((n, i) => (
+                  <div key={i} className="note">
+                    <b>{n.title}</b>
+                    {n.text && <p><NoteText text={n.text} /></p>}
+                    {n.items && <ul>{n.items.map((x, j) => <li key={j}>{x}</li>)}</ul>}
+                  </div>
+                ))}
+              </>
+            ) : null}
           </section>
         )}
       </div>

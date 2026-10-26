@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { ChevronRight, Download, Lightbulb, RefreshCw, Search, Settings, UtensilsCrossed, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Download, Lightbulb, RefreshCw, Search, Settings, UtensilsCrossed, X } from 'lucide-react';
 import { CATEGORIES, type Appliance, type Recipe } from '../types';
 import { useApp } from '../data/store';
 import { alphabetical, byTitle, featuredFor, greeting, niceDate } from '../lib/misc';
@@ -41,6 +41,22 @@ export function Home() {
   };
   const [query, setQuery] = useState('');
   const [appliance, setAppliance] = useState<Appliance | 'all'>('all');
+  // The A to Z list starts folded; the choice is remembered on this phone
+  const [showAll, setShowAllState] = useState(() => {
+    try {
+      return localStorage.getItem('kc-show-all') === '1';
+    } catch {
+      return false;
+    }
+  });
+  const setShowAll = (v: boolean) => {
+    setShowAllState(v);
+    try {
+      localStorage.setItem('kc-show-all', v ? '1' : '0');
+    } catch {
+      /* not stored */
+    }
+  };
   const [pull, setPull] = useState(0);
   const touchStart = useRef<number | null>(null);
 
@@ -200,29 +216,45 @@ export function Home() {
             })}
           </div>
 
-          <SectionHead title="All recipes, A to Z" />
-          <div className="chips scroll-x" role="group" aria-label="Filter by appliance">
-            {APPLIANCES.map(a => (
-              <button
-                key={a.id}
-                type="button"
-                className={`chip ${appliance === a.id ? 'on' : ''}`}
-                aria-pressed={appliance === a.id}
-                onClick={() => setAppliance(a.id)}
-              >
-                {a.label}
-              </button>
-            ))}
-          </div>
-          <div className="az">
-            {az.map(g => (
-              <section key={g.letter} aria-label={g.letter}>
-                <h3 className="letter">{g.letter}</h3>
-                <div className="rows">{g.recipes.map(r => <RecipeRow key={r.id} recipe={r} />)}</div>
-              </section>
-            ))}
-            {!az.length && <p className="empty">No recipes use that appliance yet.</p>}
-          </div>
+          <button
+            type="button"
+            className="az-toggle"
+            aria-expanded={showAll}
+            aria-controls="all-recipes"
+            onClick={() => setShowAll(!showAll)}
+          >
+            <span>
+              <b>All recipes, A to Z</b>
+              <small className="muted">{recipes.length} recipes</small>
+            </span>
+            <span className="az-toggle-action">{showAll ? 'Hide' : 'Show'} <ChevronDown size={20} aria-hidden="true" className={showAll ? 'flip' : ''} /></span>
+          </button>
+          {showAll && (
+            <div id="all-recipes">
+              <div className="chips scroll-x" role="group" aria-label="Filter by appliance">
+                {APPLIANCES.map(a => (
+                  <button
+                    key={a.id}
+                    type="button"
+                    className={`chip ${appliance === a.id ? 'on' : ''}`}
+                    aria-pressed={appliance === a.id}
+                    onClick={() => setAppliance(a.id)}
+                  >
+                    {a.label}
+                  </button>
+                ))}
+              </div>
+              <div className="az">
+                {az.map(g => (
+                  <section key={g.letter} aria-label={g.letter}>
+                    <h3 className="letter">{g.letter}</h3>
+                    <div className="rows">{g.recipes.map(r => <RecipeRow key={r.id} recipe={r} />)}</div>
+                  </section>
+                ))}
+                {!az.length && <p className="empty">No recipes use that appliance yet.</p>}
+              </div>
+            </div>
+          )}
 
           {lastCooked.length > 0 && (
             <>
