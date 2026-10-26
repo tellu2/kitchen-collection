@@ -137,7 +137,13 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 1. Save to `data/recipes/<id>.json`.
 2. Run `npm run validate`. Fix failures and report exactly what changed. Never change quantities, times or temperatures to pass validation; ask instead.
 3. For a new recipe, set `added` and `updated` to today. For an update, increment `version` and set `updated` to today; leave `added` alone.
-4. A photo goes in `data/images/<id>.jpg` (about 1200px wide, under 300KB) with `image` and `imageCredit` set. Only use photos the user supplies or that are free to use (Pexels or Unsplash licence), and credit them.
+4. Every new recipe gets a stock photo from Pexels (the user's standing choice), unless they supply their own.
+   - Find candidates in the Browser pane: open https://www.pexels.com, then fetch `/search/<terms>/` same-origin and parse it with DOMParser. Photo links are `/photo/<slug>-<id>/`, and the img `alt` describes the photo. Try the dish name, then broader terms (the main protein plus the dish type).
+   - Show the user three options as thumbnails (`https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=480`), the best match first, and say how close each is to the dish. Wait for their pick; "you choose" means use the first.
+   - Get the photographer's name from the photo page (`/photo/<id>/`, first `a[href^="/@"]` with a name). Strip emoji and tidy spacing.
+   - Run `npm run photo:add -- <recipe-id> <pexels-id> "<photographer>" <photo page url>`. It downloads the 1200px JPEG to `data/images/<id>.jpg` and sets `image` and `imageCredit`.
+   - The user's own photo: save it as `data/images/<id>.jpg` (about 1200px wide, under 300KB) and set `image` with no `imageCredit`.
+   - Never use photos from recipe sites, Cookidoo, Instagram or other sources without a free licence.
 5. Run `npm run publish:recipes -- "Add recipe: <title>"` (or "Update recipe: <title>"). It validates, rebuilds the index, commits `data/` and pushes. The Pages workflow publishes it; the phone fetches it on pull-to-refresh or next launch.
 
 Repository: https://github.com/tellu2/kitchen-collection (public). Recipes publish to https://tellu2.github.io/kitchen-collection/, which is the app's built-in source (`src/config.ts`).
