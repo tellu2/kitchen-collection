@@ -146,7 +146,7 @@ The user pastes one block from their Cooking project: a JSON object with `"kitch
 6. If `requests` has app changes, make them, test them, commit, then `npm run release` (or `-- minor` for new features).
 7. Report briefly: added, updated, removed, each chosen photo with how close a match it is, any app release, and anything skipped.
 
-A bare recipe or an array of recipes also works with `import:batch`.
+A bare recipe or an array of recipes also works with `import:batch`. The Cooking project often can't read its other chats, so the user may instead paste several single-recipe JSON blocks, plus plain-English extras ("also remove X", "add idea Y to Curry-style"). Combine them into one `kitchenCollectionBatch` file (recipes array, plus `remove` and `ideas` from the extras) and import it as one batch.
 
 #### Single recipes by hand
 
