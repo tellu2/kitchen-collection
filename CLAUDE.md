@@ -134,7 +134,21 @@ Australian English in all UI copy. Metric. No em dashes anywhere. Measured, plai
 
 ### Adding or updating a recipe (no rebuild)
 
-The user usually pastes several recipes at once, exported from their Cooking project in Claude ("Export as app JSON"). Handle the whole batch in one pass and publish it once.
+#### Importing a batch (the usual way, about once a fortnight)
+
+The user pastes one block from their Cooking project: a JSON object with `"kitchenCollectionBatch": 1` and `recipes`, `remove`, `ideas` and `requests`. The format is described in `scripts/import-batch.mjs` and in `RECIPE_EXPORT_INSTRUCTIONS.md` (one folder above the repo). On "import this batch":
+
+1. Save the pasted text to a file in the scratchpad (not in the repo) and run `npm run import:batch -- <file> --dry-run`. Report what it will add, update and remove, and stop to ask only if something looks wrong (for example, a removal of a recipe the user favourites often, or problems listed).
+2. Run it for real: `npm run import:batch -- <file>`. It sets versions and dates, keeps existing photos on updated recipes, and deletes removed recipes with their photos.
+3. Add a stock photo to every id in `needsPhoto` (step 4 below).
+4. Run `npm run validate`. If it fails, fix the structure but never amounts, times or temperatures; ask instead.
+5. Publish once: `npm run publish:recipes -- "Batch <date>: add X, Y; update Z; remove W"`.
+6. If `requests` has app changes, make them, test them, commit, then `npm run release` (or `-- minor` for new features).
+7. Report briefly: added, updated, removed, each chosen photo with how close a match it is, any app release, and anything skipped.
+
+A bare recipe or an array of recipes also works with `import:batch`.
+
+#### Single recipes by hand
 
 1. Save each to `data/recipes/<id>.json`. If an id already exists, treat it as an update, not a new recipe.
 2. Run `npm run validate`. Fix failures and report exactly what changed. Never change quantities, times or temperatures to pass validation; ask instead.

@@ -18,7 +18,8 @@
     "android:sync": "npm run build && cap sync android",
     "publish:recipes": "node scripts/publish-recipes.mjs",
     "release": "node scripts/release.mjs",
-    "photo:add": "node scripts/add-photo.mjs"
+    "photo:add": "node scripts/add-photo.mjs",
+    "import:batch": "node scripts/import-batch.mjs"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
