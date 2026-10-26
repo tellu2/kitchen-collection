@@ -78,6 +78,7 @@ for (const incoming of batch.recipes ?? []) {
     r.updated = today;
     summary.added.push(`${r.id} (${r.title})`);
   }
+  tidy(r, summary);
   if (!r.image && r.confidence?.level !== 'draft') summary.needsPhoto.push(r.id);
   if (!dryRun) writeFileSync(path, formatRecipe(r));
 }
@@ -116,3 +117,21 @@ if (batch.ideas) {
 }
 
 console.log(JSON.stringify({ dryRun, ...summary }, null, 2));
+
+/**
+ * House-style fixes that never touch amounts, times or temperatures:
+ * timers under a minute are dropped (the app offers timers from 1 minute, as
+ * legacy did), and number ranges in setting times use an en dash.
+ */
+function tidy(r, summary) {
+  for (const [i, s] of (r.steps ?? []).entries()) {
+    const set = s.settings;
+    if (!set) continue;
+    if (set.timerSeconds != null && set.timerSeconds < 60) {
+      delete set.timerSeconds;
+      summary.tidied ??= [];
+      summary.tidied.push(`${r.id} step ${i + 1}: dropped a ${set.time ?? 'sub-minute'} timer (timers start at 1 minute)`);
+    }
+    if (set.time && /\d-\d/.test(set.time)) set.time = set.time.replace(/(\d)-(\d)/g, '$1–$2');
+  }
+}
