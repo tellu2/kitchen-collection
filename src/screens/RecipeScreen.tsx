@@ -85,6 +85,7 @@ export function RecipeScreen({ id }: { id: string }) {
   };
 
   const planned = prefs.today.includes(id);
+  const cookedToday = cooked === new Date().toISOString().slice(0, 10);
   const toggleToday = () => {
     updatePrefs(p => ({ ...p, today: planned ? p.today.filter(x => x !== id) : [...p.today, id] }));
     toast(planned ? 'Taken off Cooking today.' : 'Added to Cooking today on Home.');
@@ -107,7 +108,7 @@ export function RecipeScreen({ id }: { id: string }) {
   };
 
   return (
-    <div className="screen recipe" style={{ ['--c' as string]: catVar(recipe.category) }}>
+    <div className={`screen recipe ${recipe.steps.length ? 'has-cook-bar' : ''}`} style={{ ['--c' as string]: catVar(recipe.category) }}>
       <div className="hero">
         <Photo url={img.url} category={recipe.category} alt="" />
         <button type="button" className="icon-btn raised hero-back" aria-label="Back" onClick={() => back(() => go('category', recipe.category))}>
@@ -138,18 +139,18 @@ export function RecipeScreen({ id }: { id: string }) {
           <BadgeChip badge={badges[id]} />
         </div>
 
-        <div className="recipe-actions">
-          <button type="button" className="btn btn-primary act-main" disabled={!recipe.steps.length} onClick={() => go('cook', id, 0)}>
-            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
+        {/* Secondary actions as pills that wrap: they never clip at large text sizes.
+            Start cooking lives in the bar fixed at the bottom of the screen. */}
+        <div className="quick-actions">
+          <button type="button" className="pill-btn" disabled={isDraft} onClick={addToList}>
+            <ListPlus size={18} aria-hidden="true" /> Add to list
           </button>
-          <button type="button" className="btn btn-quiet act" disabled={isDraft} onClick={addToList} aria-label="Add to shopping list">
-            <ListPlus size={20} aria-hidden="true" /><span>List</span>
+          <button type="button" className={`pill-btn ${planned ? 'on' : ''}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday}>
+            {planned ? <CalendarCheck size={18} aria-hidden="true" /> : <CalendarPlus size={18} aria-hidden="true" />}
+            {planned ? 'Cooking today' : 'Cook today'}
           </button>
-          <button type="button" className={`btn act ${planned ? 'btn-on' : 'btn-quiet'}`} aria-pressed={planned} disabled={isDraft} onClick={toggleToday} aria-label={planned ? 'Cooking today, tap to remove' : 'Cook today'}>
-            {planned ? <CalendarCheck size={20} aria-hidden="true" /> : <CalendarPlus size={20} aria-hidden="true" />}<span>Today</span>
-          </button>
-          <button type="button" className={`btn act ${cooked === new Date().toISOString().slice(0, 10) ? 'btn-on' : 'btn-quiet'}`} onClick={markCooked} aria-label="Mark as cooked today">
-            <Check size={20} aria-hidden="true" /><span>Cooked</span>
+          <button type="button" className={`pill-btn ${cookedToday ? 'on' : ''}`} onClick={markCooked}>
+            <Check size={18} aria-hidden="true" /> {cookedToday ? 'Cooked today' : 'Mark cooked'}
           </button>
         </div>
 
@@ -174,7 +175,7 @@ export function RecipeScreen({ id }: { id: string }) {
               </div>
             )}
             {scaleNote(recipe, factor) && <p className="scale-note">{scaleNote(recipe, factor)}</p>}
-            {plainCount ? <p className="muted small">{ticks.ing.size} of {plainCount} gathered</p> : <Empty>No ingredients recorded yet.</Empty>}
+            {!plainCount && <Empty>No ingredients recorded yet.</Empty>}
             {recipe.ingredientGroups.map((g, gi) => (
               <div key={gi}>
                 {g.title && <h3 className="group-title">{g.title}</h3>}
@@ -291,6 +292,14 @@ export function RecipeScreen({ id }: { id: string }) {
           </section>
         )}
       </div>
+
+      {recipe.steps.length > 0 && (
+        <div className="cook-bar">
+          <button type="button" className="btn btn-primary" onClick={() => go('cook', id, 0)}>
+            <UtensilsCrossed size={20} aria-hidden="true" /> Start cooking
+          </button>
+        </div>
+      )}
 
       <Sheet open={flagOpen} onClose={() => setFlagOpen(false)} title="How sure is this recipe?">
         <Flag level={recipe.confidence.level} />

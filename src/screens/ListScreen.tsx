@@ -30,34 +30,28 @@ async function copy(text: string): Promise<boolean> {
   }
 }
 
-function RecipeLink({ id, label }: { id: string; label: string }) {
-  return (
-    <a className="shop-from" href={href('recipe', id)}>
-      {label} <ChevronRight size={14} aria-hidden="true" />
-    </a>
-  );
-}
-
-/** Tap the item to tick it; tap the recipe name under it to open that recipe. */
+/**
+ * Tap anywhere on the item to tick it. A combined item lists each recipe's
+ * amount; links to the recipes live in "Recipes on this list" below.
+ */
 function GroupItem({ g, onToggle }: { g: ShopGroup; onToggle: () => void }) {
   const single = g.items.length === 1;
   return (
-    <div className={`shop-item ${g.done ? 'on' : ''}`}>
-      <button type="button" className="shop-toggle" aria-pressed={g.done} onClick={onToggle}>
-        <Tick on={g.done} />
-        <span className="shop-main">
-          {single ? g.items[0].t : <><b>{g.label}</b>{g.total && <span className="shop-total">{g.total} total</span>}</>}
-        </span>
-      </button>
-      <div className="shop-subs">
-        {g.items.map((it, i) => (
-          <div key={i} className="shop-sub">
-            {!single && <span className="shop-amount">{it.t}</span>}
-            <RecipeLink id={it.recipeId} label={it.from} />
-          </div>
-        ))}
-      </div>
-    </div>
+    <button type="button" className={`shop-item ${g.done ? 'on' : ''}`} aria-pressed={g.done} onClick={onToggle}>
+      <Tick on={g.done} />
+      <span className="shop-text">
+        {single ? (
+          <span className="shop-main">{g.items[0].t}</span>
+        ) : (
+          <>
+            <span className="shop-main"><b>{g.label}</b>{g.total && <span className="shop-total">{g.total} total</span>}</span>
+            {g.items.map((it, i) => (
+              <small key={i} className="shop-sub">{it.t} <span className="muted">· {it.from}</span></small>
+            ))}
+          </>
+        )}
+      </span>
+    </button>
   );
 }
 
@@ -118,8 +112,8 @@ export function ListScreen() {
             {srcs.map(s => (
               <div key={s.from} className="source-row">
                 <a className="source-link" href={href('recipe', s.recipeId)}>
-                  <span className="source-name">{s.from}</span>
-                  <small className="muted">{s.n} {s.n === 1 ? 'line' : 'lines'}{s.done ? ` · ${s.done} ticked` : ''} · Open recipe</small>
+                  <span className="source-name">{s.from} <ChevronRight size={16} aria-hidden="true" /></span>
+                  <small className="muted">{s.n} {s.n === 1 ? 'line' : 'lines'}{s.done ? ` · ${s.done} ticked` : ''}</small>
                 </a>
                 <ConfirmButton
                   label="Remove"

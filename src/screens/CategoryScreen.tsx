@@ -41,7 +41,7 @@ export function CategoryScreen({ name }: { name: string }) {
           <p>{list.length} {list.length === 1 ? 'recipe' : 'recipes'}</p>
         </div>
       </div>
-      <div className="chips" role="group" aria-label="Sort">
+      <div className="chips wrap" role="group" aria-label="Sort">
         {sorts.map(s => (
           <button key={s.id} type="button" className={`chip ${sort === s.id ? 'on' : ''}`} aria-pressed={sort === s.id} onClick={() => setSort(s.id)}>
             {s.label}
