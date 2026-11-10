@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "pumpkin-soup",
+  "title": "Thermomix Pumpkin Soup",
+  "description": "Smooth, gently spiced butternut soup. A potato gives it body without much cream. Freezes well.",
+  "category": "Light Meals",
+  "tags": ["soup","vegetarian","freezer-friendly","pumpkin"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"~35 min","totalMinutes":35},
+  "appliances": ["thermomix"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the amounts follow common Thermomix pumpkin soup proportions."},
+  "image": "images/pumpkin-soup.jpg",
+  "imageCredit": {"name":"Katrin Bolovtsova","url":"https://www.pexels.com/photo/pumpkin-soup-on-a-bowl-5662190/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"onion","qty":1,"item":"brown onion","prep":"halved"},
+        {"id":"garlic","qty":2,"item":"garlic cloves"},
+        {"id":"oil","qty":20,"unit":"g","item":"olive oil"},
+        {"id":"pumpkin","qty":800,"unit":"g","item":"butternut pumpkin","prep":"peeled, 3cm pieces"},
+        {"id":"potato","qty":150,"unit":"g","item":"potato","prep":"peeled, in pieces","note":"Approx. 1 medium"},
+        {"id":"stock","qty":600,"unit":"g","item":"liquid vegetable or chicken stock","note":"Vegetable stock keeps it vegetarian"},
+        {"id":"cumin","qty":0.5,"unit":"tsp","item":"ground cumin"},
+        {"id":"nutmeg","qty":0.25,"unit":"tsp","item":"ground nutmeg"},
+        {"id":"salt","qty":0.5,"unit":"tsp","item":"salt"},
+        {"id":"pepper","qty":0.25,"unit":"tsp","item":"black pepper"},
+        {"id":"cream","qty":60,"unit":"ml","item":"cream or coconut cream","optional":true}
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        {"id":"to-serve","qty":null,"item":"toasted pepitas, a swirl of cream and crusty bread"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop","text":"Add the onion ({{onion}}) and garlic ({{garlic}} cloves) to the bowl. Chop 3 sec / Speed 5. Scrape down.","settings":{"appliance":"thermomix","time":"3 sec","speed":"5"}},
+    {"title":"Sauté","text":"Add the olive oil ({{oil}}). Sauté 3 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"120°C","speed":"1"}},
+    {"title":"Cook","text":"Add the pumpkin ({{pumpkin}}), potato ({{potato}}), stock ({{stock}}), cumin ({{cumin}}), nutmeg ({{nutmeg}}), salt ({{salt}}) and pepper ({{pepper}}). Cook 20 min / 100°C / Speed 1, until the pumpkin is soft enough to crush with the spatula.","settings":{"appliance":"thermomix","time":"20 min","timerSeconds":1200,"temp":"100°C","speed":"1"}},
+    {"title":"Blend","text":"With the MC in place, blend 1 min / Speed 5–10, increasing the speed gradually so the hot soup does not surge.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"speed":"5–10"}},
+    {"title":"Finish","text":"Add the cream ({{cream}}), if using, and mix 10 sec / Speed 3. Taste for salt and pepper. Serve with pepitas and crusty bread.","settings":{"appliance":"thermomix","time":"10 sec","speed":"3"}}
+  ],
+  "notes": [
+    {"title":"Capacity","text":"These amounts land around 1.7L. Do not scale past 4 serves in one batch; blending hot soup near the top of the bowl is where spills happen."},
+    {"title":"Roasted version","text":"For a deeper flavour, air fry the pumpkin pieces in 1 tsp oil at 200°C for 15 minutes first, then cut the cook in step 3 to 12 minutes."},
+    {"title":"Thickness","text":"Too thick: add hot water 50g at a time and mix 10 sec / Speed 3. Too thin: cook 5 min / 100°C / Speed 1 with the MC off."},
+    {"title":"Storage","text":"4 days in the fridge, 3 months in the freezer. Add the cream after reheating rather than before freezing."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

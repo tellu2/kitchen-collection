@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "mexican-rice",
+  "title": "Thermomix Mexican Rice",
+  "description": "Tomato and cumin rice with corn and peas, cooked in the bowl. The side the Mexican Beef Bowls and the shredded chicken tacos were missing.",
+  "category": "Salads & Sides",
+  "tags": ["rice","side","vegetarian"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"~30 min","totalMinutes":30},
+  "appliances": ["thermomix"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the liquid and cook time are a starting point and may need a couple of minutes either way."},
+  "image": "images/mexican-rice.jpg",
+  "imageCredit": {"name":"Kübra Doğu","url":"https://www.pexels.com/photo/delicious-rice-on-a-pot-8837229/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"onion","qty":1,"item":"brown onion","prep":"halved"},
+        {"id":"garlic","qty":2,"item":"garlic cloves"},
+        {"id":"capsicum","qty":0.5,"item":"red capsicum","prep":"in pieces"},
+        {"id":"oil","qty":20,"unit":"g","item":"olive oil"},
+        {"id":"rice","qty":300,"unit":"g","item":"long grain white rice","prep":"rinsed and drained"},
+        {"id":"tomato-paste","qty":2,"unit":"tbsp","item":"tomato paste"},
+        {"id":"cumin","qty":1,"unit":"tsp","item":"ground cumin"},
+        {"id":"smoked-paprika","qty":1,"unit":"tsp","item":"smoked paprika"},
+        {"id":"oregano","qty":0.5,"unit":"tsp","item":"dried oregano"},
+        {"id":"stock","qty":650,"unit":"g","item":"liquid chicken or vegetable stock"},
+        {"id":"salt","qty":0.5,"unit":"tsp","item":"salt","note":"Less if the stock is salty"},
+        {"id":"corn","qty":100,"unit":"g","item":"frozen corn kernels"},
+        {"id":"peas","qty":100,"unit":"g","item":"frozen peas","optional":true}
+      ]
+    },
+    {
+      "title": "To finish",
+      "items": [
+        {"id":"coriander","qty":2,"unit":"tbsp","item":"fresh coriander","prep":"chopped"},
+        {"id":"lime","qty":1,"item":"lime","prep":"cut into wedges"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop","text":"Add the onion ({{onion}}), garlic ({{garlic}} cloves) and capsicum ({{capsicum}}) to the bowl. Chop 3 sec / Speed 5. Scrape down.","settings":{"appliance":"thermomix","time":"3 sec","speed":"5"}},
+    {"title":"Sauté","text":"Add the olive oil ({{oil}}). Sauté 3 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"120°C","speed":"1"}},
+    {"title":"Toast the rice","text":"Add the rinsed rice ({{rice}}), tomato paste ({{tomato-paste}}), cumin ({{cumin}}), smoked paprika ({{smoked-paprika}}) and oregano ({{oregano}}). Toast 2 min / 100°C / Reverse / Speed 1, MC off.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"100°C","speed":"1","reverse":true}},
+    {"title":"Cook","text":"Add the stock ({{stock}}) and salt ({{salt}}). Cook 15 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid.","settings":{"appliance":"thermomix","time":"15 min","timerSeconds":900,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"title":"Add the veg","text":"Add the corn ({{corn}}) and peas ({{peas}}), if using. Cook 3 min / 100°C / Reverse / Soft stir, until the liquid is absorbed and the rice is tender.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"100°C","speed":"Soft stir","reverse":true}},
+    {"title":"Rest","text":"Leave in the bowl with the lid on for 5 minutes, then tip out and fluff with a fork. Stir through the coriander ({{coriander}}) and serve with lime wedges ({{lime}}).","settings":{"appliance":"none","time":"5 min","timerSeconds":300}}
+  ],
+  "notes": [
+    {"title":"Rinse the rice","text":"Rinse until the water runs mostly clear. Unrinsed rice releases starch and sticks to the bowl base."},
+    {"title":"If it is still wet","text":"Cook a further 2–3 minutes at 100°C / Reverse / Soft stir with the MC off. If it catches on the base, add a splash of water next time."},
+    {"title":"Uses","text":"Under the Mexican Beef Bowls, alongside the shredded chicken tacos, or folded into burritos."}
+  ],
+  "pairings": ["mexican-beef","shredded-tacos","fish-tacos"],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

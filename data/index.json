@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-10-26T07:31:20.133Z",
+  "generated": "2026-11-10T09:40:19.175Z",
   "recipes": [
     {
       "id": "gochujang-chicken",
@@ -22,9 +22,36 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/gochujang-chicken.jpg"
+    },
+    {
+      "id": "chicken-corn-soup",
+      "title": "Chicken & Sweet Corn Soup",
+      "category": "Asian",
+      "tags": [
+        "soup",
+        "chicken",
+        "high-protein",
+        "freezer-friendly"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~35 min",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/chicken-corn-soup.jpg"
     },
     {
       "id": "san-choy-bow",
@@ -79,6 +106,34 @@
       "image": "images/massaman.jpg"
     },
     {
+      "id": "red-lentil-dal",
+      "title": "Red Lentil Dal",
+      "category": "Asian",
+      "tags": [
+        "vegetarian",
+        "curry",
+        "lentils",
+        "freezer-friendly",
+        "meal-prep"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~45 min",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/red-lentil-dal.jpg"
+    },
+    {
       "id": "sesame-noodles",
       "title": "Sesame Chicken Noodles with Bok Choy & Greens",
       "category": "Asian",
@@ -100,8 +155,8 @@
         "note": "Serves 2–3"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/sesame-noodles.jpg"
     },
     {
@@ -128,8 +183,8 @@
         "note": "Approx."
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/pork-gyoza.jpg"
     },
     {
@@ -153,8 +208,8 @@
         "note": "Serves 4–6"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/shredded-tacos.jpg"
     },
     {
@@ -177,8 +232,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/mexican-beef.jpg"
     },
     {
@@ -278,8 +333,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "gated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/chorizo-chicken-pasta.jpg"
     },
     {
@@ -334,6 +389,34 @@
       "image": "images/greek-beef-bowls.jpg"
     },
     {
+      "id": "lamb-tagine",
+      "title": "Moroccan Lamb Tagine",
+      "category": "Mediterranean & Middle Eastern",
+      "tags": [
+        "lamb",
+        "braise",
+        "stew",
+        "freezer-friendly"
+      ],
+      "appliances": [
+        "thermomix",
+        "stovetop"
+      ],
+      "time": {
+        "label": "~2 hr",
+        "totalMinutes": 120
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/lamb-tagine.jpg"
+    },
+    {
       "id": "bolognese",
       "title": "One-Pot Thermomix Bolognese with Kalamata Olives",
       "category": "Mediterranean & Middle Eastern",
@@ -355,8 +438,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/bolognese.jpg"
     },
     {
@@ -380,8 +463,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/riojana.jpg"
     },
     {
@@ -430,9 +513,38 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/beef-ragu.jpg"
+    },
+    {
+      "id": "fish-tacos",
+      "title": "Air Fryer Fish Tacos with Lime Slaw",
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "tacos",
+        "quick",
+        "high-protein"
+      ],
+      "appliances": [
+        "air-fryer",
+        "thermomix"
+      ],
+      "time": {
+        "label": "~25 min",
+        "totalMinutes": 25
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves",
+        "note": "About 8 tacos"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/fish-tacos.jpg"
     },
     {
       "id": "air-fryer-salmon",
@@ -453,8 +565,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "tested",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/air-fryer-salmon.jpg"
     },
     {
@@ -503,8 +615,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "tested",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/pumpkin-salmon-bowl.jpg"
     },
     {
@@ -584,6 +696,32 @@
       "image": "images/sunomono.jpg"
     },
     {
+      "id": "mexican-rice",
+      "title": "Thermomix Mexican Rice",
+      "category": "Salads & Sides",
+      "tags": [
+        "rice",
+        "side",
+        "vegetarian"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~30 min",
+        "totalMinutes": 30
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/mexican-rice.jpg"
+    },
+    {
       "id": "jacket-potato",
       "title": "Air Fryer Jacket Potatoes",
       "category": "Light Meals",
@@ -633,6 +771,33 @@
       "updated": "2026-10-26",
       "added": "2026-10-26",
       "image": "images/cheeseburger-smash-tacos.jpg"
+    },
+    {
+      "id": "pumpkin-soup",
+      "title": "Thermomix Pumpkin Soup",
+      "category": "Light Meals",
+      "tags": [
+        "soup",
+        "vegetarian",
+        "freezer-friendly",
+        "pumpkin"
+      ],
+      "appliances": [
+        "thermomix"
+      ],
+      "time": {
+        "label": "~35 min",
+        "totalMinutes": 35
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/pumpkin-soup.jpg"
     },
     {
       "id": "zucchini-slice",
@@ -720,8 +885,8 @@
       "category": "Easy & Healthy",
       "tags": [
         "chicken",
-        "high protein",
-        "meal prep",
+        "high-protein",
+        "meal-prep",
         "buffalo"
       ],
       "appliances": [
@@ -737,8 +902,8 @@
         "unit": "serves"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-26",
+      "version": 2,
+      "updated": "2026-11-10",
       "added": "2026-10-26",
       "image": "images/creamy-buffalo-chicken.jpg"
     },
@@ -870,8 +1035,8 @@
         "note": "Serves 8–10"
       },
       "confidenceLevel": "estimated",
-      "version": 1,
-      "updated": "2026-10-25",
+      "version": 2,
+      "updated": "2026-11-10",
       "image": "images/honey-spice-cake.jpg"
     },
     {

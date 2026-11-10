@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "fish-tacos",
+  "title": "Air Fryer Fish Tacos with Lime Slaw",
+  "description": "Spiced white fish from the air fryer in soft tortillas, with a crunchy lime slaw and a quick lime yoghurt sauce.",
+  "category": "Fish & Seafood",
+  "tags": ["fish","tacos","quick","high-protein"],
+  "yield": {"qty":4,"unit":"serves","note":"About 8 tacos"},
+  "time": {"label":"~25 min","totalMinutes":25},
+  "appliances": ["air-fryer","thermomix"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the air fryer time suits fillets about 2cm thick."},
+  "image": "images/fish-tacos.jpg",
+  "imageCredit": {"name":"Amy Farías","url":"https://www.pexels.com/photo/close-up-of-a-tortilla-wrap-with-meat-vegetables-and-sauce-9044685/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "title": "Fish",
+      "items": [
+        {"id":"fish","qty":500,"unit":"g","item":"firm white fish fillets","prep":"cut into 3cm strips","note":"Flathead, barramundi or ling"},
+        {"id":"oil","qty":1,"unit":"tbsp","item":"olive oil"},
+        {"id":"smoked-paprika","qty":1,"unit":"tsp","item":"smoked paprika"},
+        {"id":"cumin","qty":0.5,"unit":"tsp","item":"ground cumin"},
+        {"id":"garlic-powder","qty":0.5,"unit":"tsp","item":"garlic powder"},
+        {"id":"salt","qty":0.5,"unit":"tsp","item":"salt"}
+      ]
+    },
+    {
+      "title": "Lime slaw",
+      "items": [
+        {"id":"cabbage","qty":200,"unit":"g","item":"red or green cabbage","prep":"in wedges"},
+        {"id":"carrot","qty":1,"item":"carrot","prep":"in pieces"},
+        {"id":"coriander","qty":2,"unit":"tbsp","item":"fresh coriander","prep":"chopped"},
+        {"id":"lime","qty":1,"item":"lime","prep":"zested and juiced"},
+        {"id":"slaw-salt","qty":1,"unit":"pinch","item":"salt"}
+      ]
+    },
+    {
+      "title": "Sauce",
+      "items": [
+        {"id":"yoghurt","qty":100,"unit":"g","item":"Greek yoghurt"},
+        {"id":"mayo","qty":1,"unit":"tbsp","item":"mayonnaise"},
+        {"id":"hot-sauce","qty":null,"item":"hot sauce or sriracha","optional":true,"note":"To taste"}
+      ]
+    },
+    {
+      "title": "To build",
+      "items": [
+        {"id":"tortillas","qty":8,"item":"small tortillas"},
+        {"id":"avocado","qty":1,"item":"avocado","prep":"sliced"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Season the fish","text":"Pat the fish ({{fish}}) very dry with paper towel. Toss with the olive oil ({{oil}}), smoked paprika ({{smoked-paprika}}), cumin ({{cumin}}), garlic powder ({{garlic-powder}}) and salt ({{salt}})."},
+    {"title":"Shred the slaw","text":"Add the cabbage ({{cabbage}}) and carrot ({{carrot}}) to the bowl. Shred 4 sec / Speed 4, in two batches if the bowl is more than half full. Or shred finely by hand.","settings":{"appliance":"thermomix","time":"4 sec","speed":"4"}},
+    {"title":"Dress the slaw","text":"Toss the slaw with the coriander ({{coriander}}), the lime zest, half the lime juice and the salt ({{slaw-salt}})."},
+    {"title":"Make the sauce","text":"Stir the yoghurt ({{yoghurt}}) and mayonnaise ({{mayo}}) with the rest of the lime juice and hot sauce to taste."},
+    {"title":"Air fry","text":"Lay the fish in a single layer in the basket, not touching. Air fry at 200°C for 8–10 minutes, turning gently halfway, until it flakes easily.","settings":{"appliance":"air-fryer","time":"8–10 min","timerSeconds":480,"temp":"200°C"}},
+    {"title":"Warm the tortillas","text":"Warm the tortillas ({{tortillas}}) in the air fryer for 30–60 seconds once the fish is out, or in a dry pan.","settings":{"appliance":"air-fryer","time":"30–60 sec","temp":"180°C"}},
+    {"title":"Build","text":"Fill each tortilla with slaw, fish and avocado ({{avocado}}), then spoon the sauce over. Eat straight away."}
+  ],
+  "notes": [
+    {"title":"Crumbed version","text":"Dip the strips in flour, then beaten egg, then panko mixed with the spices. Spray with oil and air fry at 200°C for 10–12 minutes, turning halfway."},
+    {"title":"Fish choice","text":"Choose a firm fish that holds together. Delicate fish such as whiting or dory breaks up when turned; cook it without turning and lift it out with a spatula."},
+    {"title":"Frozen fish","text":"Thaw overnight in the fridge, or in its sealed bag under cold water for about 30 minutes. Pat very dry, or it steams instead of browning."},
+    {"title":"Crowding","text":"Cook in two batches if needed. Crowded fish steams and sticks."}
+  ],
+  "pairings": ["mexican-rice"],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

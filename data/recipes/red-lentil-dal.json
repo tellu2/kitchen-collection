@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "red-lentil-dal",
+  "title": "Red Lentil Dal",
+  "description": "Vegetarian red lentil dal with ginger, cumin and garam masala, finished with spinach and lemon. Blend it briefly for a smooth restaurant-style texture.",
+  "category": "Asian",
+  "tags": ["vegetarian","curry","lentils","freezer-friendly","meal-prep"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"~45 min","totalMinutes":45},
+  "appliances": ["thermomix"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the water amount may need adjusting depending on how thick you like it."},
+  "image": "images/red-lentil-dal.jpg",
+  "imageCredit": {"name":"Nosh Caterers","url":"https://www.pexels.com/photo/delicious-indian-dal-tadka-in-brass-bowl-30203314/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"onion","qty":1,"item":"brown onion","prep":"halved"},
+        {"id":"garlic","qty":3,"item":"garlic cloves"},
+        {"id":"ginger","qty":15,"unit":"g","item":"fresh ginger","prep":"peeled"},
+        {"id":"chilli","qty":1,"item":"long green chilli","optional":true},
+        {"id":"ghee","qty":30,"unit":"g","item":"ghee or neutral oil"},
+        {"id":"cumin-seeds","qty":1,"unit":"tsp","item":"cumin seeds"},
+        {"id":"turmeric","qty":1,"unit":"tsp","item":"ground turmeric"},
+        {"id":"ground-coriander","qty":2,"unit":"tsp","item":"ground coriander"},
+        {"id":"garam-masala","qty":1,"unit":"tsp","item":"garam masala"},
+        {"id":"lentils","qty":250,"unit":"g","item":"red lentils","prep":"rinsed"},
+        {"id":"tomatoes","qty":400,"unit":"g","item":"tinned diced tomatoes"},
+        {"id":"water","qty":750,"unit":"g","item":"water"},
+        {"id":"salt","qty":1,"unit":"tsp","item":"salt"},
+        {"id":"spinach","qty":60,"unit":"g","item":"baby spinach"},
+        {"id":"lemon","qty":1,"unit":"tbsp","item":"lemon juice"}
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        {"id":"to-serve","qty":null,"item":"steamed basmati rice or naan, fresh coriander and natural yoghurt"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop","text":"Add the onion ({{onion}}), garlic ({{garlic}} cloves), ginger ({{ginger}}) and chilli ({{chilli}}), if using, to the bowl. Chop 5 sec / Speed 5. Scrape down.","settings":{"appliance":"thermomix","time":"5 sec","speed":"5"}},
+    {"title":"Sauté","text":"Add the ghee ({{ghee}}) and cumin seeds ({{cumin-seeds}}). Sauté 4 min / 120°C / Speed 1, MC off.","settings":{"appliance":"thermomix","time":"4 min","timerSeconds":240,"temp":"120°C","speed":"1"}},
+    {"title":"Bloom the spices","text":"Add the turmeric ({{turmeric}}), ground coriander ({{ground-coriander}}) and half the garam masala ({{garam-masala*0.5}}). Cook 1 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"temp":"120°C","speed":"1"}},
+    {"title":"Simmer","text":"Add the lentils ({{lentils}}), tomatoes ({{tomatoes}}), water ({{water}}) and salt ({{salt}}). Cook 25 min / 100°C / Reverse / Speed 1, MC off with the simmering basket on the lid, until the lentils have collapsed.","settings":{"appliance":"thermomix","time":"25 min","timerSeconds":1500,"temp":"100°C","speed":"1","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"title":"Smooth (optional)","text":"For a smooth, restaurant-style dal, blend 10 sec / Speed 4. Skip this for a rustic texture.","settings":{"appliance":"thermomix","time":"10 sec","speed":"4"}},
+    {"title":"Finish","text":"Add the spinach ({{spinach}}), lemon juice ({{lemon}}) and the remaining garam masala ({{garam-masala*0.5}}). Cook 1 min / 100°C / Reverse / Soft stir, just to wilt. Taste for salt.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"temp":"100°C","speed":"Soft stir","reverse":true}},
+    {"title":"Serve","text":"Rest 5 minutes; it thickens as it stands. Serve with rice or naan, coriander and a spoon of yoghurt.","settings":{"appliance":"none","time":"5 min","timerSeconds":300}}
+  ],
+  "notes": [
+    {"title":"Tadka (optional)","text":"For more punch, heat 1 tbsp ghee in a small pan with 1 tsp cumin seeds, a sliced garlic clove and a pinch of chilli flakes until sizzling and golden, then pour over the dal at the table."},
+    {"title":"Thickness","text":"Dal thickens a lot as it cools. Loosen leftovers with a splash of hot water when reheating."},
+    {"title":"Creamier version","text":"Replace 200g of the water with coconut milk."},
+    {"title":"Storage","text":"5 days in the fridge, 3 months in the freezer."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

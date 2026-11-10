@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "chicken-corn-soup",
+  "title": "Chicken & Sweet Corn Soup",
+  "description": "Chinese-style chicken and corn soup with egg ribbons, made start to finish in the Thermomix. High in protein and on the table in about 35 minutes.",
+  "category": "Asian",
+  "tags": ["soup","chicken","high-protein","freezer-friendly"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"~35 min","totalMinutes":35},
+  "appliances": ["thermomix"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the poaching time and cornflour amount are a starting point."},
+  "image": "images/chicken-corn-soup.jpg",
+  "imageCredit": {"name":"Kunal Lakhotia","url":"https://www.pexels.com/photo/delicious-sweet-corn-soup-and-salad-display-29631481/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"spring-onion","qty":3,"item":"spring onions","prep":"whites in pieces, greens sliced","note":"Greens kept for serving"},
+        {"id":"garlic","qty":2,"item":"garlic cloves"},
+        {"id":"ginger","qty":10,"unit":"g","item":"fresh ginger","prep":"peeled"},
+        {"id":"oil","qty":10,"unit":"g","item":"neutral oil","note":"Rice bran"},
+        {"id":"stock","qty":800,"unit":"g","item":"liquid chicken stock"},
+        {"id":"chicken","qty":300,"unit":"g","item":"chicken breast","prep":"cut into 2 pieces"},
+        {"id":"creamed-corn","qty":420,"unit":"g","item":"tinned creamed corn"},
+        {"id":"corn","qty":200,"unit":"g","item":"corn kernels","note":"Frozen or tinned, drained"},
+        {"id":"soy","qty":1,"unit":"tbsp","item":"soy sauce"},
+        {"id":"white-pepper","qty":0.25,"unit":"tsp","item":"white pepper"},
+        {"id":"cornflour","qty":2,"unit":"tbsp","item":"cornflour"},
+        {"id":"water","qty":60,"unit":"ml","item":"cold water","note":"For the slurry"},
+        {"id":"eggs","qty":2,"item":"eggs","prep":"lightly beaten"},
+        {"id":"sesame-oil","qty":1,"unit":"tsp","item":"sesame oil"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop","text":"Add the spring onion whites, garlic ({{garlic}} cloves) and ginger ({{ginger}}) to the bowl. Chop 3 sec / Speed 7. Scrape down.","settings":{"appliance":"thermomix","time":"3 sec","speed":"7"}},
+    {"title":"Sauté","text":"Add the oil ({{oil}}). Sauté 2 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"120°C","speed":"1"}},
+    {"title":"Poach the chicken","text":"Add the stock ({{stock}}). Put the chicken ({{chicken}}) in the simmering basket and insert it into the bowl. Cook 15 min / 100°C / Speed 1, until the chicken reaches 75°C in the thickest part.","settings":{"appliance":"thermomix","time":"15 min","timerSeconds":900,"temp":"100°C","speed":"1","accessory":"simmering basket"}},
+    {"title":"Shred","text":"Lift out the basket and shred the chicken with two forks."},
+    {"title":"Add the corn","text":"Add the creamed corn ({{creamed-corn}}), corn kernels ({{corn}}), soy ({{soy}}), white pepper ({{white-pepper}}) and the shredded chicken. Cook 5 min / 100°C / Reverse / Soft stir.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"100°C","speed":"Soft stir","reverse":true}},
+    {"title":"Thicken","text":"Mix the cornflour ({{cornflour}}) with the cold water ({{water}}) until smooth. Add to the bowl and cook 3 min / 100°C / Reverse / Speed 1, until the soup turns glossy and coats the spatula.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"100°C","speed":"1","reverse":true}},
+    {"title":"Egg ribbons","text":"Set 2 min / 90°C / Reverse / Soft stir. Once it is running, pour the beaten eggs ({{eggs}}) slowly onto the lid so they run into the soup in thin threads.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"90°C","speed":"Soft stir","reverse":true}},
+    {"title":"Serve","text":"Stir through the sesame oil ({{sesame-oil}}). Taste, adding a splash more soy if needed, and serve topped with the spring onion greens ({{spring-onion}} spring onions in total)."}
+  ],
+  "notes": [
+    {"title":"Capacity","text":"These amounts land around 1.9L, close to the bowl limit. Do not scale up."},
+    {"title":"Leftover chicken","text":"Skip the poaching. Add the stock and corn together, then 250g shredded cooked chicken at step 5. Barbecue chicken works well."},
+    {"title":"Salt","text":"Stock, creamed corn and soy all carry salt, so none is added. Taste at the end."},
+    {"title":"Freezing","text":"Freezes well, though the egg ribbons go a little softer. Reheat gently and do not boil hard."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

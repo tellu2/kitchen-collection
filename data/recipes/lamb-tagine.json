@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "lamb-tagine",
+  "title": "Moroccan Lamb Tagine",
+  "description": "Lamb shoulder braised with warm spices, apricots and dates until it falls apart. Optional cast iron sear, then a long, gentle cook in the bowl.",
+  "category": "Mediterranean & Middle Eastern",
+  "tags": ["lamb","braise","stew","freezer-friendly"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"~2 hr","totalMinutes":120},
+  "appliances": ["thermomix","stovetop"],
+  "source": {"name":"Built from technique"},
+  "confidence": {"level":"estimated","note":"Built from technique. Not yet cooked; the 90-minute braise is an estimate for 3cm shoulder pieces, so check at 75 minutes."},
+  "image": "images/lamb-tagine.jpg",
+  "imageCredit": {"name":"Ali Dashti","url":"https://www.pexels.com/photo/woman-eating-meal-in-handmade-bowl-23025188/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"lamb","qty":700,"unit":"g","item":"boneless lamb shoulder","prep":"trimmed, 3cm pieces"},
+        {"id":"sear-oil","qty":1,"unit":"tbsp","item":"olive oil","optional":true,"note":"For searing"},
+        {"id":"onion","qty":1,"item":"brown onion","prep":"halved"},
+        {"id":"garlic","qty":3,"item":"garlic cloves"},
+        {"id":"ginger","qty":15,"unit":"g","item":"fresh ginger","prep":"peeled"},
+        {"id":"oil","qty":20,"unit":"g","item":"olive oil"},
+        {"id":"cumin","qty":2,"unit":"tsp","item":"ground cumin"},
+        {"id":"ground-coriander","qty":2,"unit":"tsp","item":"ground coriander"},
+        {"id":"cinnamon","qty":1,"unit":"tsp","item":"ground cinnamon"},
+        {"id":"paprika","qty":1,"unit":"tsp","item":"sweet paprika"},
+        {"id":"turmeric","qty":0.5,"unit":"tsp","item":"ground turmeric"},
+        {"id":"tomato-paste","qty":1,"unit":"tbsp","item":"tomato paste"},
+        {"id":"tomatoes","qty":400,"unit":"g","item":"tinned diced tomatoes"},
+        {"id":"stock","qty":250,"unit":"g","item":"liquid chicken stock"},
+        {"id":"honey","qty":1,"unit":"tbsp","item":"honey"},
+        {"id":"salt","qty":1,"unit":"tsp","item":"salt"},
+        {"id":"apricots","qty":80,"unit":"g","item":"dried apricots","prep":"halved"},
+        {"id":"dates","qty":50,"unit":"g","item":"pitted dates","prep":"halved"}
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        {"id":"to-serve","qty":null,"item":"couscous, toasted flaked almonds and fresh coriander"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Sear (optional)","text":"Pat the lamb ({{lamb}}) very dry. Sear hard in the cast iron with the oil ({{sear-oil}}), in two batches, about 2 minutes a side. Do not crowd the pan. Skip this if short on time; the spices carry the dish without it.","settings":{"appliance":"stovetop","time":"~2 min a side","timerSeconds":120}},
+    {"title":"Chop","text":"Add the onion ({{onion}}), garlic ({{garlic}} cloves) and ginger ({{ginger}}) to the bowl. Chop 5 sec / Speed 5. Scrape down.","settings":{"appliance":"thermomix","time":"5 sec","speed":"5"}},
+    {"title":"Sauté","text":"Add the olive oil ({{oil}}). Sauté 3 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"120°C","speed":"1"}},
+    {"title":"Bloom the spices","text":"Add the cumin ({{cumin}}), ground coriander ({{ground-coriander}}), cinnamon ({{cinnamon}}), paprika ({{paprika}}), turmeric ({{turmeric}}) and tomato paste ({{tomato-paste}}). Cook 1 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"temp":"120°C","speed":"1"}},
+    {"title":"Braise","text":"Add the lamb and any resting juices, the tomatoes ({{tomatoes}}), stock ({{stock}}), honey ({{honey}}) and salt ({{salt}}). Cook 60 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid.","settings":{"appliance":"thermomix","time":"60 min","timerSeconds":3600,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"title":"Add the fruit","text":"Add the apricots ({{apricots}}) and dates ({{dates}}). Cook 30 min / 100°C / Reverse / Soft stir, same lid setup, until the lamb gives way under a fork.","settings":{"appliance":"thermomix","time":"30 min","timerSeconds":1800,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"title":"Rest","text":"Rest 10 minutes off the heat, uncovered, so the sauce thickens. Taste for salt.","settings":{"appliance":"none","time":"10 min","timerSeconds":600}},
+    {"title":"Serve","text":"Serve over couscous, scattered with toasted almonds and coriander."}
+  ],
+  "notes": [
+    {"title":"Capacity","text":"These amounts land around 1.8L. Do not scale past 4 serves in the bowl."},
+    {"title":"Cut","text":"Shoulder only. Leg is too lean for a braise this long and goes dry."},
+    {"title":"Couscous","text":"Pour equal volumes of boiling stock over couscous, cover and leave 5 minutes, then fluff with a fork and a knob of butter."},
+    {"title":"Chickpeas","text":"A drained 400g tin of chickpeas can go in with the fruit to stretch it to 5 or 6 serves, but check the bowl stays below the 2.2L line."},
+    {"title":"Storage","text":"Better the next day. 3 days in the fridge, 3 months in the freezer."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

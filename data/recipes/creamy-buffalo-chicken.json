@@ -4,7 +4,7 @@
   "title": "Creamy Buffalo Chicken",
   "description": "Shredded chicken in a creamy cottage cheese and hot sauce mix, topped with cheese and grilled until bubbling. High protein and good the next day.",
   "category": "Easy & Healthy",
-  "tags": ["chicken","high protein","meal prep","buffalo"],
+  "tags": ["chicken","high-protein","meal-prep","buffalo"],
   "yield": {"qty":2,"unit":"serves"},
   "time": {"label":"~35 min","totalMinutes":35},
   "appliances": ["thermomix","air-fryer"],
@@ -46,7 +46,7 @@
     {"title":"Air fryer chicken","text":"Instead of steaming, cook the chicken breast at 180°C for roughly 12-15 min, then shred in the Thermomix as above."},
     {"title":"Storage","text":"Keeps 3 days in the fridge. Reheat until piping hot."}
   ],
-  "version": 1,
-  "updated": "2026-10-26",
+  "version": 2,
+  "updated": "2026-11-10",
   "added": "2026-10-26"
 }
