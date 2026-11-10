@@ -72,6 +72,7 @@ export function parseBackup(text: string): BackupFile {
   const p = data.prefs;
   const arrays = ['fav', 'shop', 'lists', 'meal', 'have'] as const;
   for (const k of arrays) if (k in p && !Array.isArray(p[k])) throw new Error('The backup is damaged and cannot be read.');
+  if ('cats' in p && !isObj(p.cats)) throw new Error('The backup is damaged and cannot be read.');
   if (data.photos !== undefined && !isObj(data.photos)) throw new Error('The backup is damaged and cannot be read.');
   return data as unknown as BackupFile;
 }

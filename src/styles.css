@@ -425,6 +425,9 @@ button.flag { min-height: 40px; }
 .sheet-head h2 { font-family: var(--serif); font-weight: 600; font-size: 1.3125rem; }
 .sheet .flag { margin-bottom: 12px; }
 .sheet-actions { display: grid; gap: 10px; }
+.cat-edit { min-height: 48px; margin: 12px 0 4px; }
+.cat-pick { margin-bottom: 16px; }
+.cat-pick .tick.on { background: var(--c); border-color: var(--c); }
 @keyframes fade { from { opacity: 0; } }
 @keyframes rise { from { transform: translateY(30px); opacity: .6; } }
 

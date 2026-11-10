@@ -61,6 +61,7 @@ for (const file of files) {
     for (const e of validate.errors) fail(rel, `schema: ${e.instancePath || '(root)'} ${e.message}`);
   }
   if (typeof r.id !== 'string') continue;
+  if (!schema.properties.category.enum.includes(r.category)) fail(rel, `no valid category (has "${r.category ?? ''}")`);
   if (basename(file, '.json') !== r.id) fail(rel, `filename does not match id "${r.id}"`);
   if (recipes.has(r.id)) fail(rel, `duplicate id "${r.id}"`);
   recipes.set(r.id, { r, rel });

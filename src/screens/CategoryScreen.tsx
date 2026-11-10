@@ -9,17 +9,17 @@ import { back } from '../ui/router';
 type Sort = 'az' | 'quick' | 'protein';
 
 export function CategoryScreen({ name }: { name: string }) {
-  const { recipes, coverFor } = useApp();
+  const { recipes, coverFor, categoriesOf } = useApp();
   const category = (CATEGORIES as readonly string[]).includes(name) ? (name as Category) : null;
-  const hasProtein = useMemo(() => recipes.some(r => r.category === category && r.nutrition?.protein != null), [recipes, category]);
+  const hasProtein = useMemo(() => recipes.some(r => !!category && categoriesOf(r).includes(category) && r.nutrition?.protein != null), [recipes, category, categoriesOf]);
   const [sort, setSort] = useState<Sort>('az');
 
   const list = useMemo(() => {
-    const rs = recipes.filter(r => r.category === category);
+    const rs = category ? recipes.filter(r => categoriesOf(r).includes(category)) : [];
     if (sort === 'quick') return rs.sort((a, b) => minutes(a) - minutes(b) || byTitle(a, b));
     if (sort === 'protein') return rs.sort((a, b) => (b.nutrition?.protein ?? -1) - (a.nutrition?.protein ?? -1) || byTitle(a, b));
     return rs.sort(byTitle);
-  }, [recipes, category, sort]);
+  }, [recipes, category, sort, categoriesOf]);
 
   if (!category) return <div className="screen"><Empty>That category was not found.</Empty></div>;
   const cover = coverFor(category);

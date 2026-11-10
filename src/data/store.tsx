@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Category, Credit, IdeasFile, LookupFiles, Recipe } from '../types';
 import { compileLookups, type CompiledLookups } from '../lib/lookups';
+import { type CategoryOverrides, categoriesFor, primaryCategory } from '../lib/categories';
 import type { SavedList, ShopItem } from '../lib/shopping';
 import { APP_VERSION, BUILD_TIME, bundledIdeas, bundledImage, bundledLookups, bundledRecipes } from './bundle';
 import { type AppUpdate, checkForUpdate } from './updates';
@@ -27,13 +28,15 @@ export interface Prefs {
   have: string[];
   theme: Theme;
   sourceUrl: string;
+  /** Categories the user filed recipes under, when changed from the recipe's own */
+  cats: CategoryOverrides;
   /** Recipe versions as of the previous visit, for New / Updated badges */
   seen: Record<string, number> | null;
 }
 
 export const defaultPrefs = (): Prefs => ({
   fav: [], cooked: {}, shop: [], lists: [], meal: [], today: [], tbsp: 20, serves: {}, have: [],
-  theme: 'light', sourceUrl: '', seen: null
+  theme: 'light', sourceUrl: '', cats: {}, seen: null
 });
 
 export type Badge = 'new' | 'updated';
@@ -54,6 +57,10 @@ interface AppState {
   ready: boolean;
   recipes: Recipe[];
   byId: Record<string, Recipe>;
+  /** Every category a recipe appears under (the user's choice, or the recipe's own). Never empty. */
+  categoriesOf: (r: Recipe) => Category[];
+  /** The category set in the recipe file itself, the default before any change on this phone */
+  ownCategory: (id: string) => Category | null;
   lookupFiles: LookupFiles;
   lookups: CompiledLookups;
   ideas: IdeasFile;
@@ -288,15 +295,27 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [prefs.seen]);
 
   const lookups = useMemo(() => compileLookups(lookupFiles), [lookupFiles]);
-  const recipes = useMemo(() => Object.values(byId), [byId]);
+  // Recipes as the screens see them: a recipe the user filed elsewhere takes the
+  // colour and Back target of its chosen category. Sync keeps using the raw data.
+  const viewById = useMemo(() => {
+    const out: Record<string, Recipe> = {};
+    for (const [id, r] of Object.entries(byId)) {
+      const primary = primaryCategory(r, prefs.cats);
+      out[id] = primary === r.category ? r : { ...r, category: primary };
+    }
+    return out;
+  }, [byId, prefs.cats]);
+  const recipes = useMemo(() => Object.values(viewById), [viewById]);
+  const ownCategory = useCallback((id: string) => byId[id]?.category ?? null, [byId]);
+  const categoriesOf = useCallback((r: Recipe) => categoriesFor(byId[r.id] ?? r, prefs.cats), [byId, prefs.cats]);
 
   const value = useMemo<AppState>(
     () => ({
-      ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs,
+      ready, recipes, byId: viewById, categoriesOf, ownCategory, lookupFiles, lookups, ideas, prefs, updatePrefs,
       badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates,
       exportBackup, importBackup
     }),
-    [ready, recipes, byId, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates, exportBackup, importBackup]
+    [ready, recipes, viewById, categoriesOf, ownCategory, lookupFiles, lookups, ideas, prefs, updatePrefs, badges, sync, refresh, imageFor, coverFor, setPhoto, factorFor, source, update, checkUpdates, exportBackup, importBackup]
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

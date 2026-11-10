@@ -25,7 +25,7 @@ function matchesQuery(r: Recipe, q: string): boolean {
 }
 
 export function Home() {
-  const { recipes, ideas, prefs, byId, coverFor, imageFor, refresh, sync, factorFor, updatePrefs, lookups, update } = useApp();
+  const { recipes, ideas, prefs, byId, categoriesOf, coverFor, imageFor, refresh, sync, factorFor, updatePrefs, lookups, update } = useApp();
   const toast = useToast();
   const today = prefs.today.map(id => byId[id]).filter(Boolean) as Recipe[];
   const addTodayToList = () => {
@@ -65,9 +65,9 @@ export function Home() {
   const featured = useMemo(() => featuredFor(recipes), [recipes]);
   const counts = useMemo(() => {
     const c: Record<string, number> = {};
-    for (const r of recipes) c[r.category] = (c[r.category] ?? 0) + 1;
+    for (const r of recipes) for (const cat of categoriesOf(r)) c[cat] = (c[cat] ?? 0) + 1;
     return c;
-  }, [recipes]);
+  }, [recipes, categoriesOf]);
   const az = useMemo(
     () => alphabetical(appliance === 'all' ? recipes : recipes.filter(r => r.appliances.includes(appliance))),
     [recipes, appliance]

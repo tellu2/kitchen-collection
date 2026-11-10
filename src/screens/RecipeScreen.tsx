@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
-import { Camera, CalendarCheck, CalendarPlus, Check, ChevronLeft, Clock, ListPlus, Minus, Plus, Timer, Users, UtensilsCrossed } from 'lucide-react';
-import type { Recipe } from '../types';
+import { Camera, CalendarCheck, CalendarPlus, Check, ChevronLeft, Clock, ListPlus, Minus, Plus, Tags, Timer, Users, UtensilsCrossed } from 'lucide-react';
+import { CATEGORIES, type Recipe } from '../types';
+import { isReassigned, withCategories } from '../lib/categories';
 import { useApp } from '../data/store';
 import { formatAmount } from '../lib/format';
 import { niceDate, spoonHint } from '../lib/misc';
@@ -23,13 +24,14 @@ type Tab = 'ingredients' | 'method' | 'notes';
 const sessionTicks = new Map<string, { ing: Set<string>; step: Set<number> }>();
 
 export function RecipeScreen({ id }: { id: string }) {
-  const { byId, prefs, updatePrefs, imageFor, factorFor, lookups, badges, setPhoto } = useApp();
+  const { byId, prefs, updatePrefs, imageFor, factorFor, lookups, badges, setPhoto, categoriesOf, ownCategory } = useApp();
   const recipe = byId[id];
   const toast = useToast();
   const { start } = useTimers();
   const [tab, setTab] = useState<Tab>('ingredients');
   const [flagOpen, setFlagOpen] = useState(false);
   const [photoOpen, setPhotoOpen] = useState(false);
+  const [catsOpen, setCatsOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const [, force] = useState(0);
   const ingMap = useMemo(() => (recipe ? ingredientMap(recipe) : new Map()), [recipe]);
@@ -95,6 +97,19 @@ export function RecipeScreen({ id }: { id: string }) {
     updatePrefs(p => ({ ...p, meal: [...new Set([...p.meal, id, ...pairings.map(r => r.id)])] }));
     toast('Meal built. Send the ingredients to the list when ready.');
     go('meal');
+  };
+
+  // The recipe file's own category is the default; changes are kept on this phone
+  const base = { id, category: ownCategory(id) ?? recipe.category };
+  const cats = categoriesOf(recipe);
+  const reassigned = isReassigned(base, prefs.cats);
+  const toggleCategory = (c: Recipe['category']) => {
+    const next = cats.includes(c) ? cats.filter(x => x !== c) : [...cats, c];
+    if (!next.length) {
+      toast('A recipe needs at least one category.');
+      return;
+    }
+    updatePrefs(p => ({ ...p, cats: withCategories(p.cats, base, next) }));
   };
 
   const onPhoto = async (file?: File) => {
@@ -253,9 +268,14 @@ export function RecipeScreen({ id }: { id: string }) {
         {tab === 'notes' && (
           <section className="tab-body">
             <div className="pills">
-              <a className="pill pill-cat" href={href('category', recipe.category)}>{CATEGORY_META[recipe.category].short}</a>
+              {cats.map(c => (
+                <a key={c} className="pill pill-cat" style={{ ['--c' as string]: catVar(c) }} href={href('category', c)}>{CATEGORY_META[c].short}</a>
+              ))}
               {recipe.appliances.map(a => <span key={a} className="pill">{APPLIANCE_LABEL[a]}</span>)}
             </div>
+            <button type="button" className="pill-btn cat-edit" onClick={() => setCatsOpen(true)}>
+              <Tags size={18} aria-hidden="true" /> Change categories
+            </button>
             {recipe.description && <p className="description">{recipe.description}</p>}
             {cooked && <p className="muted small"><CalendarCheck size={16} aria-hidden="true" /> Last cooked {niceDate(cooked)}</p>}
             <button type="button" className="link" onClick={() => setFlagOpen(true)}>How sure is this recipe?</button>
@@ -306,6 +326,34 @@ export function RecipeScreen({ id }: { id: string }) {
         <p>{recipe.confidence.note}</p>
         {recipe.source && <p className="muted">Source: {recipe.source.name}{recipe.source.note ? ` · ${recipe.source.note}` : ''}</p>}
         {img.credit && !img.mine && <p className="muted small">Photo: {img.credit.name} / {img.credit.source}. A stock photo of a similar dish, not this exact recipe.</p>}
+      </Sheet>
+
+      <Sheet open={catsOpen} onClose={() => setCatsOpen(false)} title="Categories">
+        <p className="muted">Tick every category this recipe should appear under. It needs at least one. Your choice stays on this phone and is kept in backups.</p>
+        <ul className="ing-list cat-pick">
+          {CATEGORIES.map(c => {
+            const on = cats.includes(c);
+            return (
+              <li key={c}>
+                <button type="button" className="ing" aria-pressed={on} onClick={() => toggleCategory(c)} style={{ ['--c' as string]: catVar(c) }}>
+                  <Tick on={on} />
+                  <span className="ing-text">
+                    {c}
+                    {c === base.category && <span className="ing-note">The recipe's own category</span>}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="sheet-actions">
+          <button type="button" className="btn btn-primary" onClick={() => setCatsOpen(false)}>Done</button>
+          {reassigned && (
+            <button type="button" className="btn btn-outline" onClick={() => { updatePrefs(p => ({ ...p, cats: withCategories(p.cats, base, [base.category]) })); toast(`Back under ${base.category} only.`); }}>
+              Use the recipe's own category
+            </button>
+          )}
+        </div>
       </Sheet>
 
       <Sheet open={photoOpen} onClose={() => setPhotoOpen(false)} title="Your photo">
