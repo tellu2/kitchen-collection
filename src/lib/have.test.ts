@@ -9,9 +9,11 @@ const legacy = loadLegacy();
  * sliced spring onion, chilli flakes to finish" missed its own optional test
  * (no comma before "to finish"), so legacy counted the garnish spring onion
  * as required. Migrated, it carries the note "To finish" and is optional.
+ * pork-gyoza gained a dipping sauce after migration, which needs rice vinegar.
  */
-const LEGACY_EXCEPTIONS: Record<string, { notRequiredNow: string[] }> = {
-  'sesame-noodles': { notRequiredNow: ['Spring onion'] }
+const LEGACY_EXCEPTIONS: Record<string, { notRequiredNow?: string[]; addedSince?: string[] }> = {
+  'sesame-noodles': { notRequiredNow: ['Spring onion'] },
+  'pork-gyoza': { addedSince: ['Rice vinegar'] }
 };
 
 /** The legacy app's required keys for a recipe, computed its own way. */
@@ -33,7 +35,8 @@ describe('Have matcher against every recipe', () => {
     it(`${r.id}: required ingredients ${inLegacy ? 'match the legacy app' : 'are found'}`, () => {
       const req = recipeKeys(r, lookups).required.slice().sort();
       const skip = LEGACY_EXCEPTIONS[r.id]?.notRequiredNow ?? [];
-      if (inLegacy) expect(req).toEqual(legacyRequired(r.id).filter(k => !skip.includes(k)));
+      const added = LEGACY_EXCEPTIONS[r.id]?.addedSince ?? [];
+      if (inLegacy) expect(req).toEqual([...legacyRequired(r.id).filter(k => !skip.includes(k)), ...added].sort());
       else if (r.confidence.level !== 'draft') expect(req.length).toBeGreaterThan(0);
     });
   }
