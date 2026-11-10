@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "ten-minute-tomato-egg-skillet",
+  "title": "10-Minute Tomato & Egg Skillet",
+  "description": "A quick, lighter shakshuka-style skillet: fresh tomatoes mashed down with onion and capsicum, eggs poached through.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","dinner","quick","vegetarian","eggs"],
+  "yield": {"qty":1,"unit":"serves"},
+  "time": {"label":"About 10 min","totalMinutes":10},
+  "appliances": ["stovetop"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DfDBXw-txfe/","note":"Hype or Hoax, Episode 265, rated 9.275/10 (Worth the Hype). Original inspiration: @tastyiri_en."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Spice amounts are to taste in the source."},
+  "nutrition": {"basis":"per serve","calories":300,"protein":30,"carbs":22,"fat":11,"fibre":6,"note":"As stated by the creator; carbs, fat and fibre given as approximate."},
+  "image": "images/ten-minute-tomato-egg-skillet.jpg",
+  "imageCredit": {"name":"Nataliya Vaitkevich","url":"https://www.pexels.com/photo/overhead-shot-of-shakshuka-in-a-pan-6275160/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"tomatoes","item":"medium tomatoes","qty":350,"unit":"g","note":"About 4, left whole"},
+        {"id":"eggs","item":"large eggs","qty":2},
+        {"id":"whites","item":"liquid egg whites","qty":40,"unit":"g"},
+        {"id":"spray","item":"cooking spray","qty":null},
+        {"id":"onion","item":"brown onion","qty":0.5,"prep":"chopped","note":"About 1/3 cup"},
+        {"id":"capsicum","item":"red capsicum","qty":null,"prep":"chopped","note":"1 small piece, about 1/4 cup"},
+        {"id":"cheese","item":"reduced-fat cheese","qty":30,"unit":"g","prep":"grated"},
+        {"id":"spices","item":"pepper, paprika, dried oregano and salt","qty":null,"note":"To taste"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Soften","text":"Spray the pan and set over medium-low heat. Cook the onion ({{onion}}) and capsicum for 3–4 minutes until soft.","settings":{"appliance":"stovetop","time":"3–4 min","timerSeconds":180,"temp":"Medium-low"}},
+    {"title":"Tomatoes","text":"Add the whole tomatoes ({{tomatoes}}) and cook for 2 minutes, then peel and mash them in the pan.","settings":{"appliance":"stovetop","time":"2 min","timerSeconds":120}},
+    {"title":"Season","text":"Stir the spices and grated cheese ({{cheese}}) into the simmering tomato."},
+    {"title":"Eggs","text":"Add the eggs ({{eggs}}) and egg whites ({{whites}}). Stir gently or let them poach in the sauce until done to your liking.","settings":{"appliance":"stovetop","time":"2–3 min","timerSeconds":120}}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

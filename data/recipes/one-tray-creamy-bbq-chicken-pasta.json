@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "one-tray-creamy-bbq-chicken-pasta",
+  "title": "One-Tray Creamy BBQ Chicken Pasta",
+  "description": "Dry pasta, diced chicken, capsicum and onion baked in a creamy BBQ tomato sauce under mozzarella. One dish, no pre-boiling.",
+  "category": "Easy & Healthy",
+  "tags": ["dinner","meal-prep","one-tray","high-protein"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"50 min bake + 5–10 min rest","totalMinutes":60},
+  "appliances": ["oven"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DecRxwjiVqg/","note":"Hype or Hoax, Episode 251, rated 8.5/10 (Worth the Hype). Original inspiration: @davefellfitness."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked."},
+  "nutrition": {"basis":"per serve","calories":552,"protein":53,"carbs":50,"fat":13,"fibre":6,"note":"As stated by the creator; fibre marked as his estimate."},
+  "image": "images/one-tray-creamy-bbq-chicken-pasta.jpg",
+  "imageCredit": {"name":"Hilal Diken","url":"https://www.pexels.com/photo/baked-cheesy-pasta-with-fresh-parsley-38103947/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"pasta","item":"pasta","qty":200,"unit":"g","note":"Dry weight, cooks in the dish"},
+        {"id":"chicken","item":"chicken breast","qty":600,"unit":"g","prep":"diced"},
+        {"id":"onion","item":"brown onion","qty":150,"unit":"g","prep":"diced","note":"About 1 onion"},
+        {"id":"capsicum","item":"capsicums","qty":240,"unit":"g","prep":"sliced","note":"About 2"},
+        {"id":"cream-cheese","item":"light cream cheese","qty":200,"unit":"g"},
+        {"id":"seasoning","item":"BBQ seasoning","qty":30,"unit":"g","note":"1 packet"},
+        {"id":"tomatoes","item":"tinned diced tomatoes","qty":400,"unit":"g","note":"1 tin"},
+        {"id":"water","item":"water","qty":100,"unit":"ml","note":"Used to rinse out the tomato tin"},
+        {"id":"bbq-sauce","item":"BBQ sauce","qty":50,"unit":"g"},
+        {"id":"garlic","item":"jarred minced garlic","qty":4,"unit":"tsp"},
+        {"id":"salt-pepper","item":"salt and pepper","qty":null,"note":"To taste"},
+        {"id":"mozzarella","item":"grated mozzarella","qty":80,"unit":"g"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Preheat","text":"Preheat the oven to 190°C.","settings":{"appliance":"oven","temp":"190°C"}},
+    {"title":"Combine","text":"Add everything except the mozzarella to a large ovenproof dish: pasta ({{pasta}}), chicken ({{chicken}}), onion ({{onion}}), capsicum ({{capsicum}}), cream cheese ({{cream-cheese}}), BBQ seasoning ({{seasoning}}), tomatoes ({{tomatoes}}), BBQ sauce ({{bbq-sauce}}), garlic ({{garlic}}), salt and pepper. Rinse the tomato tin with the water ({{water}}), add it, and mix thoroughly."},
+    {"title":"Bake covered","text":"Top with the mozzarella ({{mozzarella}}), cover with foil and bake for 45 minutes.","settings":{"appliance":"oven","temp":"190°C","time":"45 min","timerSeconds":2700}},
+    {"title":"Bake uncovered","text":"Uncover and bake for a final 5 minutes.","settings":{"appliance":"oven","temp":"190°C","time":"5 min","timerSeconds":300}},
+    {"title":"Rest","text":"Rest for 5–10 minutes so the remaining liquid is absorbed.","settings":{"time":"5–10 min","appliance":"none","timerSeconds":300}}
+  ],
+  "notes": [
+    {"title":"Seasoning","text":"BBQ seasoning and sauce both carry salt, so taste before adding more."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

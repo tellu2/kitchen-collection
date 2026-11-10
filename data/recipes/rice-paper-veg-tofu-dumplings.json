@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "rice-paper-veg-tofu-dumplings",
+  "title": "Crispy Rice Paper Dumplings (Vegan)",
+  "description": "Finely chopped vegetables and tofu folded into rice paper parcels and pan-crisped on sesame seeds, with a soy and sweet chilli dip.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","dinner","vegan","high-volume"],
+  "yield": {"qty":5,"unit":"dumplings","note":"Generous; the creator ate all five as one meal"},
+  "time": {"label":"Quick; no time given in the source"},
+  "appliances": ["stovetop"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DfNR9DpNOmu/","note":"Hype or Hoax, Episode 268, rated 9.36/10 (Worth the Hype). Original inspiration: @broccoli_mum."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Mushroom, cabbage, rice vinegar and sesame amounts are loose in the source, and cooking times are not given."},
+  "nutrition": {"basis":"per 5 dumplings","calories":250,"protein":25,"carbs":30,"fat":2.5,"fibre":10,"note":"As stated by the creator (50 cals and 5g protein per dumpling)."},
+  "image": "images/rice-paper-veg-tofu-dumplings.jpg",
+  "imageCredit": {"name":"Anna Tarazevich","url":"https://www.pexels.com/photo/dumplings-on-white-ceramic-plate-7287703/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"mushrooms","item":"mushrooms","qty":null,"note":"A handful"},
+        {"id":"zucchini","item":"small zucchini","qty":1},
+        {"id":"carrot","item":"carrot","qty":1},
+        {"id":"cabbage","item":"cabbage","qty":null,"prep":"shredded","note":"A handful"},
+        {"id":"tofu","item":"tofu","qty":0.5,"note":"Half a block; type and block size not stated"},
+        {"id":"garlic-powder","item":"garlic powder","qty":1,"unit":"tsp"},
+        {"id":"rice-paper","item":"rice paper sheets","qty":5},
+        {"id":"sesame","item":"sesame seeds","qty":1,"unit":"pinch"}
+      ]
+    },
+    {
+      "title": "Dipping sauce",
+      "items": [
+        {"id":"soy","item":"soy sauce","qty":3,"unit":"tsp","qtyMax":6,"note":"1–2 US tbsp in the source; a splash goes in the filling and the rest in the dip"},
+        {"id":"vinegar","item":"rice vinegar","qty":null,"note":"A splash"},
+        {"id":"sweet-chilli","item":"sweet chilli sauce","qty":3,"unit":"tsp","note":"1 US tbsp (15ml) in the source"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Chop","text":"Blitz the mushrooms, zucchini ({{zucchini}}), carrot ({{carrot}}), cabbage and tofu ({{tofu}}) in a food processor until finely chopped."},
+    {"title":"Cook filling","text":"Cook the mixture in a non-stick pan with a splash of the soy sauce and the garlic powder ({{garlic-powder}}) for a few minutes until the vegetables soften.","settings":{"appliance":"stovetop"}},
+    {"title":"Wrap","text":"Dip a rice paper sheet in water until soft, add a generous portion of filling to the centre and fold into a sealed parcel. Repeat to make 5 ({{rice-paper}})."},
+    {"title":"Crisp","text":"Scatter the sesame seeds into a non-stick pan and cook the dumplings on top until golden and crisp on both sides.","settings":{"appliance":"stovetop"}},
+    {"title":"Dip","text":"Mix the remaining soy sauce with the rice vinegar and sweet chilli sauce ({{sweet-chilli}}) and serve with the dumplings."}
+  ],
+  "notes": [
+    {"title":"Thermomix","text":"The Thermomix could do the chopping in place of a food processor. The source gives no settings for this."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "baked-salmon-cream-cheese-pasta",
+  "title": "Baked High-Protein Salmon Pasta",
+  "description": "Salmon baked with cream cheese, cherry and sun-dried tomatoes, spinach and capers, then flaked through pasta.",
+  "category": "Easy & Healthy",
+  "tags": ["dinner","fish","meal-prep","high-protein"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"40 min bake, pasta cooked alongside","totalMinutes":40},
+  "appliances": ["oven","stovetop"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DepG1EbCb-a/","note":"Hype or Hoax, Episode 256, rated 9.2/10 (Worth the Hype). Original inspiration: @adamhoad_coaching."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked."},
+  "nutrition": {"basis":"per serve","calories":533,"protein":39,"carbs":42,"fat":22,"fibre":4,"note":"As stated by the creator; fibre marked as his estimate."},
+  "image": "images/baked-salmon-cream-cheese-pasta.jpg",
+  "imageCredit": {"name":"Shameel Mukkath","url":"https://www.pexels.com/photo/pasta-in-a-ceramic-bowl-5175574/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"salmon","item":"salmon","qty":500,"unit":"g"},
+        {"id":"cream-cheese","item":"light cream cheese","qty":150,"unit":"g"},
+        {"id":"cherry-tomatoes","item":"cherry tomatoes","qty":200,"unit":"g"},
+        {"id":"spinach","item":"baby spinach","qty":100,"unit":"g","note":"About 3 handfuls"},
+        {"id":"sundried","item":"sun-dried tomatoes","qty":80,"unit":"g"},
+        {"id":"capers","item":"capers","qty":20,"unit":"g"},
+        {"id":"pasta","item":"pasta","qty":200,"unit":"g","note":"Dry weight"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Preheat","text":"Preheat the oven to 200°C.","settings":{"appliance":"oven","temp":"200°C"}},
+    {"title":"Bake","text":"Combine the salmon ({{salmon}}), cream cheese ({{cream-cheese}}), cherry tomatoes ({{cherry-tomatoes}}), spinach ({{spinach}}), sun-dried tomatoes ({{sundried}}) and capers ({{capers}}) in a large baking dish. Cover and bake for 40 minutes.","settings":{"appliance":"oven","temp":"200°C","time":"40 min","timerSeconds":2400}},
+    {"title":"Pasta","text":"Meanwhile, boil the pasta ({{pasta}}) until cooked and drain.","settings":{"appliance":"stovetop"}},
+    {"title":"Combine","text":"Flake the salmon, add the pasta to the dish and mix thoroughly."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

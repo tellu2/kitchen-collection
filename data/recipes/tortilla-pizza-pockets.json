@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "tortilla-pizza-pockets",
+  "title": "Crispy Tortilla Pizza Pockets",
+  "description": "Half-wraps filled with pizza sauce, pepperoni or ham and mozzarella, folded and crisped in the air fryer.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","quick","high-protein"],
+  "yield": {"qty":4,"unit":"pockets"},
+  "time": {"label":"About 10 min cook","totalMinutes":10},
+  "appliances": ["air-fryer","oven"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DfVB_OgNbD8/","note":"Hype or Hoax, Episode 270, rated 9.295/10 (Worth the Hype). Original inspiration: @thechefoutwest."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Italian seasoning is to taste in the source."},
+  "nutrition": {"basis":"per pocket","calories":170,"protein":18,"carbs":11,"fat":7,"fibre":4,"note":"Creator gives about 170–180 cals and 18–19g protein per pocket; lower figures shown."},
+  "image": "images/tortilla-pizza-pockets.jpg",
+  "imageCredit": {"name":"Roman Odintsov","url":"https://www.pexels.com/photo/bread-and-sauces-on-plate-5836439/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"wraps","item":"low-carb tortilla wraps","qty":2},
+        {"id":"meat","item":"lean pepperoni or shaved ham","qty":60,"unit":"g"},
+        {"id":"sauce","item":"pizza sauce","qty":40,"unit":"g","note":"Garlic, onion and herb style; extra for dipping"},
+        {"id":"mozzarella","item":"light mozzarella","qty":110,"unit":"g","prep":"grated"},
+        {"id":"seasoning","item":"Italian seasoning","qty":null,"note":"To taste"},
+        {"id":"spray","item":"cooking spray","qty":null}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Cut","text":"Cut the wraps ({{wraps}}) in half to make 4 pieces."},
+    {"title":"Fill and fold","text":"Spread with the pizza sauce ({{sauce}}), then layer the pepperoni or ham ({{meat}}), mozzarella ({{mozzarella}}) and Italian seasoning. Fold each half securely into a pocket and give a quick spray."},
+    {"title":"Cook","text":"Air fry for about 10 minutes until golden and crisp. Alternatively, bake at the same temperature.","settings":{"appliance":"air-fryer","temp":"200°C","time":"About 10 min","timerSeconds":600}},
+    {"title":"Serve","text":"Serve warm with extra pizza sauce for dipping."}
+  ],
+  "notes": [
+    {"title":"Oven","text":"The creator gives 200°C for about 10 minutes for either the air fryer or the oven."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

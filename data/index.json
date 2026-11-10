@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-11-10T09:40:19.175Z",
+  "generated": "2026-11-10T10:04:27.573Z",
   "recipes": [
     {
       "id": "gochujang-chicken",
@@ -827,6 +827,34 @@
       "image": "images/zucchini-slice.jpg"
     },
     {
+      "id": "ten-minute-tomato-egg-skillet",
+      "title": "10-Minute Tomato & Egg Skillet",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "dinner",
+        "quick",
+        "vegetarian",
+        "eggs"
+      ],
+      "appliances": [
+        "stovetop"
+      ],
+      "time": {
+        "label": "About 10 min",
+        "totalMinutes": 10
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/ten-minute-tomato-egg-skillet.jpg"
+    },
+    {
       "id": "baked-feta-chicken-sweet-potato",
       "title": "Baked Feta Chicken & Sweet Potato Tray Bake",
       "category": "Easy & Healthy",
@@ -851,6 +879,34 @@
       "version": 1,
       "updated": "2026-10-25",
       "image": "images/baked-feta-chicken-sweet-potato.jpg"
+    },
+    {
+      "id": "baked-salmon-cream-cheese-pasta",
+      "title": "Baked High-Protein Salmon Pasta",
+      "category": "Easy & Healthy",
+      "tags": [
+        "dinner",
+        "fish",
+        "meal-prep",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "time": {
+        "label": "40 min bake, pasta cooked alongside",
+        "totalMinutes": 40
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/baked-salmon-cream-cheese-pasta.jpg"
     },
     {
       "id": "baked-pesto-chicken-gnocchi",
@@ -908,6 +964,88 @@
       "image": "images/creamy-buffalo-chicken.jpg"
     },
     {
+      "id": "roasted-feta-veg-soup",
+      "title": "Creamy Roasted Feta & Veg Soup",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "dinner",
+        "soup",
+        "meal-prep"
+      ],
+      "appliances": [
+        "oven",
+        "thermomix"
+      ],
+      "time": {
+        "label": "40 min roast + blend",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/roasted-feta-veg-soup.jpg"
+    },
+    {
+      "id": "rice-paper-veg-tofu-dumplings",
+      "title": "Crispy Rice Paper Dumplings (Vegan)",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "dinner",
+        "vegan",
+        "high-volume"
+      ],
+      "appliances": [
+        "stovetop"
+      ],
+      "time": {
+        "label": "Quick; no time given in the source"
+      },
+      "yield": {
+        "qty": 5,
+        "unit": "dumplings",
+        "note": "Generous; the creator ate all five as one meal"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/rice-paper-veg-tofu-dumplings.jpg"
+    },
+    {
+      "id": "tortilla-pizza-pockets",
+      "title": "Crispy Tortilla Pizza Pockets",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "quick",
+        "high-protein"
+      ],
+      "appliances": [
+        "air-fryer",
+        "oven"
+      ],
+      "time": {
+        "label": "About 10 min cook",
+        "totalMinutes": 10
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "pockets"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/tortilla-pizza-pockets.jpg"
+    },
+    {
       "id": "high-protein-orzo-chicken-bake",
       "title": "High Protein Orzo Chicken Bake",
       "category": "Easy & Healthy",
@@ -961,6 +1099,34 @@
       "image": "images/high-protein-salmon-salad.jpg"
     },
     {
+      "id": "cucumber-chicken-lunch-bowl",
+      "title": "High-Protein Cucumber & Chicken Lunch Bowl",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "no-cook",
+        "high-protein",
+        "meal-prep"
+      ],
+      "appliances": [
+        "none"
+      ],
+      "time": {
+        "label": "About 2 min (no cooking with pre-cooked chicken)",
+        "totalMinutes": 2
+      },
+      "yield": {
+        "qty": 1,
+        "unit": "serves",
+        "note": "Made in a 750ml container"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/cucumber-chicken-lunch-bowl.jpg"
+    },
+    {
       "id": "mediterranean-chicken-poppers",
       "title": "Mediterranean Chicken Poppers",
       "category": "Easy & Healthy",
@@ -986,6 +1152,87 @@
       "version": 1,
       "updated": "2026-10-25",
       "image": "images/mediterranean-chicken-poppers.jpg"
+    },
+    {
+      "id": "one-dish-mexican-chicken-rice-bake",
+      "title": "One-Dish Mexican Chicken & Rice Bake",
+      "category": "Easy & Healthy",
+      "tags": [
+        "dinner",
+        "meal-prep",
+        "one-dish",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "45 min bake",
+        "totalMinutes": 45
+      },
+      "yield": {
+        "qty": 5,
+        "unit": "serves"
+      },
+      "confidenceLevel": "estimated",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/one-dish-mexican-chicken-rice-bake.jpg"
+    },
+    {
+      "id": "one-tray-creamy-bbq-chicken-pasta",
+      "title": "One-Tray Creamy BBQ Chicken Pasta",
+      "category": "Easy & Healthy",
+      "tags": [
+        "dinner",
+        "meal-prep",
+        "one-tray",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "50 min bake + 5–10 min rest",
+        "totalMinutes": 60
+      },
+      "yield": {
+        "qty": 4,
+        "unit": "serves"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/one-tray-creamy-bbq-chicken-pasta.jpg"
+    },
+    {
+      "id": "spicy-salmon-rice-muffins",
+      "title": "Spicy Salmon Rice Muffins",
+      "category": "Easy & Healthy",
+      "tags": [
+        "lunch",
+        "dinner",
+        "fish",
+        "high-protein"
+      ],
+      "appliances": [
+        "oven"
+      ],
+      "time": {
+        "label": "About 17 min bake",
+        "totalMinutes": 17
+      },
+      "yield": {
+        "qty": 6,
+        "unit": "muffins"
+      },
+      "confidenceLevel": "sourced",
+      "version": 1,
+      "updated": "2026-11-10",
+      "added": "2026-11-10",
+      "image": "images/spicy-salmon-rice-muffins.jpg"
     },
     {
       "id": "bliss-balls",

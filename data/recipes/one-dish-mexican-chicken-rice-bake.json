@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "one-dish-mexican-chicken-rice-bake",
+  "title": "One-Dish Mexican Chicken & Rice Bake",
+  "description": "Raw rice, chicken thigh, kidney beans, tomatoes and capsicum baked together in stock, finished with melted cheddar.",
+  "category": "Easy & Healthy",
+  "tags": ["dinner","meal-prep","one-dish","high-protein"],
+  "yield": {"qty":5,"unit":"serves"},
+  "time": {"label":"45 min bake","totalMinutes":45},
+  "appliances": ["oven"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DeHnhJZC2ig/","note":"Hype or Hoax, Episode 244, rated 9.25/10 (Worth the Hype). Original inspiration: @adamhoad_coaching."},
+  "confidence": {"level":"estimated","note":"Amounts from the creator's caption. The caption lists the diced tomatoes but its method omits them; adding them in step 2 is inferred. Spice amounts are to taste. Not yet cooked."},
+  "nutrition": {"basis":"per serve","calories":505,"protein":36,"carbs":45,"fat":18,"fibre":6,"note":"As stated by the creator."},
+  "image": "images/one-dish-mexican-chicken-rice-bake.jpg",
+  "imageCredit": {"name":"Kenneth Surillo","url":"https://www.pexels.com/photo/a-plate-of-food-with-rice-and-vegetables-28246109/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"rice","item":"long-grain white rice","qty":180,"unit":"g","note":"Raw; the source just says rice"},
+        {"id":"tomatoes","item":"tinned diced tomatoes","qty":800,"unit":"g","note":"2 tins"},
+        {"id":"beans","item":"red kidney beans","qty":240,"unit":"g","prep":"drained"},
+        {"id":"onion","item":"brown onion","qty":200,"unit":"g","prep":"diced"},
+        {"id":"capsicum","item":"mixed capsicums","qty":200,"unit":"g","prep":"chopped"},
+        {"id":"chicken","item":"chicken thighs","qty":600,"unit":"g","prep":"chopped"},
+        {"id":"stock","item":"chicken stock","qty":300,"unit":"ml"},
+        {"id":"spices","item":"salt, pepper, paprika and ground cumin","qty":null,"note":"To taste"},
+        {"id":"cheddar","item":"cheddar","qty":100,"unit":"g","prep":"grated"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Preheat","text":"Preheat the oven to 180°C.","settings":{"appliance":"oven","temp":"180°C"}},
+    {"title":"Combine","text":"Combine the rice ({{rice}}), tomatoes ({{tomatoes}}), kidney beans ({{beans}}), onion ({{onion}}), capsicum ({{capsicum}}), chicken ({{chicken}}), stock ({{stock}}) and spices in a large ovenproof dish and mix well."},
+    {"title":"Bake","text":"Bake for 45 minutes until the rice is tender and the liquid is absorbed.","settings":{"appliance":"oven","temp":"180°C","time":"45 min","timerSeconds":2700}},
+    {"title":"Cheese","text":"Scatter over the cheddar ({{cheddar}}) and let it melt before serving."}
+  ],
+  "notes": [
+    {"title":"Covering","text":"The source does not say whether the dish is covered. Check the rice at 45 minutes."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

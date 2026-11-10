@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "spicy-salmon-rice-muffins",
+  "title": "Spicy Salmon Rice Muffins",
+  "description": "Sushi-style muffins: nori cups with a little rice and marinated salmon, baked crisp and topped with avocado and spicy mayo.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","dinner","fish","high-protein"],
+  "yield": {"qty":6,"unit":"muffins"},
+  "time": {"label":"About 17 min bake","totalMinutes":17},
+  "appliances": ["oven"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DfaOZHXtN_W/","note":"Hype or Hoax, Episode 272, rated 9.39/10 (Worth the Hype). Original inspiration: @hungry.happens."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Rice vinegar, spring onion, seasonings and toppings are unquantified in the source."},
+  "nutrition": {"basis":"per muffin","calories":80,"protein":7,"carbs":5,"fat":3,"fibre":1,"note":"As stated by the creator; carbs, fat and fibre given as approximate."},
+  "image": "images/spicy-salmon-rice-muffins.jpg",
+  "imageCredit": {"name":"Dee Dave","url":"https://www.pexels.com/photo/a-sushi-bake-served-on-a-table-22607740/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"salmon","item":"skinless salmon fillet","qty":1,"prep":"cut into small cubes"},
+        {"id":"nori","item":"nori sheets","qty":6,"prep":"cut to fit the muffin tray cups"},
+        {"id":"rice","item":"cooked sushi or white rice","qty":180,"unit":"g","note":"About 30g per muffin"}
+      ]
+    },
+    {
+      "title": "Marinade",
+      "items": [
+        {"id":"soy","item":"soy sauce","qty":3,"unit":"tsp","note":"1 US tbsp (15ml) in the source"},
+        {"id":"honey","item":"honey","qty":1,"unit":"tsp"},
+        {"id":"vinegar","item":"rice vinegar","qty":null,"note":"A splash"},
+        {"id":"shallot","item":"spring onions","qty":null,"prep":"finely chopped"},
+        {"id":"seasoning","item":"seasonings of your choice","qty":null}
+      ]
+    },
+    {
+      "title": "To serve",
+      "items": [
+        {"id":"avocado","item":"avocado","qty":null,"prep":"small cubes"},
+        {"id":"mayo","item":"light mayonnaise mixed with sriracha","qty":null,"note":"A light drizzle per muffin"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Preheat","text":"Preheat the oven to 180°C.","settings":{"appliance":"oven","temp":"180°C"}},
+    {"title":"Marinate","text":"Toss the salmon with the soy sauce ({{soy}}), honey ({{honey}}), rice vinegar, spring onion and seasonings."},
+    {"title":"Fill","text":"Press the nori ({{nori}}) into the cups of a muffin tray. Add a spoonful of rice to each, about 30g ({{rice}} in total), then top generously with the salmon."},
+    {"title":"Bake","text":"Bake for 17 minutes until the salmon is cooked through and the nori is crisp.","settings":{"appliance":"oven","temp":"180°C","time":"17 min","timerSeconds":1020}},
+    {"title":"Finish","text":"Top each with avocado and a light drizzle of spicy mayo. Serve warm."}
+  ],
+  "notes": [
+    {"title":"Salmon","text":"The source gives one fillet with no weight, for 6 muffins."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

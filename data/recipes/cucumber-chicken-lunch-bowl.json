@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "cucumber-chicken-lunch-bowl",
+  "title": "High-Protein Cucumber & Chicken Lunch Bowl",
+  "description": "A no-cook shake-together lunch bowl of cucumber, red onion and cooked chicken in a garlicky yoghurt dressing.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","no-cook","high-protein","meal-prep"],
+  "yield": {"qty":1,"unit":"serves","note":"Made in a 750ml container"},
+  "time": {"label":"About 2 min (no cooking with pre-cooked chicken)","totalMinutes":2},
+  "appliances": ["none"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/DekAkKwCTtX/","note":"Hype or Hoax, Episode 254, rated 9/10 (Worth the Hype). Original inspiration: @jessespt."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Garlic and lemon are to taste in the source."},
+  "nutrition": {"basis":"per serve","calories":345,"protein":50.3,"carbs":14.7,"fat":9.6,"fibre":3.5,"note":"As stated by the creator; fibre marked as his estimate. Excludes optional chickpeas."},
+  "image": "images/cucumber-chicken-lunch-bowl.jpg",
+  "imageCredit": {"name":"Heber Vazquez","url":"https://www.pexels.com/photo/a-bowl-of-salad-with-chicken-and-vegetables-27870597/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"cucumber","item":"cucumber","qty":200,"unit":"g","prep":"finely sliced","note":"About 1 medium"},
+        {"id":"onion","item":"red onion","qty":50,"unit":"g","prep":"diced","note":"About half a small onion"},
+        {"id":"chicken","item":"cooked chicken breast","qty":150,"unit":"g"},
+        {"id":"yoghurt","item":"low-fat Greek yoghurt","qty":160,"unit":"g"},
+        {"id":"garlic","item":"garlic","qty":null,"prep":"minced","note":"To taste"},
+        {"id":"lemon","item":"lemon juice","qty":null,"note":"Half a lemon's squeeze, or to taste"},
+        {"id":"oil","item":"olive oil","qty":6,"unit":"ml","note":"About 1 tsp"},
+        {"id":"salt-pepper","item":"salt and pepper","qty":null,"note":"To taste"},
+        {"id":"zest","item":"lemon zest","qty":null,"optional":true,"note":"To taste"},
+        {"id":"chickpeas","item":"chickpeas","qty":120,"unit":"g","optional":true,"prep":"drained","note":"For extra fibre"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Build","text":"Add the cucumber ({{cucumber}}), red onion ({{onion}}) and cooked chicken ({{chicken}}) to a 750ml container, plus the chickpeas ({{chickpeas}}) if using."},
+    {"title":"Dress","text":"Add the Greek yoghurt ({{yoghurt}}), garlic, lemon juice and zest if using, olive oil ({{oil}}), salt and pepper."},
+    {"title":"Shake","text":"Seal and shake until everything is coated. Eat straight away or refrigerate for meal prep."}
+  ],
+  "notes": [
+    {"title":"Meal prep","text":"The creator suggests storing it in the fridge for weekday lunches. No storage time is given; check before relying on it."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}

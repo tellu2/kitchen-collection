@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "roasted-feta-veg-soup",
+  "title": "Creamy Roasted Feta & Veg Soup",
+  "description": "Broccoli, cauliflower, carrot and onion roasted with feta and cottage cheese, then blended with stock and lemon.",
+  "category": "Easy & Healthy",
+  "tags": ["lunch","dinner","soup","meal-prep"],
+  "yield": {"qty":4,"unit":"serves"},
+  "time": {"label":"40 min roast + blend","totalMinutes":45},
+  "appliances": ["oven","thermomix"],
+  "source": {"name":"Firsttakehadrian (Instagram)","url":"https://www.instagram.com/firsttakehadrian/reel/Dee1xz0CCLA/","note":"Hype or Hoax, Episode 252, rated 9.15/10 (Worth the Hype). Original inspiration: @adamhoad_coaching."},
+  "confidence": {"level":"sourced","note":"Amounts and method from the creator's caption. Not yet cooked. Thyme, salt and pepper are to taste. The Thermomix blend is a swap for the source's blender, with no settings given."},
+  "nutrition": {"basis":"per serve","calories":240,"protein":22,"carbs":14,"fat":10,"fibre":5,"note":"As stated by the creator."},
+  "image": "images/roasted-feta-veg-soup.jpg",
+  "imageCredit": {"name":"Shameel Mukkath","url":"https://www.pexels.com/photo/close-up-shot-of-a-bowl-of-soup-5639476/","source":"Pexels"},
+  "ingredientGroups": [
+    {
+      "items": [
+        {"id":"feta","item":"feta","qty":100,"unit":"g"},
+        {"id":"cottage","item":"low-fat cottage cheese","qty":200,"unit":"g"},
+        {"id":"broccoli","item":"broccoli","qty":150,"unit":"g","prep":"chopped"},
+        {"id":"cauliflower","item":"cauliflower","qty":150,"unit":"g","prep":"chopped"},
+        {"id":"carrot","item":"carrots","qty":150,"unit":"g","prep":"chopped"},
+        {"id":"onion","item":"brown onion","qty":150,"unit":"g","prep":"diced"},
+        {"id":"garlic","item":"garlic cloves","qty":6},
+        {"id":"spinach","item":"baby spinach","qty":100,"unit":"g"},
+        {"id":"stock","item":"chicken stock","qty":600,"unit":"ml"},
+        {"id":"juice","item":"lemon or lime juice","qty":30,"unit":"ml","qtyMax":45,"note":"Juice of 1"},
+        {"id":"thyme","item":"thyme, salt and pepper","qty":null,"note":"To taste"}
+      ]
+    }
+  ],
+  "steps": [
+    {"title":"Preheat","text":"Preheat the oven to 180°C.","settings":{"appliance":"oven","temp":"180°C"}},
+    {"title":"Combine","text":"Combine the feta ({{feta}}), cottage cheese ({{cottage}}), broccoli ({{broccoli}}), cauliflower ({{cauliflower}}), carrot ({{carrot}}), onion ({{onion}}), garlic ({{garlic}}) and spinach ({{spinach}}) in a baking dish and mix well."},
+    {"title":"Roast","text":"Bake for 40 minutes until the vegetables are soft and lightly golden.","settings":{"appliance":"oven","temp":"180°C","time":"40 min","timerSeconds":2400}},
+    {"title":"Blend","text":"Transfer to a blender (or the Thermomix bowl), add the stock ({{stock}}) and lemon or lime juice ({{juice}}), and blend until completely smooth."},
+    {"title":"Season","text":"Season with thyme, salt and pepper to taste and serve warm."}
+  ],
+  "notes": [
+    {"title":"Capacity","text":"The roasted mixture plus 600ml stock may come close to the Thermomix's 2.2L limit. Blend in two batches if it looks full."}
+  ],
+  "version": 1,
+  "updated": "2026-11-10",
+  "added": "2026-11-10"
+}
