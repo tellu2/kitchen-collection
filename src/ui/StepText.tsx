@@ -18,12 +18,14 @@ function withSettings(text: string, keyBase: string) {
   return out;
 }
 
-export function StepText({ text, ingredients, factor }: { text: string; ingredients: Map<string, Ingredient>; factor: number }) {
-  const parts = renderStep(text, ingredients, factor);
+export function StepText({ text, ingredients, factor, earlierSteps = '' }: { text: string; ingredients: Map<string, Ingredient>; factor: number; earlierSteps?: string }) {
+  const parts = renderStep(text, ingredients, factor, earlierSteps);
   return (
     <>
       {parts.map((p, i) =>
-        p.kind === 'amount' ? <b key={i} className="amt">{p.text}</b> : <span key={i}>{withSettings(p.text, String(i))}</span>
+        p.kind === 'amount' ? <b key={i} className="amt">{p.text}</b>
+        : p.kind === 'prep' ? <span key={i} className="prep">{p.text}</span>
+        : <span key={i}>{withSettings(p.text, String(i))}</span>
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { RotateCcw, Thermometer, Timer, Gauge, Wrench, X } from 'lucide-react';
 import { useApp } from '../data/store';
 import { renderStep, ingredientMap, tokenIds } from '../lib/tokens';
@@ -13,7 +13,26 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
   const recipe = byId[id];
   const { start } = useTimers();
   const toast = useToast();
-  const touchX = useRef<number | null>(null);
+  // Swipe left for the next step, right for the previous one. A swipe must be
+  // mostly sideways, so scrolling a long step never changes it.
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  const [dir, setDir] = useState<'next' | 'prev' | null>(null);
+  const [hint, setHint] = useState(() => {
+    try {
+      return localStorage.getItem('kc-swipe-hint') !== 'seen';
+    } catch {
+      return false;
+    }
+  });
+  const hideHint = () => {
+    if (!hint) return;
+    setHint(false);
+    try {
+      localStorage.setItem('kc-swipe-hint', 'seen');
+    } catch {
+      /* not stored */
+    }
+  };
   const ingMap = useMemo(() => (recipe ? ingredientMap(recipe) : new Map()), [recipe]);
 
   useEffect(() => {
@@ -26,6 +45,16 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
     };
   }, []);
 
+  const stepRef = useRef<(d: 1 | -1) => void>(() => {});
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') stepRef.current(1);
+      if (e.key === 'ArrowLeft') stepRef.current(-1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   if (!recipe || !recipe.steps.length) {
     return <div className="screen"><Empty>Nothing to cook here.</Empty></div>;
   }
@@ -34,18 +63,25 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
   const i = Math.min(step, n - 1);
   const s = recipe.steps[i];
   const factor = factorFor(id);
-  const parts = renderStep(s.text, ingMap, factor);
+  const earlier = recipe.steps.slice(0, i).map(x => x.text).join(' ');
+  const parts = renderStep(s.text, ingMap, factor, earlier);
   const needs = tokenIds(s.text)
     .map(tid => {
       const ing = ingMap.get(tid);
       const amount = parts.find(p => p.kind === 'amount' && p.ingredientId === tid)?.text;
-      return ing && amount ? { id: tid, amount, item: ing.item } : null;
+      return ing && amount ? { id: tid, amount, item: ing.prep ? `${ing.item}, ${ing.prep}` : ing.item } : null;
     })
     .filter(Boolean) as { id: string; amount: string; item: string }[];
   const set = s.settings;
   const label = `${recipe.title}, step ${i + 1}`;
 
-  const goStep = (k: number) => replace('cook', id, Math.max(0, Math.min(n - 1, k)));
+  const goStep = (k: number) => {
+    const next = Math.max(0, Math.min(n - 1, k));
+    if (next === i) return;
+    setDir(next > i ? 'next' : 'prev');
+    replace('cook', id, next);
+  };
+  stepRef.current = d => goStep(i + d);
   const finish = () => {
     updatePrefs(p => ({
       ...p,
@@ -60,13 +96,17 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
     <div
       className="cook"
       style={{ ['--c' as string]: catVar(recipe.category) }}
-      onTouchStart={e => (touchX.current = e.touches[0].clientX)}
+      onTouchStart={e => (touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY })}
+      onTouchCancel={() => (touch.current = null)}
       onTouchEnd={e => {
-        if (touchX.current == null) return;
-        const dx = e.changedTouches[0].clientX - touchX.current;
-        touchX.current = null;
-        if (dx < -70 && i < n - 1) goStep(i + 1);
-        if (dx > 70 && i > 0) goStep(i - 1);
+        if (!touch.current) return;
+        const dx = e.changedTouches[0].clientX - touch.current.x;
+        const dy = e.changedTouches[0].clientY - touch.current.y;
+        touch.current = null;
+        if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        hideHint();
+        if (dx < 0) goStep(i + 1);
+        else goStep(i - 1);
       }}
     >
       <header className="cook-top">
@@ -78,14 +118,14 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
         <i style={{ width: `${((i + 1) / n) * 100}%` }} />
       </div>
 
-      <main className="cook-body">
+      <main key={i} className={`cook-body ${dir ? 'slide-' + dir : ''}`}>
         {s.title && <h2 className="cook-step-title">{s.title}</h2>}
         {needs.length > 0 && (
           <div className="needs" aria-label="You'll need">
             {needs.map(x => <span key={x.id} className="need"><b>{x.amount}</b> {x.item}</span>)}
           </div>
         )}
-        <p className="cook-text"><StepText text={s.text} ingredients={ingMap} factor={factor} /></p>
+        <p className="cook-text"><StepText text={s.text} ingredients={ingMap} factor={factor} earlierSteps={earlier} /></p>
 
         {set && (set.time || set.temp || set.speed || set.reverse || set.accessory) && (
           <div className="cook-settings">
@@ -105,6 +145,7 @@ export function CookingScreen({ id, step }: { id: string; step: number }) {
             {set.accessory && <div className="setting setting-wide"><small><Wrench size={16} aria-hidden="true" /> Accessory</small><b className="small-b">{set.accessory}</b></div>}
           </div>
         )}
+        {hint && n > 1 && <p className="muted small swipe-hint">Swipe left or right to move between steps.</p>}
         {factor !== 1 && <p className="muted small">Amounts scaled. Times, temperatures and settings are as written.</p>}
       </main>
 

@@ -247,7 +247,7 @@ export function RecipeScreen({ id }: { id: string }) {
                       <span className="step-n" aria-hidden="true">{on ? '✓' : i + 1}</span>
                       <span className="step-text">
                         {s.title && <b className="step-title">{s.title}. </b>}
-                        <StepText text={s.text} ingredients={ingMap} factor={factor} />
+                        <StepText text={s.text} ingredients={ingMap} factor={factor} earlierSteps={recipe.steps.slice(0, i).map(x => x.text).join(' ')} />
                       </span>
                     </button>
                     {secs ? (

@@ -6,6 +6,7 @@ import { alphabetical, byTitle, featuredFor, greeting, niceDate } from '../lib/m
 import { yieldText } from '../lib/scale';
 import { lineText } from '../lib/lookups';
 import { addItems, itemsFor } from '../lib/shopping';
+import { NO_FILTERS, type Filters, type Sort, filterAndSort, filtersOn, popularTags, tagLabel } from '../lib/filters';
 import { useToast } from '../ui/feedback';
 import { CATEGORY_META, FLAGS, Flag, Photo, RecipeCard, RecipeRow, SectionHead, catVar } from '../ui/components';
 import { go, href } from '../ui/router';
@@ -40,7 +41,10 @@ export function Home() {
     toast(added ? `${added} items added to the list.` : 'Already on the list.');
   };
   const [query, setQuery] = useState('');
-  const [appliance, setAppliance] = useState<Appliance | 'all'>('all');
+  const [filters, setFilters] = useState<Filters>(NO_FILTERS);
+  const [sort, setSort] = useState<Sort>('az');
+  const setFilter = (patch: Partial<Filters>) => setFilters(f => ({ ...f, ...patch }));
+  const toggleTag = (t: string) => setFilters(f => ({ ...f, tags: f.tags.includes(t) ? f.tags.filter(x => x !== t) : [...f.tags, t] }));
   // The A to Z list starts folded; the choice is remembered on this phone
   const [showAll, setShowAllState] = useState(() => {
     try {
@@ -68,10 +72,11 @@ export function Home() {
     for (const r of recipes) for (const cat of categoriesOf(r)) c[cat] = (c[cat] ?? 0) + 1;
     return c;
   }, [recipes, categoriesOf]);
-  const az = useMemo(
-    () => alphabetical(appliance === 'all' ? recipes : recipes.filter(r => r.appliances.includes(appliance))),
-    [recipes, appliance]
-  );
+  const tagChips = useMemo(() => popularTags(recipes), [recipes]);
+  const hasProtein = useMemo(() => recipes.some(r => r.nutrition?.protein != null), [recipes]);
+  const filtered = useMemo(() => filterAndSort(recipes, filters, sort), [recipes, filters, sort]);
+  const az = useMemo(() => (sort === 'az' ? alphabetical(filtered) : []), [filtered, sort]);
+  const anyFilter = filtersOn(filters);
   const lastCooked = Object.entries(prefs.cooked)
     .sort((a, b) => b[1].localeCompare(a[1]))
     .slice(0, 3)
@@ -236,22 +241,51 @@ export function Home() {
                   <button
                     key={a.id}
                     type="button"
-                    className={`chip ${appliance === a.id ? 'on' : ''}`}
-                    aria-pressed={appliance === a.id}
-                    onClick={() => setAppliance(a.id)}
+                    className={`chip ${filters.appliance === a.id ? 'on' : ''}`}
+                    aria-pressed={filters.appliance === a.id}
+                    onClick={() => setFilter({ appliance: a.id })}
                   >
                     {a.label}
                   </button>
                 ))}
               </div>
-              <div className="az">
-                {az.map(g => (
-                  <section key={g.letter} aria-label={g.letter}>
-                    <h3 className="letter">{g.letter}</h3>
-                    <div className="rows">{g.recipes.map(r => <RecipeRow key={r.id} recipe={r} />)}</div>
-                  </section>
+              <div className="chips scroll-x" role="group" aria-label="Filter by tag">
+                <button type="button" className={`chip ${filters.under30 ? 'on' : ''}`} aria-pressed={filters.under30} onClick={() => setFilter({ under30: !filters.under30 })}>
+                  Under 30 min
+                </button>
+                <button type="button" className={`chip ${filters.testedOnly ? 'on' : ''}`} aria-pressed={filters.testedOnly} onClick={() => setFilter({ testedOnly: !filters.testedOnly })}>
+                  Tested only
+                </button>
+                {tagChips.map(t => (
+                  <button key={t} type="button" className={`chip ${filters.tags.includes(t) ? 'on' : ''}`} aria-pressed={filters.tags.includes(t)} onClick={() => toggleTag(t)}>
+                    {tagLabel(t)}
+                  </button>
                 ))}
-                {!az.length && <p className="empty">No recipes use that appliance yet.</p>}
+              </div>
+              <div className="list-tools">
+                <label className="sort-pick">
+                  <span className="muted">Sort</span>
+                  <select value={sort} onChange={e => setSort(e.target.value as Sort)}>
+                    <option value="az">A to Z</option>
+                    <option value="quick">Quickest</option>
+                    {hasProtein && <option value="protein">Most protein</option>}
+                  </select>
+                </label>
+                <span className="muted small" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'recipe' : 'recipes'}</span>
+                {anyFilter && (
+                  <button type="button" className="link" onClick={() => setFilters(NO_FILTERS)}>Clear filters</button>
+                )}
+              </div>
+              <div className="az">
+                {sort === 'az'
+                  ? az.map(g => (
+                      <section key={g.letter} aria-label={g.letter}>
+                        <h3 className="letter">{g.letter}</h3>
+                        <div className="rows">{g.recipes.map(r => <RecipeRow key={r.id} recipe={r} />)}</div>
+                      </section>
+                    ))
+                  : <div className="rows">{filtered.map(r => <RecipeRow key={r.id} recipe={r} sub={sort === 'quick' ? r.time.label : r.nutrition?.protein != null ? `${r.nutrition.protein}g protein, ${r.nutrition.basis}` : 'No protein figure'} />)}</div>}
+                {!filtered.length && <p className="empty">No recipes match those filters. Try removing one.</p>}
               </div>
             </div>
           )}
