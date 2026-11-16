@@ -35,8 +35,8 @@
   "steps": [
     {"title":"Chop the veg","text":"Chop the celery ({{celery}}) and onion ({{onion}}). Scrape down and set aside.","settings":{"appliance":"thermomix","time":"3 sec","speed":"5"}},
     {"title":"Steam the chicken","text":"Add the water ({{water}}) to the bowl. Place the chicken ({{chicken}}) in the Varoma tray and steam until cooked through (75°C at the thickest point). Thicker breasts may need longer.","settings":{"appliance":"thermomix","time":"20 min","timerSeconds":1200,"temp":"Varoma","speed":"1","accessory":"Varoma"}},
-    {"title":"Shred","text":"Empty the water. Add the chicken to the bowl and shred.","settings":{"appliance":"thermomix","time":"5–8 sec","speed":"4","reverse":true}},
-    {"title":"Mix","text":"Add the cottage cheese ({{cottage-cheese}}), hot sauce, garlic powder ({{garlic-powder}}) and the reserved celery and onion. Mix, then taste and adjust the hot sauce.","settings":{"appliance":"thermomix","time":"15 sec","speed":"2","reverse":true}},
+    {"title":"Shred","text":"Empty the water. Add the chicken ({{chicken}}) to the bowl and shred.","settings":{"appliance":"thermomix","time":"5–8 sec","speed":"4","reverse":true}},
+    {"title":"Mix","text":"Add the cottage cheese ({{cottage-cheese}}), hot sauce, garlic powder ({{garlic-powder}}) and the reserved celery ({{celery}} stalk) and onion ({{onion}}). Mix, then taste and adjust the hot sauce.","settings":{"appliance":"thermomix","time":"15 sec","speed":"2","reverse":true}},
     {"title":"Top with cheese","text":"Transfer to a small oven-safe dish that fits the air fryer basket. Top with the cheddar ({{cheddar}})."},
     {"title":"Grill","text":"Air fry until golden and bubbling. The oven grill also works.","settings":{"appliance":"air-fryer","time":"4–6 min","timerSeconds":240,"temp":"200°C"}}
   ],
@@ -46,7 +46,7 @@
     {"title":"Air fryer chicken","text":"Instead of steaming, cook the chicken breast at 180°C for roughly 12-15 min, then shred in the Thermomix as above."},
     {"title":"Storage","text":"Keeps 3 days in the fridge. Reheat until piping hot."}
   ],
-  "version": 2,
-  "updated": "2026-11-10",
+  "version": 3,
+  "updated": "2026-11-17",
   "added": "2026-10-26"
 }

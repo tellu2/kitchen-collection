@@ -41,7 +41,7 @@
   ],
   "steps": [
     {"text":"Salt the shredded cabbage ({{cabbage}}) with the salt ({{salt}}), rest 10 minutes, then squeeze it dry in the nut milk bag. Wet cabbage is the main cause of soggy filling.","settings":{"appliance":"none","time":"10 min","timerSeconds":600}},
-    {"text":"Chop the spring onion ({{spring-onion}}), garlic ({{garlic}} cloves) and ginger ({{ginger}}) in the bowl, then add the mince ({{mince}}), squeezed cabbage, soy ({{soy}}), sesame oil ({{sesame-oil}}), mirin ({{mirin}}), sugar ({{sugar}}) and white pepper ({{white-pepper}}). Mix 20 sec / Reverse / Speed 3 so it stays textured rather than pasted.","settings":{"appliance":"thermomix","time":"20 sec","speed":"3","reverse":true}},
+    {"text":"Chop the spring onion ({{spring-onion}}), garlic ({{garlic}} cloves) and ginger ({{ginger}}) in the bowl, then add the mince ({{mince}}), squeezed cabbage ({{cabbage}}), soy ({{soy}}), sesame oil ({{sesame-oil}}), mirin ({{mirin}}), sugar ({{sugar}}) and white pepper ({{white-pepper}}). Mix 20 sec / Reverse / Speed 3 so it stays textured rather than pasted.","settings":{"appliance":"thermomix","time":"20 sec","speed":"3","reverse":true}},
     {"text":"Chill the filling 20 minutes. Bought mince is looser than freshly minced shoulder, so do not skip this.","settings":{"appliance":"none","time":"20 min","timerSeconds":1200}},
     {"text":"Wrap: a teaspoon of filling per wrapper ({{wrappers}}), wet the rim, pleat and press to seal."},
     {"text":"Heat the cast iron properly before the oil goes in, then fry the bases until golden, in batches so they are not crowded."},
@@ -57,6 +57,6 @@
     {"title":"Air fryer","text":"190°C for 8–10 minutes with a light oil spray. All-over crunch rather than a crisp base."}
   ],
   "pairings": ["sunomono","sesame-cabbage"],
-  "version": 2,
-  "updated": "2026-11-10"
+  "version": 3,
+  "updated": "2026-11-17"
 }

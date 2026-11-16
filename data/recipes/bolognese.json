@@ -46,7 +46,7 @@
     {"text":"Add the olive oil ({{oil}}). Cook 8 min / 120°C / Speed 1, MC off, to drive off moisture and get some colour on the base.","settings":{"appliance":"thermomix","time":"8 min","timerSeconds":480,"temp":"120°C","speed":"1"}},
     {"text":"Add the mince ({{mince}}), oregano ({{oregano}}) and bay leaf ({{bay}}). Break up the mince with the spatula. Cook 5 min / 100°C / Reverse / Speed 1, with the simmering basket on the lid in place of the MC.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"100°C","speed":"1","reverse":true,"accessory":"simmering basket on the lid"}},
     {"text":"Add the red wine, or the water and balsamic ({{wine}}). Cook 3 min / 100°C / Reverse / Speed 1, basket still on the lid.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"100°C","speed":"1","reverse":true,"accessory":"simmering basket on the lid"}},
-    {"text":"Add the blitzed fresh tomatoes, stock ({{stock}}), stock cubes ({{stock-cubes}}), canned tomatoes ({{tomatoes}}), tomato paste ({{tomato-paste}}), Worcestershire ({{worcestershire}}) and chilli flakes ({{chilli}}) if using. Check it sits below the max line. Cook 35 min / 100°C / Reverse / Gentle stir, basket on the lid.","settings":{"appliance":"thermomix","time":"35 min","timerSeconds":2100,"temp":"100°C","speed":"Gentle stir","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"text":"Add the blitzed fresh tomatoes ({{salad-tomatoes}}), stock ({{stock}}), stock cubes ({{stock-cubes}}), canned tomatoes ({{tomatoes}}), tomato paste ({{tomato-paste}}), Worcestershire ({{worcestershire}}) and chilli flakes ({{chilli}}) if using. Check it sits below the max line. Cook 35 min / 100°C / Reverse / Gentle stir, basket on the lid.","settings":{"appliance":"thermomix","time":"35 min","timerSeconds":2100,"temp":"100°C","speed":"Gentle stir","reverse":true,"accessory":"simmering basket on the lid"}},
     {"text":"Add the olives ({{olives}}) through the lid. Cook 5 min / 100°C / Reverse / Gentle stir. If still thin, add 5–10 minutes at the same setting.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"100°C","speed":"Gentle stir","reverse":true}},
     {"text":"Remove the bay leaf. Stir through the nutmeg ({{nutmeg}}), then taste. Sugar ({{sugar}}) only if it tastes sharp, salt only if needed, and pepper to taste."}
   ],
@@ -58,6 +58,6 @@
     {"title":"Capacity","text":"Roughly 2kg of sauce, close to the bowl limit, so cook the pasta separately. A true one-pot with pasta would need about half the sauce (my estimate)."},
     {"title":"Model","text":"The 120°C sauté needs a TM5 or TM6. Serve with tagliatelle or spaghetti and parmesan. Freezes well."}
   ],
-  "version": 2,
-  "updated": "2026-11-10"
+  "version": 3,
+  "updated": "2026-11-17"
 }

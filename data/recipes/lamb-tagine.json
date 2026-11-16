@@ -47,7 +47,7 @@
     {"title":"Chop","text":"Add the onion ({{onion}}), garlic ({{garlic}} cloves) and ginger ({{ginger}}) to the bowl. Chop 5 sec / Speed 5. Scrape down.","settings":{"appliance":"thermomix","time":"5 sec","speed":"5"}},
     {"title":"Sauté","text":"Add the olive oil ({{oil}}). Sauté 3 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"120°C","speed":"1"}},
     {"title":"Bloom the spices","text":"Add the cumin ({{cumin}}), ground coriander ({{ground-coriander}}), cinnamon ({{cinnamon}}), paprika ({{paprika}}), turmeric ({{turmeric}}) and tomato paste ({{tomato-paste}}). Cook 1 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"temp":"120°C","speed":"1"}},
-    {"title":"Braise","text":"Add the lamb and any resting juices, the tomatoes ({{tomatoes}}), stock ({{stock}}), honey ({{honey}}) and salt ({{salt}}). Cook 60 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid.","settings":{"appliance":"thermomix","time":"60 min","timerSeconds":3600,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
+    {"title":"Braise","text":"Add the lamb ({{lamb}}) and any resting juices, the tomatoes ({{tomatoes}}), stock ({{stock}}), honey ({{honey}}) and salt ({{salt}}). Cook 60 min / 100°C / Reverse / Soft stir, MC off with the simmering basket on the lid.","settings":{"appliance":"thermomix","time":"60 min","timerSeconds":3600,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
     {"title":"Add the fruit","text":"Add the apricots ({{apricots}}) and dates ({{dates}}). Cook 30 min / 100°C / Reverse / Soft stir, same lid setup, until the lamb gives way under a fork.","settings":{"appliance":"thermomix","time":"30 min","timerSeconds":1800,"temp":"100°C","speed":"Soft stir","reverse":true,"accessory":"simmering basket on the lid"}},
     {"title":"Rest","text":"Rest 10 minutes off the heat, uncovered, so the sauce thickens. Taste for salt.","settings":{"appliance":"none","time":"10 min","timerSeconds":600}},
     {"title":"Serve","text":"Serve over couscous, scattered with toasted almonds and coriander."}
@@ -59,7 +59,7 @@
     {"title":"Chickpeas","text":"A drained 400g tin of chickpeas can go in with the fruit to stretch it to 5 or 6 serves, but check the bowl stays below the 2.2L line."},
     {"title":"Storage","text":"Better the next day. 3 days in the fridge, 3 months in the freezer."}
   ],
-  "version": 1,
-  "updated": "2026-11-10",
+  "version": 2,
+  "updated": "2026-11-17",
   "added": "2026-11-10"
 }

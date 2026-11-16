@@ -39,7 +39,7 @@
     {"text":"Add the remaining olive oil ({{oil*0.5}}). Sauté 5 min / 120°C / Speed 1, until softened and fragrant.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"120°C","speed":"1"}},
     {"text":"Add the tomato paste ({{tomato-paste}}). Cook 2 min / 120°C / Reverse / Speed 1 to take the raw edge off it.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"120°C","speed":"1","reverse":true}},
     {"text":"Pour the red wine ({{wine}}) into the hot cast iron and scrape up the fond, then tip it into the bowl. Cook 5 min / 120°C / Reverse / Speed 1, MC off, to reduce by about half.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"120°C","speed":"1","reverse":true}},
-    {"text":"Add the tomatoes ({{tomatoes}}), stock ({{stock}}), bay leaf ({{bay}}) and star anise ({{star-anise}}). Return the beef and its juices. Do not fill past the 2L mark."},
+    {"text":"Add the tomatoes ({{tomatoes}}), stock ({{stock}}), bay leaf ({{bay}}) and star anise ({{star-anise}}). Return the beef ({{beef}}) and its juices. Do not fill past the 2L mark."},
     {"text":"Cook 90 min / 98°C / Reverse / Soft stir, MC on. On a TM6, Slow Cook mode for 90 minutes to 2 hours also works. Check at 80 minutes: the beef should give way under a fork.","settings":{"appliance":"thermomix","time":"90 min","timerSeconds":5400,"temp":"98°C","speed":"Soft stir","reverse":true}},
     {"text":"Remove the star anise and bay leaf before you shred. Left in through the shredding, the anise stops being background and starts tasting like five spice."},
     {"text":"Shred 5–10 sec / Reverse / Speed 3, checking as you go.","settings":{"appliance":"thermomix","time":"5–10 sec","speed":"3","reverse":true}},
@@ -54,6 +54,6 @@
     {"title":"Frozen beef","text":"Cold water thaw in a sealed bag, about 30 minutes per 500g, changing the water every 30 minutes. Pat very dry before searing; frozen or wet beef steams rather than browns."},
     {"title":"Further upgrades, not on this card","text":"Sourced options for next time: a parmesan rind in the simmering basket, 2–3 anchovies melted into the soffritto, a tablespoon of cold butter stirred through at the end, or a 50/50 split of shin and chuck."}
   ],
-  "version": 2,
-  "updated": "2026-11-10"
+  "version": 3,
+  "updated": "2026-11-17"
 }

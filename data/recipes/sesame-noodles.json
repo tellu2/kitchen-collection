@@ -47,9 +47,9 @@
     {"text":"Garlic ({{garlic}} cloves) and ginger (2–3cm) into the bowl. Chop 3 sec / Speed 7. Scrape down.","settings":{"appliance":"thermomix","time":"3 sec","speed":"7"}},
     {"text":"Add the neutral oil ({{oil}}) and mushrooms ({{mushrooms}}). Sauté 3 min / 120°C / Reverse / Soft stir, letting them brown so they do not water down the sauce.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"120°C","speed":"Soft stir","reverse":true}},
     {"text":"Add the soy ({{soy}}), oyster sauce ({{oyster}}), honey ({{honey}}), vinegar ({{vinegar}}) and water ({{water}}). Add the chicken ({{chicken}} breasts). Cook 8 min / 100°C / Reverse / Soft stir. Check a piece at 7 minutes, breast overcooks fast. Lift the chicken out and set aside.","settings":{"appliance":"thermomix","time":"8 min","timerSeconds":480,"temp":"100°C","speed":"Soft stir","reverse":true}},
-    {"text":"Into the sauce: green beans ({{beans}}) and carrot, 4 min / 100°C / Reverse / Soft stir. Add the bok choy stems and capsicum, 2 min. Add the leaves, 1 min, just to wilt.","settings":{"appliance":"thermomix","time":"4 min","timerSeconds":240,"temp":"100°C","speed":"Soft stir","reverse":true}},
+    {"text":"Into the sauce: green beans ({{beans}}) and carrot ({{carrot}}), 4 min / 100°C / Reverse / Soft stir. Add the bok choy stems ({{bok-choy}} heads) and capsicum ({{capsicum}}), 2 min. Add the leaves, 1 min, just to wilt.","settings":{"appliance":"thermomix","time":"4 min","timerSeconds":240,"temp":"100°C","speed":"Soft stir","reverse":true}},
     {"text":"Stir the cornflour slurry ({{cornflour}}) through, 1 min / 90°C / Reverse / Soft stir, to thicken to a glaze.","settings":{"appliance":"thermomix","time":"1 min","timerSeconds":60,"temp":"90°C","speed":"Soft stir","reverse":true}},
-    {"text":"Return the chicken, add the drained noodles and sesame oil ({{sesame-oil}}). Toss 1–2 min / Reverse / Soft stir, or tip into a big bowl and toss by hand to avoid breaking the noodles.","settings":{"appliance":"thermomix","time":"1–2 min","timerSeconds":60,"speed":"Soft stir","reverse":true}},
+    {"text":"Return the chicken ({{chicken}} breasts), add the drained noodles ({{noodles}}) and sesame oil ({{sesame-oil}}). Toss 1–2 min / Reverse / Soft stir, or tip into a big bowl and toss by hand to avoid breaking the noodles.","settings":{"appliance":"thermomix","time":"1–2 min","timerSeconds":60,"speed":"Soft stir","reverse":true}},
     {"text":"Finish with sesame seeds, spring onion and chilli. Adjust with a splash more soy or vinegar."}
   ],
   "notes": [
@@ -58,6 +58,6 @@
     {"title":"Slurry","text":"Mix the cornflour with cold water first, then add it to the hot liquid. Straight in, it clumps."}
   ],
   "pairings": ["sesame-cabbage"],
-  "version": 2,
-  "updated": "2026-11-10"
+  "version": 3,
+  "updated": "2026-11-17"
 }

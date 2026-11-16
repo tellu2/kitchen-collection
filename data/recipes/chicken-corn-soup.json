@@ -37,7 +37,7 @@
     {"title":"Sauté","text":"Add the oil ({{oil}}). Sauté 2 min / 120°C / Speed 1.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"120°C","speed":"1"}},
     {"title":"Poach the chicken","text":"Add the stock ({{stock}}). Put the chicken ({{chicken}}) in the simmering basket and insert it into the bowl. Cook 15 min / 100°C / Speed 1, until the chicken reaches 75°C in the thickest part.","settings":{"appliance":"thermomix","time":"15 min","timerSeconds":900,"temp":"100°C","speed":"1","accessory":"simmering basket"}},
     {"title":"Shred","text":"Lift out the basket and shred the chicken with two forks."},
-    {"title":"Add the corn","text":"Add the creamed corn ({{creamed-corn}}), corn kernels ({{corn}}), soy ({{soy}}), white pepper ({{white-pepper}}) and the shredded chicken. Cook 5 min / 100°C / Reverse / Soft stir.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"100°C","speed":"Soft stir","reverse":true}},
+    {"title":"Add the corn","text":"Add the creamed corn ({{creamed-corn}}), corn kernels ({{corn}}), soy ({{soy}}), white pepper ({{white-pepper}}) and the shredded chicken ({{chicken}}). Cook 5 min / 100°C / Reverse / Soft stir.","settings":{"appliance":"thermomix","time":"5 min","timerSeconds":300,"temp":"100°C","speed":"Soft stir","reverse":true}},
     {"title":"Thicken","text":"Mix the cornflour ({{cornflour}}) with the cold water ({{water}}) until smooth. Add to the bowl and cook 3 min / 100°C / Reverse / Speed 1, until the soup turns glossy and coats the spatula.","settings":{"appliance":"thermomix","time":"3 min","timerSeconds":180,"temp":"100°C","speed":"1","reverse":true}},
     {"title":"Egg ribbons","text":"Set 2 min / 90°C / Reverse / Soft stir. Once it is running, pour the beaten eggs ({{eggs}}) slowly onto the lid so they run into the soup in thin threads.","settings":{"appliance":"thermomix","time":"2 min","timerSeconds":120,"temp":"90°C","speed":"Soft stir","reverse":true}},
     {"title":"Serve","text":"Stir through the sesame oil ({{sesame-oil}}). Taste, adding a splash more soy if needed, and serve topped with the spring onion greens ({{spring-onion}} spring onions in total)."}
@@ -48,7 +48,7 @@
     {"title":"Salt","text":"Stock, creamed corn and soy all carry salt, so none is added. Taste at the end."},
     {"title":"Freezing","text":"Freezes well, though the egg ribbons go a little softer. Reheat gently and do not boil hard."}
   ],
-  "version": 1,
-  "updated": "2026-11-10",
+  "version": 2,
+  "updated": "2026-11-17",
   "added": "2026-11-10"
 }

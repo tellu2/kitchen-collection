@@ -31,16 +31,16 @@
   ],
   "steps": [
     {"text":"Toss the potatoes ({{potatoes}}) in 1 tbsp of the olive oil with the garlic powder ({{garlic-powder}}), smoked paprika ({{smoked-paprika}}), salt ({{salt}}) and pepper ({{pepper}})."},
-    {"text":"Air fry the potatoes at 200°C for about 17 minutes, until starting to turn golden.","settings":{"appliance":"air-fryer","time":"~17 min","timerSeconds":1020,"temp":"200°C"}},
+    {"text":"Air fry the potatoes ({{potatoes}}) at 200°C for about 17 minutes, until starting to turn golden.","settings":{"appliance":"air-fryer","time":"~17 min","timerSeconds":1020,"temp":"200°C"}},
     {"text":"Add the capsicum ({{capsicum}}), red onion ({{onion}}) and tomatoes ({{tomatoes}}) to the basket. Drizzle with the remaining oil ({{oil*0.5}}), toss gently, and cook a further 10 minutes.","settings":{"appliance":"air-fryer","time":"10 min","timerSeconds":600}},
     {"text":"Pat the salmon ({{salmon}} fillets) completely dry, which is the key to crisp skin. Rub with a little olive oil, salt and a pinch of smoked paprika."},
-    {"text":"Push the veg to the sides, place the salmon skin-side down at 180°C, and cook about 9 minutes, until just opaque through the centre.","settings":{"appliance":"air-fryer","time":"~9 min","timerSeconds":540,"temp":"180°C"}},
+    {"text":"Push the veg to the sides, place the salmon ({{salmon}} fillets) skin-side down at 180°C, and cook about 9 minutes, until just opaque through the centre.","settings":{"appliance":"air-fryer","time":"~9 min","timerSeconds":540,"temp":"180°C"}},
     {"text":"Rest the salmon 2 minutes. Squeeze lemon ({{lemon}}) over everything and plate with the veg and chats.","settings":{"appliance":"none","time":"2 min","timerSeconds":120}}
   ],
   "notes": [
     {"title":"Frozen salmon","text":"Thaw under cold water in its packaging for 15–20 minutes for the best skin, or cook from frozen at 180°C adding 5–7 minutes. Pat dry either way."}
   ],
   "pairings": ["sesame-cabbage"],
-  "version": 2,
-  "updated": "2026-11-10"
+  "version": 3,
+  "updated": "2026-11-17"
 }

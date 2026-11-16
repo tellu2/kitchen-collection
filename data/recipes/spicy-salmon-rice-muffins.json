@@ -41,7 +41,7 @@
   ],
   "steps": [
     {"title":"Preheat","text":"Preheat the oven to 180°C.","settings":{"appliance":"oven","temp":"180°C"}},
-    {"title":"Marinate","text":"Toss the salmon with the soy sauce ({{soy}}), honey ({{honey}}), rice vinegar, spring onion and seasonings."},
+    {"title":"Marinate","text":"Toss the salmon ({{salmon}} fillet) with the soy sauce ({{soy}}), honey ({{honey}}), rice vinegar, spring onion and seasonings."},
     {"title":"Fill","text":"Press the nori ({{nori}}) into the cups of a muffin tray. Add a spoonful of rice to each, about 30g ({{rice}} in total), then top generously with the salmon."},
     {"title":"Bake","text":"Bake for 17 minutes until the salmon is cooked through and the nori is crisp.","settings":{"appliance":"oven","temp":"180°C","time":"17 min","timerSeconds":1020}},
     {"title":"Finish","text":"Top each with avocado and a light drizzle of spicy mayo. Serve warm."}
@@ -49,7 +49,7 @@
   "notes": [
     {"title":"Salmon","text":"The source gives one fillet with no weight, for 6 muffins."}
   ],
-  "version": 1,
-  "updated": "2026-11-10",
+  "version": 2,
+  "updated": "2026-11-17",
   "added": "2026-11-10"
 }
